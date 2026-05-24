@@ -504,17 +504,17 @@ Welcome to my little coding world — where creativity meets technology 🚀
 
 <div class="gallery">
 
-<img src=".images/pin1.jpg" onclick="openImg(this.src)">
-<img src=".images/pin2.jpg" onclick="openImg(this.src)">
-<img src=".images/pin3.jpg" onclick="openImg(this.src)">
-<img src=".images/pin4.jpg" onclick="openImg(this.src)">
-<img src=".images/pin5.jpg" onclick="openImg(this.src)">
-<img src=".images/pin6.jpg" onclick="openImg(this.src)">
-<img src=".images/pin7.jpg" onclick="openImg(this.src)">
-<img src=".images/pin8.jpg" onclick="openImg(this.src)">
-<img src=".images/pin9.jpg" onclick="openImg(this.src)">
-<img src=".images/pin10.jpg" onclick="openImg(this.src)">
-<img src=".images/pin11.jpg" onclick="openImg(this.src)">
+<img src="pin1.jpg" onclick="openImg(this.src)">
+<img src="pin2.jpg" onclick="openImg(this.src)">
+<img src="pin3.jpg" onclick="openImg(this.src)">
+<img src="pin4.jpg" onclick="openImg(this.src)">
+<img src="pin5.jpg" onclick="openImg(this.src)">
+<img src="pin6.jpg" onclick="openImg(this.src)">
+<img src="pin7.jpg" onclick="openImg(this.src)">
+<img src="pin8.jpg" onclick="openImg(this.src)">
+<img src="pin9.jpg" onclick="openImg(this.src)">
+<img src="pin10.jpg" onclick="openImg(this.src)">
+<img src="pin11.jpg"  onclick="openImg(this.src)">
 
 
 </div>
@@ -525,19 +525,19 @@ Welcome to my little coding world — where creativity meets technology 🚀
 🎬 My Videos
 </h1>
 
+
 <div class="gallery">
 
-<video controls>
-<source src="./videos/video1.mp4" type="video/mp4">
-</video>
+  <video controls width="250">
+    <source src="video1.mp4" type="video/mp4">
+  </video>
 
-<video controls>
-<source src="./videos/video2.mp4" type="video/mp4">
-</video>
-
-</div>
+  <video controls width="250">
+    <source src="video2.mp4" type="video/mp4">
+  </video>
 
 </div>
+
 
 <!-- FOOTER -->
 
@@ -553,27 +553,31 @@ Made with 💜 by Roshni Code Charm
 
 <script>
 
+
 function showPage(page){
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
 
-document.querySelectorAll('.page').forEach(p=>{
-p.classList.remove('active');
-});
-
-document.getElementById(page).classList.add('active');
-
-window.scrollTo(0,0);
-
+  document.getElementById(page).classList.add('active');
+  window.scrollTo(0,0);
 }
 
 function openImg(src){
-document.getElementById("popup").style.display="flex";
-document.getElementById("popupImg").src=src;
+  document.getElementById("popup").style.display="flex";
+  document.getElementById("popupImg").src=src;
 }
 
 function closeImg(){
-document.getElementById("popup").style.display="none";
+  document.getElementById("popup").style.display="none";
 }
-
+function openVideo(src){
+  document.getElementById("videoPopup").style.display="flex";
+  document.getElementById("popupVideo").src=src;
+}
+function closeVideo(){
+  document.getElementById("videoPopup").style.display="none";
+}
 </script>
 
 </body>
