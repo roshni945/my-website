@@ -1,727 +1,731 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Pacifico&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roshni Code Charm</title>
-
-<style>
-
-
-
-.main-logo:hover{
-transform:scale(1.04);
-}
-.main-logo{
-width:900px;
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Pacifico&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roshni Code Charm</title>
+
+  <style>
+    .main-logo:hover {
+      transform: scale(1.04);
+    }
+
+    .main-logo {
+      width: 900px;
+
+      max-width: 100%;
+
+      display: block;
+      margin: auto;
+
+      border-radius: 35px;
+
+      padding: 10px;
+
+      background: rgba(255, 255, 255, 0.08);
+
+      backdrop-filter: blur(8px);
+
+      box-shadow:
+        0 0 30px rgba(180, 255, 220, 0.35);
+
+      transition: 0.4s;
+    }
+
+    .main-logo:hover {
+      transform: scale(1.03);
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.72),
+          rgba(255, 255, 255, 0.72)),
+        url("bg.jpg");
 
-max-width:100%;
-
-display:block;
-margin:auto;
-
-border-radius:35px;
-
-padding:10px;
-
-background:rgba(255,255,255,0.08);
-
-backdrop-filter:blur(8px);
-
-box-shadow:
-0 0 30px rgba(180,255,220,0.35);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
 
-transition:0.4s;
-}
-
-.main-logo:hover{
-transform:scale(1.03);
-}
-
-body{
-background:
-linear-gradient(rgba(255,255,255,0.72),
-rgba(255,255,255,0.72)),
-url("bg.jpg");
+      overflow-x: hidden;
+      color: #222;
+    }
 
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
 
-overflow-x:hidden;
-color:#222;
-}
+    /* NAVBAR */
 
-
-/* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
 
-nav{
-position:sticky;
-top:0;
-display:flex;
-justify-content:center;
-gap:20px;
-padding:18px;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
-z-index:100;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
+    nav button {
+      border: none;
+      background: none;
+      font-size: 18px;
+      font-weight: bold;
+      color: #7b2cbf;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-nav button{
-border:none;
-background:none;
-font-size:18px;
-font-weight:bold;
-color:#7b2cbf;
-cursor:pointer;
-transition:0.3s;
-}
+    nav button:hover {
+      color: #ff4da6;
+      transform: scale(1.08);
+    }
 
-nav button:hover{
-color:#ff4da6;
-transform:scale(1.08);
-}
+    /* PAGE SYSTEM */
 
-/* PAGE SYSTEM */
+    .page {
+      display: none;
+      padding: 20px;
+      animation: fade 0.5s;
+    }
 
-.page{
-display:none;
-padding:20px;
-animation:fade 0.5s;
-}
+    .active {
+      display: block;
+    }
 
-.active{
-display:block;
-}
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.logo{
-font-family:'Pacifico', cursive;
+    .logo {
+      font-family: 'Pacifico', cursive;
 
-font-size:130px;
+      font-size: 130px;
 
-font-style:italic;
-font-weight:bold;
-
-background:linear-gradient(
-to right,
-#d8ffe7,
-#b7ffda,
-#ffffff,
-#b7ffda
-);
-
-background-clip:text;
--webkit-background-clip:text;
-
-color:transparent;
--webkit-text-fill-color:transparent;
-
-text-align:center;
-
-text-shadow:
-0 0 12px rgba(183,255,218,0.8),
-0 0 25px rgba(183,255,218,0.6),
-0 0 40px rgba(183,255,218,0.4);
-
-animation:glow 2s infinite alternate;
-}
-  
-
-
-/* HERO */
-
-.hero{
-text-align:center;
-padding:90px 20px;
-}
-
-.hero h1{
-font-size:65px;
-color:#7b2cbf;
-text-shadow:0 0 15px #ff9ff3;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{
-text-shadow:0 0 10px #ff9ff3;
-}
-to{
-text-shadow:0 0 25px #c77dff;
-}
-}
-
-
-.hero p{
-margin-top:20px;
-
-font-size:34px;
-
-font-style:italic;
-font-weight:bold;
-
-color:white;
-
-text-shadow:
-0 0 10px black,
-0 0 20px black;
-}
-
-
-.typing{
-margin-top:20px;
-font-size:24px;
-font-style:italic;
-font-weight:bold;
-color:#d8ffe7;
-
-text-shadow:
-0 0 10px black,
-0 0 20px black;
-
-animation:blink 1s infinite;
-}
-
-
-@keyframes blink{
-50%{
-opacity:0.5;
-}
-}
-
-/* BUTTON */
-
-.btn{
-margin-top:30px;
-padding:15px 35px;
-border:none;
-border-radius:40px;
-background:linear-gradient(to right,#ff4da6,#7b2cbf);
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-}
-
-.btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 20px #c77dff;
-}
-
-/* CARDS */
-
-.container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-padding:20px;
-max-width:1200px;
-margin:auto;
-}
-
-.card{
-background:rgba(255,255,255,0.75);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:25px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card h2{
-color:#7b2cbf;
-margin-bottom:12px;
-}
-
-/* STATS */
-
-.stats{
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-margin-top:50px;
-}
-
-.stat-box{
-background:white;
-padding:25px;
-border-radius:25px;
-width:220px;
-text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-.stat-box h2{
-color:#7b2cbf;
-font-size:40px;
-}
-
-/* GALLERY */
-
-.title{
-text-align:center;
-font-size:45px;
-margin-top:50px;
-margin-bottom:35px;
-color:#7b2cbf;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:20px;
-max-width:1200px;
-margin:auto;
-}
-
-.gallery img{
-width:100%;
-height:320px;
-object-fit:cover;
-border-radius:25px;
-cursor:pointer;
-transition:0.4s;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px #c77dff;
-}
-
-/* VIDEOS */
-
-.gallery video{
-width:100%;
-border-radius:25px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* POPUP */
-
-.popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-display:none;
-justify-content:center;
-align-items:center;
-padding:20px;
-box-sizing:border-box;
-z-index:999;
-}
-
-
-
-.popup img{
-width:auto;
-height:auto;
-max-width:85vw;
-max-height:85vh;
-object-fit:contain;
-border-radius:25px;
-box-shadow:0 0 25px rgba(199,125,255,0.5);
-}
-
-
-/* QUOTE */
-
-.quote{
-margin-top:70px;
-text-align:center;
-font-size:28px;
-color:#7b2cbf;
-font-style:italic;
-}
-
-/* FOOTER */
-
-.footer{
-margin-top:70px;
-padding:25px;
-text-align:center;
-background:white;
-font-size:18px;
-color:#666;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-  .logo{
-font-size:70px;
-}
-
-.hero h1{
-font-size:42px;
-}
-
-.hero p,
-.typing{
-font-size:18px;
-}
-
-.title{
-font-size:32px;
-}
-
-}
-
-.pin-card{
-max-width:320px;
-margin:auto;
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-.pin-card img{
-width:100%;
-height:280px;
-object-fit:cover;
-display:block;
-}
-.pin-card p{
-display:none;
-}
-
-.video-gallery{
-max-width:700px;
-margin:40px auto;
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.video-gallery video{
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-
-</style>
+      font-style: italic;
+      font-weight: bold;
+
+      background: linear-gradient(to right,
+          #d8ffe7,
+          #b7ffda,
+          #ffffff,
+          #b7ffda);
+
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+
+      text-align: center;
+
+      text-shadow:
+        0 0 12px rgba(183, 255, 218, 0.8),
+        0 0 25px rgba(183, 255, 218, 0.6),
+        0 0 40px rgba(183, 255, 218, 0.4);
+
+      animation: glow 2s infinite alternate;
+    }
+
+
+
+    /* HERO */
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .hero h1 {
+      font-size: 65px;
+      color: #7b2cbf;
+      text-shadow: 0 0 15px #ff9ff3;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff9ff3;
+      }
+
+      to {
+        text-shadow: 0 0 25px #c77dff;
+      }
+    }
+
+
+    .hero p {
+      margin-top: 20px;
+
+      font-size: 34px;
+
+      font-style: italic;
+      font-weight: bold;
+
+      color: white;
+
+      text-shadow:
+        0 0 10px black,
+        0 0 20px black;
+    }
+
+
+    .typing {
+      margin-top: 20px;
+      font-size: 24px;
+      font-style: italic;
+      font-weight: bold;
+      color: #d8ffe7;
+
+      text-shadow:
+        0 0 10px black,
+        0 0 20px black;
+
+      animation: blink 1s infinite;
+    }
+
+
+    @keyframes blink {
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    /* BUTTON */
+
+    .btn {
+      margin-top: 30px;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(to right, #ff4da6, #7b2cbf);
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px #c77dff;
+    }
+
+    /* CARDS */
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h2 {
+      color: #7b2cbf;
+      margin-bottom: 12px;
+    }
+
+    /* STATS */
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .stat-box {
+      background: white;
+      padding: 25px;
+      border-radius: 25px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-box h2 {
+      color: #7b2cbf;
+      font-size: 40px;
+    }
+
+    /* GALLERY */
+
+    .title {
+      text-align: center;
+      font-size: 45px;
+      margin-top: 50px;
+      margin-bottom: 35px;
+      color: #7b2cbf;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #c77dff;
+    }
+
+    /* VIDEOS */
+
+    .gallery video {
+      width: 100%;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* POPUP */
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 999;
+    }
+
+
+
+    .popup img {
+      width: auto;
+      height: auto;
+      max-width: 85vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(199, 125, 255, 0.5);
+    }
+
+
+    /* QUOTE */
+
+    .quote {
+      margin-top: 70px;
+      text-align: center;
+      font-size: 28px;
+      color: #7b2cbf;
+      font-style: italic;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      margin-top: 70px;
+      padding: 25px;
+      text-align: center;
+      background: white;
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px) {
+      .logo {
+        font-size: 70px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p,
+      .typing {
+        font-size: 18px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+
+    }
+
+    .pin-card {
+      max-width: 320px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .pin-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pin-card p {
+      display: none;
+    }
+
+    .video-gallery {
+      max-width: 700px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .video-gallery video {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+  <!-- NAVBAR -->
 
-<nav>
-<button onclick="showPage('home')">🏠 Home</button>
-<button onclick="showPage('pins')">📌 Pinterest Pins</button>
-</nav>
+  <nav>
+    <button onclick="showPage('home')">🏠 Home</button>
+    <button onclick="showPage('pins')">📌 Pinterest Pins</button>
+  </nav>
 
-<!-- HOME PAGE -->
+  <!-- HOME PAGE -->
 
-<div id="home" class="page active">
+  <div id="home" class="page active">
 
-<section class="hero">
+    <section class="hero">
 
-<h1 class="logo">
- <div class="logo">
-<img src="logo.png" class="main-logo">
+      <h1 class="logo">
+        <div class="logo">
+          <img src="logo.png" class="main-logo">
 
-</div>
-</h1>
+        </div>
+      </h1>
 
-<p>
-Python tips, coding inspiration & aesthetic content 💻🌸
-</p>
+      <p>
+        Python tips, coding inspiration & aesthetic content 💻🌸
+      </p>
 
-<div class="typing">
-✨ Python • Coding • Creativity • Design ✨
-</div>
+      <div class="typing">
+        ✨ Python • Coding • Creativity • Design ✨
+      </div>
 
-<button class="btn" onclick="showPage('pins')">
-View My Pins and Videos 🚀
-</button>
+      <button class="btn" onclick="showPage('pins')">
+        View My Pins and Videos 🚀
+      </button>
 
-</section>
+    </section>
 
-<!-- CARDS -->
+    <!-- CARDS -->
 
-<div class="container">
+    <div class="container">
 
-<div class="card">
-<h2>🐍 Python Tips</h2>
-<p>
-Simple, beginner-friendly Python tips, coding tricks & creative mini projects to make learning fun 💻✨
+      <div class="card">
+        <h2>🐍 Python Tips</h2>
+        <p>
+          Simple, beginner-friendly Python tips, coding tricks & creative mini projects to make learning fun 💻✨
 
-</p>
-</div>
+        </p>
+      </div>
 
-<div class="card">
-<h2>📌 Pinterest Ideas</h2>
-<p>
-Discover aesthetic Pinterest inspiration, trendy creative ideas & beautiful digital content for everyday creativity ✨🌸
-</p>
-</div>
+      <div class="card">
+        <h2>📌 Pinterest Ideas</h2>
+        <p>
+          Discover aesthetic Pinterest inspiration, trendy creative ideas & beautiful digital content for everyday
+          creativity ✨🌸
+        </p>
+      </div>
 
-<div class="card">
-<h2>💻 Coding Journey</h2>
-<p>
-From simple HTML pages to creative web designs — exploring coding step by step with passion and creativity 🚀💖
+      <div class="card">
+        <h2>💻 Coding Journey</h2>
+        <p>
+          From simple HTML pages to creative web designs — exploring coding step by step with passion and creativity
+          🚀💖
 
-Beautiful websites and fun coding experiences.
-</p>
-</div>
+          Beautiful websites and fun coding experiences.
+        </p>
+      </div>
 
-<div class="card">
-<h2>🌸 About Me</h2>
-<p>
-Hi, I am Roshni 💖  
-A creative girl who loves coding, aesthetic web design, Pinterest inspiration & digital creativity ✨
+      <div class="card">
+        <h2>🌸 About Me</h2>
+        <p>
+          Hi, I am Roshni 💖
+          A creative girl who loves coding, aesthetic web design, Pinterest inspiration & digital creativity ✨
 
-I enjoy turning simple ideas into beautiful websites using HTML, CSS & JavaScript 💻🌸
+          I enjoy turning simple ideas into beautiful websites using HTML, CSS & JavaScript 💻🌸
 
-Welcome to my little coding world — where creativity meets technology 🚀
-</p>
-</div>
+          Welcome to my little coding world — where creativity meets technology 🚀
+        </p>
+      </div>
 
-</div>
+    </div>
 
-<!-- STATS -->
+    <!-- STATS -->
 
-<div class="stats">
+    <div class="stats">
 
-<div class="stat-box">
-<h2>70+</h2>
-<p>Pinterest Pins</p>
-</div>
+      <div class="stat-box">
+        <h2>70+</h2>
+        <p>Pinterest Pins</p>
+      </div>
 
-<div class="stat-box">
-<h2>70+</h2>
-<p>Coding Ideas</p>
-</div>
+      <div class="stat-box">
+        <h2>70+</h2>
+        <p>Coding Ideas</p>
+      </div>
 
-<div class="stat-box">
-<h2>13K+</h2>
-<p>Creative Views</p>
-</div>
+      <div class="stat-box">
+        <h2>13K+</h2>
+        <p>Creative Views</p>
+      </div>
 
-</div>
-
-<div class="quote">
-“Code + Creativity = Magic ✨”
-</div>
-
-</div>
-
-<!-- PINS PAGE -->
-
-<div id="pins" class="page">
-
-<h1 class="title">
-📌 My Pinterest Pins
-</h1>
-
-<div class="gallery">
-
-<div class="pin-card">
-<img src="pin1.jpg" onclick="openImg(this.src)">
-<h3>Python Polymorphism & Encapsulation 🐍</h3>
-<p>Learn two important Object-Oriented Programming concepts in Python with simple examples.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin2.jpg" onclick="openImg(this.src)">
-<h3>Python Cheat Sheet 📋</h3>
-<p>A quick reference guide covering Python syntax, functions, loops, and more.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin3.jpg" onclick="openImg(this.src)">
-<h3>Why Python? 🤔</h3>
-<p>Discover why Python is one of the most popular programming languages in the world.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin4.jpg" onclick="openImg(this.src)">
-<h3>Python vs Other Languages ⚔️</h3>
-<p>Compare Python with Java, C++, JavaScript, and other programming languages.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin5.jpg" onclick="openImg(this.src)">
-<h3>Master Python 🚀</h3>
-<p>A roadmap to go from Python beginner to advanced developer.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin6.jpg" onclick="openImg(this.src)">
-<h3>Python Syntax Explained Simply 🐍</h3>
-<p>Understand Python rules in a simple way. ✨</p>
-</div>
-
-
-
-<div class="pin-card">
-<img src="pin7.jpg" onclick="openImg(this.src)">
-<h3>Can You Learn Python Without Maths? 🧮</h3>
-<p>Find out how much maths is really needed for learning Python.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin8.jpg" onclick="openImg(this.src)">
-<h3>How Coders Actually Google Errors 🔍</h3>
-<p>Learn smart techniques developers use to find and fix coding errors quickly.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin9.jpg" onclick="openImg(this.src)">
-<h3>Python in Real Life 🌍</h3>
-<p>Explore real-world applications of Python in technology and everyday life.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin10.jpg" onclick="openImg(this.src)">
-<h3>Python: Basic to Advanced 📈</h3>
-<p>Complete Python learning journey including ecosystem and real-world applications.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin11.jpg" onclick="openImg(this.src)">
-<h3>Python + Cloud Computing ☁️</h3>
-<p>Learn how Python works with cloud platforms and modern technologies.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin12.jpg" onclick="openImg(this.src)">
-<h3>How Useful Is Maths in Python? 📊</h3>
-<p>Understand the role of mathematics in programming, AI, and data science.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin13.jpg" onclick="openImg(this.src)">
-<h3>HTML Tags You Should Know 🌐</h3>
-<p>Essential HTML tags every web developer should learn.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin14.jpg" onclick="openImg(this.src)">
-<h3>SQL Commands Cheat Sheet 🗄️</h3>
-<p>Important SQL commands for managing and querying databases.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin15.jpg" onclick="openImg(this.src)">
-<h3>Top 10 Python Syntax Rules ✅</h3>
-<p>Must-know Python syntax rules for writing clean and error-free code.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin16.jpg" onclick="openImg(this.src)">
-<h3>HTML Full Notes 📘</h3>
-<p>Comprehensive HTML notes for beginners and students.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin17.jpg" onclick="openImg(this.src)">
-<h3>CSS Full Notes 🎨</h3>
-<p>Learn CSS fundamentals, styling techniques, and layouts in one place.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin18.jpg" onclick="openImg(this.src)">
-<h3>JavaScript Full Notes ⚡</h3>
-<p>Complete JavaScript notes covering basics, functions, DOM, and more.</p>
-</div>
-
-<div class="pin-card">
-<img src="pin19.jpg" onclick="openImg(this.src)">
-<h3>SQL From Basic to Advanced 📚</h3>
-<p>A structured SQL learning guide from beginner concepts to advanced queries.</p>
-</div>
-
-</div> <!-- gallery close -->
-
-<!-- VIDEO SECTION -->
-
-<h1 class="title">
-🎬 My Videos
-</h1>
-
-<div class="video-gallery">
-
-  <video controls>
-    <source src="video1.mp4" type="video/mp4">
-  </video>
-
-  <video controls>
-    <source src="video2.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-
-
-<!-- FOOTER -->
-
-<div class="footer">
-Made with 💜 by Roshni Code Charm
-</div>
-
-<!-- POPUP -->
-
-<div id="popup" class="popup" onclick="closeImg()">
-<img id="popupImg">
-</div>
-
-<script>
-
-
-function showPage(page){
-  document.querySelectorAll('.page').forEach(p=>{
-    p.classList.remove('active');
-  });
-
-  document.getElementById(page).classList.add('active');
-  window.scrollTo(0,0);
-}
-
-function openImg(src){
-  document.getElementById("popup").style.display="flex";
-  document.getElementById("popupImg").src=src;
-}
-
-function closeImg(){
-  document.getElementById("popup").style.display="none";
-}
-function openVideo(src){
-  document.getElementById("videoPopup").style.display="flex";
-  document.getElementById("popupVideo").src=src;
-}
-function closeVideo(){
-  document.getElementById("videoPopup").style.display="none";
-}
-</script>
+    </div>
+
+    <div class="quote">
+      “Code + Creativity = Magic ✨”
+    </div>
+
+  </div>
+
+  <!-- PINS PAGE -->
+
+  <div id="pins" class="page">
+
+    <h1 class="title">
+      📌 My Pinterest Pins
+    </h1>
+
+    <div class="gallery">
+
+      <div class="pin-card">
+        <img src="pin1.jpg" onclick="openImg(this.src)">
+        <h3>Python Polymorphism & Encapsulation 🐍</h3>
+        <p>Learn two important Object-Oriented Programming concepts in Python with simple examples.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin2.jpg" onclick="openImg(this.src)">
+        <h3>Python Cheat Sheet 📋</h3>
+        <p>A quick reference guide covering Python syntax, functions, loops, and more.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin3.jpg" onclick="openImg(this.src)">
+        <h3>Why Python? 🤔</h3>
+        <p>Discover why Python is one of the most popular programming languages in the world.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin4.jpg" onclick="openImg(this.src)">
+        <h3>Python vs Other Languages ⚔️</h3>
+        <p>Compare Python with Java, C++, JavaScript, and other programming languages.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin5.jpg" onclick="openImg(this.src)">
+        <h3>Master Python 🚀</h3>
+        <p>A roadmap to go from Python beginner to advanced developer.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin6.jpg" onclick="openImg(this.src)">
+        <h3>Python Syntax Explained Simply 🐍</h3>
+        <p>Understand Python rules in a simple way. ✨</p>
+      </div>
+
+
+
+      <div class="pin-card">
+        <img src="pin7.jpg" onclick="openImg(this.src)">
+        <h3>Can You Learn Python Without Maths? 🧮</h3>
+        <p>Find out how much maths is really needed for learning Python.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin8.jpg" onclick="openImg(this.src)">
+        <h3>How Coders Actually Google Errors 🔍</h3>
+        <p>Learn smart techniques developers use to find and fix coding errors quickly.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin9.jpg" onclick="openImg(this.src)">
+        <h3>Python in Real Life 🌍</h3>
+        <p>Explore real-world applications of Python in technology and everyday life.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin10.jpg" onclick="openImg(this.src)">
+        <h3>Python: Basic to Advanced 📈</h3>
+        <p>Complete Python learning journey including ecosystem and real-world applications.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin11.jpg" onclick="openImg(this.src)">
+        <h3>Python + Cloud Computing ☁️</h3>
+        <p>Learn how Python works with cloud platforms and modern technologies.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin12.jpg" onclick="openImg(this.src)">
+        <h3>How Useful Is Maths in Python? 📊</h3>
+        <p>Understand the role of mathematics in programming, AI, and data science.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin13.jpg" onclick="openImg(this.src)">
+        <h3>HTML Tags You Should Know 🌐</h3>
+        <p>Essential HTML tags every web developer should learn.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin14.jpg" onclick="openImg(this.src)">
+        <h3>SQL Commands Cheat Sheet 🗄️</h3>
+        <p>Important SQL commands for managing and querying databases.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin15.jpg" onclick="openImg(this.src)">
+        <h3>Top 10 Python Syntax Rules ✅</h3>
+        <p>Must-know Python syntax rules for writing clean and error-free code.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin16.jpg" onclick="openImg(this.src)">
+        <h3>HTML Full Notes 📘</h3>
+        <p>Comprehensive HTML notes for beginners and students.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin17.jpg" onclick="openImg(this.src)">
+        <h3>CSS Full Notes 🎨</h3>
+        <p>Learn CSS fundamentals, styling techniques, and layouts in one place.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin18.jpg" onclick="openImg(this.src)">
+        <h3>JavaScript Full Notes ⚡</h3>
+        <p>Complete JavaScript notes covering basics, functions, DOM, and more.</p>
+      </div>
+
+      <div class="pin-card">
+        <img src="pin19.jpg" onclick="openImg(this.src)">
+        <h3>SQL From Basic to Advanced 📚</h3>
+        <p>A structured SQL learning guide from beginner concepts to advanced queries.</p>
+      </div>
+
+    </div> <!-- gallery close -->
+
+    <!-- VIDEO SECTION -->
+
+    <h1 class="title">
+      🎬 My Videos
+    </h1>
+
+    <div class="video-gallery">
+
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+      Made with 💜 by Roshni Code Charm
+    </div>
+    
+    </div> <!-- PINS PAGE CLOSE -->
+
+    <!-- POPUP -->
+
+    <div id="popup" class="popup" onclick="closeImg()">
+      <img id="popupImg">
+    </div>
+
+    <script>
+
+
+      function showPage(page) {
+        document.querySelectorAll('.page').forEach(p => {
+          p.classList.remove('active');
+        });
+
+        document.getElementById(page).classList.add('active');
+        window.scrollTo(0, 0);
+      }
+
+      function openImg(src) {
+        document.getElementById("popup").style.display = "flex";
+        document.getElementById("popupImg").src = src;
+      }
+
+      function closeImg() {
+        document.getElementById("popup").style.display = "none";
+      }
+      function openVideo(src) {
+        document.getElementById("videoPopup").style.display = "flex";
+        document.getElementById("popupVideo").src = src;
+      }
+      function closeVideo() {
+        document.getElementById("videoPopup").style.display = "none";
+      }
+    </script>
 
 </body>
+
 </html>
