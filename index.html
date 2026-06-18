@@ -288,14 +288,13 @@
     }
 
     
-    .gallery {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 1800px;
-    margin: auto;
-}
+    .gallery{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+    max-width:1800px;
+    margin:auto;
+    padding:20px;
 
     .gallery img {
       width: 100%;
@@ -307,10 +306,19 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #c77dff;
-    }
+.pin-card img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+
+.pin-card img:hover{
+    transform:scale(1.03);
+}
 
     /* VIDEOS */
 
@@ -367,30 +375,29 @@
 
     /* MOBILE */
 
-    @media(max-width:768px) {
-      .logo {
-        font-size: 70px;
-      }
+    @media (max-width:768px){
 
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p,
-      .typing {
-        font-size: 18px;
-      }
-
-      .title {
-        font-size: 32px;
-      }
-
+    nav{
+        padding:12px;
+        gap:10px;
+        flex-wrap:wrap;
     }
 
-   .pin-card img {
-  width: 100%;
-  height: auto;
-  display: block;
+    nav button{
+        font-size:16px;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+        padding:10px;
+    }
+
+    .pin-card img{
+        height:auto;
+        border-radius:15px;
+    }
+
 }
 
     .pin-card p {
@@ -421,7 +428,7 @@
 
   .pin-card img {
     width: 100%;
-    height: 320px;
+    height: auto;
     border-radius: 15px;
   }
 
@@ -597,7 +604,7 @@
       </div>
 
       <div class="pin-card">
-        <img src="pin10.jpg" onclick="openImg(this.src)">        
+        <img src="pin10.jpg" onclick="openImg(this.src)"> 
         
       </div>
 
