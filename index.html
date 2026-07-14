@@ -86,6 +86,11 @@
       transform: scale(1.08);
     }
 
+    nav button.active-btn{
+    color:#ff4da6;
+    border-bottom:3px solid #ff4da6;
+}
+
     /* PAGE SYSTEM */
 
     .page {
@@ -413,6 +418,88 @@
         border-radius: 15px;
       }
     }
+
+    .search-box {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .search-box input {
+      width: 70%;
+      max-width: 500px;
+      padding: 12px;
+      border: 2px solid #7b2cbf;
+      border-radius: 30px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 20px 0 30px;
+    }
+
+    .cat-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #7b2cbf;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .cat-btn:hover {
+      background: #ff4da6;
+    }
+
+    /* Featured Article */
+
+    .featured {
+      max-width: 900px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .featured-card {
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(15px);
+      padding: 45px;
+      border-radius: 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
+      transition: .3s;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-8px);
+    }
+
+
+    .featured h2 {
+      color: #7b2cbf;
+      font-size: 36px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .featured h3 {
+      color: #ff4da6;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .featured p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .featured .btn {
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -455,6 +542,50 @@
       </button>
 
     </section>
+
+    <div class="featured">
+      <h2>⭐ Featured Article</h2>
+
+      <div class="featured-card">
+        <h3>🐍 Python Variables for Beginners</h3>
+
+        <p>
+          Start learning Python with one of the most important concepts — Variables.
+        </p>
+
+        <a href="python-variables.html" class="btn">
+          Read Now
+        </a>
+      </div>
+    </div>
+
+    <h2 style="text-align:center; color:#7b2cbf; margin-top:50px;">
+      🔥 Latest Articles
+    </h2>
+
+    <div class="container">
+
+      <div class="card">
+        <h2>🐍 Python Variables</h2>
+        <p>Learn Python Variables with simple examples.</p>
+        <a href="python-variables.html" class="btn">Read Article</a>
+      </div>
+
+      <div class="card">
+        <h2>🌐 HTML Basics</h2>
+        <p>Start learning HTML from scratch.</p>
+        <a href="html-basics.html" class="btn">Read Article</a>
+      </div>
+
+      <div class="card">
+        <h2>🎨 CSS Basics</h2>
+        <p>Learn how CSS makes websites beautiful.</p>
+        <a href="css-basics.html" class="btn">Read Article</a>
+      </div>
+
+    </div>
+
+
 
     <!-- CARDS -->
 
@@ -527,51 +658,55 @@
 
   </div>
 
-  <!-- ARTICLES PAGE -->
+ <!-- ARTICLES PAGE -->
 
-  <div id="articles" class="page">
+<div id="articles" class="page">
 
-    <h1 style="text-align:center; color:#7b2cbf;">
-      📚 Coding Articles
-    </h1>
+  <h1 style="text-align:center; color:#7b2cbf;">
+    📚 Coding Articles
+  </h1>
 
-    <div class="container">
+  <div class="search-box">
+    <input type="text" id="searchInput"
+      placeholder="🔍 Search articles..."
+      onkeyup="searchArticles()">
+  </div>
 
-      <div class="card">
-        <h2>🐍 Python Variables</h2>
-        <p>
-          Learn what Python variables are with simple examples for beginners.
-        </p>
-        <a href="python-variables.html" class="btn">
-          Read Article
-        </a>
-      </div>
+  <h2 style="text-align:center;">📂 Categories</h2>
 
-      <div class="card">
-        <h2>🌐 HTML Basics</h2>
-        <p>
-          Learn the basic HTML tags every beginner should know.
-        </p>
-        <a href="html-basics.html" class="btn">
-          Read Article
-        </a>
-      </div>
+  <div class="categories">
+    <button class="cat-btn" onclick="filterCategory('python')">🐍 Python</button>
+    <button class="cat-btn" onclick="filterCategory('html')">🌐 HTML</button>
+    <button class="cat-btn" onclick="filterCategory('css')">🎨 CSS</button>
+    <button class="cat-btn" onclick="filterCategory('all')">📚 All</button>
+  </div>
 
-      <div class="card">
-        <h2>🎨 CSS Basics</h2>
-        <p>
-          Learn how CSS makes websites beautiful and responsive.
-        </p>
-        <a href="css-basics.html" class="btn">
-          Read Article
-        </a>
-      </div>
+  <div class="container">
 
+    <div class="card article-card">
+      <h2>🐍 Python Variables</h2>
+      <p>Learn what Python variables are with simple examples for beginners.</p>
+      <a href="python-variables.html" class="btn">Read Article</a>
+    </div>
+
+    <div class="card article-card">
+      <h2>🌐 HTML Basics</h2>
+      <p>Learn the basic HTML tags every beginner should know.</p>
+      <a href="html-basics.html" class="btn">Read Article</a>
+    </div>
+
+    <div class="card article-card">
+      <h2>🎨 CSS Basics</h2>
+      <p>Learn how CSS makes websites beautiful and responsive.</p>
+      <a href="css-basics.html" class="btn">Read Article</a>
     </div>
 
   </div>
 
-  <!-- PINS PAGE -->
+</div>
+<!-- ARTICLES PAGE END -->
+
+  </div> <!-- PINS PAGE -->
 
   <div id="pins" class="page">
 
@@ -795,43 +930,122 @@
       Made with 💜 by Roshni Code Charm
     </div>
 
-  </div> <!-- PINS PAGE CLOSE -->
+    <!-- PINS PAGE CLOSE -->
 
-  <!-- POPUP -->
+    <!-- POPUP -->
 
-  <div id="popup" class="popup" onclick="closeImg()">
-    <img id="popupImg">
-  </div>
+    <div id="popup" class="popup" onclick="closeImg()">
+      <img id="popupImg">
+    </div>
 
-  <script>
+    <script>
 
 
-    function showPage(page) {
-      document.querySelectorAll('.page').forEach(p => {
-        p.classList.remove('active');
-      });
+      function showPage(page) {
+  document.querySelectorAll(".page").forEach(function (p) {
+    p.classList.remove("active");
+  });
 
-      document.getElementById(page).classList.add('active');
-      window.scrollTo(0, 0);
+  document.getElementById(page).classList.add("active");
+  window.scrollTo(0, 0);
+}
+
+// IMAGE POPUP
+function openImg(src) {
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popupImg").src = src;
+}
+
+function closeImg() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// SEARCH ARTICLES
+function searchArticles() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.querySelectorAll(".article-card");
+
+  cards.forEach(function (card) {
+    let text = card.innerText.toLowerCase();
+
+    if (text.includes(input)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
+  });
+}
 
-    function openImg(src) {
-      document.getElementById("popup").style.display = "flex";
-      document.getElementById("popupImg").src = src;
-    }
+// FILTER ARTICLES
+function filterCategory(category) {
+  let cards = document.querySelectorAll(".article-card");
 
-    function closeImg() {
-      document.getElementById("popup").style.display = "none";
+  cards.forEach(function (card) {
+    let text = card.innerText.toLowerCase();
+
+    if (category === "all") {
+      card.style.display = "block";
+    } else if (text.includes(category)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
-    function openVideo(src) {
-      document.getElementById("videoPopup").style.display = "flex";
-      document.getElementById("popupVideo").src = src;
-    }
-    function closeVideo() {
-      document.getElementById("videoPopup").style.display = "none";
-    }
-  </script>
+  });
+}
+
+      
+    </script>
 
 </body>
 
-</html>
+</html>function showPage(page) {
+  document.querySelectorAll(".page").forEach(function (p) {
+    p.classList.remove("active");
+  });
+
+  document.getElementById(page).classList.add("active");
+  window.scrollTo(0, 0);
+}
+
+// IMAGE POPUP
+function openImg(src) {
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popupImg").src = src;
+}
+
+function closeImg() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// SEARCH ARTICLES
+function searchArticles() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.querySelectorAll(".article-card");
+
+  cards.forEach(function (card) {
+    let text = card.innerText.toLowerCase();
+
+    if (text.includes(input)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+// FILTER ARTICLES
+function filterCategory(category) {
+  let cards = document.querySelectorAll(".article-card");
+
+  cards.forEach(function (card) {
+    let text = card.innerText.toLowerCase();
+
+    if (category === "all") {
+      card.style.display = "block";
+    } else if (text.includes(category)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
