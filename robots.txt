@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://roshni945.github.io/my-website/sitemap.xml
