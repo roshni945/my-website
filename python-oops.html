@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Functions for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+.content-box{
+    background:white;
+    padding:25px;
+    margin:25px 0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+.toc{
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+}
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+}
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+}
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    margin-top:30px;
+}
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+@media(max-width:600px){
+
+.page-nav{
+    flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="content-box">
+
+
+<h1>🐍 Python Functions for Beginners</h1>
+
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+
+<li>What is a Function?</li>
+<li>Why Use Functions?</li>
+<li>Creating a Function</li>
+<li>Calling a Function</li>
+<li>Function Parameters</li>
+<li>Return Statement</li>
+<li>Lambda Function</li>
+<li>Practice Examples</li>
+<li>FAQ</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+Functions help you write reusable code and make programs easier to understand.
+</p>
+
+</div>
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+
+<li>Forgetting parentheses while calling functions.</li>
+<li>Wrong indentation inside function.</li>
+<li>Not using return when output is needed.</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 6 min read</p>
+
+</div>
+
+
+
+
+<h2>🐍 What is a Function?</h2>
+
+<p>
+A function is a block of reusable code that performs a specific task.
+Functions help avoid writing the same code again and again.
+</p>
+
+
+
+<h2>⭐ Why Use Functions?</h2>
+
+<ul>
+
+<li>Reuse code multiple times</li>
+
+<li>Reduce code repetition</li>
+
+<li>Make programs organized</li>
+
+<li>Easy debugging and maintenance</li>
+
+</ul>
+
+
+
+
+<h2>🛠️ Creating a Function</h2>
+
+<p>
+In Python, we create a function using the <b>def</b> keyword.
+</p>
+
+
+<pre>
+
+def greeting():
+    print("Hello Python")
+
+</pre>
+
+
+
+
+<h2>📞 Calling a Function</h2>
+
+<p>
+A function runs only when it is called.
+</p>
+
+
+<pre>
+
+def greeting():
+    print("Hello Python")
+
+greeting()
+
+</pre>
+
+
+
+
+<h2>📦 Function Parameters</h2>
+
+<p>
+Parameters allow us to pass information into a function.
+</p>
+
+
+<pre>
+
+def greet(name):
+
+    print("Hello", name)
+
+
+greet("Roshni")
+
+</pre>
+
+
+
+
+<h2>🔙 Return Statement</h2>
+
+<p>
+The return statement sends a value back from a function.
+</p>
+
+
+<pre>
+
+def add(a,b):
+
+    return a+b
+
+
+result = add(5,3)
+
+print(result)
+
+</pre>
+
+
+
+
+<h2>⚡ Lambda Function</h2>
+
+<p>
+Lambda is a small anonymous function written in one line.
+</p>
+
+
+<pre>
+
+square = lambda x: x*x
+
+print(square(5))
+
+</pre>
+
+
+
+
+<h2>🚀 Practice Examples</h2>
+
+<ul>
+
+<li>Create a function to add two numbers.</li>
+
+<li>Create a function to check even or odd number.</li>
+
+<li>Create a function to calculate area of a circle.</li>
+
+<li>Create a function to print your details.</li>
+
+</ul>
+
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. What is the use of functions in Python?</h3>
+
+<p>
+Functions make code reusable and organized.
+</p>
+
+
+<h3>2. Which keyword is used to create a function?</h3>
+
+<p>
+The <b>def</b> keyword is used to create functions.
+</p>
+
+
+<h3>3. What is a lambda function?</h3>
+
+<p>
+A lambda function is a small function without a name.
+</p>
+
+
+
+
+<div class="page-nav">
+
+
+<a href="python-loops.html" class="btn">
+⬅️ Python Loops
+</a>
+
+
+<a href="python-oops.html" class="btn">
+Next: Python OOPs ➡️
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

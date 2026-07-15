@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python File Handling for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+
+.toc{
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+}
+
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.content-box{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+}
+
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+@media(max-width:600px){
+.page-nav{
+    flex-direction:column;
+}
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="content-box">
+
+
+<h1>🐍 Python File Handling for Beginners</h1>
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+
+<li>What is File Handling?</li>
+<li>Opening a File</li>
+<li>File Modes</li>
+<li>Reading a File</li>
+<li>Writing to a File</li>
+<li>Appending Data</li>
+<li>Closing a File</li>
+<li>Practice Examples</li>
+<li>FAQ</li>
+
+</ul>
+
+</div>
+
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+Always close files after using them to free system resources.
+</p>
+
+</div>
+
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+
+<li>Using wrong file path.</li>
+
+<li>Forgetting to close the file.</li>
+
+<li>Opening a file in the wrong mode.</li>
+
+</ul>
+
+</div>
+
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 5 min read</p>
+
+</div>
+
+
+
+
+<h2>📂 What is File Handling?</h2>
+
+<p>
+File handling allows Python programs to create, read, write and manage files.
+It is used to store data permanently.
+</p>
+
+
+
+<h2>📖 Opening a File</h2>
+
+<p>
+The <b>open()</b> function is used to open a file.
+</p>
+
+
+<pre>
+
+file = open("data.txt","r")
+
+print(file.read())
+
+file.close()
+
+</pre>
+
+
+
+
+<h2>✨ File Modes in Python</h2>
+
+
+<ul>
+
+<li><b>r</b> - Read a file</li>
+
+<li><b>w</b> - Write data into a file</li>
+
+<li><b>a</b> - Add new data at the end</li>
+
+<li><b>x</b> - Create a new file</li>
+
+</ul>
+
+
+
+
+<h2>📖 Reading a File</h2>
+
+
+<pre>
+
+file = open("student.txt","r")
+
+content = file.read()
+
+print(content)
+
+file.close()
+
+</pre>
+
+
+
+
+<h2>✍️ Writing to a File</h2>
+
+
+<pre>
+
+file = open("notes.txt","w")
+
+file.write("Python File Handling")
+
+file.close()
+
+</pre>
+
+
+
+
+<h2>➕ Appending Data</h2>
+
+
+<p>
+Append mode adds new content without deleting old data.
+</p>
+
+
+<pre>
+
+file = open("notes.txt","a")
+
+file.write("\nLearning Python")
+
+file.close()
+
+</pre>
+
+
+
+
+<h2>🔒 Closing a File</h2>
+
+
+<p>
+The close() method closes the opened file.
+</p>
+
+
+<pre>
+
+file.close()
+
+</pre>
+
+
+
+
+<h2>🚀 Using with Statement</h2>
+
+
+<p>
+The with statement automatically closes the file.
+</p>
+
+
+<pre>
+
+with open("data.txt","r") as file:
+
+    print(file.read())
+
+</pre>
+
+
+
+
+<h2>📝 Practice Example</h2>
+
+
+<pre>
+
+with open("message.txt","w") as file:
+
+    file.write("Hello Python")
+
+</pre>
+
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. Why is file handling used?</h3>
+
+<p>
+File handling is used to save and manage data permanently.
+</p>
+
+
+
+<h3>2. Which function opens a file?</h3>
+
+<p>
+The open() function is used to open files.
+</p>
+
+
+
+<h3>3. What is the use of close()?</h3>
+
+<p>
+close() is used to close an opened file.
+</p>
+
+
+
+
+<div class="page-nav">
+
+<a href="python-strings.html" class="btn">
+⬅️ Python Strings
+</a>
+
+
+<a href="python-exception-handling.html" class="btn">
+Next: Exception Handling ➡️
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</body>
+
+</html>

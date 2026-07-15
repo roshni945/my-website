@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Input Function for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+body{
+    font-family: cursive;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+
+.container{
+
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+}
+
+
+h1{
+
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+
+}
+
+
+h2{
+
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+
+}
+
+
+
+.content-box{
+
+    background:white;
+    padding:25px;
+    margin:25px 0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+
+}
+
+
+
+.toc{
+
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+
+}
+
+
+
+.tip-box{
+
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+
+}
+
+
+
+.mistake-box{
+
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+
+}
+
+
+
+pre{
+
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+
+}
+
+
+
+.content-box ul li{
+
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+
+}
+
+
+
+.author-info{
+
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    margin:25px 0;
+
+}
+
+
+
+.btn{
+
+    display:inline-block;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    margin-top:30px;
+
+}
+
+
+
+.page-nav{
+
+    display:flex;
+    justify-content:space-between;
+}
+
+
+
+@media(max-width:600px){
+
+.page-nav{
+    flex-direction:column;
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="content-box">
+
+
+<h1>⌨️ Python Input Function for Beginners</h1>
+
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+
+<li>What is input() Function?</li>
+<li>Taking User Input</li>
+<li>Input with Variables</li>
+<li>Converting Input Data</li>
+<li>Multiple Inputs</li>
+<li>Common Mistakes</li>
+<li>Practice Examples</li>
+<li>FAQ</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+Always convert user input into the required data type using int(), float(), etc.
+</p>
+
+</div>
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+
+<li>Forgetting type conversion.</li>
+<li>Using wrong variable names.</li>
+<li>Not checking user input.</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 5 min read</p>
+
+</div>
+
+
+
+
+<h2>⌨️ What is input() Function?</h2>
+
+<p>
+The input() function is used to take information from the user while a Python program is running.
+</p>
+
+
+
+<h2>Basic Input Example</h2>
+
+
+<pre>
+
+name = input("Enter your name: ")
+
+print(name)
+
+</pre>
+
+
+
+<h2>📦 Input with Variables</h2>
+
+<p>
+The value entered by the user is stored inside a variable.
+</p>
+
+
+<pre>
+
+age = input("Enter your age: ")
+
+print(age)
+
+</pre>
+
+
+
+<h2>🔄 Converting Input Data</h2>
+
+<p>
+By default, input() stores data as a string.
+We use int() and float() to convert values.
+</p>
+
+
+<pre>
+
+age = int(input("Enter age: "))
+
+marks = float(input("Enter marks: "))
+
+</pre>
+
+
+
+<h2>➕ Multiple Inputs</h2>
+
+
+<pre>
+
+a,b = input("Enter two numbers: ").split()
+
+print(a)
+print(b)
+
+</pre>
+
+
+
+<h2>🚀 Real Life Example</h2>
+
+
+<pre>
+
+name = input("Enter your name: ")
+
+city = input("Enter your city: ")
+
+print(name, city)
+
+</pre>
+
+
+
+<h2>⭐ Why Learn input()?</h2>
+
+<ul>
+
+<li>Creates interactive programs</li>
+<li>Allows users to enter data</li>
+<li>Useful for real-world applications</li>
+<li>Important for beginner projects</li>
+
+</ul>
+
+
+
+<h2>📝 Practice Examples</h2>
+
+<ul>
+
+<li>Create a program to take your name and print a greeting.</li>
+
+<li>Take two numbers from the user and add them.</li>
+
+<li>Take marks and calculate percentage.</li>
+
+</ul>
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. What does input() do in Python?</h3>
+
+<p>
+input() takes data from the user.
+</p>
+
+
+<h3>2. What data type does input() return?</h3>
+
+<p>
+input() always returns a string value.
+</p>
+
+
+<h3>3. How to take integer input?</h3>
+
+<p>
+Use int(input()) to take integer values.
+</p>
+
+
+
+<div class="page-nav">
+
+
+<a href="python-data-types.html" class="btn">
+⬅️ Python Data Types
+</a>
+
+
+<a href="python-if-else.html" class="btn">
+Next: Python If Else ➡️
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

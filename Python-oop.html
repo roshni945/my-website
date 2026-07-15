@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python OOP for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+
+.toc{
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+}
+
+
+.content-box{
+    background:white;
+    padding:25px;
+    margin:25px 0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+}
+
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    color:#555;
+}
+
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🐍 Python OOP for Beginners</h1>
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+<li>What is OOP?</li>
+<li>Why Use OOP?</li>
+<li>Class and Object</li>
+<li>Constructor</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Encapsulation</li>
+<li>Practice Examples</li>
+<li>FAQ</li>
+</ul>
+
+</div>
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+OOP helps you write clean, reusable and organized code by using classes and objects.
+</p>
+
+</div>
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+<li>Confusing class and object.</li>
+<li>Forgetting self parameter.</li>
+<li>Creating unnecessary classes.</li>
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 6 min read</p>
+
+</div>
+
+
+
+<div class="content-box">
+
+
+<h2>🐍 What is OOP?</h2>
+
+<p>
+OOP stands for Object-Oriented Programming.
+It is a programming approach that uses classes and objects to organize code.
+</p>
+
+
+
+<h2>✨ Why Use OOP?</h2>
+
+<ul>
+<li>Code becomes reusable</li>
+<li>Easy to manage large programs</li>
+<li>Improves code structure</li>
+<li>Provides security through encapsulation</li>
+</ul>
+
+
+
+<h2>📦 Class and Object</h2>
+
+<p>
+A class is a blueprint for creating objects.
+An object is an instance of a class.
+</p>
+
+
+<pre>
+class Student:
+
+    name = "Roshni"
+    age = 18
+
+
+student1 = Student()
+
+print(student1.name)
+</pre>
+
+
+
+<h2>🔹 Constructor (__init__ method)</h2>
+
+<p>
+Constructor is a special method that runs automatically when an object is created.
+</p>
+
+
+<pre>
+class Student:
+
+    def __init__(self,name):
+        self.name = name
+
+
+student = Student("Roshni")
+
+print(student.name)
+</pre>
+
+
+
+<h2>🔗 Inheritance</h2>
+
+<p>
+Inheritance allows one class to use properties and methods of another class.
+</p>
+
+
+<pre>
+class Animal:
+
+    def sound(self):
+        print("Animal makes sound")
+
+
+class Dog(Animal):
+    pass
+
+
+dog = Dog()
+
+dog.sound()
+</pre>
+
+
+
+<h2>🔄 Polymorphism</h2>
+
+<p>
+Polymorphism means one method can perform different tasks.
+</p>
+
+
+<pre>
+class Cat:
+
+    def sound(self):
+        print("Meow")
+
+
+class Dog:
+
+    def sound(self):
+        print("Bark")
+</pre>
+
+
+
+<h2>🔒 Encapsulation</h2>
+
+<p>
+Encapsulation means wrapping data and methods into a single unit and protecting data.
+</p>
+
+
+<pre>
+class Account:
+
+    def __init__(self):
+        self.__balance = 1000
+</pre>
+
+
+
+<h2>🚀 Practice Projects</h2>
+
+<ul>
+<li>Student Management System</li>
+<li>Bank Account System</li>
+<li>Library Management System</li>
+<li>Online Shopping System</li>
+</ul>
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. Is OOP important in Python?</h3>
+
+<p>
+Yes, OOP is widely used for creating large and professional applications.
+</p>
+
+
+<h3>2. What are the main concepts of OOP?</h3>
+
+<p>
+Class, Object, Inheritance, Polymorphism and Encapsulation are the main concepts.
+</p>
+
+
+<h3>3. Is Python fully object-oriented?</h3>
+
+<p>
+Yes, Python supports object-oriented programming.
+</p>
+
+
+
+<div class="page-nav">
+
+<a href="python-exception-handling.html" class="btn">
+⬅️ Exception Handling
+</a>
+
+
+<a href="python-modules.html" class="btn">
+Next: Python Modules ➡️
+</a>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

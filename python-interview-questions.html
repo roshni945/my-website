@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Interview Questions | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    line-height:1.8;
+    color:#333;
+}
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+
+h3{
+    color:#ff4da6;
+}
+
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+
+.content-box{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    margin-top:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+}
+
+
+.toc{
+    background:#f5f0ff;
+    padding:20px;
+    border-radius:15px;
+    border-left:6px solid #7b2cbf;
+}
+
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+}
+
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+}
+
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.btn{
+    display:inline-block;
+    background:#7b2cbf;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    margin-top:30px;
+}
+
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+@media(max-width:600px){
+
+.page-nav{
+flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🐍 Python Interview Questions</h1>
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+<li>Basic Python Questions</li>
+<li>Variables Questions</li>
+<li>Data Types Questions</li>
+<li>OOP Questions</li>
+<li>Advanced Questions</li>
+<li>Coding Questions</li>
+<li>FAQ</li>
+</ul>
+
+</div>
+
+
+<div class="tip-box">
+
+<h3>💡 Interview Tip</h3>
+
+<p>
+Understand concepts clearly instead of memorizing answers.
+Practice writing Python code daily.
+</p>
+
+</div>
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+<li>Not explaining logic behind code.</li>
+<li>Ignoring basic Python concepts.</li>
+<li>Not practicing programs.</li>
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 8 min read</p>
+
+</div>
+
+
+
+<div class="content-box">
+
+
+<h2>1. What is Python?</h2>
+
+<p>
+Python is a high-level, interpreted programming language known for its simple syntax and readability.
+</p>
+
+
+
+<h2>2. What are Variables in Python?</h2>
+
+<p>
+Variables are names used to store data values.
+</p>
+
+
+<pre>
+name = "Roshni"
+age = 18
+</pre>
+
+
+
+<h2>3. What are Python Data Types?</h2>
+
+<ul>
+<li>String</li>
+<li>Integer</li>
+<li>Float</li>
+<li>List</li>
+<li>Tuple</li>
+<li>Set</li>
+<li>Dictionary</li>
+<li>Boolean</li>
+</ul>
+
+
+
+<h2>4. Difference between List and Tuple?</h2>
+
+
+<ul>
+
+<li>
+<b>List:</b> Mutable (can be changed)
+</li>
+
+<li>
+<b>Tuple:</b> Immutable (cannot be changed)
+</li>
+
+</ul>
+
+
+
+<h2>5. What is a Function?</h2>
+
+<p>
+A function is a reusable block of code that performs a specific task.
+</p>
+
+
+<pre>
+
+def add(a,b):
+    return a+b
+
+</pre>
+
+
+
+<h2>6. What is OOP in Python?</h2>
+
+<p>
+Object Oriented Programming is a programming approach based on classes and objects.
+</p>
+
+
+
+<h2>7. What is Exception Handling?</h2>
+
+<pre>
+
+try:
+    print(x)
+
+except:
+    print("Error")
+
+</pre>
+
+
+
+<h2>8. Difference between == and =?</h2>
+
+<ul>
+
+<li>
+<b>=</b> is assignment operator.
+</li>
+
+<li>
+<b>==</b> compares two values.
+</li>
+
+</ul>
+
+
+
+<h2>9. Common Python Coding Questions</h2>
+
+<ul>
+
+<li>Reverse a String</li>
+<li>Find Factorial</li>
+<li>Check Prime Number</li>
+<li>Palindrome Program</li>
+<li>Fibonacci Series</li>
+
+</ul>
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>Is Python good for beginners?</h3>
+
+<p>
+Yes, Python is one of the easiest programming languages for beginners.
+</p>
+
+
+<h3>Where is Python used?</h3>
+
+<p>
+Python is used in Web Development, AI, Data Science, Automation and Cyber Security.
+</p>
+
+
+
+<div class="page-nav">
+
+<a href="python-projects.html" class="btn">
+⬅️ Python Projects
+</a>
+
+
+<a href="index.html" class="btn">
+🏠 Home
+</a>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>

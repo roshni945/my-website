@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Loops for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+.content-box{
+    background:white;
+    padding:25px;
+    margin:25px 0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+.toc{
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+}
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+}
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+}
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    margin-top:30px;
+}
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+@media(max-width:600px){
+
+.page-nav{
+    flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="content-box">
+
+
+<h1>🔁 Python Loops for Beginners</h1>
+
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+
+<li>What are Loops?</li>
+<li>Why Use Loops?</li>
+<li>for Loop</li>
+<li>while Loop</li>
+<li>range() Function</li>
+<li>break Statement</li>
+<li>continue Statement</li>
+<li>Nested Loops</li>
+<li>Practice Examples</li>
+<li>FAQ</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+Loops help you repeat the same task multiple times without writing the same code again and again.
+</p>
+
+</div>
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+
+<li>Creating infinite loops.</li>
+<li>Wrong indentation.</li>
+<li>Forgetting to update while loop condition.</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 6 min read</p>
+
+</div>
+
+
+
+
+<h2>🔁 What are Loops?</h2>
+
+<p>
+Loops are used to execute a block of code repeatedly until a condition becomes false.
+</p>
+
+
+
+<h2>⭐ Why Use Loops?</h2>
+
+<ul>
+
+<li>Reduce code repetition</li>
+
+<li>Save time and effort</li>
+
+<li>Make programs easier to manage</li>
+
+<li>Automate repeated tasks</li>
+
+</ul>
+
+
+
+
+<h2>🔢 Python for Loop</h2>
+
+<p>
+A for loop is used to iterate over a sequence like list, string, or range.
+</p>
+
+
+<pre>
+
+for i in range(5):
+    print(i)
+
+</pre>
+
+
+<p>Output:</p>
+
+<pre>
+
+0
+1
+2
+3
+4
+
+</pre>
+
+
+
+
+<h2>⏳ Python while Loop</h2>
+
+<p>
+A while loop runs as long as the condition is true.
+</p>
+
+
+<pre>
+
+count = 1
+
+while count <= 5:
+    print(count)
+    count += 1
+
+</pre>
+
+
+
+
+<h2>🔢 range() Function</h2>
+
+<p>
+The range() function generates a sequence of numbers.
+</p>
+
+
+<pre>
+
+for number in range(1,6):
+    print(number)
+
+</pre>
+
+
+
+
+<h2>🛑 break Statement</h2>
+
+<p>
+break is used to stop the loop immediately.
+</p>
+
+
+<pre>
+
+for i in range(10):
+
+    if i == 5:
+        break
+
+    print(i)
+
+</pre>
+
+
+
+
+<h2>⏭️ continue Statement</h2>
+
+<p>
+continue skips the current iteration and moves to the next one.
+</p>
+
+
+<pre>
+
+for i in range(5):
+
+    if i == 2:
+        continue
+
+    print(i)
+
+</pre>
+
+
+
+
+<h2>🔄 Nested Loops</h2>
+
+<p>
+A loop inside another loop is called a nested loop.
+</p>
+
+
+<pre>
+
+for i in range(3):
+
+    for j in range(2):
+
+        print(i,j)
+
+</pre>
+
+
+
+
+<h2>🚀 Practice Examples</h2>
+
+<ul>
+
+<li>Print numbers from 1 to 100.</li>
+
+<li>Create multiplication table using loops.</li>
+
+<li>Find the sum of numbers using a loop.</li>
+
+<li>Print patterns using nested loops.</li>
+
+</ul>
+
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. How many types of loops are in Python?</h3>
+
+<p>
+Python mainly has two loops: for loop and while loop.
+</p>
+
+
+<h3>2. What is the use of range()?</h3>
+
+<p>
+range() creates a sequence of numbers for looping.
+</p>
+
+
+<h3>3. Can loops be nested in Python?</h3>
+
+<p>
+Yes, one loop can be placed inside another loop.
+</p>
+
+
+
+
+<div class="page-nav">
+
+
+<a href="python-if-else.html" class="btn">
+⬅️ Python If Else
+</a>
+
+
+<a href="python-functions.html" class="btn">
+Next: Python Functions ➡️
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

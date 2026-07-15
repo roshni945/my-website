@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Libraries for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+
+.toc{
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+}
+
+
+.content-box{
+    background:white;
+    padding:25px;
+    margin:25px 0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+}
+
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    color:#555;
+}
+
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>📚 Python Libraries for Beginners</h1>
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+<li>What are Python Libraries?</li>
+<li>Why Use Python Libraries?</li>
+<li>Installing Libraries</li>
+<li>NumPy</li>
+<li>Pandas</li>
+<li>Matplotlib</li>
+<li>Requests</li>
+<li>TensorFlow</li>
+<li>Practice Projects</li>
+<li>FAQ</li>
+</ul>
+
+</div>
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+Python libraries save time because developers can use pre-written code instead of creating everything from scratch.
+</p>
+
+</div>
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+<li>Installing unnecessary libraries.</li>
+<li>Using outdated library versions.</li>
+<li>Not understanding library documentation.</li>
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 6 min read</p>
+
+</div>
+
+
+
+<div class="content-box">
+
+
+<h2>📚 What are Python Libraries?</h2>
+
+<p>
+Python libraries are collections of pre-written code that provide useful functions and tools.
+They help developers build applications faster and easier.
+</p>
+
+
+
+<h2>✨ Why Use Python Libraries?</h2>
+
+<ul>
+<li>Reduce coding time</li>
+<li>Provide ready-made solutions</li>
+<li>Improve productivity</li>
+<li>Used in real-world applications</li>
+</ul>
+
+
+
+<h2>⚙️ Installing Python Libraries</h2>
+
+<p>
+Libraries can be installed using the pip command.
+</p>
+
+
+<pre>
+pip install library_name
+</pre>
+
+
+
+<h2>🔢 NumPy Library</h2>
+
+<p>
+NumPy is used for numerical calculations and working with arrays.
+It is popular in data science and machine learning.
+</p>
+
+
+<pre>
+import numpy as np
+
+numbers = np.array([1,2,3,4])
+
+print(numbers)
+</pre>
+
+
+
+<h2>🐼 Pandas Library</h2>
+
+<p>
+Pandas is used for data analysis and handling data in tables.
+</p>
+
+
+<pre>
+import pandas as pd
+
+data = {
+"name":["Roshni","Amit"],
+"age":[18,20]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+</pre>
+
+
+
+<h2>📊 Matplotlib Library</h2>
+
+<p>
+Matplotlib is used to create graphs and data visualizations.
+</p>
+
+
+<pre>
+import matplotlib.pyplot as plt
+
+x=[1,2,3]
+y=[4,5,6]
+
+plt.plot(x,y)
+
+plt.show()
+</pre>
+
+
+
+<h2>🌐 Requests Library</h2>
+
+<p>
+Requests library is used to send HTTP requests and work with APIs.
+</p>
+
+
+<pre>
+import requests
+
+response = requests.get(
+"https://example.com"
+)
+
+print(response.status_code)
+</pre>
+
+
+
+<h2>🤖 TensorFlow Library</h2>
+
+<p>
+TensorFlow is a popular library used for Artificial Intelligence and Machine Learning.
+</p>
+
+
+<ul>
+<li>Image recognition</li>
+<li>Deep learning models</li>
+<li>Neural networks</li>
+</ul>
+
+
+
+<h2>🚀 Practice Projects</h2>
+
+<ul>
+<li>Data analysis project using Pandas</li>
+<li>Create charts using Matplotlib</li>
+<li>Weather app using Requests API</li>
+<li>Machine learning project using TensorFlow</li>
+</ul>
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. What is a Python library?</h3>
+
+<p>
+A Python library is a collection of reusable code written by developers.
+</p>
+
+
+<h3>2. How do we install libraries in Python?</h3>
+
+<p>
+Python libraries are installed using the pip command.
+</p>
+
+
+<h3>3. Which Python library is used for Data Science?</h3>
+
+<p>
+NumPy, Pandas and Matplotlib are commonly used for Data Science.
+</p>
+
+
+
+<div class="page-nav">
+
+<a href="python-modules.html" class="btn">
+⬅️ Python Modules
+</a>
+
+
+<a href="python-projects.html" class="btn">
+Next: Python Projects ➡️
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

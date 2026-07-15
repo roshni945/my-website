@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Exception Handling for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+
+.toc{
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+}
+
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+
+.content-box{
+    background:white;
+    padding:25px;
+    margin:25px 0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+}
+
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    color:#555;
+}
+
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>⚠️ Python Exception Handling for Beginners</h1>
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+<li>What is Exception Handling?</li>
+<li>Why Exception Handling is Important?</li>
+<li>try and except Block</li>
+<li>Multiple Exceptions</li>
+<li>finally Block</li>
+<li>Raising Exceptions</li>
+<li>Practice Examples</li>
+<li>FAQ</li>
+</ul>
+
+</div>
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+Use exception handling to prevent your program from crashing when unexpected errors occur.
+</p>
+
+</div>
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+<li>Ignoring errors completely.</li>
+<li>Using empty except blocks.</li>
+<li>Not understanding error messages.</li>
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 5 min read</p>
+
+</div>
+
+
+
+<div class="content-box">
+
+
+<h2>⚠️ What is Exception Handling?</h2>
+
+<p>
+Exception Handling is a method in Python used to handle errors during program execution.
+It helps the program continue running instead of stopping suddenly.
+</p>
+
+
+
+<h2>Basic try-except Example</h2>
+
+
+<pre>
+try:
+    number = 10 / 0
+
+except:
+    print("Cannot divide by zero")
+</pre>
+
+
+
+<h2>🔹 Why Use Exception Handling?</h2>
+
+<ul>
+<li>Prevents program crashes</li>
+<li>Makes code more reliable</li>
+<li>Helps find and fix errors</li>
+<li>Improves user experience</li>
+</ul>
+
+
+
+<h2>🔹 Using Specific Exceptions</h2>
+
+
+<pre>
+try:
+    age = int(input("Enter age: "))
+
+except ValueError:
+    print("Please enter a number")
+</pre>
+
+
+
+<h2>🔹 finally Block</h2>
+
+<p>
+The finally block always executes whether an error occurs or not.
+</p>
+
+
+<pre>
+try:
+    print("Opening file")
+
+finally:
+    print("Program finished")
+</pre>
+
+
+
+<h2>🔹 Raising Exceptions</h2>
+
+
+<pre>
+age = -5
+
+if age &lt; 0:
+    raise Exception("Age cannot be negative")
+</pre>
+
+
+
+<h2>🚀 Practice Examples</h2>
+
+<ul>
+<li>Handle division by zero error</li>
+<li>Create a calculator with error handling</li>
+<li>Handle wrong user input</li>
+<li>Handle file opening errors</li>
+</ul>
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. What is an exception in Python?</h3>
+
+<p>
+An exception is an error that occurs while running a program.
+</p>
+
+
+<h3>2. Which keywords are used for exception handling?</h3>
+
+<p>
+Python uses try, except, finally and raise keywords.
+</p>
+
+
+<h3>3. Is exception handling important?</h3>
+
+<p>
+Yes, it makes programs safer and more reliable.
+</p>
+
+
+
+<div class="page-nav">
+
+<a href="python-file-handling.html" class="btn">
+⬅️ File Handling
+</a>
+
+
+<a href="python-oop.html" class="btn">
+Next: OOP ➡️
+</a>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

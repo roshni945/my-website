@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Tutorial for Beginners | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Complete Python Tutorial for Beginners. Learn Python step by step with easy examples and projects.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9ff;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 46px;
+            background: linear-gradient(90deg, #7b2cbf, #ff4da6);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .hero {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #7b2cbf;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #ff4da6;
+        }
+
+        .toc {
+            background: #f3e8ff;
+            padding: 25px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border-left: 6px solid #7b2cbf;
+        }
+
+        .toc h2 {
+            color: #7b2cbf;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            padding-left: 20px;
+        }
+
+        .tip-box {
+            background: #e8fff2;
+            border-left: 6px solid #2ecc71;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .mistake-box {
+            background: #fff2f2;
+            border-left: 6px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .roadmap {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            margin: 35px 0;
+        }
+
+        .roadmap h2 {
+            color: #7b2cbf;
+            margin-bottom: 15px;
+        }
+
+        .roadmap li {
+            margin: 10px 0;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #7b2cbf;
+            margin-bottom: 12px;
+        }
+
+        @media(max-width:768px) {
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+        }
+
+        .author-info {
+            background: #f8f5ff;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 15px;
+            color: #555;
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="hero">
+
+            <h1>🐍 Complete Python Tutorial</h1>
+
+            <p class="subtitle">
+                Learn Python from Beginner to Advanced with simple explanations,
+                examples and mini projects.
+            </p>
+
+            <a href="python-variables.html" class="btn">
+                Start Learning 🚀
+            </a>
+
+            <div class="author-info">
+                <p>✍️ <b>By Roshni Code Charm</b></p>
+                <p>📅 July 2026 | ⏱️ 10 min read</p>
+            </div>
+
+        </div>
+
+        <div class="toc">
+
+            <h2>📚 Table of Contents</h2>
+
+            <ul>
+
+                <li>Python Variables</li>
+                <li>Python Data Types</li>
+                <li>Python Input</li>
+                <li>Python If Else</li>
+                <li>Python Loops</li>
+                <li>Python Functions</li>
+                <li>Python Lists</li>
+                <li>Python Tuples</li>
+                <li>Python Sets</li>
+                <li>Python Dictionaries</li>
+                <li>Python Strings</li>
+                <li>Python File Handling</li>
+                <li>Python Exception Handling</li>
+                <li>Python OOP</li>
+                <li>Python Modules</li>
+                <li>Python Libraries</li>
+                <li>Python Projects</li>
+                <li>Python Interview Questions</li>
+
+            </ul>
+
+        </div>
+
+        <div class="tip-box">
+
+            <h2>💡 Quick Tip</h2>
+
+            <p>
+                Practice every concept by writing code yourself.
+                Learning Python is easier when you build small projects regularly.
+            </p>
+
+        </div>
+
+        <div class="mistake-box">
+
+            <h2>⚠️ Common Mistakes</h2>
+
+            <ul>
+
+                <li>Skipping basic concepts.</li>
+
+                <li>Copy-pasting code without understanding it.</li>
+
+                <li>Not practicing daily.</li>
+
+                <li>Ignoring error messages.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="roadmap">
+
+            <h2>🗺️ Python Learning Roadmap</h2>
+
+            <ol>
+
+                <li>Variables</li>
+
+                <li>Data Types</li>
+
+                <li>Input Output</li>
+
+                <li>If Else</li>
+
+                <li>Loops</li>
+
+                <li>Functions</li>
+
+                <li>Lists</li>
+
+                <li>Tuples</li>
+
+                <li>Sets</li>
+
+                <li>Dictionaries</li>
+
+                <li>Strings</li>
+
+                <li>OOP</li>
+
+                <li>Projects</li>
+
+            </ol>
+
+        </div>
+
+        <h2 style="text-align:center;color:#7b2cbf;margin:40px 0;">
+            📖 Python Tutorials
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🐍 Python Variables</h3>
+                <p>Learn variables with simple beginner-friendly examples.</p>
+                <a href="python-variables.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📦 Python Data Types</h3>
+                <p>Understand String, Integer, Float, Boolean, List and more.</p>
+                <a href="python-data-types.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>⌨️ Python Input</h3>
+                <p>Take user input using the input() function.</p>
+                <a href="python-input.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>🔀 Python If Else</h3>
+                <p>Learn decision making using if, elif and else.</p>
+                <a href="python-if-else.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>🔁 Python Loops</h3>
+                <p>Master for loops and while loops with examples.</p>
+                <a href="python-loops.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>⚡ Python Functions</h3>
+                <p>Create reusable functions in Python.</p>
+                <a href="python-functions.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📋 Python Lists</h3>
+                <p>Store multiple values using Python Lists.</p>
+                <a href="python-lists.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📦 Python Tuples</h3>
+                <p>Learn immutable collections with Tuples.</p>
+                <a href="python-tuples.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>🧩 Python Sets</h3>
+                <p>Understand unique values using Sets.</p>
+                <a href="python-sets.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📖 Python Dictionaries</h3>
+                <p>Store data using key-value pairs.</p>
+                <a href="python-dictionaries.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>🔤 Python Strings</h3>
+                <p>Learn string methods and operations.</p>
+                <a href="python-strings.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📁 File Handling</h3>
+                <p>Read and write files using Python.</p>
+                <a href="python-file-handling.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Exception Handling</h3>
+                <p>Handle errors using try, except and finally.</p>
+                <a href="python-exception-handling.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>🏗️ Python OOP</h3>
+                <p>Learn Classes, Objects, Inheritance and more.</p>
+                <a href="python-oop.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📦 Python Modules</h3>
+                <p>Reuse code using Python modules.</p>
+                <a href="python-modules.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📚 Python Libraries</h3>
+                <p>Explore popular Python libraries.</p>
+                <a href="python-libraries.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>🚀 Python Projects</h3>
+                <p>Build beginner-friendly Python projects.</p>
+                <a href="python-projects.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>💼 Interview Questions</h3>
+                <p>Practice common Python interview questions.</p>
+                <a href="python-interview-questions.html" class="btn">Read Article</a>
+            </div>
+
+        </div> <!-- cards end -->
+
+        <footer style="text-align:center; margin:50px 0; color:#777;">
+            © 2026 Roshni Code Charm • Happy Coding 💜
+        </footer>
+
+    </div> <!-- container end -->
+
+</body>
+
+</html>
+
+<div class="page-nav">
+    <a href="index.html" class="btn">🏠 Home</a>
+
+    <a href="python-variables.html" class="btn">
+        Next: Python Variables ➜
+    </a>
+</div>

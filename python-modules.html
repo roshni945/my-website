@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Modules for Beginners | Roshni Code Charm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f5ff,#ffe8f4);
+    margin:0;
+    padding:0;
+    line-height:1.8;
+    color:#333;
+}
+
+
+.container{
+    max-width:950px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+
+h1{
+    text-align:center;
+    font-size:42px;
+    background:linear-gradient(90deg,#7b2cbf,#ff4da6);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+
+h2{
+    color:#7b2cbf;
+    border-left:6px solid #ff4da6;
+    padding-left:12px;
+    margin-top:35px;
+}
+
+
+pre{
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+
+.toc{
+    background:#f5f0ff;
+    border-left:6px solid #7b2cbf;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.tip-box{
+    background:#e8fff2;
+    border-left:6px solid #2ecc71;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+}
+
+
+.mistake-box{
+    background:#fff2f2;
+    border-left:6px solid #ff4d4d;
+    padding:20px;
+    border-radius:15px;
+}
+
+
+.content-box{
+    background:white;
+    padding:25px;
+    margin:25px 0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #7b2cbf;
+}
+
+
+.content-box ul li{
+    background:#faf5ff;
+    padding:10px;
+    margin:8px 0;
+    border-radius:10px;
+    list-style-position:inside;
+}
+
+
+.author-info{
+    background:#f8f5ff;
+    padding:15px;
+    text-align:center;
+    border-radius:15px;
+    color:#555;
+}
+
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 25px;
+    background:#7b2cbf;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>📦 Python Modules for Beginners</h1>
+
+
+<div class="toc">
+
+<h3>📚 Table of Contents</h3>
+
+<ul>
+<li>What are Python Modules?</li>
+<li>Why Use Modules?</li>
+<li>Types of Modules</li>
+<li>Importing Modules</li>
+<li>Built-in Modules</li>
+<li>Creating Custom Modules</li>
+<li>Popular Python Modules</li>
+<li>Practice Examples</li>
+<li>FAQ</li>
+</ul>
+
+</div>
+
+
+
+<div class="tip-box">
+
+<h3>💡 Quick Tip</h3>
+
+<p>
+Modules help you reuse code instead of writing the same code again and again.
+</p>
+
+</div>
+
+
+
+<div class="mistake-box">
+
+<h3>⚠️ Common Mistakes</h3>
+
+<ul>
+<li>Using wrong module names.</li>
+<li>Forgetting import statement.</li>
+<li>Installing unnecessary packages.</li>
+</ul>
+
+</div>
+
+
+
+<div class="author-info">
+
+<p>✍️ <b>By Roshni Code Charm</b></p>
+
+<p>📅 July 2026 | ⏱️ 5 min read</p>
+
+</div>
+
+
+
+<div class="content-box">
+
+
+<h2>📦 What are Python Modules?</h2>
+
+<p>
+A module is a file containing Python code such as functions, variables, and classes.
+Modules help organize large programs into smaller reusable parts.
+</p>
+
+
+
+<h2>✨ Why Use Modules?</h2>
+
+<ul>
+<li>Code reusability</li>
+<li>Better program organization</li>
+<li>Easy debugging</li>
+<li>Saves development time</li>
+</ul>
+
+
+
+<h2>🔹 Types of Python Modules</h2>
+
+<ul>
+
+<li>
+<b>Built-in Modules</b> - Modules already available in Python.
+Example: math, random, datetime
+</li>
+
+<li>
+<b>User-defined Modules</b> - Modules created by programmers.
+</li>
+
+<li>
+<b>External Modules</b> - Modules installed using pip.
+</li>
+
+</ul>
+
+
+
+<h2>📥 Importing Modules</h2>
+
+
+<pre>
+import math
+
+print(math.sqrt(25))
+</pre>
+
+
+
+<h2>🔢 Built-in Modules Examples</h2>
+
+
+<h3>Math Module</h3>
+
+<pre>
+import math
+
+print(math.pi)
+print(math.factorial(5))
+</pre>
+
+
+
+<h3>Random Module</h3>
+
+<pre>
+import random
+
+number = random.randint(1,10)
+
+print(number)
+</pre>
+
+
+
+<h3>DateTime Module</h3>
+
+<pre>
+import datetime
+
+today = datetime.datetime.now()
+
+print(today)
+</pre>
+
+
+
+<h2>🛠️ Creating Your Own Module</h2>
+
+
+<p>
+Create a Python file and store your functions inside it.
+Then import that file into another program.
+</p>
+
+
+<pre>
+# mymodule.py
+
+def greet():
+    print("Hello Roshni")
+
+
+# main.py
+
+import mymodule
+
+mymodule.greet()
+</pre>
+
+
+
+<h2>🚀 Popular Python Modules</h2>
+
+
+<ul>
+<li>NumPy - Numerical calculations</li>
+<li>Pandas - Data analysis</li>
+<li>Matplotlib - Data visualization</li>
+<li>Requests - Working with APIs</li>
+<li>TensorFlow - Machine Learning</li>
+</ul>
+
+
+
+<h2>💻 Practice Examples</h2>
+
+<ul>
+<li>Create a calculator module</li>
+<li>Use random module to create games</li>
+<li>Create your own utility module</li>
+<li>Use datetime module for projects</li>
+</ul>
+
+
+
+<h2>❓ Frequently Asked Questions</h2>
+
+
+<h3>1. What is a module in Python?</h3>
+
+<p>
+A module is a Python file containing reusable code.
+</p>
+
+
+<h3>2. Which keyword is used to import modules?</h3>
+
+<p>
+The <b>import</b> keyword is used to import modules.
+</p>
+
+
+<h3>3. Can we create our own modules?</h3>
+
+<p>
+Yes, Python allows developers to create custom modules.
+</p>
+
+
+
+<div class="page-nav">
+
+<a href="python-oop.html" class="btn">
+⬅️ Python OOP
+</a>
+
+
+<a href="python-libraries.html" class="btn">
+Next: Python Libraries ➡️
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>
