@@ -10,12 +10,14 @@
   <meta name="p:domain_verify" content="8ff7f3bf580464df13b34b320acefb68" />
   <title>Roshni Code Charm</title>
 
-  <meta name="description" content="Learn Python, HTML, CSS and coding tips with Roshni Code Charm. Explore beginner-friendly tutorials, Pinterest ideas and web development articles.">
+  <meta name="description"
+    content="Learn Python, HTML, CSS and coding tips with Roshni Code Charm. Explore beginner-friendly tutorials, Pinterest ideas and web development articles.">
 
-<meta name="keywords" content="Python, HTML, CSS, JavaScript, Coding, Programming, Web Development, Pinterest, Roshni Code Charm">
+  <meta name="keywords"
+    content="Python, HTML, CSS, JavaScript, Coding, Programming, Web Development, Pinterest, Roshni Code Charm">
 
-<meta name="author" content="Roshni Code Charm">
-<meta name="robots" content="index, follow">
+  <meta name="author" content="Roshni Code Charm">
+  <meta name="robots" content="index, follow">
 
   <style>
     .main-logo:hover {
@@ -93,10 +95,10 @@
       transform: scale(1.08);
     }
 
-    nav button.active-btn{
-    color:#ff4da6;
-    border-bottom:3px solid #ff4da6;
-}
+    nav button.active-btn {
+      color: #ff4da6;
+      border-bottom: 3px solid #ff4da6;
+    }
 
     /* PAGE SYSTEM */
 
@@ -593,7 +595,11 @@
 
     </div>
 
-
+    <div class="card article-card">
+      <h2>⚡ JavaScript Basics</h2>
+      <p>Learn JavaScript from scratch with simple beginner-friendly examples.</p>
+      <a href="javascript-basics.html" class="btn">Read Article</a>
+    </div>
 
     <!-- CARDS -->
 
@@ -666,53 +672,57 @@
 
   </div>
 
- <!-- ARTICLES PAGE -->
+  <!-- ARTICLES PAGE -->
 
-<div id="articles" class="page">
+  <div id="articles" class="page">
 
-  <h1 style="text-align:center; color:#7b2cbf;">
-    📚 Coding Articles
-  </h1>
+    <h1 style="text-align:center; color:#7b2cbf;">
+      📚 Coding Articles
+    </h1>
 
-  <div class="search-box">
-    <input type="text" id="searchInput"
-      placeholder="🔍 Search articles..."
-      onkeyup="searchArticles()">
-  </div>
-
-  <h2 style="text-align:center;">📂 Categories</h2>
-
-  <div class="categories">
-    <button class="cat-btn" onclick="filterCategory('python')">🐍 Python</button>
-    <button class="cat-btn" onclick="filterCategory('html')">🌐 HTML</button>
-    <button class="cat-btn" onclick="filterCategory('css')">🎨 CSS</button>
-    <button class="cat-btn" onclick="filterCategory('all')">📚 All</button>
-  </div>
-
-  <div class="container">
-
-    <div class="card article-card">
-      <h2>🐍 Python Variables</h2>
-      <p>Learn what Python variables are with simple examples for beginners.</p>
-      <a href="python-variables.html" class="btn">Read Article</a>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="🔍 Search articles..." onkeyup="searchArticles()">
     </div>
 
-    <div class="card article-card">
-      <h2>🌐 HTML Basics</h2>
-      <p>Learn the basic HTML tags every beginner should know.</p>
-      <a href="html-basics.html" class="btn">Read Article</a>
+    <h2 style="text-align:center;">📂 Categories</h2>
+
+    <div class="categories">
+      <button class="cat-btn" onclick="filterCategory('python')">🐍 Python</button>
+      <button class="cat-btn" onclick="filterCategory('html')">🌐 HTML</button>
+      <button class="cat-btn" onclick="filterCategory('css')">🎨 CSS</button>
+      <button class="cat-btn" onclick="filterCategory('all')">📚 All</button>
     </div>
 
-    <div class="card article-card">
-      <h2>🎨 CSS Basics</h2>
-      <p>Learn how CSS makes websites beautiful and responsive.</p>
-      <a href="css-basics.html" class="btn">Read Article</a>
+    <div class="container">
+
+      <div class="card article-card">
+        <h2>🐍 Python Variables</h2>
+        <p>Learn what Python variables are with simple examples for beginners.</p>
+        <a href="python-variables.html" class="btn">Read Article</a>
+      </div>
+
+      <div class="card article-card">
+        <h2>🌐 HTML Basics</h2>
+        <p>Learn the basic HTML tags every beginner should know.</p>
+        <a href="html-basics.html" class="btn">Read Article</a>
+      </div>
+
+      <div class="card article-card">
+        <h2>🎨 CSS Basics</h2>
+        <p>Learn how CSS makes websites beautiful and responsive.</p>
+        <a href="css-basics.html" class="btn">Read Article</a>
+      </div>
+
+      <div class="card article-card">
+        <h2>⚡ JavaScript Basics</h2>
+        <p>Learn JavaScript from scratch with simple beginner-friendly examples.</p>
+        <a href="javascript-basics.html" class="btn">Read Article</a>
+      </div>
+
     </div>
 
   </div>
-
-</div>
-<!-- ARTICLES PAGE END -->
+  <!-- ARTICLES PAGE END -->
 
   </div> <!-- PINS PAGE -->
 
@@ -950,110 +960,60 @@
 
 
       function showPage(page) {
-  document.querySelectorAll(".page").forEach(function (p) {
-    p.classList.remove("active");
-  });
+        document.querySelectorAll(".page").forEach(function (p) {
+          p.classList.remove("active");
+        });
 
-  document.getElementById(page).classList.add("active");
-  window.scrollTo(0, 0);
-}
+        document.getElementById(page).classList.add("active");
+        window.scrollTo(0, 0);
+      }
 
-// IMAGE POPUP
-function openImg(src) {
-  document.getElementById("popup").style.display = "flex";
-  document.getElementById("popupImg").src = src;
-}
+      // IMAGE POPUP
+      function openImg(src) {
+        document.getElementById("popup").style.display = "flex";
+        document.getElementById("popupImg").src = src;
+      }
 
-function closeImg() {
-  document.getElementById("popup").style.display = "none";
-}
+      function closeImg() {
+        document.getElementById("popup").style.display = "none";
+      }
 
-// SEARCH ARTICLES
-function searchArticles() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.querySelectorAll(".article-card");
+      // SEARCH ARTICLES
+      function searchArticles() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let cards = document.querySelectorAll(".article-card");
 
-  cards.forEach(function (card) {
-    let text = card.innerText.toLowerCase();
+        cards.forEach(function (card) {
+          let text = card.innerText.toLowerCase();
 
-    if (text.includes(input)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-}
+          if (text.includes(input)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
 
-// FILTER ARTICLES
-function filterCategory(category) {
-  let cards = document.querySelectorAll(".article-card");
+      // FILTER ARTICLES
+      function filterCategory(category) {
+        let cards = document.querySelectorAll(".article-card");
 
-  cards.forEach(function (card) {
-    let text = card.innerText.toLowerCase();
+        cards.forEach(function (card) {
+          let text = card.innerText.toLowerCase();
 
-    if (category === "all") {
-      card.style.display = "block";
-    } else if (text.includes(category)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-}
+          if (category === "all") {
+            card.style.display = "block";
+          } else if (text.includes(category)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
 
-      
+
     </script>
 
 </body>
 
-</html>function showPage(page) {
-  document.querySelectorAll(".page").forEach(function (p) {
-    p.classList.remove("active");
-  });
-
-  document.getElementById(page).classList.add("active");
-  window.scrollTo(0, 0);
-}
-
-// IMAGE POPUP
-function openImg(src) {
-  document.getElementById("popup").style.display = "flex";
-  document.getElementById("popupImg").src = src;
-}
-
-function closeImg() {
-  document.getElementById("popup").style.display = "none";
-}
-
-// SEARCH ARTICLES
-function searchArticles() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.querySelectorAll(".article-card");
-
-  cards.forEach(function (card) {
-    let text = card.innerText.toLowerCase();
-
-    if (text.includes(input)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-}
-
-// FILTER ARTICLES
-function filterCategory(category) {
-  let cards = document.querySelectorAll(".article-card");
-
-  cards.forEach(function (card) {
-    let text = card.innerText.toLowerCase();
-
-    if (category === "all") {
-      card.style.display = "block";
-    } else if (text.includes(category)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-}
+</html>
