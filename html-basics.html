@@ -137,6 +137,19 @@
             border-radius: 10px;
             margin: 10px 0;
         }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
     </style>
 
 </head>
@@ -274,12 +287,20 @@
 
         </div>
 
-        <a href="index.html" class="btn">
-            ⬅️ Back to Home
-        </a>
+        <div class="page-nav">
+
+            <a href="python-variables.html" class="btn">
+                ⬅️ Python Variables
+            </a>
+
+            <a href="css-basics.html" class="btn">
+                Next: CSS Basics ➡️
+            </a>
+
+        </div>
 
     </div>
-
+</body>
 </body>
 
 </html>

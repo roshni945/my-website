@@ -1,69 +1,79 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JavaScript Basics | Roshni Code Charm</title>
+    <title>JavaScript Basics | Roshni Code Charm</title>
 
-<meta name="description"
-content="Learn JavaScript Basics with simple examples for beginners.">
+    <meta name="description" content="Learn JavaScript Basics with simple examples for beginners.">
 
-<style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8ff;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+        }
 
-body{
-font-family:Arial,sans-serif;
-background:#f8f8ff;
-max-width:900px;
-margin:auto;
-padding:30px;
-line-height:1.8;
-}
+        h1 {
+            color: #7b2cbf;
+        }
 
-h1{
-color:#7b2cbf;
-}
+        h2 {
+            color: #ff4da6;
+            margin-top: 35px;
+        }
 
-h2{
-color:#ff4da6;
-margin-top:35px;
-}
+        pre {
+            background: #222;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            overflow: auto;
+        }
 
-pre{
-background:#222;
-color:white;
-padding:15px;
-border-radius:10px;
-overflow:auto;
-}
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #7b2cbf;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 30px;
+        }
 
-.btn{
-display:inline-block;
-padding:12px 25px;
-background:#7b2cbf;
-color:white;
-text-decoration:none;
-border-radius:30px;
-margin-top:30px;
-}
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+        }
 
-</style>
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
 
-<h1>📜 JavaScript Basics</h1>
+    <h1>📜 JavaScript Basics</h1>
 
-<p>
-JavaScript is a programming language used to make websites interactive.
-It works together with HTML and CSS.
-</p>
+    <p>
+        JavaScript is a programming language used to make websites interactive.
+        It works together with HTML and CSS.
+    </p>
 
-<h2>Example</h2>
+    <h2>Example</h2>
 
-<pre>
+    <pre>
 &lt;script&gt;
 
 alert("Hello World!");
@@ -71,25 +81,34 @@ alert("Hello World!");
 &lt;/script&gt;
 </pre>
 
-<h2>What JavaScript Can Do</h2>
+    <h2>What JavaScript Can Do</h2>
 
-<ul>
+    <ul>
 
-<li>Change website content</li>
+        <li>Change website content</li>
 
-<li>Create animations</li>
+        <li>Create animations</li>
 
-<li>Validate forms</li>
+        <li>Validate forms</li>
 
-<li>Build games</li>
+        <li>Build games</li>
 
-<li>Create interactive websites</li>
+        <li>Create interactive websites</li>
 
-</ul>
+    </ul>
 
-<a href="index.html" class="btn">
-⬅ Back to Home
-</a>
+    <div class="page-nav">
+
+        <a href="css-basics.html" class="btn">
+            ⬅️ CSS Basics
+        </a>
+
+        <a href="index.html" class="btn">
+            🏠 Home
+        </a>
+
+    </div>
 
 </body>
+
 </html>

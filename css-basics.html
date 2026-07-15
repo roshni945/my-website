@@ -1,109 +1,121 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CSS Basics for Beginners | Roshni Code Charm</title>
+    <title>CSS Basics for Beginners | Roshni Code Charm</title>
 
-<style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9ff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
 
-body{
-    font-family: Arial, sans-serif;
-    background:#f8f9ff;
-    margin:0;
-    padding:0;
-    line-height:1.8;
-}
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+        }
 
-.container{
-    max-width:900px;
-    margin:40px auto;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 0 15px rgba(0,0,0,.1);
-}
+        h1 {
+            color: #7b2cbf;
+        }
 
-h1{
-    color:#7b2cbf;
-}
+        h2 {
+            color: #ff4da6;
+            margin-top: 30px;
+        }
 
-h2{
-    color:#ff4da6;
-    margin-top:30px;
-}
+        pre {
+            background: #222;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            overflow: auto;
+        }
 
-pre{
-    background:#222;
-    color:white;
-    padding:15px;
-    border-radius:10px;
-    overflow:auto;
-}
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #7b2cbf;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+        }
 
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:12px 25px;
-    background:#7b2cbf;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-}
+        .toc {
+            background: #f3e8ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #7b2cbf;
+        }
 
-.toc{
-    background:#f3e8ff;
-    padding:20px;
-    border-radius:15px;
-    margin:25px 0;
-    border-left:5px solid #7b2cbf;
-}
+        .toc h3 {
+            color: #7b2cbf;
+        }
 
-.toc h3{
-    color:#7b2cbf;
-}
+        .toc ul {
+            margin: 0;
+            padding-left: 20px;
+        }
 
-.toc ul{
-    margin:0;
-    padding-left:20px;
-}
+        .article-info {
+            background: #f3e8ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #555;
+        }
 
-.article-info{
-    background:#f3e8ff;
-    padding:15px;
-    border-radius:10px;
-    margin:20px 0;
-    color:#555;
-}
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+        }
 
-</style>
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>🎨 CSS Basics for Beginners</h1>
+        <h1>🎨 CSS Basics for Beginners</h1>
 
-<p>
-CSS stands for Cascading Style Sheets. It is used to make websites beautiful by adding colors, layouts, fonts, and designs.
-</p>
-
-
-<h2>What is CSS?</h2>
-
-<p>
-CSS controls the appearance of HTML elements. With CSS, we can change the background, text color, size, spacing, and overall design of a webpage.
-</p>
+        <p>
+            CSS stands for Cascading Style Sheets. It is used to make websites beautiful by adding colors, layouts,
+            fonts, and designs.
+        </p>
 
 
-<h2>Basic CSS Example</h2>
+        <h2>What is CSS?</h2>
 
-<pre>
+        <p>
+            CSS controls the appearance of HTML elements. With CSS, we can change the background, text color, size,
+            spacing, and overall design of a webpage.
+        </p>
+
+
+        <h2>Basic CSS Example</h2>
+
+        <pre>
 h1 {
   color: purple;
   font-size: 40px;
@@ -111,45 +123,54 @@ h1 {
 </pre>
 
 
-<h2>Types of CSS</h2>
+        <h2>Types of CSS</h2>
 
-<ul>
-<li><b>Inline CSS</b> - CSS written inside an HTML tag.</li>
-<li><b>Internal CSS</b> - CSS written inside the &lt;style&gt; tag.</li>
-<li><b>External CSS</b> - CSS written in a separate .css file.</li>
-</ul>
-
-
-<h2>Common CSS Properties</h2>
-
-<ul>
-<li>color - Changes text color</li>
-<li>background-color - Adds background color</li>
-<li>font-size - Changes text size</li>
-<li>margin - Adds space outside elements</li>
-<li>padding - Adds space inside elements</li>
-</ul>
+        <ul>
+            <li><b>Inline CSS</b> - CSS written inside an HTML tag.</li>
+            <li><b>Internal CSS</b> - CSS written inside the &lt;style&gt; tag.</li>
+            <li><b>External CSS</b> - CSS written in a separate .css file.</li>
+        </ul>
 
 
-<h2>Why Learn CSS?</h2>
+        <h2>Common CSS Properties</h2>
 
-<p>
-CSS helps developers create attractive, responsive, and user-friendly websites.
-</p>
-
-
-<h2>Conclusion</h2>
-
-<p>
-CSS is an important skill for every web developer. After learning HTML, CSS is the next step to create beautiful websites.
-</p>
+        <ul>
+            <li>color - Changes text color</li>
+            <li>background-color - Adds background color</li>
+            <li>font-size - Changes text size</li>
+            <li>margin - Adds space outside elements</li>
+            <li>padding - Adds space inside elements</li>
+        </ul>
 
 
-<a href="index.html" class="btn">
-⬅️ Back to Home
-</a>
+        <h2>Why Learn CSS?</h2>
 
-</div>
+        <p>
+            CSS helps developers create attractive, responsive, and user-friendly websites.
+        </p>
+
+
+        <h2>Conclusion</h2>
+
+        <p>
+            CSS is an important skill for every web developer. After learning HTML, CSS is the next step to create
+            beautiful websites.
+        </p>
+
+
+        <div class="page-nav">
+
+            <a href="html-basics.html" class="btn">
+                ⬅️ HTML Basics
+            </a>
+
+            <a href="javascript-basics.html" class="btn">
+                Next: JavaScript ➡️
+            </a>
+
+        </div>
+
+    </div>
 
 </body>
 
