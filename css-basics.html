@@ -13,8 +13,8 @@
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #f8f9ff;
+            font-family: cursive;
+            background: #f3e8ff;
             margin: 0;
             padding: 0;
             line-height: 1.8;
@@ -31,7 +31,7 @@
 
         h1 {
             text-align: center;
-            font-size: 42px;
+            font-size: 50px;
             background: linear-gradient(90deg, #7b2cbf, #ff4da6);
             background-clip: text;
             -webkit-background-clip: text;
@@ -45,11 +45,13 @@
         }
 
         pre {
-            background: #222;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            overflow: auto;
+            background: #1e1e2f;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 15px;
+            overflow-x: auto;
+            border-left: 5px solid #ff4da6;
+            font-size: 15px;
         }
 
         .btn {
@@ -131,6 +133,14 @@
             border-left: 5px solid #7b2cbf;
         }
 
+        .content-box ul li {
+            background: #faf5ff;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 10px;
+            list-style-position: inside;
+        }
+
 
         .author-info {
             background: #f8f5ff;
@@ -147,6 +157,29 @@
                 flex-direction: column;
             }
 
+        }
+
+        .content-box h2 {
+            border-left: 5px solid #ff4da6;
+            padding-left: 12px;
+        }
+
+        .content-box ul li {
+            margin: 10px 0;
+        }
+
+        .content-box p {
+            font-size: 17px;
+            color: #444;
+        }
+
+        .share-box {
+            background: #fff0f8;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border-left: 5px solid #ff4da6;
         }
     </style>
 
@@ -266,6 +299,32 @@ h1 {
                 CSS helps developers create attractive, responsive, and user-friendly websites.
             </p>
 
+            <h2>🎯 CSS Selectors</h2>
+
+            <p>
+                CSS selectors are used to select HTML elements and apply styles.
+            </p>
+
+            <ul>
+                <li>Element Selector - targets HTML tags</li>
+                <li>Class Selector - uses .class name</li>
+                <li>ID Selector - uses #id name</li>
+            </ul>
+
+
+            <h2>📦 CSS Box Model</h2>
+
+            <p>
+                Every HTML element is a box made of content, padding, border and margin.
+            </p>
+
+
+            <h2>📱 Responsive Design</h2>
+
+            <p>
+                Responsive design makes websites look good on mobile, tablet and desktop devices.
+            </p>
+
 
             <h2>Conclusion</h2>
 
@@ -274,6 +333,16 @@ h1 {
                 create
                 beautiful websites.
             </p>
+
+            <div class="share-box">
+
+                <h3>🚀 Found this helpful?</h3>
+
+                <p>
+                    Share this CSS guide with other beginners.
+                </p>
+
+            </div>
 
 
             <div class="page-nav">

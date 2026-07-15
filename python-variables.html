@@ -12,7 +12,7 @@
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: cursive;
             background: linear-gradient(135deg, #f8f5ff, #ffe8f4);
             margin: 0;
             padding: 0;
@@ -110,6 +110,47 @@
             border-radius: 15px;
             margin: 25px 0;
         }
+
+        .author-info {
+            background: #f8f5ff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 25px 0;
+            color: #555;
+        }
+
+        .content-box {
+            background: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+            border-left: 5px solid #7b2cbf;
+        }
+
+        .content-box ul li {
+            background: #faf5ff;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 10px;
+            list-style-position: inside;
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        @media(max-width:600px) {
+
+            .page-nav {
+                flex-direction: column;
+            }
+
+        }
     </style>
 
 </head>
@@ -166,105 +207,135 @@
 
             </div>
 
-            <p>✍️ By Roshni Code Charm</p>
-            <p>📅 July 2026 | ⏱️ 5 min read</p>
-        </div>
+            <div class="author-info">
+
+                <p>✍️ <b>By Roshni Code Charm</b></p>
+
+                <p>📅 July 2026 | ⏱️ 5 min read</p>
+
+            </div>
 
 
 
-        <p>
-            A Python variable is a name used to store data. Variables make it easy to save and use information in a
-            Python program.
-        </p>
+            <p>
+                A Python variable is a name used to store data. Variables make it easy to save and use information
+                in a
+                Python program.
+            </p>
 
-        <h2>Example</h2>
+            <h2>Example</h2>
 
-        <pre>
+            <pre>
 name = "Shreya"
 age = 18
 </pre>
 
-        <h2>Rules for Naming Variables</h2>
+            <h2>Rules for Naming Variables</h2>
 
-        <ul>
-            <li>A variable name cannot start with a number.</li>
-            <li>Spaces are not allowed in variable names.</li>
-            <li>Python is case-sensitive.</li>
-            <li>Use meaningful variable names.</li>
-        </ul>
+            <ul>
+                <li>A variable name cannot start with a number.</li>
+                <li>Spaces are not allowed in variable names.</li>
+                <li>Python is case-sensitive.</li>
+                <li>Use meaningful variable names.</li>
+            </ul>
 
-        <h2>Real-Life Example</h2>
+            <h2>Real-Life Example</h2>
 
-        <p>
-            Think of a variable as a labeled box.
-        </p>
+            <p>
+                Think of a variable as a labeled box.
+            </p>
 
-        <ul>
-            <li><strong>Box Label</strong> → Variable Name</li>
-            <li><strong>Item Inside the Box</strong> → Value</li>
-        </ul>
+            <ul>
+                <li><strong>Box Label</strong> → Variable Name</li>
+                <li><strong>Item Inside the Box</strong> → Value</li>
+            </ul>
 
-        <p>
-            Example:
-        </p>
+            <p>
+                Example:
+            </p>
 
-        <pre>
+            <pre>
 student_name = "Shreya"
 student_age = 18
 </pre>
 
-        <h2>Why Are Variables Important?</h2>
+            <h2>Why Are Variables Important?</h2>
 
-        <p>
-            Variables help programmers store, update, and reuse data throughout a program. They are one of the most
-            important concepts in Python.
-        </p>
+            <p>
+                Variables help programmers store, update, and reuse data throughout a program. They are one of the
+                most
+                important concepts in Python.
+            </p>
 
-        <h2>Conclusion</h2>
+            <h2>📦 Types of Python Variables</h2>
 
-        <p>
-            Variables are one of the first concepts every Python beginner should learn. Practice creating variables
-            with
-            different data types to improve your programming skills.
-        </p>
+            <ul>
+                <li><b>String Variable</b> - Stores text values</li>
+                <li><b>Integer Variable</b> - Stores whole numbers</li>
+                <li><b>Float Variable</b> - Stores decimal numbers</li>
+                <li><b>Boolean Variable</b> - Stores True or False values</li>
+            </ul>
 
-        <h2>❓ Frequently Asked Questions (FAQ)</h2>
 
-        <h3>1. What is a Python variable?</h3>
-        <p>A Python variable is a name used to store data in a program.</p>
+            <h2>🚀 Practice Examples</h2>
 
-        <h3>2. Can a variable name start with a number?</h3>
-        <p>No. Variable names cannot start with numbers.</p>
+            <pre>
+name = "Roshni"
+age = 18
+height = 5.3
+is_student = True
+</pre>
 
-        <h3>3. Is Python case-sensitive?</h3>
-        <p>Yes. <code>name</code> and <code>Name</code> are different variables.</p>
+            <h2>Conclusion</h2>
 
-        <h2>📚 Related Articles</h2>
+            <p>
+                Variables are one of the first concepts every Python beginner should learn. Practice creating
+                variables
+                with
+                different data types to improve your programming skills.
+            </p>
 
-        <div class="related-articles">
+            <h2>❓ Frequently Asked Questions (FAQ)</h2>
 
-            <a href="html-basics.html">🌐 HTML Basics</a><br><br>
+            <h3>1. What is a Python variable?</h3>
+            <p>A Python variable is a name used to store data in a program.</p>
 
-            <a href="css-basics.html">🎨 CSS Basics</a>
+            <h3>2. Can a variable name start with a number?</h3>
+            <p>No. Variable names cannot start with numbers.</p>
+
+            <h3>3. Is Python case-sensitive?</h3>
+            <p>Yes. <code>name</code> and <code>Name</code> are different variables.</p>
+
+            <h2>📚 Related Articles</h2>
+
+            <div class="related-articles">
+
+                <a href="html-basics.html">🌐 HTML Basics</a><br><br>
+
+                <a href="css-basics.html">🎨 CSS Basics</a>
+                <br><br>
+
+                <a href="javascript-basics.html">
+                    ⚡ JavaScript Basics
+                </a>
+
+            </div>
+
+            <div class="page-nav">
+
+                <a href="index.html" class="btn">
+                    🏠 Home
+                </a>
+
+                <a href="python-data-types.html" class="btn">
+                    Next: Python Data Types ➡️
+                </a>
+            </div>
+
+
+
 
         </div>
-
-        <div class="page-nav">
-
-            <a href="index.html" class="btn">
-                🏠 Home
-            </a>
-
-            <a href="html-basics.html" class="btn">
-                Next: HTML Basics ➡️
-            </a>
-
-        </div>
-
-
-
-
-    </div>
 
 </body>
 
