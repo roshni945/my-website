@@ -1,0 +1,3882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        JavaScript Fetch API Tutorial | Roshni Code Charm
+    </title>
+
+
+    <meta name="description"
+        content="Learn JavaScript Fetch API with beginner-friendly examples. Understand API, fetch(), HTTP requests, Promises, JSON handling and asynchronous data fetching.">
+
+
+    <meta name="keywords"
+        content="JavaScript Fetch API, Fetch API Tutorial, JavaScript API, HTTP Requests, JSON, Async JavaScript">
+
+
+    <meta name="author" content="Roshni Code Charm">
+
+
+    <meta name="robots" content="index, follow">
+
+
+    <meta name="theme-color" content="#7b2cbf">
+
+
+
+    <link rel="canonical" href="https://roshni945.github.io/my-website/javascript-fetch-api.html">
+
+
+
+    <!-- Open Graph -->
+
+
+    <meta property="og:title" content="JavaScript Fetch API Tutorial">
+
+
+    <meta property="og:description"
+        content="Learn Fetch API in JavaScript with easy examples and practical explanations.">
+
+
+    <meta property="og:type" content="article">
+
+
+    <meta property="og:image" content="images/javascript-fetch-api.png">
+
+
+    <meta property="og:url" content="https://roshni945.github.io/my-website/javascript-fetch-api.html">
+
+
+
+    <!-- Twitter -->
+
+
+    <meta name="twitter:card" content="summary_large_image">
+
+
+    <meta name="twitter:title" content="JavaScript Fetch API Tutorial">
+
+
+    <meta name="twitter:description" content="Master JavaScript Fetch API with beginner-friendly examples.">
+
+
+    <meta name="twitter:image" content="images/javascript-fetch-api.png">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+    <style>
+        /* ===========================
+   Global CSS
+=========================== */
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family: Poppins, sans-serif;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+
+        }
+
+
+
+        .container {
+
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+        }
+
+
+
+        h1 {
+
+            color: #7b2cbf;
+
+        }
+
+
+
+        h2 {
+
+            color: #ff4da6;
+            margin-top: 35px;
+
+        }
+
+
+
+        h3 {
+
+            color: #7b2cbf;
+
+        }
+
+
+
+        /* ===========================
+   Breadcrumb
+=========================== */
+
+
+        .breadcrumb {
+
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+
+        }
+
+
+
+        .breadcrumb a {
+
+            color: #7b2cbf;
+            text-decoration: none;
+
+        }
+
+
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+
+        /* ===========================
+   Article Info
+=========================== */
+
+
+        .article-info {
+
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+
+        }
+
+
+
+        .left-column,
+        .right-column {
+
+            flex: 1;
+
+        }
+
+
+
+        /* ===========================
+   Table Of Contents
+=========================== */
+
+
+        .toc {
+
+            background: #f3e8ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+
+        }
+
+
+
+        .toc ul {
+
+            list-style: none;
+            padding: 0;
+
+        }
+
+
+
+        .toc li {
+
+            margin: 10px 0;
+
+        }
+
+
+
+        .toc a {
+
+            text-decoration: none;
+            color: #444;
+
+        }
+
+
+
+        .toc a:hover {
+
+            color: #7b2cbf;
+            padding-left: 6px;
+
+        }
+
+
+
+        /* ===========================
+   Tip Box
+=========================== */
+
+
+        .tip-box {
+
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+
+        }
+
+
+
+        /* ===========================
+   Mistake Box
+=========================== */
+
+
+        .mistake-box {
+
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+
+
+        /* ===========================
+   Author Info
+=========================== */
+
+
+        .author-info {
+
+            background: beige;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+            margin: 30px 0;
+
+        }
+
+
+
+        .post-meta {
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: #faf5ff;
+            padding: 15px;
+            border-radius: 10px;
+
+        }
+
+
+
+        /* ===========================
+   Introduction
+=========================== */
+
+
+        .intro-box {
+
+            background: #efcbf4;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+
+        }
+
+
+
+        .intro {
+
+            font-size: 19px;
+
+        }
+
+
+
+        /* ===========================
+   Content Box
+=========================== */
+
+
+        .content-box {
+
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+
+        }
+
+
+
+        /* ===========================
+   Responsive
+=========================== */
+
+
+        @media(max-width:768px) {
+
+
+            .article-info {
+
+                flex-direction: column;
+
+            }
+
+
+            .container {
+
+                padding: 22px;
+
+            }
+
+
+            body {
+
+                padding: 18px;
+
+            }
+
+
+        }
+
+        /* ===========================
+   Previous Next Navigation
+=========================== */
+
+        .navigation-box {
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+
+        .navigation-box a {
+
+            background: #7b2cbf;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: .3s;
+
+        }
+
+
+        .navigation-box a:hover {
+
+            background: #ff4da6;
+            transform: translateY(-5px);
+
+        }
+
+
+
+        @media(max-width:768px) {
+
+            .navigation-box {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+        /* ===========================
+   Related Articles Box
+=========================== */
+
+
+        .related-articles {
+
+            margin: 40px auto;
+            padding: 25px;
+            max-width: 900px;
+            background: #fff7fb;
+            border-radius: 15px;
+            border: 2px solid #f3c4dd;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+
+        .related-articles h2 {
+
+            text-align: center;
+            color: #c2185b;
+            font-size: 28px;
+
+        }
+
+
+
+        .related-articles>p {
+
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 25px;
+
+        }
+
+
+
+
+        .article-box {
+
+            background: white;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid #e91e63;
+            transition: 0.3s;
+
+        }
+
+
+
+        .article-box:hover {
+
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+        }
+
+
+
+        .article-box h3 {
+
+            color: #6a1b9a;
+            margin-bottom: 8px;
+
+        }
+
+
+
+        .article-box p {
+
+            color: #444;
+            line-height: 1.6;
+
+        }
+    </style>
+
+<body>
+
+
+    <div class="container">
+
+
+
+        <!-- ===========================
+     Breadcrumb
+=========================== -->
+
+
+        <nav class="breadcrumb">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <span>›</span>
+
+
+            <a href="javascript.html">
+                JavaScript
+            </a>
+
+
+            <span>›</span>
+
+
+            <span>
+                Fetch API
+            </span>
+
+
+        </nav>
+
+
+
+
+
+
+        <h1>
+            🌐 JavaScript Fetch API
+        </h1>
+
+
+
+
+
+
+
+        <!-- ===========================
+     Article Info
+=========================== -->
+
+
+        <div class="article-info">
+
+
+            <div class="left-column">
+
+
+                <div class="toc">
+
+
+                    <h3>
+                        📚 Table of Contents
+                    </h3>
+
+
+
+                    <ul>
+
+
+                        <li>
+                            <a href="#what-is-fetch">
+                                📖 What is Fetch API?
+                            </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#api">
+                                🌐 What is API?
+                            </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#how-fetch-works">
+                                ⚙️ How Fetch API Works
+                            </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#syntax">
+                                📝 Fetch Syntax
+                            </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#example">
+                                🚀 First Fetch Example
+                            </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#response">
+                                📦 Response Object
+                            </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#summary">
+                                📚 Summary
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="right-column">
+
+
+                <div class="tip-box">
+
+
+                    <h3>
+                        💡 Quick Tip
+                    </h3>
+
+
+                    <p>
+
+                        Fetch API always returns a Promise.
+                        Use <b>then()</b>, <b>catch()</b>, or
+                        <b>async/await</b> to handle the response.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="mistake-box">
+
+
+                    <h3>
+                        ⚠️ Common Mistakes
+                    </h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            Forgetting to use response.json()
+                        </li>
+
+
+                        <li>
+                            Not handling errors
+                        </li>
+
+
+                        <li>
+                            Using wrong API URL
+                        </li>
+
+
+                        <li>
+                            Ignoring asynchronous behaviour
+                        </li>
+
+
+                        <li>
+                            Trying to access data before loading
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- ===========================
+     Author Info
+=========================== -->
+
+
+        <div class="author-info">
+
+
+            <p>
+
+                ✍️ <b>By Roshni Code Charm</b>
+
+            </p>
+
+
+
+            <p>
+
+                📅 July 2026 | ⏱️ 15 min read
+
+            </p>
+
+
+
+
+            <div class="post-meta">
+
+
+                <span>
+                    📅 Last Updated: July 2026
+                </span>
+
+
+
+                <span>
+                    🏷️ JavaScript, Fetch API, API, Beginners
+                </span>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- ===========================
+     Introduction
+=========================== -->
+
+
+        <div class="intro-box">
+
+
+            <h2>
+                📖 Introduction
+            </h2>
+
+
+
+            <p class="intro">
+
+
+                The Fetch API is one of the most important features of modern JavaScript.
+                It allows developers to communicate with servers, fetch data from APIs,
+                and create dynamic web applications without refreshing the page.
+
+
+            </p>
+
+
+        </div>
+
+        <div class="content-box">
+
+            <!-- ===========================
+     What is Fetch API?
+=========================== -->
+
+            <section id="what-is-fetch">
+
+
+                <h2>📖 What is Fetch API?</h2>
+
+
+                <p>
+
+                    The <b>Fetch API</b> is a modern JavaScript feature that is used to
+                    send and receive data from a server. It allows websites to communicate
+                    with external services and APIs.
+
+                </p>
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        The Fetch API provides a JavaScript method called
+                        <code>fetch()</code> that is used to make HTTP requests and handle
+                        responses asynchronously.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        Fetch API was introduced in modern browsers to replace the older
+                        <code>XMLHttpRequest</code> method. It provides cleaner and simpler
+                        syntax.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>⭐ Why Use Fetch API?</h3>
+
+
+                <div class="important-box">
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ Get data from web servers.
+                        </li>
+
+
+                        <li>
+                            ✅ Send user data to servers.
+                        </li>
+
+
+                        <li>
+                            ✅ Create dynamic websites.
+                        </li>
+
+
+                        <li>
+                            ✅ Build real-world applications.
+                        </li>
+
+
+                        <li>
+                            ✅ Work with REST APIs.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     What is API?
+=========================== -->
+
+            <section id="api">
+
+
+                <h2>🌐 What is API?</h2>
+
+
+                <p>
+
+                    API stands for <b>Application Programming Interface</b>.
+                    It allows two different applications to communicate and exchange data.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        An API is a bridge that allows a client application to request data
+                        from a server and receive a response.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>🌍 Real-Life Example</h3>
+
+
+                <div class="real-life-box">
+
+
+                    <p>
+
+                        Imagine a restaurant:
+
+                    </p>
+
+
+                    <ul>
+
+
+                        <li>
+                            👤 Customer → Client
+                        </li>
+
+
+                        <li>
+                            📝 Waiter → API
+                        </li>
+
+
+                        <li>
+                            👨‍🍳 Kitchen → Server
+                        </li>
+
+
+                        <li>
+                            🍽️ Food → Response Data
+                        </li>
+
+
+                    </ul>
+
+
+                    <p>
+
+                        The waiter connects the customer and kitchen just like an API connects
+                        a website and server.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <h3>📊 Client and Server Communication</h3>
+
+
+                <div class="example-box">
+
+
+                    <pre><code>
+
+
+Client (Browser)
+
+        |
+
+        |
+
+        ↓
+
+
+       API Request
+
+
+        |
+
+        |
+
+        ↓
+
+
+Server
+
+
+        |
+
+        |
+
+        ↓
+
+
+API Response
+
+
+        |
+
+        |
+
+        ↓
+
+
+Client
+
+
+</code></pre>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     How Fetch API Works
+=========================== -->
+
+            <section id="how-fetch-works">
+
+
+                <h2>⚙️ How Fetch API Works</h2>
+
+
+                <p>
+
+                    When we use the <code>fetch()</code> method, JavaScript sends a request
+                    to the server. The server processes the request and returns data.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>
+                        Fetch API Working Process
+                    </h3>
+
+
+                    <pre><code>
+
+
+Step 1:
+
+User opens website
+
+
+        ↓
+
+
+Step 2:
+
+JavaScript calls fetch()
+
+
+        ↓
+
+
+Step 3:
+
+Request goes to server
+
+
+        ↓
+
+
+Step 4:
+
+Server sends response
+
+
+        ↓
+
+
+Step 5:
+
+JavaScript receives data
+
+
+        ↓
+
+
+Step 6:
+
+Data displayed on webpage
+
+
+
+</code></pre>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <h3>🚀 Simple Fetch Example</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            Basic fetch()
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+
+                    <pre><code>
+
+
+fetch("https://jsonplaceholder.typicode.com/users")
+
+
+.then(response =&gt; {
+
+
+return response.json();
+
+
+})
+
+
+.then(data =&gt; {
+
+
+console.log(data);
+
+
+})
+
+
+.catch(error =&gt; {
+
+
+console.log(error);
+
+
+});
+
+
+
+</code></pre>
+
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            User data received from API.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>
+                        ⭐ Key Points
+                    </h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ Fetch API is used for server communication.
+                        </li>
+
+
+                        <li>
+                            ✅ API works as a bridge between client and server.
+                        </li>
+
+
+                        <li>
+                            ✅ fetch() returns a Promise.
+                        </li>
+
+
+                        <li>
+                            ✅ Response data is usually received in JSON format.
+                        </li>
+
+
+                        <li>
+                            ✅ Fetch API works asynchronously.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     Fetch Syntax
+=========================== -->
+
+            <section id="syntax">
+
+
+                <h2>📝 Fetch API Syntax</h2>
+
+
+                <p>
+
+                    The <code>fetch()</code> method is used to create a network request.
+                    It takes a URL as an argument and returns a Promise.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        The <code>fetch()</code> function returns a Promise that contains the
+                        response received from the server.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>📝 Basic Syntax</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            fetch() Syntax
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+fetch("URL")
+
+.then(response =&gt; {
+
+
+    return response;
+
+
+})
+
+
+.then(data =&gt; {
+
+
+    console.log(data);
+
+
+})
+
+
+.catch(error =&gt; {
+
+
+    console.log(error);
+
+
+});
+
+
+
+</code></pre>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>🔍 Syntax Explanation</h3>
+
+
+                <div class="example-box">
+
+
+                    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                        <tr>
+
+                            <th>Part</th>
+
+                            <th>Purpose</th>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>fetch()</td>
+
+                            <td>Sends request to server</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>then()</td>
+
+                            <td>Handles successful response</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>catch()</td>
+
+                            <td>Handles errors</td>
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Promise Handling
+=========================== -->
+
+            <section id="promise-handling">
+
+
+                <h2>⚡ Fetch API with Promise</h2>
+
+
+                <p>
+
+                    Fetch API uses Promises to handle asynchronous operations.
+                    A Promise represents a future result of an operation.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Promise States</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ⏳ Pending - Operation is running
+                        </li>
+
+
+                        <li>
+                            ✅ Fulfilled - Operation completed successfully
+                        </li>
+
+
+                        <li>
+                            ❌ Rejected - Operation failed
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>Example: Promise Handling</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            Fetch Promise Example
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+let request = fetch(
+"https://jsonplaceholder.typicode.com/posts"
+);
+
+
+
+request.then(function(response){
+
+
+console.log(response);
+
+
+});
+
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            Response Object displayed in console.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Response Object
+=========================== -->
+
+            <section id="response">
+
+
+                <h2>📦 Fetch Response Object</h2>
+
+
+                <p>
+
+                    When a server sends data back, Fetch API provides a Response Object.
+                    It contains information about the server response.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        The Response Object represents the response received from a server
+                        after making a fetch request.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>⭐ Important Response Properties</h3>
+
+
+                <div class="example-box">
+
+
+                    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                        <tr>
+
+                            <th>Property</th>
+
+                            <th>Description</th>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>status</td>
+
+                            <td>Returns HTTP status code</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>ok</td>
+
+                            <td>Checks if request was successful</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>headers</td>
+
+                            <td>Contains response headers</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>url</td>
+
+                            <td>Returns requested URL</td>
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>Example: Check Response</h3>
+
+
+                <div class="example-box">
+
+
+                    <pre><code>
+
+
+fetch(
+"https://jsonplaceholder.typicode.com/users"
+)
+
+
+.then(response =&gt; {
+
+
+console.log(response.status);
+
+
+console.log(response.ok);
+
+
+});
+
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            200<br>
+                            true
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     JSON Conversion
+=========================== -->
+
+            <section id="json-conversion">
+
+
+                <h2>📄 Converting Response into JSON</h2>
+
+
+                <p>
+
+                    Most APIs send data in JSON format.
+                    To read this data, we use the <code>response.json()</code> method.
+
+                </p>
+
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        The <code>response.json()</code> method converts the server response
+                        into a JavaScript object.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>Example: JSON Conversion</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            response.json()
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+fetch(
+"https://jsonplaceholder.typicode.com/users"
+)
+
+
+.then(response =&gt; {
+
+
+return response.json();
+
+
+})
+
+
+.then(data =&gt; {
+
+
+console.log(data);
+
+
+});
+
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            JavaScript Object containing user data.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>
+                        ⭐ Key Points
+                    </h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ fetch() returns a Promise.
+                        </li>
+
+
+                        <li>
+                            ✅ then() handles successful responses.
+                        </li>
+
+
+                        <li>
+                            ✅ catch() handles errors.
+                        </li>
+
+
+                        <li>
+                            ✅ Response Object contains server information.
+                        </li>
+
+
+                        <li>
+                            ✅ response.json() converts data into JavaScript objects.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     HTTP Methods
+=========================== -->
+
+            <section id="http-methods">
+
+
+                <h2>📡 HTTP Methods in Fetch API</h2>
+
+
+                <p>
+
+                    HTTP Methods define what type of action we want to perform with
+                    server data. Fetch API supports different HTTP request methods.
+
+                </p>
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        HTTP Method tells the server what operation should be performed
+                        on the requested resource.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>📊 Common HTTP Methods</h3>
+
+
+                <div class="example-box">
+
+
+                    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                        <tr>
+
+                            <th>Method</th>
+
+                            <th>Purpose</th>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>GET</td>
+
+                            <td>Retrieve data from server</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>POST</td>
+
+                            <td>Send new data to server</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>PUT</td>
+
+                            <td>Update existing data</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>DELETE</td>
+
+                            <td>Delete data from server</td>
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     GET Request
+=========================== -->
+
+            <section id="get-request">
+
+
+                <h2>📥 GET Request using Fetch</h2>
+
+
+                <p>
+
+                    GET request is used to fetch or retrieve data from a server.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            GET Request Example
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+
+                    <pre><code>
+
+
+fetch(
+"https://jsonplaceholder.typicode.com/users"
+)
+
+
+.then(response =&gt; response.json())
+
+
+.then(data =&gt; {
+
+
+console.log(data);
+
+
+});
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            User data received from server.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     POST Request
+=========================== -->
+
+            <section id="post-request">
+
+
+                <h2>📤 POST Request using Fetch</h2>
+
+
+                <p>
+
+                    POST request is used to send new data to the server.
+
+                </p>
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            POST Request Example
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+
+                    <pre><code>
+
+
+fetch(
+"https://jsonplaceholder.typicode.com/posts",
+{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+
+title:"JavaScript",
+
+body:"Fetch API",
+
+userId:1
+
+
+})
+
+
+}
+
+
+)
+
+
+.then(response =&gt; response.json())
+
+
+.then(data =&gt; {
+
+
+console.log(data);
+
+
+});
+
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            New data sent successfully.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     PUT Request
+=========================== -->
+
+            <section id="put-request">
+
+
+                <h2>🔄 PUT Request using Fetch</h2>
+
+
+                <p>
+
+                    PUT request is used to update existing data on the server.
+
+                </p>
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            PUT Request Example
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+
+                    <pre><code>
+
+
+fetch(
+"https://jsonplaceholder.typicode.com/posts/1",
+{
+
+
+method:"PUT",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+
+title:"Updated Title",
+
+body:"Updated Content",
+
+userId:1
+
+
+})
+
+
+}
+
+
+)
+
+
+.then(response =&gt; response.json())
+
+
+.then(data =&gt; {
+
+
+console.log(data);
+
+
+});
+
+
+
+</code></pre>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     DELETE Request
+=========================== -->
+
+            <section id="delete-request">
+
+
+                <h2>🗑️ DELETE Request using Fetch</h2>
+
+
+                <p>
+
+                    DELETE request removes data from the server.
+
+                </p>
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            DELETE Request Example
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+
+                    <pre><code>
+
+
+fetch(
+"https://jsonplaceholder.typicode.com/posts/1",
+{
+
+
+method:"DELETE"
+
+
+}
+
+
+)
+
+
+.then(response =&gt; {
+
+
+console.log("Data Deleted");
+
+
+});
+
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            Data Deleted
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Headers
+=========================== -->
+
+            <section id="headers">
+
+
+                <h2>📋 Fetch API Headers</h2>
+
+
+                <p>
+
+                    Headers provide additional information about the request or response.
+                    They tell the server about the type of data being sent.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        Headers are key-value pairs that contain metadata about an HTTP request.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>Example: Content-Type Header</h3>
+
+
+                <div class="example-box">
+
+
+                    <pre><code>
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+}
+
+
+
+</code></pre>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="real-life-box">
+
+
+                    <h3>🌍 Real-Life Example</h3>
+
+
+                    <p>
+
+                        When submitting a registration form:
+
+                    </p>
+
+
+                    <ul>
+
+
+                        <li>👤 User enters details</li>
+
+                        <li>📤 POST request sends data</li>
+
+                        <li>🗄️ Server saves information</li>
+
+                        <li>✅ Response returns success message</li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>
+                        ⭐ Key Points
+                    </h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ GET is used to receive data.
+                        </li>
+
+
+                        <li>
+                            ✅ POST sends new data.
+                        </li>
+
+
+                        <li>
+                            ✅ PUT updates existing data.
+                        </li>
+
+
+                        <li>
+                            ✅ DELETE removes data.
+                        </li>
+
+
+                        <li>
+                            ✅ Headers provide request information.
+                        </li>
+
+
+                        <li>
+                            ✅ JSON.stringify() converts object into JSON format.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     Async Await with Fetch
+=========================== -->
+
+            <section id="async-await">
+
+
+                <h2>⚡ Async/Await with Fetch API</h2>
+
+
+                <p>
+
+                    Modern JavaScript uses <b>async/await</b> to handle Fetch API requests.
+                    It makes asynchronous code easier to read and understand.
+
+                </p>
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        <b>async/await</b> is a modern JavaScript feature that allows
+                        Promise-based code to be written in a simple and synchronous-looking way.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>📝 Async/Await Syntax</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            Fetch with Async/Await
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+async function getData(){
+
+
+let response = await fetch("API_URL");
+
+
+let data = await response.json();
+
+
+console.log(data);
+
+
+}
+
+
+getData();
+
+
+
+</code></pre>
+
+
+                </div>
+
+
+
+
+
+
+                <h3>🚀 Example: Fetch Data</h3>
+
+
+                <div class="example-box">
+
+
+                    <pre><code>
+
+
+async function getUsers(){
+
+
+const response = await fetch(
+"https://jsonplaceholder.typicode.com/users"
+);
+
+
+const users = await response.json();
+
+
+console.log(users);
+
+
+}
+
+
+getUsers();
+
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            User information displayed in console.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Try Catch Error Handling
+=========================== -->
+
+            <section id="error-handling">
+
+
+                <h2>⚠️ Error Handling in Fetch API</h2>
+
+
+                <p>
+
+                    Errors can happen because of wrong URLs, server problems,
+                    or internet connection issues. We use <code>try...catch</code>
+                    to handle these errors.
+
+                </p>
+
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        Error handling allows developers to manage unexpected problems
+                        without crashing the application.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>Example: Try Catch with Fetch</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            Fetch Error Handling
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+async function getData(){
+
+
+try{
+
+
+const response = await fetch(
+"https://example.com/data"
+);
+
+
+
+if(!response.ok){
+
+
+throw new Error("Data not found");
+
+
+}
+
+
+
+const data = await response.json();
+
+
+console.log(data);
+
+
+
+}
+
+
+catch(error){
+
+
+console.log(error.message);
+
+
+}
+
+
+}
+
+
+
+getData();
+
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            Data not found
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Loading State
+=========================== -->
+
+            <section id="loading">
+
+
+                <h2>⏳ Loading State in Fetch API</h2>
+
+
+                <p>
+
+                    Fetching data from a server takes some time.
+                    A loading message improves user experience.
+
+                </p>
+
+
+
+
+
+                <h3>Example: Loading Message</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>
+                            Display Loading Text
+                        </h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+
+                    <pre><code>
+
+
+async function loadData(){
+
+
+document.getElementById("message").innerHTML =
+"Loading...";
+
+
+
+const response = await fetch(
+"https://jsonplaceholder.typicode.com/users"
+);
+
+
+
+const data = await response.json();
+
+
+
+document.getElementById("message").innerHTML =
+"Data Loaded Successfully";
+
+
+}
+
+
+
+loadData();
+
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>
+                            ✅ Output
+                        </h4>
+
+
+                        <p>
+
+                            Loading... <br>
+                            Data Loaded Successfully
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Real API Example
+=========================== -->
+
+            <section id="real-api">
+
+
+                <h2>🌍 Real API Example</h2>
+
+
+                <p>
+
+                    Many websites use APIs to display live information such as weather,
+                    movies, news, and products.
+
+                </p>
+
+
+
+
+
+                <div class="real-life-box">
+
+
+                    <h3>
+                        🌦️ Weather App Example
+                    </h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            👤 User enters city name
+                        </li>
+
+
+                        <li>
+                            📡 Fetch API sends request to weather server
+                        </li>
+
+
+                        <li>
+                            🌐 Server returns weather data
+                        </li>
+
+
+                        <li>
+                            🌡️ Website displays temperature
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>
+                        ⭐ Key Points
+                    </h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ async/await makes Fetch code cleaner.
+                        </li>
+
+
+                        <li>
+                            ✅ await waits for Promise completion.
+                        </li>
+
+
+                        <li>
+                            ✅ try...catch handles errors.
+                        </li>
+
+
+                        <li>
+                            ✅ Loading messages improve user experience.
+                        </li>
+
+
+                        <li>
+                            ✅ Real websites use Fetch API with external APIs.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     Fetch API Projects
+=========================== -->
+
+            <section id="projects">
+
+
+                <h2>🚀 JavaScript Fetch API Projects</h2>
+
+
+                <p>
+
+                    After learning Fetch API, you can build real-world projects
+                    that use external data from APIs.
+
+                </p>
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>🌦️ 1. Weather App</h3>
+
+
+                    <p>
+
+                        Use Fetch API to get live weather information from a weather API.
+                        Users can search cities and view temperature, humidity, and conditions.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>🎬 2. Movie Search App</h3>
+
+
+                    <p>
+
+                        Create a movie application where users can search movies and
+                        display posters, ratings, and details using an API.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>📰 3. News App</h3>
+
+
+                    <p>
+
+                        Fetch latest news articles from a news API and display headlines,
+                        images, and descriptions.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>🛒 4. Product Store</h3>
+
+
+                    <p>
+
+                        Create an online shopping page by fetching product data from an API
+                        and displaying products dynamically.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>👤 5. User Profile App</h3>
+
+
+                    <p>
+
+                        Fetch user details from an API and show profile cards with names,
+                        emails, and other information.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Interview Questions
+=========================== -->
+
+            <section id="interview">
+
+
+                <h2>💼 Fetch API Interview Questions</h2>
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>Q1. What is Fetch API?</h3>
+
+
+                    <p>
+
+                        Fetch API is a JavaScript interface used to make HTTP requests
+                        and communicate with servers.
+
+                    </p>
+
+
+
+                    <h3>Q2. What does fetch() return?</h3>
+
+
+                    <p>
+
+                        The fetch() method returns a Promise.
+
+                    </p>
+
+
+
+
+                    <h3>Q3. Why do we use response.json()?</h3>
+
+
+                    <p>
+
+                        It converts the server response into a JavaScript object.
+
+                    </p>
+
+
+
+
+                    <h3>Q4. Difference between Fetch API and XMLHttpRequest?</h3>
+
+
+                    <p>
+
+                        Fetch API provides cleaner syntax and uses Promises,
+                        while XMLHttpRequest uses older callback-based syntax.
+
+                    </p>
+
+
+
+
+                    <h3>Q5. How to handle Fetch API errors?</h3>
+
+
+                    <p>
+
+                        Errors can be handled using catch() or try...catch with async/await.
+
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     FAQs
+=========================== -->
+
+            <section id="faq">
+
+
+                <h2>❓ Frequently Asked Questions (FAQs)</h2>
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        Q1. Is Fetch API asynchronous?
+                    </h3>
+
+
+                    <p>
+
+                        Yes, Fetch API works asynchronously and does not block other code.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        Q2. Can Fetch API send data?
+                    </h3>
+
+
+                    <p>
+
+                        Yes, Fetch API can send data using POST, PUT, and DELETE methods.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        Q3. What format does API usually return?
+                    </h3>
+
+
+                    <p>
+
+                        Most APIs return data in JSON format.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        Q4. Is Fetch API supported by modern browsers?
+                    </h3>
+
+
+                    <p>
+
+                        Yes, all modern browsers support Fetch API.
+
+                    </p>
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Related Articles
+=========================== -->
+
+            <section class="related-articles">
+
+
+                <h2>
+                    📚 Related Articles
+                </h2>
+
+
+                <p>
+                    Continue learning JavaScript with these beginner-friendly tutorials
+                    from Roshni Code Charm.
+                </p>
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        ⚡ JavaScript Asynchronous JavaScript
+                    </h3>
+
+
+                    <p>
+                        Learn callbacks, Promises, Async/Await, and asynchronous programming
+                        concepts in JavaScript.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        🌐 JavaScript Fetch API
+                    </h3>
+
+
+                    <p>
+                        Learn how to fetch data from APIs, handle responses,
+                        and work with JSON data.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        💾 JavaScript Local Storage
+                    </h3>
+
+
+                    <p>
+                        Learn how to store, retrieve, update, and remove data
+                        from browser storage.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        🖥️ JavaScript DOM Manipulation Part 1
+                    </h3>
+
+
+                    <p>
+                        Understand DOM, document object, DOM tree, and selecting HTML elements.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        🖥️ JavaScript DOM Manipulation Part 2
+                    </h3>
+
+
+                    <p>
+                        Learn how to change content, styles, attributes,
+                        create and remove elements dynamically.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        🖱️ JavaScript Events
+                    </h3>
+
+
+                    <p>
+                        Learn click events, mouse events, keyboard events,
+                        form events, and window events.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>
+                        🚀 JavaScript Projects
+                    </h3>
+
+
+                    <p>
+                        Build beginner to advanced JavaScript projects
+                        to improve your practical skills.
+                    </p>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     Previous / Next Navigation
+=========================== -->
+
+
+            <div class="navigation-box">
+
+
+                <a href="javascript-async.html">
+                    ⬅️ Previous
+                    <br>
+                    JavaScript Asynchronous JavaScript
+                </a>
+
+
+
+                <a href="javascript-local-storage.html">
+                    Next ➡️
+                    <br>
+                    JavaScript Local Storage
+                </a>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- ===========================
+     Footer
+=========================== -->
+
+
+            <footer>
+
+
+                <div class="author-info">
+
+
+                    <h2>
+                        ❤️ Thank You for Reading!
+                    </h2>
+
+
+
+                    <p>
+
+                        Thank you for learning
+                        <strong>JavaScript Fetch API</strong>
+                        with <strong>Roshni Code Charm</strong>. 🎉
+
+                    </p>
+
+
+
+                    <p>
+
+                        Keep practicing JavaScript every day and build amazing,
+                        interactive websites. Consistent practice is the key to becoming
+                        a great web developer.
+
+                    </p>
+
+
+
+
+
+                    <div class="footer-links">
+
+
+                        <a href="index.html">
+                            🏠 Home
+                        </a>
+
+
+                        <a href="javascript.html">
+                            📚 JavaScript Tutorials
+                        </a>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="social-links">
+
+
+                        <a href="https://github.com/roshni945" target="_blank">
+                            💻 GitHub
+                        </a>
+
+
+                        <a href="https://www.pinterest.com/roshnicodecharm/" target="_blank">
+                            📌 Pinterest
+                        </a>
+
+
+                    </div>
+
+
+
+
+
+                    <hr>
+
+
+
+
+                    <p>
+
+                        © 2026 <strong>Roshni Code Charm</strong>. All Rights Reserved.
+
+                    </p>
+
+
+
+                    <p>
+
+                        Made with ❤️ for JavaScript Beginners.
+
+                    </p>
+
+
+
+                </div>
+
+
+            </footer>
+
+
+
+
+
+        </div>
+        <!-- content-box closing -->
+
+
+
+    </div>
+    <!-- container closing -->
+
+
+
+</body>
+
+
+</html>

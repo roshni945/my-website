@@ -8,13 +8,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="p:domain_verify" content="8ff7f3bf580464df13b34b320acefb68" />
-  <title>Roshni Code Charm</title>
+  <title>
+    Roshni Code Charm | Learn Python, HTML, CSS & JavaScript
+  </title>
 
   <meta name="description"
-    content="Learn Python, HTML, CSS and coding tips with Roshni Code Charm. Explore beginner-friendly tutorials, Pinterest ideas and web development articles.">
+    content="Learn Python, HTML, CSS and JavaScript with beginner-friendly tutorials, coding tips, projects and creative resources by Roshni Code Charm.">
 
   <meta name="keywords"
-    content="Python, HTML, CSS, JavaScript, Coding, Programming, Web Development, Pinterest, Roshni Code Charm">
+    content="Python Tutorial, HTML Basics, CSS Tutorial, JavaScript Tutorial, Web Development, Coding for Beginners, BCA Notes">
 
   <meta name="author" content="Roshni Code Charm">
   <meta name="robots" content="index, follow">
@@ -25,7 +27,7 @@
     }
 
     .main-logo {
-      width: 900px;
+      width: 360px;
 
       max-width: 100%;
 
@@ -53,7 +55,7 @@
     body {
       background:
         linear-gradient(rgba(255, 255, 255, 0.72),
-          rgba(255, 255, 255, 0.72)),
+          rgba(255, 255, 255, 0.55)),
         url("bg.jpg");
 
       background-size: cover;
@@ -65,39 +67,162 @@
     }
 
 
-    /* NAVBAR */
+    /* ===========================
+   PREMIUM NAVBAR
+=========================== */
 
-    nav {
+    .navbar {
+
       position: sticky;
       top: 0;
+
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 14px 7%;
+
+      background: rgba(255, 255, 255, .85);
+
+      backdrop-filter: blur(18px);
+
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+      z-index: 999;
+
     }
 
-    nav button {
-      border: none;
-      background: none;
+    .nav-logo img {
+
+      height: 70px;
+      border-radius: 12px;
+
+    }
+
+    .nav-links {
+
+      display: flex;
+      gap: 30px;
+
+      list-style: none;
+
+    }
+
+    .nav-links a {
+
+      text-decoration: none;
+
       font-size: 18px;
+      font-weight: 600;
+
+      color: #6f2cff;
+
+      transition: .3s;
+
+    }
+
+    .nav-links a:hover {
+
+      color: #ff4da6;
+
+    }
+
+    .nav-right {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+    }
+
+    .nav-search {
+
+      padding: 10px 18px;
+
+      border: 2px solid #ececec;
+
+      border-radius: 30px;
+
+      width: 220px;
+
+      outline: none;
+
+      transition: .3s;
+
+    }
+
+    .nav-search:focus {
+
+      border-color: #7b2cbf;
+
+    }
+
+    .share-btn {
+
+      padding: 10px 22px;
+
+      border: none;
+
+      border-radius: 30px;
+
+      background: linear-gradient(135deg, #ff4da6, #7b2cbf);
+
+      color: white;
+
       font-weight: bold;
-      color: #7b2cbf;
+
       cursor: pointer;
-      transition: 0.3s;
+
+      transition: .3s;
+
     }
 
-    nav button:hover {
-      color: #ff4da6;
-      transform: scale(1.08);
+    .share-btn:hover {
+
+      transform: translateY(-3px);
+
+      box-shadow: 0 8px 20px rgba(123, 44, 191, .25);
+
     }
 
-    nav button.active-btn {
-      color: #ff4da6;
-      border-bottom: 3px solid #ff4da6;
+    @media(max-width:900px) {
+
+      .navbar {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 15px;
+
+      }
+
+      .nav-links {
+
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+      }
+
+      .nav-search {
+
+        width: 100%;
+
+        max-width: 260px;
+
+      }
+
+      .nav-right {
+
+        flex-direction: column;
+
+      }
+
     }
 
     /* PAGE SYSTEM */
@@ -155,12 +280,13 @@
     }
 
 
-
     /* HERO */
 
     .hero {
+      max-width: 1100px;
+      margin: auto;
       text-align: center;
-      padding: 90px 20px;
+      padding: 60px 20px;
     }
 
     .hero h1 {
@@ -168,6 +294,14 @@
       color: #7b2cbf;
       text-shadow: 0 0 15px #ff9ff3;
       animation: glow 2s infinite alternate;
+    }
+
+    .hero-title {
+      font-size: 60px;
+      font-weight: 700;
+      color: #7b2cbf;
+      margin: 20px auto;
+      text-shadow: 0 0 15px #ff9ff3;
     }
 
     @keyframes glow {
@@ -211,6 +345,12 @@
       animation: blink 1s infinite;
     }
 
+    .hero-subtitle {
+      max-width: 850px;
+      margin: 20px auto;
+      line-height: 1.8;
+    }
+
 
     @keyframes blink {
       50% {
@@ -222,7 +362,7 @@
 
     .btn {
       margin-top: 30px;
-      padding: 15px 35px;
+      padding: 16px 38px;
       border: none;
       border-radius: 40px;
       background: linear-gradient(to right, #ff4da6, #7b2cbf);
@@ -259,7 +399,12 @@
     }
 
     .card:hover {
-      transform: translateY(-10px);
+
+      transform: translateY(-12px);
+
+      box-shadow:
+        0 20px 45px rgba(123, 44, 191, .25);
+
     }
 
     .card h2 {
@@ -272,18 +417,30 @@
     .stats {
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 30px;
       flex-wrap: wrap;
-      margin-top: 50px;
+      margin: 70px auto;
     }
 
     .stat-box {
-      background: white;
-      padding: 25px;
+
+      background: rgba(255, 255, 255, .85);
+
+      backdrop-filter: blur(12px);
+
+      padding: 30px;
+
       border-radius: 25px;
-      width: 220px;
+
+      width: 230px;
+
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, .08);
+
+      transition: .3s;
+
     }
 
     .stat-box h2 {
@@ -363,25 +520,62 @@
 
     @media(max-width:768px) {
 
-      .hero h1 {
-        font-size: 40px;
+      .main-logo {
+        width: 260px;
       }
+
+
+      .hero {
+        padding: 40px 15px;
+      }
+
+
+      .hero-title {
+        font-size: 35px;
+      }
+
 
       .hero p {
-        font-size: 22px;
+        font-size: 20px;
       }
 
-      .logo {
-        font-size: 60px;
-      }
 
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .video-gallery {
+      .container {
         grid-template-columns: 1fr;
+        padding: 15px;
       }
+
+
+      .card {
+        padding: 20px;
+      }
+
+
+      .section-title span {
+        font-size: 30px;
+      }
+
+
+      .stats {
+        flex-direction: column;
+        align-items: center;
+      }
+
+
+      .stat-box {
+        width: 90%;
+      }
+
+
+      .category-title {
+        font-size: 30px;
+      }
+
+
+      .footer-logo {
+        font-size: 28px;
+      }
+
     }
 
     /* QUOTE */
@@ -509,7 +703,512 @@
     .featured .btn {
       margin-top: 20px;
     }
+
+    /* ===========================
+   PREMIUM ARTICLE CARDS
+=========================== */
+
+    .container {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 30px;
+
+      margin-top: 40px;
+
+    }
+
+    .card {
+
+      background: white;
+
+      border-radius: 20px;
+
+      padding: 25px;
+
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+      overflow: hidden;
+
+      position: relative;
+
+    }
+
+    .card:hover {
+
+      transform: translateY(-10px);
+
+      box-shadow: 0 20px 45px rgba(123, 44, 191, .18);
+
+    }
+
+    .card::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 6px;
+
+      background: linear-gradient(90deg, #ff4da6, #7b2cbf);
+
+    }
+
+    .card h2 {
+
+      font-size: 28px;
+
+      color: #7b2cbf;
+
+      margin-top: 10px;
+
+    }
+
+    .card p {
+
+      color: #555;
+
+      line-height: 1.8;
+
+      margin: 18px 0;
+
+    }
+
+    .card .btn {
+
+      margin-top: auto;
+
+      display: inline-block;
+
+    }
+
+    /* CARD ICON */
+
+    .card-icon {
+
+      width: 65px;
+      height: 65px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 32px;
+
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+
+      margin-bottom: 15px;
+
+    }
+
+    /* CATEGORY */
+
+    .badge {
+
+      display: inline-block;
+
+      padding: 6px 14px;
+
+      background: #7b2cbf;
+
+      color: white;
+
+      border-radius: 30px;
+
+      font-size: 14px;
+
+      margin-bottom: 15px;
+
+    }
+
+    /* META */
+
+    .card-meta {
+
+      color: #888;
+
+      font-size: 14px;
+
+      margin-bottom: 15px;
+
+    }
+
+    /* ==========================
+   MAIN CONTENT
+========================== */
+
+    .content-wrapper {
+
+      max-width: 1400px;
+
+      margin: 0 auto;
+
+      background: #ffffff;
+
+      border-radius: 40px 40px 0 0;
+
+      padding: 60px 40px;
+
+      margin-top: 60px;
+
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, .08);
+
+    }
+
+    /* ===== SECTION TITLE ===== */
+
+    .section-title {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+
+    .section-title span {
+      font-size: 38px;
+      font-weight: 700;
+      color: #7b2cbf;
+    }
+
+    .section-title p {
+      color: #666;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .category {
+      background: #7b2cbf;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .read-time {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, .8);
+      border: 1px solid rgba(123, 44, 191, .15);
+      border-radius: 50px;
+      color: #7b2cbf;
+      font-weight: 600;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(123, 44, 191, .08);
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .secondary-btn {
+      background: white;
+      color: #7b2cbf;
+      border: 2px solid #7b2cbf;
+    }
+
+    .secondary-btn:hover {
+      background: #7b2cbf;
+      color: white;
+    }
+
+    .stat-box:hover {
+
+      transform: translateY(-10px);
+
+      box-shadow:
+        0 20px 40px rgba(123, 44, 191, .20);
+
+    }
+
+    .stat-box h2 {
+
+      font-size: 45px;
+
+      color: #7b2cbf;
+
+      margin-bottom: 10px;
+
+    }
+
+    /* ==========================
+   CATEGORY SECTION
+========================== */
+
+    .category-title {
+
+      text-align: center;
+
+      font-size: 38px;
+
+      color: #7b2cbf;
+
+      margin-top: 60px;
+
+    }
+
+
+    .category-subtitle {
+
+      text-align: center;
+
+      color: #666;
+
+      font-size: 18px;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .categories {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 18px;
+
+      flex-wrap: wrap;
+
+      margin: 30px auto 50px;
+
+    }
+
+
+    .cat-btn {
+
+      padding: 14px 28px;
+
+      border: none;
+
+      border-radius: 40px;
+
+      background: white;
+
+      color: #7b2cbf;
+
+      font-size: 17px;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+      transition: .3s;
+
+    }
+
+
+    .cat-btn:hover {
+
+      background: linear-gradient(135deg, #ff4da6, #7b2cbf);
+
+      color: white;
+
+      transform: translateY(-5px);
+
+    }
+
+    /* ==========================
+   ABOUT CARD
+========================== */
+
+    .about-card {
+
+      max-width: 700px;
+
+      margin: 60px auto;
+
+      background: rgba(255, 255, 255, .85);
+
+      backdrop-filter: blur(12px);
+
+      padding: 40px;
+
+      border-radius: 30px;
+
+      text-align: center;
+
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .1);
+
+      transition: .3s;
+
+    }
+
+
+    .about-card:hover {
+
+      transform: translateY(-8px);
+
+      box-shadow: 0 20px 45px rgba(123, 44, 191, .2);
+
+    }
+
+
+    .about-icon {
+
+      width: 80px;
+
+      height: 80px;
+
+      margin: auto;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 40px;
+
+      background: #f5edff;
+
+    }
+
+
+    .about-card h2 {
+
+      color: #7b2cbf;
+
+      font-size: 35px;
+
+    }
+
+
+    .about-card p {
+
+      color: #555;
+
+      line-height: 1.8;
+
+      font-size: 17px;
+
+    }
+
+    /* ==========================
+        PREMIUM FOOTER
+========================== */
+
+
+    .footer {
+
+      margin-top: 80px;
+
+      padding: 50px 20px 25px;
+
+      text-align: center;
+
+      background: rgba(255, 255, 255, .85);
+
+      backdrop-filter: blur(15px);
+
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, .08);
+
+    }
+
+
+    .footer-logo {
+
+      font-size: 35px;
+
+      font-weight: 700;
+
+      color: #7b2cbf;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .footer p {
+
+      color: #666;
+
+      font-size: 18px;
+
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 25px;
+
+      flex-wrap: wrap;
+
+      margin: 25px 0;
+
+    }
+
+
+    .footer-links a {
+
+      text-decoration: none;
+
+      color: #7b2cbf;
+
+      font-weight: 600;
+
+      transition: .3s;
+
+    }
+
+
+    .footer-links a:hover {
+
+      color: #ff4da6;
+
+    }
+
+
+    .footer-bottom {
+
+      border-top: 1px solid #eee;
+
+      padding-top: 20px;
+
+      margin-top: 25px;
+
+      color: #777;
+
+      font-size: 15px;
+
+    }
   </style>
+
+
   <meta name="google-site-verification" content="ZF64uVO4A1rW03yP_p099bxi0T8Nz6RBFRlTRA8dEUs" />
 </head>
 
@@ -517,12 +1216,30 @@
 
 
 
-  <!-- NAVBAR -->
+  <!-- PREMIUM NAVBAR -->
 
-  <nav>
-    <button onclick="showPage('home')">🏠 Home</button>
-    <button onclick="showPage('pins')">📌 Pinterest Pins</button>
-    <button onclick="showPage('articles')">📚 Articles</button>
+  <nav class="navbar">
+
+    <div class="nav-logo">
+      <a href="#" onclick="showPage('home')">
+        <img src="logo.png" alt="Roshni Code Charm">
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">🏠 Home</a></li>
+      <li><a href="#" onclick="showPage('articles')">📚 Articles</a></li>
+      <li><a href="#" onclick="showPage('pins')">📌 Pinterest</a></li>
+    </ul>
+
+    <div class="nav-right">
+
+      <input type="text" placeholder="Search..." class="nav-search">
+
+      <button class="share-btn">🔗 Share</button>
+
+    </div>
+
   </nav>
 
   <!-- HOME PAGE -->
@@ -539,196 +1256,387 @@
         </div>
       </h1>
 
-      <p>
-        Python tips, coding inspiration & aesthetic content 💻🌸
-      </p>
-
-      <div class="typing">
-        ✨ Python • Coding • Creativity • Design ✨
+      <div class="hero-badge">
+        🚀 Learn • Build • Create
       </div>
 
-      <button class="btn" onclick="showPage('pins')">
-        View My Pins and Videos 🚀
-      </button>
+      <h2 class="hero-title">
+        Learn Programming the Smart Way
+      </h2>
+
+      <p class="hero-subtitle">
+        Free tutorials on Python, HTML, CSS & JavaScript with simple examples,
+        coding tips and beginner-friendly guides.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="python-tutorial.html" class="btn">
+          🚀 Start Learning
+        </a>
+
+        <button class="btn secondary-btn" onclick="showPage('pins')">
+          📌 Explore Pins
+        </button>
+      </div>
 
     </section>
 
-    <div class="featured">
-      <h2>⭐ Featured Article</h2>
+    <div class="content-wrapper">
 
-      <div class="featured-card">
-        <h3>🐍 Complete Python Tutorial</h3>
+      <div class="featured">
+        <h2>⭐ Featured Article</h2>
 
-        <p>
-          Start learning Python with one of the most important concepts — Variables.
-        </p>
+        <div class="featured-card">
+          <h3>🐍 Complete Python Tutorial</h3>
 
-        <a href="python-tutorial.html" class="btn">
-          Read Now
-        </a>
+          <p>
+            Start learning Python with one of the most important concepts — Variables.
+          </p>
+
+          <a href="python-tutorial.html" class="btn">
+            Read Now
+          </a>
+        </div>
       </div>
+
+      <div class="section-title">
+        <span>🔥 Latest Articles</span>
+        <p>Learn programming with beginner-friendly tutorials.</p>
+      </div>
+
+      <div class="container">
+
+        <div class="card">
+
+          <img src="python-thumb.jpg" class="card-img" alt="Python Variables">
+
+          <div class="card-icon">🐍</div>
+
+          <span class="badge">Python</span>
+
+          <h2>Python Variables</h2>
+
+          <div class="card-meta">
+            ⏱ 5 min read
+          </div>
+
+          <p>
+            Learn Python Variables with simple examples and beginner-friendly explanations.
+          </p>
+
+          <a href="python-variables.html" class="btn">
+            Read Article →
+          </a>
+
+        </div>
+
+        <div class="card">
+
+          <img src="html-thumb.jpg" class="card-img" alt="HTML Basics">
+
+          <div class="card-top">
+            <span class="category">🌐 HTML</span>
+            <span class="read-time">4 min</span>
+          </div>
+
+          <div class="card-icon">🌐</div>
+
+          <h2>HTML Basics</h2>
+
+          <p>
+            Learn HTML from scratch with simple examples and beginner-friendly explanations.
+          </p>
+
+          <a href="html-basics.html" class="btn">
+            Read Article →
+          </a>
+
+        </div>
+
+        <div class="card">
+          <img src="css-thumb.jpg" class="card-img" alt="CSS Basics">
+          <div class="card-top">
+            <span class="category">🎨 CSS</span>
+            <span class="read-time">6 min</span>
+          </div>
+
+          <div class="card-icon">🎨</div>
+
+          <h2>CSS Basics</h2>
+
+          <p>
+            Learn how CSS styles webpages with colors, layouts, spacing and responsive design.
+          </p>
+
+          <a href="css-basics.html" class="btn">
+            Read Article →
+          </a>
+
+        </div>
+
+
+
+        <div class="featured">
+
+          <div class="featured-header">
+            <span class="featured-badge">⭐ Featured Tutorial</span>
+            <h2>Complete Python Tutorial</h2>
+            <p>
+              Learn Python from Beginner to Advanced with easy explanations,
+              examples, interview questions, quizzes and mini projects.
+            </p>
+          </div>
+
+          <div class="featured-stats">
+
+            <div class="stat-box">
+              <h3>18+</h3>
+              <span>Lessons</span>
+            </div>
+
+            <div class="stat-box">
+              <h3>100+</h3>
+              <span>Examples</span>
+            </div>
+
+            <div class="stat-box">
+              <h3>FREE</h3>
+              <span>Access</span>
+            </div>
+
+          </div>
+
+          <a href="python-tutorial.html" class="btn featured-btn">
+            🚀 Start Learning
+          </a>
+
+        </div>
+
+        <div class="card">
+          <img src="js-thumb.jpg" class="card-img" alt="JavaScript Tutorial">
+          <div class="card-top">
+            <span class="category">⚡ JavaScript</span>
+            <span class="read-time">8 min</span>
+          </div>
+
+
+
+          <div class="card-icon">⚡</div>
+
+          <h2>JavaScript Tutorial</h2>
+
+          <p>
+            Master JavaScript from basics to advanced with examples, DOM, events and projects.
+          </p>
+
+          <a href="javascript-tutorial.html" class="btn">
+            Start Learning →
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CARDS -->
+
+      <div class="container">
+
+        <div class="card">
+          <h2>🐍 Python Tips</h2>
+          <p>
+            Simple, beginner-friendly Python tips, coding tricks & creative mini projects to make learning fun 💻✨
+
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>📌 Pinterest Ideas</h2>
+          <p>
+            Discover aesthetic Pinterest inspiration, trendy creative ideas & beautiful digital content for everyday
+            creativity ✨🌸
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>💻 Coding Journey</h2>
+          <p>
+            From simple HTML pages to creative web designs — exploring coding step by step with passion and creativity
+            🚀💖
+
+            Beautiful websites and fun coding experiences.
+          </p>
+        </div>
+
+        <div class="about-card">
+
+          <div class="about-icon">
+            💻
+          </div>
+
+          <h2>
+            🌸 About Me
+          </h2>
+
+          <p>
+            Hi, I am Roshni 💖
+          </p>
+
+          <p>
+            A creative coder who loves programming,
+            aesthetic web design, Pinterest inspiration
+            and digital creativity ✨
+          </p>
+
+          <p>
+            I enjoy creating beautiful websites using
+            HTML, CSS & JavaScript and sharing my coding journey 🚀
+          </p>
+
+          <a href="about.html" class="btn">
+            Know More →
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- STATS -->
+
+      <div class="stats">
+
+        <div class="stat-box">
+          <h2>100+</h2>
+          <p>Pinterest Pins</p>
+        </div>
+
+        <div class="stat-box">
+          <h2>100+</h2>
+          <p>Coding Ideas</p>
+        </div>
+
+        <div class="stat-box">
+          <h2>110K+</h2>
+          <p>Creative Views</p>
+        </div>
+
+      </div>
+
+      <div class="quote">
+        “Code + Creativity = Magic ✨”
+      </div>
+
     </div>
 
-    <h2 style="text-align:center; color:#7b2cbf; margin-top:50px;">
-      🔥 Latest Articles
-    </h2>
+    <!-- ARTICLES PAGE -->
 
-    <div class="container">
+    <div id="articles" class="page">
 
-      <div class="card">
-        <h2>🐍 Python Variables</h2>
-        <p>Learn Python Variables with simple examples.</p>
-        <a href="python-variables.html" class="btn">Read Article</a>
+      <h1 style="text-align:center; color:#7b2cbf;">
+        📚 Coding Articles
+      </h1>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Search articles..." onkeyup="searchArticles()">
       </div>
 
-      <div class="card">
-        <h2>🌐 HTML Basics</h2>
-        <p>Start learning HTML from scratch.</p>
-        <a href="html-basics.html" class="btn">Read Article</a>
+      <h2 class="category-title">
+        🌸 Explore Categories
+      </h2>
+
+      <p class="category-subtitle">
+        Discover tutorials, coding ideas and creative resources.
+      </p>
+      <div class="categories">
+        <button class="cat-btn" onclick="filterCategory('python')">🐍 Python</button>
+        <button class="cat-btn" onclick="filterCategory('html')">🌐 HTML</button>
+        <button class="cat-btn" onclick="filterCategory('css')">🎨 CSS</button>
+        <button class="cat-btn" onclick="filterCategory('javascript')">⚡ JavaScript</button>
+        <button class="cat-btn" onclick="filterCategory('all')">📚 All</button>
+
       </div>
 
-      <div class="card">
-        <h2>🎨 CSS Basics</h2>
-        <p>Learn how CSS makes websites beautiful.</p>
-        <a href="css-basics.html" class="btn">Read Article</a>
+      <div class="container">
+
+        <div class="card article-card">
+          <h2>🐍 Python Variables</h2>
+          <p>Learn what Python variables are with simple examples for beginners.</p>
+          <a href="python-variables.html" class="btn">Read Article</a>
+        </div>
+
+        <div class="card article-card">
+          <h2>🌐 HTML Basics</h2>
+          <p>Learn the basic HTML tags every beginner should know.</p>
+          <a href="html-basics.html" class="btn">Read Article</a>
+        </div>
+
+        <div class="card article-card">
+          <h2>🎨 CSS Basics</h2>
+          <p>Learn how CSS makes websites beautiful and responsive.</p>
+          <a href="css-basics.html" class="btn">Read Article</a>
+        </div>
+
+        <div class="card article-card">
+          <h2>⚡ JavaScript Basics</h2>
+          <p>Learn JavaScript from scratch with simple beginner-friendly examples.</p>
+          <a href="javascript-basics.html" class="btn">Read Article</a>
+        </div>
+
+        <div class="card article-card">
+          <h2>🐍 Python Data Types</h2>
+          <p>Learn String, List, Tuple, Set, Dictionary and more Python data types.</p>
+          <a href="python-data-types.html" class="btn">Read Article</a>
+        </div>
+
+
+        <div class="card article-card">
+          <h2>🔢 Python Input</h2>
+          <p>Learn how to take user input in Python programs.</p>
+          <a href="python-input.html" class="btn">Read Article</a>
+        </div>
+
+
+        <div class="card article-card">
+          <h2>🔀 Python If Else</h2>
+          <p>Learn decision making statements in Python.</p>
+          <a href="python-if-else.html" class="btn">Read Article</a>
+        </div>
+
+
+        <div class="card article-card">
+          <h2>🔁 Python Loops</h2>
+          <p>Learn for loop and while loop with examples.</p>
+          <a href="python-loops.html" class="btn">Read Article</a>
+        </div>
+
+
+        <div class="card article-card">
+          <h2>⚡ Python Functions</h2>
+          <p>Understand reusable blocks of code in Python.</p>
+          <a href="python-functions.html" class="btn">Read Article</a>
+        </div>
+
+
+        <div class="card article-card">
+          <h2>📦 Python Lists</h2>
+          <p>Learn Python list methods and operations.</p>
+          <a href="python-lists.html" class="btn">Read Article</a>
+        </div>
+
+
+        <div class="card article-card">
+          <h2>📚 Python OOP</h2>
+          <p>Learn Object Oriented Programming concepts in Python.</p>
+          <a href="python-oop.html" class="btn">Read Article</a>
+        </div>
+
+
+        <div class="card article-card">
+          <h2>🚀 Python Projects</h2>
+          <p>Beginner Python project ideas to practice coding.</p>
+          <a href="python-projects.html" class="btn">Read Article</a>
+        </div>
+
       </div>
-
-      <div class="card">
-        <h2>🐍 Python Tutorial</h2>
-        <p>Complete Python tutorial from basics to advanced concepts.</p>
-        <a href="python-tutorial.html" class="btn">
-          Start Learning 🚀
-        </a>
-      </div>
-
-    </div>
-
-    <div class="card article-card">
-      <h2>⚡ JavaScript Basics</h2>
-      <p>Learn JavaScript from scratch with simple beginner-friendly examples.</p>
-      <a href="javascript-basics.html" class="btn">Read Article</a>
-    </div>
-
-    <!-- CARDS -->
-
-    <div class="container">
-
-      <div class="card">
-        <h2>🐍 Python Tips</h2>
-        <p>
-          Simple, beginner-friendly Python tips, coding tricks & creative mini projects to make learning fun 💻✨
-
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>📌 Pinterest Ideas</h2>
-        <p>
-          Discover aesthetic Pinterest inspiration, trendy creative ideas & beautiful digital content for everyday
-          creativity ✨🌸
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>💻 Coding Journey</h2>
-        <p>
-          From simple HTML pages to creative web designs — exploring coding step by step with passion and creativity
-          🚀💖
-
-          Beautiful websites and fun coding experiences.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>🌸 About Me</h2>
-        <p>
-          Hi, I am Roshni 💖
-          A creative girl who loves coding, aesthetic web design, Pinterest inspiration & digital creativity ✨
-
-          I enjoy turning simple ideas into beautiful websites using HTML, CSS & JavaScript 💻🌸
-
-          Welcome to my little coding world — where creativity meets technology 🚀
-        </p>
-      </div>
-
-    </div>
-
-    <!-- STATS -->
-
-    <div class="stats">
-
-      <div class="stat-box">
-        <h2>70+</h2>
-        <p>Pinterest Pins</p>
-      </div>
-
-      <div class="stat-box">
-        <h2>70+</h2>
-        <p>Coding Ideas</p>
-      </div>
-
-      <div class="stat-box">
-        <h2>13K+</h2>
-        <p>Creative Views</p>
-      </div>
-
-    </div>
-
-    <div class="quote">
-      “Code + Creativity = Magic ✨”
-    </div>
-
-  </div>
-
-  <!-- ARTICLES PAGE -->
-
-  <div id="articles" class="page">
-
-    <h1 style="text-align:center; color:#7b2cbf;">
-      📚 Coding Articles
-    </h1>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="🔍 Search articles..." onkeyup="searchArticles()">
-    </div>
-
-    <h2 style="text-align:center;">📂 Categories</h2>
-
-    <div class="categories">
-      <button class="cat-btn" onclick="filterCategory('python')">🐍 Python</button>
-      <button class="cat-btn" onclick="filterCategory('html')">🌐 HTML</button>
-      <button class="cat-btn" onclick="filterCategory('css')">🎨 CSS</button>
-      <button class="cat-btn" onclick="filterCategory('javascript')">⚡ JavaScript</button>
-      <button class="cat-btn" onclick="filterCategory('all')">📚 All</button>
-
-    </div>
-
-    <div class="container">
-
-      <div class="card article-card">
-        <h2>🐍 Python Variables</h2>
-        <p>Learn what Python variables are with simple examples for beginners.</p>
-        <a href="python-variables.html" class="btn">Read Article</a>
-      </div>
-
-      <div class="card article-card">
-        <h2>🌐 HTML Basics</h2>
-        <p>Learn the basic HTML tags every beginner should know.</p>
-        <a href="html-basics.html" class="btn">Read Article</a>
-      </div>
-
-      <div class="card article-card">
-        <h2>🎨 CSS Basics</h2>
-        <p>Learn how CSS makes websites beautiful and responsive.</p>
-        <a href="css-basics.html" class="btn">Read Article</a>
-      </div>
-
-      <div class="card article-card">
-        <h2>⚡ JavaScript Basics</h2>
-        <p>Learn JavaScript from scratch with simple beginner-friendly examples.</p>
-        <a href="javascript-basics.html" class="btn">Read Article</a>
-      </div>
-
       <div class="card article-card">
         <h2>🐍 Python Data Types</h2>
         <p>Learn String, List, Tuple, Set, Dictionary and more Python data types.</p>
@@ -784,70 +1692,20 @@
         <a href="python-projects.html" class="btn">Read Article</a>
       </div>
 
+      <div class="card article-card">
+        <h2>🐍 Complete Python Tutorial</h2>
+        <p>Learn Python from Beginner to Advanced with 18+ free tutorials.</p>
+        <a href="python-tutorial.html" class="btn">🚀 Start Learning</a>
+      </div>
+
+      <div class="card article-card">
+        <h2>⚡ JavaScript Tutorial</h2>
+        <p>Complete JavaScript tutorial from basics to advanced.</p>
+        <a href="javascript-tutorial.html" class="btn">Start Learning</a>
+      </div>
+
     </div>
-    <div class="card article-card">
-      <h2>🐍 Python Data Types</h2>
-      <p>Learn String, List, Tuple, Set, Dictionary and more Python data types.</p>
-      <a href="python-data-types.html" class="btn">Read Article</a>
-    </div>
-
-
-    <div class="card article-card">
-      <h2>🔢 Python Input</h2>
-      <p>Learn how to take user input in Python programs.</p>
-      <a href="python-input.html" class="btn">Read Article</a>
-    </div>
-
-
-    <div class="card article-card">
-      <h2>🔀 Python If Else</h2>
-      <p>Learn decision making statements in Python.</p>
-      <a href="python-if-else.html" class="btn">Read Article</a>
-    </div>
-
-
-    <div class="card article-card">
-      <h2>🔁 Python Loops</h2>
-      <p>Learn for loop and while loop with examples.</p>
-      <a href="python-loops.html" class="btn">Read Article</a>
-    </div>
-
-
-    <div class="card article-card">
-      <h2>⚡ Python Functions</h2>
-      <p>Understand reusable blocks of code in Python.</p>
-      <a href="python-functions.html" class="btn">Read Article</a>
-    </div>
-
-
-    <div class="card article-card">
-      <h2>📦 Python Lists</h2>
-      <p>Learn Python list methods and operations.</p>
-      <a href="python-lists.html" class="btn">Read Article</a>
-    </div>
-
-
-    <div class="card article-card">
-      <h2>📚 Python OOP</h2>
-      <p>Learn Object Oriented Programming concepts in Python.</p>
-      <a href="python-oop.html" class="btn">Read Article</a>
-    </div>
-
-
-    <div class="card article-card">
-      <h2>🚀 Python Projects</h2>
-      <p>Beginner Python project ideas to practice coding.</p>
-      <a href="python-projects.html" class="btn">Read Article</a>
-    </div>
-
-    <div class="card article-card">
-      <h2>🐍 Complete Python Tutorial</h2>
-      <p>Learn Python from Beginner to Advanced with 18+ free tutorials.</p>
-      <a href="python-tutorial.html" class="btn">🚀 Start Learning</a>
-    </div>
-
-  </div>
-  <!-- ARTICLES PAGE END -->
+    <!-- ARTICLES PAGE END -->
 
   </div> <!-- PINS PAGE -->
 
@@ -1065,79 +1923,109 @@
 
     </div>
 
+  </div>
 
+  <footer class="footer">
 
-    <!-- FOOTER -->
-
-    <div class="footer">
-      Made with 💜 by Roshni Code Charm
+    <div class="footer-logo">
+      Roshni Code Charm 💜
     </div>
 
-    <!-- PINS PAGE CLOSE -->
+    <p>
+      Learn • Build • Create 🚀
+    </p>
 
-    <!-- POPUP -->
+    <div class="footer-links">
 
-    <div id="popup" class="popup" onclick="closeImg()">
-      <img id="popupImg">
+      <a href="index.html">Home</a>
+
+      <a href="python-tutorial.html">Python</a>
+
+      <a href="#">HTML</a>
+
+      <a href="#">JavaScript</a>
+
+      <a href="https://in.pinterest.com/codeewithroshni_08/">
+        Pinterest
+      </a>
+
     </div>
 
-    <script>
+
+    <div class="footer-bottom">
+
+      © 2026 Roshni Code Charm.
+      All Rights Reserved.
+
+    </div>
+
+  </footer>
+
+  <!-- PINS PAGE CLOSE -->
+
+  <!-- POPUP -->
+
+  <div id="popup" class="popup" onclick="closeImg()">
+    <img id="popupImg">
+  </div>
+
+  <script>
 
 
-      function showPage(page) {
-        document.querySelectorAll(".page").forEach(function (p) {
-          p.classList.remove("active");
-        });
+    function showPage(page) {
+      document.querySelectorAll(".page").forEach(function (p) {
+        p.classList.remove("active");
+      });
 
-        document.getElementById(page).classList.add("active");
-        window.scrollTo(0, 0);
-      }
+      document.getElementById(page).classList.add("active");
+      window.scrollTo(0, 0);
+    }
 
-      // IMAGE POPUP
-      function openImg(src) {
-        document.getElementById("popup").style.display = "flex";
-        document.getElementById("popupImg").src = src;
-      }
+    // IMAGE POPUP
+    function openImg(src) {
+      document.getElementById("popup").style.display = "flex";
+      document.getElementById("popupImg").src = src;
+    }
 
-      function closeImg() {
-        document.getElementById("popup").style.display = "none";
-      }
+    function closeImg() {
+      document.getElementById("popup").style.display = "none";
+    }
 
-      // SEARCH ARTICLES
-      function searchArticles() {
-        let input = document.getElementById("searchInput").value.toLowerCase();
-        let cards = document.querySelectorAll(".article-card");
+    // SEARCH ARTICLES
+    function searchArticles() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let cards = document.querySelectorAll(".article-card");
 
-        cards.forEach(function (card) {
-          let text = card.innerText.toLowerCase();
+      cards.forEach(function (card) {
+        let text = card.innerText.toLowerCase();
 
-          if (text.includes(input)) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
-      }
+        if (text.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
 
-      // FILTER ARTICLES
-      function filterCategory(category) {
-        let cards = document.querySelectorAll(".article-card");
+    // FILTER ARTICLES
+    function filterCategory(category) {
+      let cards = document.querySelectorAll(".article-card");
 
-        cards.forEach(function (card) {
-          let text = card.innerText.toLowerCase();
+      cards.forEach(function (card) {
+        let text = card.innerText.toLowerCase();
 
-          if (category === "all") {
-            card.style.display = "block";
-          } else if (text.includes(category)) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
-      }
+        if (category === "all") {
+          card.style.display = "block";
+        } else if (text.includes(category)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
 
 
-    </script>
+  </script>
 
 </body>
 

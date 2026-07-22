@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Tutorial for Beginners | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Complete JavaScript Tutorial for Beginners. Learn JavaScript step by step with easy examples and mini projects.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9ff;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 25px;
+        }
+
+        .hero {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 46px;
+            color: #7b2cbf;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: #7b2cbf;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #ff4da6;
+        }
+
+        .toc {
+            background: #f3e8ff;
+            padding: 25px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border-left: 6px solid #7b2cbf;
+        }
+
+        .toc h2 {
+            color: #7b2cbf;
+            margin-bottom: 15px;
+        }
+
+        .tip-box {
+            background: #e8fff2;
+            padding: 20px;
+            border-left: 6px solid #2ecc71;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .mistake-box {
+            background: #fff2f2;
+            padding: 20px;
+            border-left: 6px solid #ff4d4d;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #7b2cbf;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+
+        @media(max-width:768px) {
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+        }
+
+        .roadmap {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            margin: 35px 0;
+        }
+
+        .roadmap h2 {
+            color: #7b2cbf;
+            margin-bottom: 15px;
+        }
+
+        .roadmap li {
+            margin: 10px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="hero">
+
+            <h1>⚡ Complete JavaScript Tutorial</h1>
+
+            <p class="subtitle">
+                Learn JavaScript from Beginner to Advanced with simple examples and projects.
+            </p>
+
+            <a href="javascript-basics.html" class="btn">
+                Start Learning 🚀
+            </a>
+
+        </div>
+
+        <div class="toc">
+
+            <h2>📚 Table of Contents</h2>
+
+            <ul>
+                <li>JavaScript Basics</li>
+                <li>Variables</li>
+                <li>Data Types</li>
+                <li>Operators</li>
+                <li>If Else</li>
+                <li>Loops</li>
+                <li>Functions</li>
+                <li>Arrays</li>
+                <li>Objects</li>
+                <li>DOM</li>
+                <li>Events</li>
+                <li>ES6</li>
+                <li>Projects</li>
+                <li>Interview Questions</li>
+            </ul>
+
+        </div>
+
+        <div class="tip-box">
+
+            <h2>💡 Quick Tip</h2>
+
+            <p>
+                Practice JavaScript daily by creating interactive webpages and mini projects.
+            </p>
+
+        </div>
+
+        <div class="mistake-box">
+
+            <h2>⚠️ Common Mistakes</h2>
+
+            <ul>
+                <li>Using = instead of == or ===.</li>
+                <li>Ignoring console errors.</li>
+                <li>Not understanding DOM manipulation.</li>
+                <li>Skipping practice projects.</li>
+            </ul>
+
+        </div>
+
+        <div class="roadmap">
+
+            <h2>🗺️ JavaScript Learning Roadmap</h2>
+
+            <ol>
+                <li>Introduction</li>
+                <li>Variables</li>
+                <li>Data Types</li>
+                <li>Operators</li>
+                <li>If Else</li>
+                <li>Loops</li>
+                <li>Functions</li>
+                <li>Arrays</li>
+                <li>Objects</li>
+                <li>DOM</li>
+                <li>Events</li>
+                <li>ES6</li>
+                <li>Projects</li>
+            </ol>
+
+        </div>
+
+        <h2 style="text-align:center;color:#7b2cbf;margin:40px 0;">
+            📖 JavaScript Tutorials
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>⚡ JavaScript Basics</h3>
+                <p>Start learning JavaScript from scratch.</p>
+                <a href="javascript-basics.html" class="btn">Read Article</a>
+            </div>
+
+            <div class="card">
+                <h3>📝 JavaScript Variables</h3>
+                <p>Learn variables using var, let and const.</p>
+                <a href="javascript-variables.html" class="btn">Coming Soon</a>
+            </div>
+
+            <div class="card">
+                <h3>📦 JavaScript Data Types</h3>
+                <p>Understand String, Number, Boolean and more.</p>
+                <a href="javascript-data-types.html" class="btn">Coming Soon</a>
+            </div>
+
+            <div class="card">
+                <h3>🔁 JavaScript Loops</h3>
+                <p>Master for, while and do...while loops.</p>
+                <a href="javascript-loops.html" class="btn">Coming Soon</a>
+            </div>
+
+            <div class="card">
+                <h3>⚡ JavaScript Functions</h3>
+                <p>Create reusable functions.</p>
+                <a href="javascript-functions.html" class="btn">Coming Soon</a>
+            </div>
+
+            <div class="card">
+                <h3>🌐 JavaScript DOM</h3>
+                <p>Learn DOM manipulation with examples.</p>
+                <a href="javascript-dom.html" class="btn">Coming Soon</a>
+            </div>
+
+            <div class="card">
+                <h3>🎯 JavaScript Projects</h3>
+                <p>Build beginner-friendly projects.</p>
+                <a href="javascript-projects.html" class="btn">Coming Soon</a>
+            </div>
+
+            <div class="card">
+                <h3>💼 Interview Questions</h3>
+                <p>Practice JavaScript interview questions.</p>
+                <a href="javascript-interview-questions.html" class="btn">Coming Soon</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Roshni Code Charm • Happy Coding 💜
+    </footer>
+
+</body>
+
+</html>

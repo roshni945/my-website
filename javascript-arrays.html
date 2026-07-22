@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Arrays | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Learn JavaScript Arrays with easy examples. Understand array methods, indexing, loops and useful operations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: cursive;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #7b2cbf;
+        }
+
+        h2 {
+            color: #ff4da6;
+            margin-top: 35px;
+        }
+
+        .intro-box {
+            background-color: rgb(239, 203, 244);
+            border-left: 5px solid #7b2cbf;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .intro-box h3 {
+            margin: 0 0 10px;
+            color: #2ebf2c;
+        }
+
+        .intro {
+            margin: 0;
+            color: #111111;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        pre {
+            background: #f3e8ff;
+            color: #333;
+            padding: 2px 10px;
+            border-radius: 5px;
+            border-left: 4px solid #7b2cbf;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #7b2cbf;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #5a189a;
+            transform: translateY(-2px);
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
+
+        .article-info {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .left-column,
+        .right-column {
+            flex: 1;
+        }
+
+
+        .toc {
+            background: #f3e8ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+        }
+
+        .toc h3 {
+            color: #7b2cbf;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .toc li {
+            margin: 10px 0;
+        }
+
+        .toc a {
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .toc a:hover {
+            color: #7b2cbf;
+            padding-left: 6px;
+        }
+
+
+        .tip-box,
+        .mistake-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .tip-box {
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+        }
+
+
+        .mistake-box {
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+        }
+
+
+        .content-box {
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+        }
+
+
+        .author-info {
+            background-color: beige;
+            padding: 18px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 25px 0;
+            color: #222;
+            font-size: 25px;
+            font-weight: 500;
+            border-left: 5px solid #7b2cbf;
+        }
+
+
+        .author-info b {
+            color: #7b2cbf;
+        }
+
+        h3 {
+            color: #7b2cbf;
+        }
+
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul {
+            padding-left: 22px;
+        }
+
+        .content-box ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul li a {
+            color: #7b2cbf;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .content-box ul li a:hover {
+            color: #ff4da6;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width:768px) {
+
+            .article-info {
+                flex-direction: column;
+            }
+
+            .content-box {
+                padding: 25px;
+            }
+
+            body {
+                padding: 18px;
+            }
+        }
+
+        .key-box {
+            background: #ffe8fa;
+            border-left: 5px solid #f4b400;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .key-box h3 {
+            margin-top: 0;
+            color: #d97706;
+        }
+
+        .key-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .key-box li {
+            margin: 8px 0;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .related-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .related-link {
+            display: block;
+            background: #fff;
+            margin: 10px 0;
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .related-link:hover {
+            background: #7b2cbf;
+            color: #fff;
+        }
+
+        .code-title {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin: 15px 0 8px;
+            font-size: 16px;
+        }
+
+        .output-box {
+            background: #e8fff2;
+            border-left: 4px solid #2ecc71;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: #222;
+            font-family: Consolas, monospace;
+        }
+
+        .practice-box {
+            background: #eef7ff;
+            border-left: 5px solid #2196f3;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .practice-box h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        .related-box {
+            background: #f9f5ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+        }
+
+        .related-box h2 {
+            margin-top: 0;
+        }
+
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .related-links a {
+            display: block;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .related-links a:hover {
+            background: #7b2cbf;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #faf5ff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
+            border-left: 4px solid #7b2cbf;
+        }
+
+        .post-meta span {
+            font-weight: 500;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #7b2cbf;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .share-box {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .share-box h2 {
+            margin-top: 0;
+        }
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .share-buttons a {
+            text-decoration: none;
+            background: #7b2cbf;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: .3s;
+        }
+
+        .share-buttons a:hover {
+            background: #5a189a;
+        }
+
+        .did-you-know {
+            background: #fff9e6;
+            border-left: 5px solid #f4b400;
+            padding: 18px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .did-you-know h3 {
+            margin-top: 0;
+            color: #c77d00;
+        }
+
+        .did-you-know p {
+            margin: 8px 0 0;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .method-table th {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .method-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .method-table tr:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .method-table tr:hover {
+            background: #f3e8ff;
+        }
+
+        .practice-questions {
+            background: #eef8ff;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .practice-questions ol {
+            padding-left: 20px;
+        }
+
+        .practice-questions li {
+            margin: 10px 0;
+        }
+
+        .quiz-box {
+            background: #fff8e8;
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .quiz-box p {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .quiz-box ul {
+            margin: 10px 0 20px 20px;
+        }
+
+        .quiz-box li {
+            margin: 6px 0;
+        }
+
+        .interview-box {
+            background: #eefcf3;
+            border-left: 5px solid #2ecc71;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .interview-box ol {
+            padding-left: 22px;
+        }
+
+        .interview-box li {
+            margin: 12px 0;
+        }
+
+        .glossary-box {
+            background: #f8f9ff;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .glossary-box dt {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .glossary-box dd {
+            margin: 5px 0 15px 20px;
+            color: #444;
+        }
+
+        #topBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background: #7b2cbf;
+            color: #fff;
+            cursor: pointer;
+            padding: 14px 18px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+            transition: .3s;
+        }
+
+        #topBtn:hover {
+            background: #5a189a;
+            transform: translateY(-3px);
+        }
+
+        .code-box {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #7b2cbf;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .copy-btn:hover {
+            background: #5a189a;
+        }
+
+        .code-box pre {
+            margin-top: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <a href="javascript-tutorial.html">JavaScript</a>
+            <span>›</span>
+            <span>JavaScript Arrays</span>
+        </nav>
+        <h1>📋 JavaScript Arrays</h1>
+
+        <div class="article-info">
+
+            <div class="left-column">
+
+                <div class="toc">
+
+                    <h3>📚 Table of Contents</h3>
+
+                    <li><a href="#what">📋 What is an Array?</a></li>
+                    <li><a href="#create">📌 Create an Array</a></li>
+                    <li><a href="#access">📌 Access Elements</a></li>
+                    <li><a href="#methods">📌 Array Methods</a></li>
+                    <li><a href="#loop">📌 Loop Through Arrays</a></li>
+                    <li><a href="#quiz">🧠 Mini Quiz</a></li>
+                    <li><a href="#glossary">📖 Glossary</a></li>
+
+                    <div class="practice-box" id="practice">
+
+                        <h2>💻 Try It Yourself</h2>
+
+                        <p>
+                            Copy the following code and run it in your browser or VS Code.
+                        </p>
+                        <button class="copy-btn">📋 Copy</button>
+                        <pre>
+let fruits = ["Apple", "Banana", "Mango"];
+
+for(let i = 0; i < fruits.length; i++){
+    console.log(fruits[i]);
+}
+    </pre>
+
+                    </div>
+                    <li><a href="#best">⭐ Best Practices</a></li>
+                    <h2 id="practice">📝 Practice Questions</h2>
+
+                    <div class="practice-questions">
+
+                        <ol>
+                            <li>Create an array of 5 fruits.</li>
+
+                            <li>Print the first and last element of an array.</li>
+
+                            <li>Add "Orange" to the end of an array using <b>push()</b>.</li>
+
+                            <li>Remove the last element using <b>pop()</b>.</li>
+
+                            <li>Print all elements using a <b>for</b> loop.</li>
+                        </ol>
+
+                        <h2 id="quiz">🧠 Mini Quiz</h2>
+
+                        <div class="quiz-box">
+
+                            <p><b>1. Which index represents the first element of an array?</b></p>
+
+                            <ul>
+                                <li>A. 1</li>
+                                <li>B. 0 ✅</li>
+                                <li>C. -1</li>
+                                <li>D. 10</li>
+                            </ul>
+
+                            <p><b>2. Which method adds an element to the end of an array?</b></p>
+
+                        </div>
+
+                        <ul>
+                            <li>A. pop()</li>
+                            <li>B. shift()</li>
+                            <li>C. push() ✅</li>
+                            <li>D. unshift()</li>
+                        </ul>
+
+                        <p><b>3. Which method removes the last element?</b></p>
+
+                        <ul>
+                            <li>A. push()</li>
+                            <li>B. pop() ✅</li>
+                            <li>C. shift()</li>
+                            <li>D. slice()</li>
+                        </ul>
+
+                        <p><b>4. Which property returns the number of elements in an array?</b></p>
+
+                        <ul>
+                            <li>A. size</li>
+                            <li>B. count</li>
+                            <li>C. length ✅</li>
+                            <li>D. total</li>
+                        </ul>
+
+                        <p><b>5. Which loop is commonly used to print all array elements?</b></p>
+
+                        <ul>
+                            <li>A. if</li>
+                            <li>B. switch</li>
+                            <li>C. while</li>
+                            <li>D. for ✅</li>
+                        </ul>
+
+                    </div>
+
+                    <h2 id="interview">💼 Interview Questions</h2>
+
+                    <div class="interview-box">
+
+                        <ol>
+                            <li>What is an array in JavaScript?</li>
+
+                            <li>What is the difference between an array and an object?</li>
+
+                            <li>What is the first index of an array?</li>
+
+                            <li>What is the difference between <b>push()</b> and <b>pop()</b>?</li>
+
+                            <li>How do you loop through an array?</li>
+
+                        </ol>
+
+                    </div>
+
+                    <h2 id="glossary">📖 Glossary</h2>
+
+                    <div class="glossary-box">
+
+                        <dl>
+
+                            <dt><b>Array</b></dt>
+                            <dd>A collection of multiple values stored in a single variable.</dd>
+
+                            <dt><b>Index</b></dt>
+                            <dd>The position of an element in an array. The first index is 0.</dd>
+
+                            <dt><b>push()</b></dt>
+                            <dd>Adds a new element to the end of an array.</dd>
+
+                            <dt><b>pop()</b></dt>
+                            <dd>Removes the last element from an array.</dd>
+
+                            <dt><b>length</b></dt>
+                            <dd>Returns the total number of elements in an array.</dd>
+
+                        </dl>
+
+                    </div>
+
+                    <li><a href="#faq">❓ FAQs</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="right-column">
+
+                <div class="tip-box">
+
+                    <h3>💡 Quick Tip</h3>
+
+                    <p>
+                        Arrays are used to store multiple values in a single variable.
+                    </p>
+
+                </div>
+
+                <div class="mistake-box">
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+                    <ul>
+                        <li>Using an invalid index.</li>
+                        <li>Confusing arrays with objects.</li>
+                        <li>Forgetting array methods.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="author-info">
+
+            <p>✍️ <b>By Roshni Code Charm</b></p>
+
+            <p>📅 July 2026 | ⏱️ 6 min read</p>
+
+            <div class="post-meta">
+
+                <span>📅 Last Updated: July 2026</span>
+
+                <span>🏷️ JavaScript, Arrays, Beginners</span>
+
+            </div>
+
+            <div class="intro-box">
+
+                <h2>📖 Introduction</h2>
+
+                <p class="intro">
+                    JavaScript Arrays are used to store multiple values in a single variable. In this guide, you'll
+                    learn
+                    how to create arrays, access elements, use array methods, and loop through arrays with easy
+                    examples.
+                </p>
+
+            </div>
+
+            <div class="content-box">
+
+                <h2 id="what">📋 What is an Array?</h2>
+
+                <p>
+                    An array stores multiple values in a single variable.
+                </p>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        JavaScript Arrays can store different data types together, such as numbers,
+                        strings, booleans, objects, and even other arrays.
+                    </p>
+
+                </div>
+
+                <h2>📌 Create an Array</h2>
+
+                <p class="code-title">Example:</p>
+
+                <pre>
+let fruits = ["Apple", "Banana", "Mango"];
+    </pre>
+
+                <div class="output-box">
+                    Output: ["Apple", "Banana", "Mango"]
+                </div>
+
+                <h2>📌 Access Array Elements</h2>
+
+                <p class="code-title">Example:</p>
+
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+console.log(fruits[0]);
+console.log(fruits[1]);
+    </pre>
+
+                <div class="output-box">
+                    Output:<br>
+                    Apple<br>
+                    Banana
+                </div>
+
+                <p>
+                    Array indexing starts from <b>0</b>.
+                </p>
+
+                <h2>📌 Array Methods</h2>
+
+                <p class="code-title">Example:</p>
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+fruits.push("Orange");
+fruits.pop();
+
+console.log(fruits);
+    </pre>
+
+                <div class="output-box">
+                    Output: ["Apple", "Banana", "Mango"]
+                </div>
+
+                <p>
+                    <b>push()</b> adds an item and <b>pop()</b> removes the last item.
+                </p>
+
+                <h2>📊 Common Array Methods</h2>
+
+                <table class="method-table">
+
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+
+                    <tr>
+                        <td>push()</td>
+                        <td>Adds an element at the end</td>
+                    </tr>
+
+                    <tr>
+                        <td>pop()</td>
+                        <td>Removes the last element</td>
+                    </tr>
+
+                    <tr>
+                        <td>shift()</td>
+                        <td>Removes the first element</td>
+                    </tr>
+
+                    <tr>
+                        <td>unshift()</td>
+                        <td>Adds an element at the beginning</td>
+                    </tr>
+
+                    <tr>
+                        <td>length</td>
+                        <td>Returns the number of elements</td>
+                    </tr>
+
+                </table>
+
+                <h2>📌 Loop Through an Array</h2>
+
+                <p class="code-title">Example:</p>
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+for(let i = 0; i fruits.length; i++){
+    console.log(fruits[i]);
+}
+    </pre>
+
+                <div class="output-box">
+                    Output:<br>
+                    Apple<br>
+                    Banana<br>
+                    Mango
+                </div>
+
+                <div class="key-box" id="key">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+                        <li>Arrays store multiple values in one variable.</li>
+                        <li>Array indexing starts from 0.</li>
+                        <li>Use <b>push()</b> to add elements.</li>
+                        <li>Use <b>pop()</b> to remove the last element.</li>
+                        <li>Use loops to access array elements.</li>
+                    </ul>
+
+                </div>
+
+                <h2 id="best">⭐ Best Practices</h2>
+
+                <ul>
+                    <li>Use meaningful array names.</li>
+                    <li>Use loops for large arrays.</li>
+                    <li>Use array methods whenever possible.</li>
+                    <li>Avoid duplicate values unless required.</li>
+                </ul>
+
+            </div>
+            <div class="faq-box" id="faq">
+                <h2>❓ Frequently Asked Questions</h2>
+
+                <h3>1. What is an array?</h3>
+
+                <p>An array stores multiple values in one variable.</p>
+
+                <h3>2. What is the first index?</h3>
+
+                <p>The first index is <b>0</b>.</p>
+
+                <h3>3. Which method adds a new element?</h3>
+
+                <p><b>push()</b> adds a new element to the end.</p>
+
+            </div>
+
+            <div class="share-box">
+
+                <h2>📤 Share This Article</h2>
+
+                <p>If you found this tutorial helpful, share it with your friends.</p>
+
+                <div class="share-buttons">
+
+                    <a href="#">📘 Facebook</a>
+
+                    <a href="#">🐦 Twitter</a>
+
+                    <a href="#">💼 LinkedIn</a>
+
+                    <a href="#">📌 Pinterest</a>
+
+                </div>
+
+            </div>
+
+            <div class="related-box">
+
+                <h2>📚 Related Articles</h2>
+
+                <a href="javascript-functions.html" class="related-link">
+                    📘 JavaScript Functions →
+                </a>
+
+                <a href="javascript-objects.html" class="related-link">
+                    📘 JavaScript Objects →
+                </a>
+
+                <a href="javascript-tutorial.html" class="related-link">
+                    📘 JavaScript Tutorial →
+                </a>
+
+                <a href="python-lists.html" class="related-link">
+                    🐍 Python Lists →
+                </a>
+
+            </div>
+
+            <div class="page-nav">
+
+                <a href="javascript-functions.html" class="btn">
+                    ⬅️ Functions
+                </a>
+
+                <a href="javascript-objects.html" class="btn">
+                    Next: Objects ➡️
+                </a>
+
+            </div>
+        </div>
+
+        <footer style="text-align:center;padding:25px;color:#777;margin-top:30px;border-top:1px solid #ddd;">
+
+            <p>Made with ❤️ by <b>Roshni Code Charm</b></p>
+
+            <p>© 2026 All Rights Reserved.</p>
+
+        </footer>
+        <button onclick="topFunction()" id="topBtn" title="Go to top">
+            ⬆
+        </button>
+
+        <script>
+
+            let mybutton = document.getElementById("topBtn");
+
+            window.onscroll = function () {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            };
+
+            function topFunction() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            const copyButtons = document.querySelectorAll(".copy-btn");
+
+            copyButtons.forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const code = button.nextElementSibling.innerText;
+
+                    navigator.clipboard.writeText(code);
+
+                    button.innerText = "✅ Copied!";
+
+                    setTimeout(() => {
+
+                        button.innerText = "📋 Copy";
+
+                    }, 2000);
+
+                });
+
+            });
+
+        </script>
+</body>
+
+</html>

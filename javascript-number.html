@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Numbers | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Learn JavaScript Numbers with easy examples. Understand number methods, Math object, parsing, rounding, and more.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: cursive;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #7b2cbf;
+        }
+
+        h2 {
+            color: #ff4da6;
+            margin-top: 35px;
+        }
+
+        .intro-box {
+            background-color: rgb(239, 203, 244);
+            border-left: 5px solid #7b2cbf;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .intro-box h3 {
+            margin: 0 0 10px;
+            color: #2ebf2c;
+        }
+
+        .intro {
+            margin: 0;
+            color: #111111;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        pre {
+            background: #f3e8ff;
+            color: #333;
+            padding: 2px 10px;
+            border-radius: 5px;
+            border-left: 4px solid #7b2cbf;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #7b2cbf;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #5a189a;
+            transform: translateY(-2px);
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
+
+        .article-info {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .left-column,
+        .right-column {
+            flex: 1;
+        }
+
+
+        .toc {
+            background: #f3e8ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+        }
+
+        .toc h3 {
+            color: #7b2cbf;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .toc li {
+            margin: 10px 0;
+        }
+
+        .toc a {
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .toc a:hover {
+            color: #7b2cbf;
+            padding-left: 6px;
+        }
+
+
+        .tip-box,
+        .mistake-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .tip-box {
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+        }
+
+
+        .mistake-box {
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+        }
+
+
+        .content-box {
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+        }
+
+
+        .author-info {
+            background-color: beige;
+            padding: 18px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 25px 0;
+            color: #222;
+            font-size: 25px;
+            font-weight: 500;
+            border-left: 5px solid #7b2cbf;
+        }
+
+
+        .author-info b {
+            color: #7b2cbf;
+        }
+
+        h3 {
+            color: #7b2cbf;
+        }
+
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul {
+            padding-left: 22px;
+        }
+
+        .content-box ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul li a {
+            color: #7b2cbf;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .content-box ul li a:hover {
+            color: #ff4da6;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width:768px) {
+
+            .article-info {
+                flex-direction: column;
+            }
+
+            .content-box {
+                padding: 25px;
+            }
+
+            body {
+                padding: 18px;
+            }
+        }
+
+        .key-box {
+            background: #ffe8fa;
+            border-left: 5px solid #f4b400;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .key-box h3 {
+            margin-top: 0;
+            color: #d97706;
+        }
+
+        .key-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .key-box li {
+            margin: 8px 0;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .related-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .related-link {
+            display: block;
+            background: #fff;
+            margin: 10px 0;
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .related-link:hover {
+            background: #7b2cbf;
+            color: #fff;
+        }
+
+        .code-title {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin: 15px 0 8px;
+            font-size: 16px;
+        }
+
+        .output-box {
+            background: #e8fff2;
+            border-left: 4px solid #2ecc71;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: #222;
+            font-family: Consolas, monospace;
+        }
+
+        .practice-box {
+            background: #eef7ff;
+            border-left: 5px solid #2196f3;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .practice-box h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        .related-box {
+            background: #f9f5ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+        }
+
+        .related-box h2 {
+            margin-top: 0;
+        }
+
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .related-links a {
+            display: block;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .related-links a:hover {
+            background: #7b2cbf;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #faf5ff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
+            border-left: 4px solid #7b2cbf;
+        }
+
+        .post-meta span {
+            font-weight: 500;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #7b2cbf;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .share-box {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .share-box h2 {
+            margin-top: 0;
+        }
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .share-buttons a {
+            text-decoration: none;
+            background: #7b2cbf;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: .3s;
+        }
+
+        .share-buttons a:hover {
+            background: #5a189a;
+        }
+
+        .did-you-know {
+            background: #fff9e6;
+            border-left: 5px solid #f4b400;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, .08);
+        }
+
+        .did-you-know h3 {
+            margin-top: 0;
+            color: #c77d00;
+        }
+
+        .did-you-know p {
+            margin: 10px 0 0;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .method-table th {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .method-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .method-table tr:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .method-table tr:hover {
+            background: #f3e8ff;
+        }
+
+        .practice-questions {
+            background: #eef8ff;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .practice-questions ol {
+            padding-left: 20px;
+        }
+
+        .practice-questions li {
+            margin: 10px 0;
+        }
+
+        .quiz-box {
+            background: #fff8e8;
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .quiz-box p {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .quiz-box ul {
+            margin: 10px 0 20px 20px;
+        }
+
+        .quiz-box li {
+            margin: 6px 0;
+        }
+
+        .interview-box {
+            background: #eefcf3;
+            border-left: 5px solid #2ecc71;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .interview-box ol {
+            padding-left: 22px;
+        }
+
+        .interview-box li {
+            margin: 12px 0;
+        }
+
+        .glossary-box {
+            background: #f8f9ff;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .glossary-box dt {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .glossary-box dd {
+            margin: 5px 0 15px 20px;
+            color: #444;
+        }
+
+        #topBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background: #7b2cbf;
+            color: #fff;
+            cursor: pointer;
+            padding: 14px 18px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+            transition: .3s;
+        }
+
+        #topBtn:hover {
+            background: #5a189a;
+            transform: translateY(-3px);
+        }
+
+        .code-box {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #7b2cbf;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .copy-btn:hover {
+            background: #5a189a;
+        }
+
+        .code-box pre {
+            margin-top: 0;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .method-table th {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .method-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .method-table tr:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .method-table tr:hover {
+            background: #f3e8ff;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <a href="javascript-tutorial.html">JavaScript</a>
+            <span>›</span>
+            <span>JavaScript Numbers</span>
+        </nav>
+
+        <h1>🔢 JavaScript Numbers</h1>
+
+        <div class="article-info">
+
+            <div class="left-column">
+
+                <div class="toc">
+
+                    <h3>📚 Table of Contents</h3>
+
+                    <ul>
+                        <li><a href="#what">📖 What are Numbers?</a></li>
+                        <li><a href="#create">📝 Create Numbers</a></li>
+                        <li><a href="#operations">➕ Number Operations</a></li>
+                        <li><a href="#methods">🛠️ Number Methods</a></li>
+                        <li><a href="#math">🧮 Math Object</a></li>
+                        <li><a href="#real-life">🌍 Real-Life Example</a></li>
+                        <li><a href="#practice">💻 Try It Yourself</a></li>
+                        <li><a href="#best">⭐ Best Practices</a></li>
+                        <li><a href="#quiz">🧠 Mini Quiz</a></li>
+                        <li><a href="#faq">❓ FAQs</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="right-column">
+
+                <div class="tip-box">
+
+                    <h3>💡 Quick Tip</h3>
+
+                    <p>
+                        Use <b>Number</b> values for calculations and the
+                        <b>Math</b> object for mathematical operations.
+                    </p>
+
+                </div>
+
+                <div class="mistake-box">
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+                    <ul>
+                        <li>Using quotes around numbers.</li>
+                        <li>Forgetting decimal precision.</li>
+                        <li>Using parseInt() when parseFloat() is needed.</li>
+                        <li>Confusing Number with String values.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="author-info">
+
+            <p>✍️ <b>By Roshni Code Charm</b></p>
+
+            <p>📅 July 2026 | ⏱️ 6 min read</p>
+
+            <div class="post-meta">
+
+                <span>📅 Last Updated: July 2026</span>
+
+                <span>🏷️ JavaScript, Numbers, Beginners</span>
+
+            </div>
+
+        </div>
+
+        <div class="intro-box">
+
+            <h2>📖 Introduction</h2>
+
+            <p class="intro">
+                JavaScript Numbers are used to store integers and decimal values.
+                They are useful for calculations, prices, marks, percentages, and many other mathematical operations.
+            </p>
+
+        </div>
+
+        <div class="content-box">
+
+            <h2 id="what">📖 What are JavaScript Numbers?</h2>
+
+            <p>
+                A Number is a data type used to store numeric values.
+                Numbers can be integers or decimal values.
+            </p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let age = 18;
+let price = 99.99;
+
+console.log(age);
+console.log(price);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                18<br>
+                99.99
+            </div>
+
+            <h2 id="create">📝 Create Numbers</h2>
+
+            <p>
+                You can create numbers by assigning numeric values to variables.
+            </p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let x = 100;
+let y = 50.5;
+
+console.log(x);
+console.log(y);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                100<br>
+                50.5
+            </div>
+
+            <h2 id="operations">➕ Number Operations</h2>
+
+            <p>
+                JavaScript supports addition, subtraction, multiplication and division.
+            </p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let a = 20;
+let b = 5;
+
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                25<br>
+                15<br>
+                100<br>
+                4
+            </div>
+
+            <h2 id="methods">🛠️ Number Methods</h2>
+
+            <h3>toFixed()</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let num = 12.456;
+
+console.log(num.toFixed(2));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                12.46
+            </div>
+
+            <h3>toString()</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let num = 100;
+
+console.log(num.toString());
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                100
+            </div>
+
+            <h3>parseInt()</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+console.log(parseInt("25.75"));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                25
+            </div>
+
+            <h3>parseFloat()</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+console.log(parseFloat("25.75"));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                25.75
+            </div>
+            <h2 id="math">🧮 JavaScript Math Object</h2>
+
+            <p>
+                The <b>Math</b> object provides useful mathematical functions and constants.
+            </p>
+
+            <p class="code-title">Example:</p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+console.log(Math.round(4.7));
+console.log(Math.floor(4.9));
+console.log(Math.ceil(4.1));
+console.log(Math.max(10,20,30));
+console.log(Math.min(10,20,30));
+console.log(Math.random());
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                5<br>
+                4<br>
+                5<br>
+                30<br>
+                10<br>
+                0.56 (Random Number)
+            </div>
+
+
+            <h2 id="real-life">🌍 Real-Life Example</h2>
+
+            <p>
+                Numbers are used everywhere in websites and applications.
+            </p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let price = 799;
+let quantity = 3;
+
+let total = price * quantity;
+
+console.log(total);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                2397
+            </div>
+
+
+            <h2 id="practice">💻 Try It Yourself</h2>
+
+            <p>
+                Copy and run the code below in your browser console or VS Code.
+            </p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let num = 25.567;
+
+console.log(num.toFixed(2));
+console.log(Number.isInteger(num));
+console.log(Math.sqrt(64));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                25.57<br>
+                false<br>
+                8
+            </div>
+
+
+            <h2>⭐ Common Number Methods</h2>
+
+            <table class="method-table">
+
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+
+                <tr>
+                    <td>toFixed()</td>
+                    <td>Rounds to fixed decimal places.</td>
+                </tr>
+
+                <tr>
+                    <td>toPrecision()</td>
+                    <td>Formats with specified digits.</td>
+                </tr>
+
+                <tr>
+                    <td>Number()</td>
+                    <td>Converts value to number.</td>
+                </tr>
+
+                <tr>
+                    <td>parseInt()</td>
+                    <td>Converts string to integer.</td>
+                </tr>
+
+                <tr>
+                    <td>parseFloat()</td>
+                    <td>Converts string to decimal number.</td>
+                </tr>
+
+                <tr>
+                    <td>isNaN()</td>
+                    <td>Checks whether value is NaN.</td>
+                </tr>
+
+                <tr>
+                    <td>Math.round()</td>
+                    <td>Rounds to nearest integer.</td>
+                </tr>
+
+                <tr>
+                    <td>Math.floor()</td>
+                    <td>Rounds downward.</td>
+                </tr>
+
+                <tr>
+                    <td>Math.ceil()</td>
+                    <td>Rounds upward.</td>
+                </tr>
+
+                <tr>
+                    <td>Math.random()</td>
+                    <td>Generates random number.</td>
+                </tr>
+
+            </table>
+
+
+            <h2>📝 Practice Questions</h2>
+
+            <div class="practice-questions">
+
+                <ol>
+
+                    <li>Create a variable named <b>age</b> and store 18.</li>
+
+                    <li>Print a decimal number.</li>
+
+                    <li>Round 9.8 using Math.round().</li>
+
+                    <li>Convert "150" into a number.</li>
+
+                    <li>Find the square root of 81.</li>
+
+                    <li>Generate a random number.</li>
+
+                    <li>Use parseInt() on "45px".</li>
+
+                    <li>Print a number with 2 decimal places.</li>
+
+                    <li>Check whether 25 is an integer.</li>
+
+                    <li>Find the maximum value among 10, 50 and 25.</li>
+
+                </ol>
+
+            </div>
+
+
+            <h2 id="quiz">🧠 Mini Quiz</h2>
+
+            <div class="quiz-box">
+
+                <p><b>1. Which object provides mathematical functions?</b></p>
+
+                <ul>
+                    <li>A. Number</li>
+                    <li>B. Math ✅</li>
+                    <li>C. String</li>
+                    <li>D. Array</li>
+                </ul>
+
+                <p><b>2. Which method rounds a number down?</b></p>
+
+                <ul>
+                    <li>A. Math.ceil()</li>
+                    <li>B. Math.floor() ✅</li>
+                    <li>C. Math.round()</li>
+                    <li>D. Math.random()</li>
+                </ul>
+
+                <p><b>3. Which method converts text into an integer?</b></p>
+
+                <ul>
+                    <li>A. parseInt() ✅</li>
+                    <li>B. toFixed()</li>
+                    <li>C. slice()</li>
+                    <li>D. concat()</li>
+                </ul>
+
+                <p><b>4. What does Math.random() return?</b></p>
+
+                <ul>
+                    <li>A. Random decimal number ✅</li>
+                    <li>B. Random string</li>
+                    <li>C. Integer only</li>
+                    <li>D. Boolean</li>
+                </ul>
+
+                <p><b>5. Which method checks whether a value is an integer?</b></p>
+
+                <ul>
+                    <li>A. Number.isInteger() ✅</li>
+                    <li>B. parseInt()</li>
+                    <li>C. Math.round()</li>
+                    <li>D. Number()</li>
+                </ul>
+
+            </div>
+
+
+            <h2 id="interview">💼 Interview Questions</h2>
+
+            <div class="interview-box">
+
+                <ol>
+
+                    <li>What is a Number in JavaScript?</li>
+
+                    <li>What is the difference between parseInt() and parseFloat()?</li>
+
+                    <li>How do you round a number?</li>
+
+                    <li>What is the Math object?</li>
+
+                    <li>How do you generate random numbers?</li>
+
+                    <li>What does toFixed() do?</li>
+
+                    <li>What is Number.isInteger()?</li>
+
+                    <li>Difference between Math.floor() and Math.ceil()?</li>
+
+                    <li>How do you convert a string into a number?</li>
+
+                    <li>Name five common Number methods.</li>
+
+                </ol>
+
+            </div>
+
+
+            <h2 id="glossary">📖 Glossary</h2>
+
+            <div class="glossary-box">
+
+                <dl>
+
+                    <dt><b>Number</b></dt>
+                    <dd>Represents numeric values.</dd>
+
+                    <dt><b>Integer</b></dt>
+                    <dd>A whole number.</dd>
+
+                    <dt><b>Decimal</b></dt>
+                    <dd>A number containing a decimal point.</dd>
+
+                    <dt><b>Math Object</b></dt>
+                    <dd>Provides mathematical functions.</dd>
+
+                    <dt><b>parseInt()</b></dt>
+                    <dd>Converts text into an integer.</dd>
+
+                    <dt><b>parseFloat()</b></dt>
+                    <dd>Converts text into a decimal number.</dd>
+
+                    <dt><b>toFixed()</b></dt>
+                    <dd>Rounds to fixed decimal places.</dd>
+
+                    <dt><b>Random Number</b></dt>
+                    <dd>A randomly generated numeric value.</dd>
+
+                </dl>
+
+            </div>
+
+
+            <h2 id="faq">❓ Frequently Asked Questions</h2>
+
+            <div class="faq-box">
+
+                <h3>1. What is a Number?</h3>
+
+                <p>A Number stores numeric values like 10, 50.5 and -25.</p>
+
+                <h3>2. How do you round a number?</h3>
+
+                <p>Use <b>Math.round()</b>.</p>
+
+                <h3>3. How do you convert a string to a number?</h3>
+
+                <p>Use <b>Number()</b>, <b>parseInt()</b> or <b>parseFloat()</b>.</p>
+
+                <h3>4. What does Math.random() return?</h3>
+
+                <p>It returns a random decimal number between 0 and 1.</p>
+
+                <h3>5. What is the difference between parseInt() and parseFloat()?</h3>
+
+                <p>parseInt() returns an integer, while parseFloat() returns a decimal number.</p>
+
+            </div>
+
+
+            <div class="related-box">
+
+                <h2>📚 Related Articles</h2>
+
+                <div class="related-links">
+
+                    <a href="javascript-strings.html">📦 JavaScript Strings</a>
+
+                    <a href="javascript-arrays.html">📋 JavaScript Arrays</a>
+
+                    <a href="javascript-objects.html">📦 JavaScript Objects</a>
+
+                    <a href="javascript-functions.html">⚡ JavaScript Functions</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="page-nav">
+
+                <a href="javascript-strings.html" class="btn">
+                    ⬅️ Strings
+                </a>
+
+                <a href="javascript-arrays.html" class="btn">
+                    Next: Arrays ➡️
+                </a>
+
+            </div>
+
+            <button onclick="topFunction()" id="topBtn" title="Go to top">⬆</button>
+
+            <script>
+                let mybutton = document.getElementById("topBtn");
+
+                window.onscroll = function () {
+                    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                        mybutton.style.display = "block";
+                    } else {
+                        mybutton.style.display = "none";
+                    }
+                };
+
+                function topFunction() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                }
+
+                document.querySelectorAll(".copy-btn").forEach(button => {
+                    button.addEventListener("click", () => {
+                        const code = button.nextElementSibling.innerText;
+                        navigator.clipboard.writeText(code);
+
+                        button.innerText = "✅ Copied!";
+
+                        setTimeout(() => {
+                            button.innerText = "📋 Copy";
+                        }, 2000);
+                    });
+                });
+            </script>
+
+</body>
+
+</html>

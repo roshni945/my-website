@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM Manipulation Part 2</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background: lightpink;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .dark {
+            background: black;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<h1 id="title">JavaScript DOM Manipulation Part 2</h1>
+
+
+<div class="box" id="contentBox">
+
+    <h2 id="heading">Hello JavaScript</h2>
+
+    <p id="text">
+        Learn how to change HTML content using DOM.
+    </p>
+
+</div>
+
+
+<button onclick="changeContent()">
+    Change Content
+</button>
+
+
+<button onclick="changeStyle()">
+    Change Style
+</button>
+
+
+<button onclick="addElement()">
+    Create Element
+</button>
+
+
+<button onclick="removeElement()">
+    Remove Element
+</button>
+
+
+<button onclick="toggleDarkMode()">
+    Dark Mode
+</button>
+
+
+
+<script>
+
+
+// 1. Changing HTML Content
+
+function changeContent(){
+
+    document.getElementById("heading").innerHTML =
+    "DOM Content Changed Successfully 🎉";
+
+    document.getElementById("text").textContent =
+    "JavaScript can modify webpage content dynamically.";
+
+}
+
+
+
+// 2. Changing CSS Style
+
+function changeStyle(){
+
+    let box = document.getElementById("contentBox");
+
+    box.style.backgroundColor = "lightgreen";
+    box.style.color = "purple";
+    box.style.fontSize = "20px";
+
+}
+
+
+
+// 3. Creating New Element
+
+function addElement(){
+
+    let newElement = document.createElement("p");
+
+    newElement.innerHTML =
+    "New Element Created using createElement() ✨";
+
+    document.body.appendChild(newElement);
+
+}
+
+
+
+// 4. Removing Element
+
+function removeElement(){
+
+    let element = document.querySelector(".box");
+
+    element.remove();
+
+}
+
+
+
+// 5. Class Manipulation
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark");
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>

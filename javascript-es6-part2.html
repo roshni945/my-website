@@ -1,0 +1,3487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript ES6 (Part 2) | Advanced ES6 Features | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Master JavaScript ES6 Part 2 with Classes, Constructor, Inheritance, super, Static Methods, Modules, Promises, Async Await, Set, Map, Optional Chaining, Nullish Coalescing and more with easy examples.">
+
+    <meta name="keywords"
+        content="JavaScript ES6 Part 2, JavaScript Classes, Constructor, Inheritance, super keyword, Static Methods, Modules, Promises, Async Await, Set, Map, WeakMap, WeakSet, Optional Chaining, Nullish Coalescing, JavaScript Tutorial">
+
+    <meta name="author" content="Roshni Code Charm">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://roshni945.github.io/my-website/javascript-es6-part2.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<style>
+    /*==========================================
+  GOOGLE FONT
+==========================================*/
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+    /*==========================================
+  RESET
+==========================================*/
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    /*==========================================
+  BODY
+==========================================*/
+
+    body {
+
+        font-family: 'Poppins', sans-serif;
+        background: #f4f0f8;
+        color: #333;
+        line-height: 1.8;
+        max-width: 950px;
+        margin: auto;
+        padding: 30px;
+
+    }
+
+
+    /*==========================================
+  CONTAINER
+==========================================*/
+
+    .container {
+
+        background: #ffffff;
+        border-radius: 22px;
+        padding: 35px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+    }
+
+
+    /*==========================================
+  HEADINGS
+==========================================*/
+
+    h1 {
+
+        color: #7b2cbf;
+        font-size: 40px;
+        margin-bottom: 15px;
+        font-weight: 700;
+
+    }
+
+    h2 {
+
+        color: #ff4da6;
+        margin: 35px 0 15px;
+        font-size: 30px;
+
+    }
+
+    h3 {
+
+        color: #7b2cbf;
+        margin-bottom: 10px;
+        font-size: 22px;
+
+    }
+
+    p {
+
+        margin: 12px 0;
+        color: #444;
+
+    }
+
+    ul {
+
+        padding-left: 22px;
+
+    }
+
+    li {
+
+        margin: 8px 0;
+
+    }
+
+
+    /*==========================================
+  LINKS
+==========================================*/
+
+    a {
+
+        color: #7b2cbf;
+        text-decoration: none;
+        transition: .3s;
+
+    }
+
+    a:hover {
+
+        color: #ff4da6;
+
+    }
+
+
+    /*==========================================
+  BREADCRUMB
+==========================================*/
+
+    .breadcrumb {
+
+        font-size: 15px;
+        margin-bottom: 25px;
+        color: #666;
+
+    }
+
+    .breadcrumb a {
+
+        color: #7b2cbf;
+        font-weight: 500;
+
+    }
+
+    .breadcrumb a:hover {
+
+        text-decoration: underline;
+
+    }
+
+    .breadcrumb span {
+
+        margin: 0 6px;
+
+    }
+
+
+    /*==========================================
+  ARTICLE INFO
+==========================================*/
+
+    .article-info {
+
+        display: flex;
+        gap: 25px;
+        margin: 35px 0;
+
+    }
+
+    .left-column,
+    .right-column {
+
+        flex: 1;
+
+    }
+
+
+    /*==========================================
+  TABLE OF CONTENTS
+==========================================*/
+
+    .toc {
+
+        background: #f4e9ff;
+        border-left: 6px solid #7b2cbf;
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+
+    }
+
+    .toc h3 {
+
+        margin-top: 0;
+        color: #7b2cbf;
+
+    }
+
+    .toc ul {
+
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+
+    }
+
+    .toc li {
+
+        margin: 12px 0;
+
+    }
+
+    .toc a {
+
+        color: #444;
+        font-weight: 500;
+        display: block;
+        transition: .3s;
+
+    }
+
+    .toc a:hover {
+
+        color: #7b2cbf;
+        padding-left: 8px;
+
+    }
+
+
+    /*==========================================
+  TIP BOX
+==========================================*/
+
+    .tip-box {
+
+        background: #e8fff2;
+        border-left: 6px solid #2ecc71;
+        border-radius: 18px;
+        padding: 22px;
+        margin-bottom: 20px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+
+    }
+
+    .tip-box h3 {
+
+        color: #27ae60;
+
+    }
+
+
+    /*==========================================
+  MISTAKE BOX
+==========================================*/
+
+    .mistake-box {
+
+        background: #fff2f2;
+        border-left: 6px solid #ff4d4d;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+
+    }
+
+    .mistake-box h3 {
+
+        color: #e53935;
+
+    }
+
+    .mistake-box ul {
+
+        padding-left: 20px;
+
+    }
+
+
+    /*==========================================
+  AUTHOR BOX
+==========================================*/
+
+    .author-info {
+
+        background: #fff8dc;
+        border-left: 6px solid #7b2cbf;
+        border-radius: 18px;
+        padding: 25px;
+        text-align: center;
+        margin: 30px 0;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+
+    }
+
+    .author-info b {
+
+        color: #7b2cbf;
+
+    }
+
+    .post-meta {
+
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+        background: #faf5ff;
+        padding: 15px;
+        border-radius: 12px;
+        border-left: 5px solid #7b2cbf;
+
+    }
+
+    /*==========================================
+  INTRODUCTION BOX
+==========================================*/
+
+    .intro-box {
+
+        background: linear-gradient(135deg, #efcbf4, #f8eaff);
+        border-left: 6px solid #7b2cbf;
+        border-radius: 18px;
+        padding: 28px;
+        margin: 30px 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+    }
+
+    .intro-box h2 {
+
+        margin-top: 0;
+        color: #7b2cbf;
+
+    }
+
+    .intro {
+
+        font-size: 19px;
+        color: #222;
+
+    }
+
+
+    /*==========================================
+  TOPIC SECTION BOX
+==========================================*/
+
+    .topic-box {
+
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 35px 0;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, .08);
+
+    }
+
+    .topic-box h2 {
+
+        color: #ff4da6;
+        margin-top: 0;
+
+    }
+
+
+    /*==========================================
+  DEFINITION BOX
+==========================================*/
+
+    .definition-box {
+
+        background: #eef7ff;
+        border-left: 6px solid #2196f3;
+        padding: 22px;
+        border-radius: 15px;
+        margin: 25px 0;
+
+    }
+
+    .definition-box h3 {
+
+        color: #1565c0;
+
+    }
+
+
+    /*==========================================
+  DID YOU KNOW
+==========================================*/
+
+    .did-you-know {
+
+        background: #fff9e6;
+        border-left: 6px solid #f4b400;
+        padding: 22px;
+        border-radius: 15px;
+        margin: 30px 0;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, .06);
+
+    }
+
+    .did-you-know h3 {
+
+        color: #c77d00;
+        margin-top: 0;
+
+    }
+
+
+    /*==========================================
+  EXAMPLE BOX
+==========================================*/
+
+    .example-box {
+
+        background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+        border: 2px solid #e2c9ff;
+        border-radius: 20px;
+        padding: 28px;
+        margin: 35px 0;
+        box-shadow: 0 8px 20px rgba(123, 44, 191, .12);
+
+    }
+
+
+    .example-title {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+
+    }
+
+
+    .example-title h3 {
+
+        color: #7b2cbf;
+        font-size: 24px;
+        margin: 0;
+
+    }
+
+
+    /*==========================================
+  COPY BUTTON
+==========================================*/
+
+    .copy-btn {
+
+        background: #7b2cbf;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .3s;
+
+    }
+
+
+    .copy-btn:hover {
+
+        background: #5a189a;
+        transform: translateY(-2px);
+
+    }
+
+
+    /*==========================================
+  CODE BLOCK
+==========================================*/
+
+    .example-box pre {
+
+        background: #101827;
+        color: #ffffff;
+        padding: 22px;
+        border-radius: 15px;
+        overflow-x: auto;
+        font-family: Consolas, monospace;
+        font-size: 15px;
+        line-height: 1.8;
+        border-left: 6px solid #7b2cbf;
+
+    }
+
+
+    /*==========================================
+  OUTPUT BOX
+==========================================*/
+
+    .example-output,
+    .output-box {
+
+        background: #e8fff2;
+        border-left: 6px solid #2ecc71;
+        padding: 18px;
+        border-radius: 12px;
+        margin-top: 18px;
+        font-family: Consolas, monospace;
+
+    }
+
+
+    .example-output h4 {
+
+        color: #15803d;
+        margin-bottom: 8px;
+
+    }
+
+
+    /*==========================================
+  REAL LIFE BOX
+==========================================*/
+
+    .real-life-box {
+
+        background: #fff8e6;
+        border-left: 6px solid #ff9800;
+        padding: 25px;
+        border-radius: 18px;
+        margin: 35px 0;
+
+    }
+
+
+    .real-life-box h3 {
+
+        color: #ff9800;
+
+    }
+
+
+    /*==========================================
+  IMPORTANT BOX
+==========================================*/
+
+    .important-box {
+
+        background: #eef8ff;
+        border-left: 6px solid #2196f3;
+        padding: 25px;
+        border-radius: 18px;
+        margin: 30px 0;
+
+    }
+
+
+    .important-box h3 {
+
+        color: #1565c0;
+
+    }
+
+
+    /*==========================================
+  WARNING BOX
+==========================================*/
+
+    .warning-box {
+
+        background: #fff2f2;
+        border-left: 6px solid #ff4d4d;
+        padding: 25px;
+        border-radius: 18px;
+        margin: 30px 0;
+
+    }
+
+
+    .warning-box h3 {
+
+        color: #e53935;
+
+    }
+
+
+    /*==========================================
+  NOTE BOX
+==========================================*/
+
+    .note-box {
+
+        background: #fdf8ff;
+        border-left: 6px solid #7b2cbf;
+        padding: 22px;
+        border-radius: 15px;
+        margin: 30px 0;
+
+    }
+
+
+    /*==========================================
+  KEY POINTS BOX
+==========================================*/
+
+    .key-box {
+
+        background: #fff5d9;
+        border-left: 6px solid #f4b400;
+        padding: 28px;
+        border-radius: 18px;
+        margin: 35px 0;
+
+    }
+
+
+    .key-box h2,
+    .key-box h3 {
+
+        color: #d97706;
+
+    }
+
+
+    /*==========================================
+  PRACTICE BOX
+==========================================*/
+
+    .practice-box {
+
+        background: #eef7ff;
+        border-left: 6px solid #2196f3;
+        padding: 28px;
+        border-radius: 18px;
+        margin: 35px 0;
+
+    }
+
+
+    .practice-box h2 {
+
+        color: #1565c0;
+
+    }
+
+
+    /*==========================================
+  QUIZ BOX
+==========================================*/
+
+    .quiz-box {
+
+        background: #fff9eb;
+        border-left: 6px solid #ff9800;
+        padding: 28px;
+        border-radius: 18px;
+        margin: 35px 0;
+
+    }
+
+
+    .quiz-box h2 {
+
+        color: #ff9800;
+
+    }
+
+    /* ===========================
+   ES6 Content Topic Sections
+=========================== */
+
+
+    /* Main Topic Box */
+
+    .topic-box {
+
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 18px;
+        margin: 35px 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+    }
+
+
+    .topic-box h2 {
+
+        color: #ff4da6;
+        margin-top: 0;
+
+    }
+
+
+    /* Definition Box */
+
+    .definition-box {
+
+        background: #eef7ff;
+        border-left: 5px solid #2196f3;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 20px 0;
+
+    }
+
+
+    .definition-box h3 {
+
+        color: #1565c0;
+
+    }
+
+
+    /* Did You Know Box */
+
+    .did-you-know {
+
+        background: #fff9e8;
+        border-left: 5px solid #f4b400;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 25px 0;
+
+    }
+
+
+    .did-you-know h3 {
+
+        color: #c77d00;
+        margin-top: 0;
+
+    }
+
+
+    /* Code Example Box */
+
+    .example-box {
+
+        background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+        border: 2px solid #e2c9ff;
+        border-radius: 18px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 8px 20px rgba(123, 44, 191, .12);
+
+    }
+
+
+    .example-title {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+
+    }
+
+
+    .example-title h3 {
+
+        color: #7b2cbf;
+        margin: 0;
+        font-size: 22px;
+
+    }
+
+
+    /* Copy Button */
+
+    .copy-btn {
+
+        background: #7b2cbf;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+
+    }
+
+
+    .copy-btn:hover {
+
+        background: #5a189a;
+
+    }
+
+
+    /* Code Area */
+
+    .example-box pre {
+
+        background: #101827;
+        color: #ffffff;
+        padding: 22px;
+        border-radius: 12px;
+        overflow-x: auto;
+        font-family: Consolas, monospace;
+        line-height: 1.7;
+        border-left: 6px solid #7b2cbf;
+
+    }
+
+
+    /* Output */
+
+    .example-output {
+
+        background: #e8fff2;
+        border-left: 5px solid #2ecc71;
+        padding: 18px;
+        margin-top: 20px;
+        border-radius: 12px;
+
+    }
+
+
+    .example-output h4 {
+
+        color: #15803d;
+        margin-top: 0;
+
+    }
+
+
+    .example-output p {
+
+        font-family: Consolas, monospace;
+
+    }
+
+
+    /* Important Points */
+
+    .important-box {
+
+        background: #eef8ff;
+        border-left: 5px solid #2196f3;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+
+    }
+
+
+    .important-box h3 {
+
+        color: #1565c0;
+
+    }
+
+
+    /* Real Life Example */
+
+    .real-life-box {
+
+        background: #fff8e6;
+        border-left: 5px solid #ff9800;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+
+    }
+
+
+    .real-life-box h3 {
+
+        color: #ff9800;
+
+    }
+
+
+    /* Key Points */
+
+    .key-box {
+
+        background: #fff5d9;
+        border-left: 5px solid #f4b400;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 35px 0;
+
+    }
+
+
+    .key-box h2 {
+
+        color: #d97706;
+
+    }
+
+
+    /* Practice Questions */
+
+    .practice-box {
+
+        background: #eef7ff;
+        border-left: 5px solid #2196f3;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 35px 0;
+
+    }
+
+
+    .practice-box h2 {
+
+        color: #1565c0;
+
+    }
+
+
+    /* Responsive */
+
+    @media(max-width:768px) {
+
+        .example-title {
+
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+
+        }
+
+
+        .topic-box,
+        .example-box,
+        .practice-box {
+
+            padding: 20px;
+
+        }
+
+
+        .example-box pre {
+
+            font-size: 14px;
+
+        }
+
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+        <nav class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <span>›</span>
+
+            <a href="javascript-tutorial.html">JavaScript</a>
+
+            <span>›</span>
+
+            <a href="javascript-es6-part1.html">ES6 Part 1</a>
+
+            <span>›</span>
+
+            <span>ES6 Part 2</span>
+
+        </nav>
+
+        <h1>🚀 JavaScript ES6 (Part 2)</h1>
+
+        <div class="article-info">
+
+            <div class="left-column">
+
+                <div class="toc">
+
+                    <h3>📚 Table of Contents</h3>
+
+                    <ul>
+
+                        <li><a href="#classes">🏛️ Classes</a></li>
+
+                        <li><a href="#constructor">🔨 Constructor</a></li>
+
+                        <li><a href="#inheritance">👨‍👦 Inheritance</a></li>
+
+                        <li><a href="#super">⭐ super Keyword</a></li>
+
+                        <li><a href="#static">🔒 Static Methods</a></li>
+
+                        <li><a href="#getter">🎯 Getters & Setters</a></li>
+
+                        <li><a href="#modules">📦 Modules</a></li>
+
+                        <li><a href="#promise">🤝 Promises</a></li>
+
+                        <li><a href="#async">⏳ Async & Await</a></li>
+
+                        <li><a href="#symbol">🔑 Symbol</a></li>
+
+                        <li><a href="#set">📚 Set</a></li>
+
+                        <li><a href="#map">🗂️ Map</a></li>
+
+                        <li><a href="#weakset">💧 WeakSet</a></li>
+
+                        <li><a href="#weakmap">💧 WeakMap</a></li>
+
+                        <li><a href="#forof">🔁 for...of Loop</a></li>
+
+                        <li><a href="#optional">❓ Optional Chaining</a></li>
+
+                        <li><a href="#nullish">🆕 Nullish Coalescing</a></li>
+
+                        <li><a href="#practice">📝 Practice</a></li>
+
+                        <li><a href="#quiz">🧠 Quiz</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="right-column">
+
+                <div class="tip-box">
+
+                    <h3>💡 Quick Tip</h3>
+
+                    <p>
+
+                        ES6 Part 2 introduces advanced JavaScript features that are widely used in modern web
+                        development, React, Node.js, Angular, and Vue.
+
+                    </p>
+
+                </div>
+
+                <div class="mistake-box">
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+                    <ul>
+
+                        <li>Using <b>this</b> incorrectly inside classes.</li>
+
+                        <li>Confusing Map with Object.</li>
+
+                        <li>Not handling Promise errors.</li>
+
+                        <li>Forgetting to use await inside async functions.</li>
+
+                        <li>Using || instead of ?? when handling null values.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="author-info">
+
+            <p>✍️ <b>By Roshni Code Charm</b></p>
+
+            <p>📅 July 2026 | ⏱️ 12 min read</p>
+
+            <div class="post-meta">
+
+                <span>📅 Last Updated: July 2026</span>
+
+                <span>🏷️ JavaScript, ES6, Advanced JavaScript</span>
+
+            </div>
+
+        </div>
+
+        <div class="intro-box">
+
+            <h2>📖 Introduction</h2>
+
+            <p class="intro">
+
+                Welcome to <b>JavaScript ES6 Part 2</b>. In this tutorial, you'll learn advanced ES6 features used in
+                real-world applications. These concepts are essential for modern JavaScript development, React, Node.js,
+                Angular, Vue, and technical interviews.
+
+            </p>
+
+            <p class="intro">
+
+                By the end of this guide, you'll understand Classes, Inheritance, Promises, Async/Await, Modules, Set,
+                Map, Optional Chaining, Nullish Coalescing, and many other powerful ES6 features with easy examples.
+
+            </p>
+
+        </div>
+
+        <!-- Continue with Part 2.2 -->
+
+        <div class="content-box">
+
+            <h2 id="classes">🏛️ JavaScript Classes</h2>
+
+            <p>
+                A <b>Class</b> is a blueprint used to create objects.
+                It allows you to organize data and methods together.
+                Classes were introduced in <b>ES6 (ECMAScript 2015)</b> to make object-oriented programming easier and
+                cleaner.
+            </p>
+
+            <div class="did-you-know">
+
+                <h3>💡 Did You Know?</h3>
+
+                <p>
+                    JavaScript classes are built on top of prototypes.
+                    They provide a cleaner syntax but still use JavaScript's prototype-based inheritance internally.
+                </p>
+
+            </div>
+
+            <h3>✅ Basic Class Syntax</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Student {
+
+    study(){
+
+        console.log("Student is studying");
+
+    }
+
+}
+
+const s1 = new Student();
+
+s1.study();
+</pre>
+
+            <div class="output-box">
+
+                Output:<br><br>
+
+                Student is studying
+
+            </div>
+
+            <h3>📖 Explanation</h3>
+
+            <ul>
+
+                <li><b>class Student</b> creates a new class.</li>
+
+                <li><b>study()</b> is a method of the class.</li>
+
+                <li><b>new Student()</b> creates an object.</li>
+
+                <li>The object can call the method using dot (.) notation.</li>
+
+            </ul>
+
+            <h3>🌍 Real-Life Example</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Mobile{
+
+    call(){
+
+        console.log("Calling...");
+
+    }
+
+    message(){
+
+        console.log("Sending Message");
+
+    }
+
+}
+
+const phone = new Mobile();
+
+phone.call();
+
+phone.message();
+</pre>
+
+            <div class="output-box">
+
+                Output:<br><br>
+
+                Calling...<br>
+
+                Sending Message
+
+            </div>
+
+            <div class="tip-box">
+
+                <h3>💡 Tip</h3>
+
+                <p>
+
+                    Use <b>PascalCase</b> for class names like
+                    <b>Student</b>, <b>Employee</b>, and <b>Car</b>.
+
+                </p>
+
+            </div>
+
+            <hr>
+
+            <h2 id="constructor">🔨 Constructor Method</h2>
+
+            <p>
+
+                A <b>constructor()</b> is a special method that automatically runs when an object is created.
+
+                It is mainly used to initialize object properties.
+
+            </p>
+
+            <h3>✅ Constructor Syntax</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Student{
+
+    constructor(){
+
+        console.log("Object Created");
+
+    }
+
+}
+
+const s1 = new Student();
+</pre>
+
+            <div class="output-box">
+
+                Output:<br><br>
+
+                Object Created
+
+            </div>
+
+            <h3>✅ Constructor with Parameters</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Student{
+
+    constructor(name,age){
+
+        this.name = name;
+
+        this.age = age;
+
+    }
+
+}
+
+const s1 = new Student("Roshni",19);
+
+console.log(s1.name);
+
+console.log(s1.age);
+</pre>
+
+            <div class="output-box">
+
+                Output:<br><br>
+
+                Roshni<br>
+
+                19
+
+            </div>
+
+            <h3>📖 Explanation</h3>
+
+            <ul>
+
+                <li><b>constructor()</b> runs automatically.</li>
+
+                <li><b>this</b> refers to the current object.</li>
+
+                <li><b>this.name</b> stores the name.</li>
+
+                <li><b>this.age</b> stores the age.</li>
+
+            </ul>
+
+            <h3>🌍 Real-Life Example</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Employee{
+
+    constructor(name,salary){
+
+        this.name = name;
+
+        this.salary = salary;
+
+    }
+
+}
+
+const emp = new Employee("Amit",45000);
+
+console.log(emp.name);
+
+console.log(emp.salary);
+</pre>
+
+            <div class="output-box">
+
+                Output:<br><br>
+
+                Amit<br>
+
+                45000
+
+            </div>
+
+            <div class="key-box">
+
+                <h3>⭐ Key Points</h3>
+
+                <ul>
+
+                    <li>A class is a blueprint for creating objects.</li>
+
+                    <li>Objects are created using the <b>new</b> keyword.</li>
+
+                    <li>A constructor executes automatically.</li>
+
+                    <li><b>this</b> represents the current object.</li>
+
+                    <li>One class can create multiple objects.</li>
+
+                </ul>
+
+            </div>
+
+            <div class="practice-box">
+
+                <h2>💻 Try It Yourself</h2>
+
+                <p>
+
+                    Create a <b>Car</b> class with a constructor that stores the car name and model.
+
+                    Then print both values.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <h2 id="inheritance">👨‍👦 Inheritance</h2>
+
+        <p>
+            Inheritance allows one class to inherit properties and methods from another class.
+            It helps in reusing existing code and creating parent-child relationships.
+        </p>
+
+        <div class="did-you-know">
+            <h3>💡 Did You Know?</h3>
+            <p>
+                The <b>extends</b> keyword is used to create a child class from a parent class.
+            </p>
+        </div>
+
+        <p class="code-title">Example:</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+class Person {
+
+    constructor(name) {
+        this.name = name;
+    }
+
+    greet() {
+        console.log("Hello " + this.name);
+    }
+
+}
+
+class Student extends Person {
+
+    study() {
+        console.log(this.name + " is studying.");
+    }
+
+}
+
+const s1 = new Student("Roshni");
+
+s1.greet();
+s1.study();
+</pre>
+
+        <div class="output-box">
+            Output:<br>
+            Hello Roshni<br>
+            Roshni is studying.
+        </div>
+
+        <div class="key-box">
+
+            <h3>⭐ Key Points</h3>
+
+            <ul>
+                <li><b>extends</b> creates inheritance.</li>
+                <li>Child class gets all properties and methods of parent class.</li>
+                <li>Reduces duplicate code.</li>
+                <li>Makes programs easier to maintain.</li>
+            </ul>
+
+        </div>
+
+        <hr>
+
+        <h2 id="super">⭐ super Keyword</h2>
+
+        <p>
+            The <b>super</b> keyword calls the constructor or methods of the parent class.
+            It must be called before using <b>this</b> inside the child constructor.
+        </p>
+
+        <p class="code-title">Example:</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+class Person {
+
+    constructor(name) {
+        this.name = name;
+    }
+
+}
+
+class Student extends Person {
+
+    constructor(name, course) {
+
+        super(name);
+
+        this.course = course;
+
+    }
+
+    details() {
+
+        console.log(this.name + " studies " + this.course);
+
+    }
+
+}
+
+const s1 = new Student("Roshni", "BCA");
+
+s1.details();
+</pre>
+
+        <div class="output-box">
+            Output:<br>
+            Roshni studies BCA
+        </div>
+
+        <div class="tip-box">
+
+            <h3>💡 Quick Tip</h3>
+
+            <p>
+                Always call <b>super()</b> before using <b>this</b> inside the child constructor.
+                Otherwise JavaScript will throw an error.
+            </p>
+
+        </div>
+
+        <div class="practice-box">
+
+            <h2>💻 Try It Yourself</h2>
+
+            <p>Create an <b>Animal</b> class and inherit it into a <b>Dog</b> class.</p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Animal {
+
+    constructor(name){
+        this.name = name;
+    }
+
+}
+
+class Dog extends Animal {
+
+    bark(){
+
+        console.log(this.name + " says Woof!");
+
+    }
+
+}
+
+const d1 = new Dog("Tommy");
+
+d1.bark();
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Tommy says Woof!
+            </div>
+
+        </div>
+
+        <div class="content-box">
+
+            <h2 id="super">⭐ super Keyword</h2>
+
+            <p>
+                The <b>super</b> keyword is used inside a child class to access the
+                parent class constructor and methods.
+            </p>
+
+            <div class="did-you-know">
+                <h3>💡 Did You Know?</h3>
+                <p>
+                    You must call <code>super()</code> before using
+                    <code>this</code> inside a child class constructor.
+                </p>
+            </div>
+
+            <h3>Syntax</h3>
+
+            <pre>
+class Parent {
+    constructor(name){
+        this.name = name;
+    }
+}
+
+class Child extends Parent{
+    constructor(name, age){
+        super(name);
+        this.age = age;
+    }
+}
+</pre>
+
+            <h3>Example 1</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Animal {
+
+    constructor(name){
+        this.name = name;
+    }
+
+    sound(){
+        console.log("Animal makes sound");
+    }
+
+}
+
+class Dog extends Animal{
+
+    constructor(name){
+        super(name);
+    }
+
+    sound(){
+        super.sound();
+        console.log(this.name + " barks");
+    }
+
+}
+
+const d1 = new Dog("Tommy");
+
+d1.sound();
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Animal makes sound<br>
+                Tommy barks
+            </div>
+
+            <div class="tip-box">
+                <h3>✅ Uses of super</h3>
+
+                <ul>
+                    <li>Call parent constructor.</li>
+                    <li>Access parent methods.</li>
+                    <li>Avoid duplicate code.</li>
+                    <li>Useful in inheritance.</li>
+                </ul>
+            </div>
+
+            <div class="mistake-box">
+
+                <h3>⚠️ Common Mistakes</h3>
+
+                <ul>
+                    <li>Using <code>this</code> before <code>super()</code>.</li>
+                    <li>Calling <code>super()</code> in a class without <code>extends</code>.</li>
+                    <li>Forgetting to call the parent constructor.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="content-box">
+
+            <h2 id="static">🔒 Static Methods</h2>
+
+            <p>
+                Static methods belong to the class itself instead of its objects.
+                They are called using the class name.
+            </p>
+
+            <div class="did-you-know">
+                <h3>💡 Did You Know?</h3>
+
+                <p>
+                    You don't need to create an object to call a static method.
+                </p>
+
+            </div>
+
+            <h3>Syntax</h3>
+
+            <pre>
+class ClassName{
+
+    static methodName(){
+
+    }
+
+}
+</pre>
+
+            <h3>Example 1</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class MathUtility{
+
+    static square(num){
+        return num * num;
+    }
+
+}
+
+console.log(MathUtility.square(8));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                64
+            </div>
+
+            <h3>Example 2</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Student{
+
+    constructor(name){
+        this.name = name;
+    }
+
+    static college(){
+
+        return "Mumbai University";
+
+    }
+
+}
+
+console.log(Student.college());
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Mumbai University
+            </div>
+
+            <div class="key-box">
+
+                <h3>⭐ Key Points</h3>
+
+                <ul>
+                    <li>Static methods belong to the class.</li>
+                    <li>Call them using ClassName.method().</li>
+                    <li>Cannot be called by objects.</li>
+                    <li>Useful for utility/helper functions.</li>
+                </ul>
+
+            </div>
+
+            <table class="method-table">
+
+                <tr>
+                    <th>Normal Method</th>
+                    <th>Static Method</th>
+                </tr>
+
+                <tr>
+                    <td>Belongs to object</td>
+                    <td>Belongs to class</td>
+                </tr>
+
+                <tr>
+                    <td>Needs object</td>
+                    <td>No object required</td>
+                </tr>
+
+                <tr>
+                    <td>Called using object</td>
+                    <td>Called using class name</td>
+                </tr>
+
+                <tr>
+                    <td>Uses instance data</td>
+                    <td>Utility/helper methods</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="content-box">
+
+            <h2 id="getter">🎯 Getters & Setters</h2>
+
+            <p>
+                Getters and Setters allow you to safely read and update object properties.
+                They make your code cleaner and help control how values are accessed.
+            </p>
+
+            <div class="did-you-know">
+
+                <h3>💡 Did You Know?</h3>
+
+                <p>
+                    A getter is called like a property, not like a function.
+                </p>
+
+            </div>
+
+            <h3>Getter Example</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Student{
+
+    constructor(name){
+        this._name = name;
+    }
+
+    get name(){
+        return this._name;
+    }
+
+}
+
+const s1 = new Student("Roshni");
+
+console.log(s1.name);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Roshni
+            </div>
+
+            <h3>Setter Example</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+class Student{
+
+    constructor(name){
+        this._name = name;
+    }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(value){
+        this._name = value;
+    }
+
+}
+
+const s1 = new Student("Roshni");
+
+s1.name = "Shreya";
+
+console.log(s1.name);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Shreya
+            </div>
+
+            <div class="tip-box">
+
+                <h3>✅ Advantages</h3>
+
+                <ul>
+                    <li>Better data protection.</li>
+                    <li>Cleaner syntax.</li>
+                    <li>Add validation easily.</li>
+                    <li>Improves code readability.</li>
+                </ul>
+
+            </div>
+
+            <div class="mistake-box">
+
+                <h3>⚠️ Common Mistakes</h3>
+
+                <ul>
+                    <li>Writing getter like <code>obj.name()</code>.</li>
+                    <li>Using the same property inside getter causing recursion.</li>
+                    <li>Forgetting the <code>get</code> or <code>set</code> keyword.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="content-box">
+
+            <h2 id="modules">📦 ES6 Modules (import & export)</h2>
+
+            <p>
+                ES6 Modules allow JavaScript code to be divided into multiple files.
+                This makes large projects organized and reusable.
+            </p>
+
+            <div class="did-you-know">
+
+                <h3>💡 Did You Know?</h3>
+
+                <p>
+                    Modern JavaScript frameworks like React, Angular and Vue use ES6 Modules.
+                </p>
+
+            </div>
+
+            <h3>Step 1: Export</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+// math.js
+
+export const PI = 3.14;
+
+export function add(a,b){
+    return a+b;
+}
+</pre>
+
+            <h3>Step 2: Import</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+// app.js
+
+import { PI, add } from "./math.js";
+
+console.log(PI);
+
+console.log(add(10,20));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                3.14<br>
+                30
+            </div>
+
+            <h3>Default Export</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+// message.js
+
+export default function(){
+
+    console.log("Welcome!");
+
+}
+</pre>
+
+            <h3>Default Import</h3>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+import message from "./message.js";
+
+message();
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Welcome!
+            </div>
+
+            <table class="method-table">
+
+                <tr>
+                    <th>Keyword</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>export</td>
+                    <td>Share variables, functions or classes.</td>
+                </tr>
+
+                <tr>
+                    <td>default</td>
+                    <td>Export one main value.</td>
+                </tr>
+
+                <tr>
+                    <td>import</td>
+                    <td>Use exported members.</td>
+                </tr>
+
+            </table>
+
+            <div class="key-box">
+
+                <h3>⭐ Key Points</h3>
+
+                <ul>
+                    <li>Modules split code into files.</li>
+                    <li>Use <code>export</code> to share code.</li>
+                    <li>Use <code>import</code> to reuse code.</li>
+                    <li>Improves maintainability.</li>
+                    <li>Essential for modern JavaScript development.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <h2 id="symbol">🔑 Symbol</h2>
+
+        <p>
+            <b>Symbol</b> is a primitive data type introduced in ES6.
+            Every Symbol value is unique, even if two Symbols have the same description.
+            Symbols are mainly used to create unique object property keys.
+        </p>
+
+        <p class="code-title">Example:</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const id1 = Symbol("id");
+
+const id2 = Symbol("id");
+
+console.log(id1 === id2);
+</pre>
+
+        <div class="output-box">
+            Output:<br>
+            false
+        </div>
+
+        <p class="code-title">Using Symbol as Object Key:</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const userId = Symbol("userId");
+
+const user = {
+    name: "Roshni",
+    [userId]: 101
+};
+
+console.log(user.name);
+
+console.log(user[userId]);
+</pre>
+
+        <div class="output-box">
+            Output:<br>
+            Roshni<br>
+            101
+        </div>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+                Symbol properties do not appear in normal
+                <b>for...in</b> loops or <b>Object.keys()</b>.
+                They help prevent property name conflicts.
+            </p>
+
+        </div>
+
+        <div class="key-box">
+
+            <h3>⭐ Key Points</h3>
+
+            <ul>
+                <li>Every Symbol is unique.</li>
+                <li>Symbols are immutable primitive values.</li>
+                <li>Used as unique object property keys.</li>
+                <li>Cannot be created using <code>new Symbol()</code>.</li>
+                <li>Hidden from normal object iteration.</li>
+            </ul>
+
+        </div>
+
+        <hr>
+
+        <h2 id="set">📚 JavaScript Set</h2>
+
+        <p>
+            A <b>Set</b> is a special JavaScript object that stores
+            <b>unique values only</b>. Duplicate values are automatically removed.
+        </p>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+                A Set can store numbers, strings, objects, arrays, and even functions.
+            </p>
+
+        </div>
+
+        <p class="code-title">Example 1: Creating a Set</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const numbers = new Set([10,20,30,20,10,40]);
+
+console.log(numbers);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Set(4) {10,20,30,40}
+
+        </div>
+
+        <p class="code-title">Example 2: add()</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const fruits = new Set();
+
+fruits.add("Apple");
+
+fruits.add("Mango");
+
+fruits.add("Banana");
+
+console.log(fruits);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Set(3) {"Apple","Mango","Banana"}
+
+        </div>
+
+        <p class="code-title">Example 3: has()</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const fruits = new Set(["Apple","Mango"]);
+
+console.log(fruits.has("Apple"));
+
+console.log(fruits.has("Orange"));
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            true<br>
+
+            false
+
+        </div>
+
+        <p class="code-title">Example 4: delete()</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const numbers = new Set([10,20,30]);
+
+numbers.delete(20);
+
+console.log(numbers);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Set(2) {10,30}
+
+        </div>
+
+        <p class="code-title">Example 5: size</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const colors = new Set(["Red","Blue","Green"]);
+
+console.log(colors.size);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            3
+
+        </div>
+
+        <div class="tip-box">
+
+            <h3>✅ Common Set Methods</h3>
+
+            <ul>
+
+                <li>add()</li>
+
+                <li>delete()</li>
+
+                <li>has()</li>
+
+                <li>clear()</li>
+
+                <li>size</li>
+
+                <li>values()</li>
+
+                <li>entries()</li>
+
+            </ul>
+
+        </div>
+
+        <div class="key-box">
+
+            <h3>⭐ Key Points</h3>
+
+            <ul>
+
+                <li>Stores unique values.</li>
+
+                <li>Duplicate values are ignored.</li>
+
+                <li>Can store any data type.</li>
+
+                <li>Maintains insertion order.</li>
+
+                <li>Very useful for removing duplicates.</li>
+
+            </ul>
+
+        </div>
+
+        <hr>
+
+        <h2 id="weakset">💧 WeakSet</h2>
+
+        <p>
+
+            A <b>WeakSet</b> is similar to Set, but it can store
+            <b>only objects</b>.
+
+            It holds objects weakly, allowing JavaScript to automatically
+            remove them from memory when no longer needed.
+
+        </p>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+
+                WeakSet helps improve memory management because unused objects
+                can be garbage collected automatically.
+
+            </p>
+
+        </div>
+
+        <p class="code-title">Example</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const ws = new WeakSet();
+
+let student = {
+
+name:"Roshni"
+
+};
+
+ws.add(student);
+
+console.log(ws.has(student));
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            true
+
+        </div>
+
+        <div class="mistake-box">
+
+            <h3>⚠️ Common Mistakes</h3>
+
+            <ul>
+
+                <li>WeakSet cannot store numbers.</li>
+
+                <li>WeakSet cannot store strings.</li>
+
+                <li>WeakSet cannot be looped using for...of.</li>
+
+                <li>No size property exists.</li>
+
+            </ul>
+
+        </div>
+
+        <table class="method-table">
+
+            <tr>
+
+                <th>Set</th>
+
+                <th>WeakSet</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Stores any value</td>
+
+                <td>Stores only objects</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Iterable</td>
+
+                <td>Not iterable</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Has size property</td>
+
+                <td>No size property</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Can use for...of</td>
+
+                <td>Cannot use for...of</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Objects remain until removed</td>
+
+                <td>Unused objects are garbage collected</td>
+
+            </tr>
+
+        </table>
+
+        <div class="practice-box">
+
+            <h2>💻 Try It Yourself</h2>
+
+            <p>
+
+                Create a Set containing duplicate city names.
+                Print the Set and observe that duplicate values are removed.
+
+            </p>
+
+        </div>
+
+        <hr>
+
+        <h2 id="map">🗂️ JavaScript Map</h2>
+
+        <p>
+            A <b>Map</b> is a collection of <b>key-value pairs</b>.
+            Unlike objects, Map allows keys of any data type such as numbers,
+            strings, objects, and even functions.
+        </p>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+                Map remembers the order in which items are inserted.
+            </p>
+
+        </div>
+
+        <p class="code-title">Example 1: Create a Map</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const student = new Map();
+
+student.set("name","Roshni");
+
+student.set("course","BCA");
+
+student.set("age",19);
+
+console.log(student);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Map(3) {
+            "name" => "Roshni",
+            "course" => "BCA",
+            "age" => 19
+            }
+
+        </div>
+
+        <p class="code-title">Example 2: get()</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const student = new Map();
+
+student.set("name","Roshni");
+
+console.log(student.get("name"));
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Roshni
+
+        </div>
+
+        <p class="code-title">Example 3: has()</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const student = new Map();
+
+student.set("city","Mumbai");
+
+console.log(student.has("city"));
+
+console.log(student.has("age"));
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            true<br>
+
+            false
+
+        </div>
+
+        <p class="code-title">Example 4: delete()</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const student = new Map();
+
+student.set("name","Roshni");
+
+student.delete("name");
+
+console.log(student);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Map(0) {}
+
+        </div>
+
+        <p class="code-title">Example 5: size</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const colors = new Map();
+
+colors.set(1,"Red");
+
+colors.set(2,"Blue");
+
+colors.set(3,"Green");
+
+console.log(colors.size);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            3
+
+        </div>
+
+        <div class="tip-box">
+
+            <h3>✅ Common Map Methods</h3>
+
+            <ul>
+
+                <li>set()</li>
+
+                <li>get()</li>
+
+                <li>has()</li>
+
+                <li>delete()</li>
+
+                <li>clear()</li>
+
+                <li>size</li>
+
+                <li>keys()</li>
+
+                <li>values()</li>
+
+                <li>entries()</li>
+
+            </ul>
+
+        </div>
+
+        <div class="key-box">
+
+            <h3>⭐ Key Points</h3>
+
+            <ul>
+
+                <li>Stores key-value pairs.</li>
+
+                <li>Keys can be any data type.</li>
+
+                <li>Maintains insertion order.</li>
+
+                <li>Provides many useful methods.</li>
+
+                <li>Better than objects for dynamic key-value data.</li>
+
+            </ul>
+
+        </div>
+
+        <hr>
+
+        <h2 id="weakmap">💧 WeakMap</h2>
+
+        <p>
+
+            A <b>WeakMap</b> is similar to Map but stores
+            <b>only object keys</b>.
+
+            Unused objects are automatically removed from memory.
+
+        </p>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+
+                WeakMap is mainly used for private data and memory optimization.
+
+            </p>
+
+        </div>
+
+        <p class="code-title">Example</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const wm = new WeakMap();
+
+let obj = {};
+
+wm.set(obj,"JavaScript");
+
+console.log(wm.get(obj));
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            JavaScript
+
+        </div>
+
+        <div class="mistake-box">
+
+            <h3>⚠️ Common Mistakes</h3>
+
+            <ul>
+
+                <li>WeakMap keys must be objects.</li>
+
+                <li>Cannot iterate over WeakMap.</li>
+
+                <li>No size property.</li>
+
+                <li>Cannot use for...of.</li>
+
+            </ul>
+
+        </div>
+
+        <table class="method-table">
+
+            <tr>
+
+                <th>Map</th>
+
+                <th>WeakMap</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Stores any key</td>
+
+                <td>Stores only object keys</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Iterable</td>
+
+                <td>Not iterable</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Has size property</td>
+
+                <td>No size property</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Supports for...of</td>
+
+                <td>Does not support for...of</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Manual removal</td>
+
+                <td>Automatic garbage collection</td>
+
+            </tr>
+
+        </table>
+
+        <hr>
+
+        <h2 id="forof">🔁 for...of Loop</h2>
+
+        <p>
+
+            The <b>for...of</b> loop is used to iterate over iterable objects like
+            arrays, strings, Maps, and Sets.
+
+        </p>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+
+                Unlike <b>for...in</b>, the <b>for...of</b> loop returns values directly.
+
+            </p>
+
+        </div>
+
+        <p class="code-title">Example 1: Array</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const numbers = [10,20,30];
+
+for(const value of numbers){
+
+    console.log(value);
+
+}
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            10<br>
+
+            20<br>
+
+            30
+
+        </div>
+
+        <p class="code-title">Example 2: String</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const name = "Roshni";
+
+for(const letter of name){
+
+    console.log(letter);
+
+}
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            R<br>
+
+            o<br>
+
+            s<br>
+
+            h<br>
+
+            n<br>
+
+            i
+
+        </div>
+
+        <p class="code-title">Example 3: Set</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const colors = new Set(["Red","Blue","Green"]);
+
+for(const color of colors){
+
+    console.log(color);
+
+}
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Red<br>
+
+            Blue<br>
+
+            Green
+
+        </div>
+
+        <div class="practice-box">
+
+            <h2>💻 Try It Yourself</h2>
+
+            <p>
+
+                Create a Map with three student names and print all values using
+                <b>for...of</b>.
+
+            </p>
+
+        </div>
+
+        <hr>
+
+        <h2 id="optional-chaining">❓ Optional Chaining (?.)</h2>
+
+        <p>
+            <b>Optional Chaining (?.)</b> is an ES2020 feature that safely accesses
+            nested object properties without causing an error if a property doesn't exist.
+        </p>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+                Before Optional Chaining, developers had to write multiple
+                <code>if</code> conditions to check whether an object existed.
+            </p>
+
+        </div>
+
+        <p class="code-title">Example 1: Without Optional Chaining</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const student = {};
+
+console.log(student.address.city);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            ❌ TypeError
+
+        </div>
+
+        <p class="code-title">Example 2: Using Optional Chaining</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const student = {};
+
+console.log(student.address?.city);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            undefined
+
+        </div>
+
+        <p class="code-title">Example 3: Nested Object</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const student = {
+
+    name:"Roshni",
+
+    address:{
+
+        city:"Mumbai"
+
+    }
+
+};
+
+console.log(student.address?.city);
+
+console.log(student.address?.country);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Mumbai<br>
+
+            undefined
+
+        </div>
+
+        <div class="tip-box">
+
+            <h3>✅ Advantages</h3>
+
+            <ul>
+
+                <li>Avoids runtime errors.</li>
+
+                <li>Cleaner code.</li>
+
+                <li>Perfect for API data.</li>
+
+                <li>No long if statements.</li>
+
+            </ul>
+
+        </div>
+
+        <hr>
+
+        <h2 id="nullish">🆕 Nullish Coalescing (??)</h2>
+
+        <p>
+
+            The <b>Nullish Coalescing Operator (??)</b> returns the right-side value only if
+            the left-side value is <b>null</b> or <b>undefined</b>.
+
+        </p>
+
+        <div class="did-you-know">
+
+            <h3>💡 Did You Know?</h3>
+
+            <p>
+
+                Unlike <code>||</code>, the <code>??</code> operator does not treat
+                <b>0</b>, <b>false</b>, or an empty string as missing values.
+
+            </p>
+
+        </div>
+
+        <p class="code-title">Example 1</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+let name = null;
+
+console.log(name ?? "Guest");
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Guest
+
+        </div>
+
+        <p class="code-title">Example 2</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+let age = 20;
+
+console.log(age ?? 18);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            20
+
+        </div>
+
+        <p class="code-title">Example 3</p>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+let score = 0;
+
+console.log(score || 100);
+
+console.log(score ?? 100);
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            100<br>
+
+            0
+
+        </div>
+
+        <table class="method-table">
+
+            <tr>
+
+                <th>Operator</th>
+
+                <th>Returns Default When</th>
+
+            </tr>
+
+            <tr>
+
+                <td>||</td>
+
+                <td>false, 0, "", null, undefined</td>
+
+            </tr>
+
+            <tr>
+
+                <td>??</td>
+
+                <td>Only null or undefined</td>
+
+            </tr>
+
+        </table>
+
+        <div class="did-you-know">
+
+            <h3>🌍 Real-Life Example</h3>
+
+            <p>
+
+                Suppose a user profile may or may not have a phone number.
+
+                Using Optional Chaining and Nullish Coalescing together makes the code much safer.
+
+            </p>
+
+        </div>
+
+        <button class="copy-btn">📋 Copy</button>
+
+        <pre>
+const user = {
+
+    name:"Roshni"
+
+};
+
+console.log(user.phone?.number ?? "Phone Not Available");
+</pre>
+
+        <div class="output-box">
+
+            Output:<br>
+
+            Phone Not Available
+
+        </div>
+
+        <div class="mistake-box">
+
+            <h3>⚠️ Common Mistakes</h3>
+
+            <ul>
+
+                <li>Confusing <code>||</code> with <code>??</code>.</li>
+
+                <li>Using Optional Chaining where the object definitely exists.</li>
+
+                <li>Expecting <code>?.</code> to create missing properties.</li>
+
+                <li>Using <code>??</code> for false or 0 values incorrectly.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="key-box">
+
+            <h3>⭐ Key Points</h3>
+
+            <ul>
+
+                <li><code>?.</code> safely accesses nested properties.</li>
+
+                <li><code>??</code> provides a default value only for null or undefined.</li>
+
+                <li>Both operators make code cleaner and safer.</li>
+
+                <li>Very common in React, Node.js, and modern JavaScript.</li>
+
+                <li>Useful when working with APIs and JSON data.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="practice-box">
+
+            <h2>💻 Try It Yourself</h2>
+
+            <ol>
+
+                <li>Create a user object without an address and print the city using <code>?.</code>.</li>
+
+                <li>Use <code>??</code> to display "Guest User" if username is null.</li>
+
+                <li>Compare the outputs of <code>||</code> and <code>??</code> with the value 0.</li>
+
+            </ol>
+
+        </div>
+
+        <hr>
+
+        <hr>
+
+        <div class="content-box">
+
+            <h2 id="summary">📝 ES6 Summary</h2>
+
+            <p>
+                ES6 (ECMAScript 2015) introduced many modern JavaScript features that
+                make code shorter, cleaner, and easier to maintain.
+            </p>
+
+            <div class="key-box">
+
+                <h3>⭐ What You Learned</h3>
+
+                <ul>
+                    <li>✔️ Classes & Objects</li>
+                    <li>✔️ Constructor</li>
+                    <li>✔️ Inheritance</li>
+                    <li>✔️ super Keyword</li>
+                    <li>✔️ Static Methods</li>
+                    <li>✔️ Getters & Setters</li>
+                    <li>✔️ Modules (import/export)</li>
+                    <li>✔️ Promises</li>
+                    <li>✔️ Async & Await</li>
+                    <li>✔️ Symbol</li>
+                    <li>✔️ Set & WeakSet</li>
+                    <li>✔️ Map & WeakMap</li>
+                    <li>✔️ for...of Loop</li>
+                    <li>✔️ Optional Chaining (?.)</li>
+                    <li>✔️ Nullish Coalescing (??)</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="quiz-box">
+
+            <h2>🧠 ES6 Mini Quiz</h2>
+
+            <p><b>1. Which keyword is used for inheritance?</b></p>
+
+            <ul>
+                <li>a) inherit</li>
+                <li>b) extends</li>
+                <li>c) super</li>
+                <li>d) class</li>
+            </ul>
+
+            <p><b>Answer:</b> b) extends</p>
+
+            <hr>
+
+            <p><b>2. Which keyword calls the parent constructor?</b></p>
+
+            <ul>
+                <li>a) this</li>
+                <li>b) constructor</li>
+                <li>c) super</li>
+                <li>d) parent</li>
+            </ul>
+
+            <p><b>Answer:</b> c) super</p>
+
+            <hr>
+
+            <p><b>3. Which collection stores only unique values?</b></p>
+
+            <ul>
+                <li>a) Array</li>
+                <li>b) Object</li>
+                <li>c) Set</li>
+                <li>d) Map</li>
+            </ul>
+
+            <p><b>Answer:</b> c) Set</p>
+
+            <hr>
+
+            <p><b>4. Which keyword waits for a Promise?</b></p>
+
+            <ul>
+                <li>a) wait</li>
+                <li>b) async</li>
+                <li>c) await</li>
+                <li>d) promise</li>
+            </ul>
+
+            <p><b>Answer:</b> c) await</p>
+
+            <hr>
+
+            <p><b>5. Optional Chaining operator is:</b></p>
+
+            <ul>
+                <li>a) ??</li>
+                <li>b) ?.</li>
+                <li>c) &&</li>
+                <li>d) ||</li>
+            </ul>
+
+            <p><b>Answer:</b> b) ?.</p>
+
+        </div>
+
+        <hr>
+
+        <div class="practice-questions">
+
+            <h2>📝 Practice Questions</h2>
+
+            <ol>
+
+                <li>Create a Student class with a constructor.</li>
+
+                <li>Create a child class using <b>extends</b>.</li>
+
+                <li>Write a static method.</li>
+
+                <li>Create a Promise that resolves after 2 seconds.</li>
+
+                <li>Use async/await to consume the Promise.</li>
+
+                <li>Create a Set and remove duplicate values.</li>
+
+                <li>Create a Map storing student information.</li>
+
+                <li>Use for...of to print array elements.</li>
+
+                <li>Use Optional Chaining to access nested properties.</li>
+
+                <li>Use ?? to display a default value.</li>
+
+            </ol>
+
+        </div>
+
+        <hr>
+
+        <div class="interview-box">
+
+            <h2>💼 ES6 Interview Questions</h2>
+
+            <ol>
+
+                <li>What is ES6?</li>
+
+                <li>Difference between var, let and const?</li>
+
+                <li>Explain Classes in JavaScript.</li>
+
+                <li>What is Inheritance?</li>
+
+                <li>What is the purpose of super?</li>
+
+                <li>Difference between Set and Map?</li>
+
+                <li>Difference between WeakSet and WeakMap?</li>
+
+                <li>Explain Promises.</li>
+
+                <li>Difference between async/await and Promise?</li>
+
+                <li>What is Optional Chaining?</li>
+
+                <li>What is Nullish Coalescing?</li>
+
+                <li>Explain Modules in ES6.</li>
+
+            </ol>
+
+        </div>
+
+        <hr>
+
+        <div class="glossary-box">
+
+            <h2>📖 ES6 Glossary</h2>
+
+            <dl>
+
+                <dt>ES6 (ECMAScript 2015)</dt>
+                <dd>A major JavaScript update that introduced modern features for writing cleaner, shorter, and more
+                    powerful code.</dd>
+
+                <dt>Class</dt>
+                <dd>A blueprint used to create multiple objects with the same properties and methods.</dd>
+
+                <dt>Constructor</dt>
+                <dd>A special method that automatically runs when a new object is created.</dd>
+
+                <dt>Inheritance</dt>
+                <dd>A feature that allows one class to inherit properties and methods from another class using
+                    <b>extends</b>.
+                </dd>
+
+                <dt>super</dt>
+                <dd>Calls the parent class constructor or methods from a child class.</dd>
+
+                <dt>Static Method</dt>
+                <dd>A method that belongs to the class itself instead of its objects.</dd>
+
+                <dt>Getter</dt>
+                <dd>Reads a property value like a normal property.</dd>
+
+                <dt>Setter</dt>
+                <dd>Updates a property value while allowing validation or custom logic.</dd>
+
+                <dt>Promise</dt>
+                <dd>An object representing the eventual success or failure of an asynchronous operation.</dd>
+
+                <dt>async / await</dt>
+                <dd>Modern syntax used to write asynchronous code that looks like synchronous code.</dd>
+
+                <dt>Symbol</dt>
+                <dd>A unique primitive value often used as object property keys.</dd>
+
+                <dt>Set</dt>
+                <dd>A collection that stores only unique values.</dd>
+
+                <dt>Map</dt>
+                <dd>A collection of key-value pairs where keys can be any data type.</dd>
+
+                <dt>Optional Chaining (?.)</dt>
+                <dd>Safely accesses nested object properties without throwing errors.</dd>
+
+                <dt>Nullish Coalescing (??)</dt>
+                <dd>Returns a default value only when the left value is null or undefined.</dd>
+
+            </dl>
+
+        </div>
+
+        <hr>
+
+        <div class="faq-box">
+
+            <h2>❓ Frequently Asked Questions</h2>
+
+            <h3>Why is ES6 important?</h3>
+
+            <p>ES6 introduced modern features that make JavaScript faster, cleaner, and easier to write.</p>
+
+            <h3>Is ES6 supported in modern browsers?</h3>
+
+            <p>Yes. All modern browsers support almost all ES6 features.</p>
+
+            <h3>Should beginners learn ES6?</h3>
+
+            <p>Yes. ES6 is the standard JavaScript used in modern web development.</p>
+
+            <h3>What is the biggest advantage of ES6?</h3>
+
+            <p>Cleaner syntax, reusable code, better readability, and improved developer productivity.</p>
+
+        </div>
+
+        <hr>
+
+        <div class="related-box">
+
+            <h2>📚 Related JavaScript Tutorials</h2>
+
+            <div class="related-links">
+
+                <a href="javascript-variables.html">📌 JavaScript Variables</a>
+
+                <a href="javascript-data-types.html">📌 JavaScript Data Types</a>
+
+                <a href="javascript-functions.html">📌 JavaScript Functions</a>
+
+                <a href="javascript-objects.html">📌 JavaScript Objects</a>
+
+                <a href="javascript-arrays.html">📌 JavaScript Arrays</a>
+
+                <a href="javascript-promises.html">📌 JavaScript Promises</a>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="page-nav">
+
+            <a href="javascript-es6-part1.html" class="btn">
+                ⬅️ ES6 Part 1
+            </a>
+
+            <a href="javascript-dom.html" class="btn">
+                Next: JavaScript DOM ➡️
+            </a>
+
+        </div>
+
+        <footer style="text-align:center;padding:25px;color:#777;margin-top:40px;border-top:1px solid #ddd;">
+
+            <p>Made with ❤️ by <b>Roshni Code Charm</b></p>
+
+            <p>© 2026 All Rights Reserved.</p>
+
+        </footer>
+
+        <button onclick="topFunction()" id="topBtn" title="Go to top">
+
+            ⬆
+
+        </button>
+
+        <script>
+
+            let mybutton = document.getElementById("topBtn");
+
+            window.onscroll = function () {
+
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+
+                    mybutton.style.display = "block";
+
+                } else {
+
+                    mybutton.style.display = "none";
+
+                }
+
+            };
+
+            function topFunction() {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+
+            const copyButtons = document.querySelectorAll(".copy-btn");
+
+            copyButtons.forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const code = button.nextElementSibling.innerText;
+
+                    navigator.clipboard.writeText(code);
+
+                    button.innerText = "✅ Copied!";
+
+                    setTimeout(() => {
+
+                        button.innerText = "📋 Copy";
+
+                    }, 2000);
+
+                });
+
+            });
+
+        </script>
+
+</body>
+
+</html>

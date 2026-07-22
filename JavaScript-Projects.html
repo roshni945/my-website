@@ -1,0 +1,3020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Projects (Beginner → Advanced) | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Learn JavaScript Projects from Beginner to Advanced with source code, explanations, mini projects, interview questions, MCQs, FAQs, and real-world examples.">
+
+    <meta name="keywords"
+        content="JavaScript Projects, JavaScript Mini Projects, Beginner JavaScript Projects, Advanced JavaScript Projects, JS Project Ideas, Web Development Projects">
+
+    <meta name="author" content="Roshni Code Charm">
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="JavaScript Projects (Beginner → Advanced) | Roshni Code Charm">
+
+    <meta property="og:description"
+        content="Build real-world JavaScript projects from beginner to advanced with complete explanations and source code.">
+
+    <meta property="og:type" content="article">
+
+    <meta property="og:image" content="images/javascript-projects-banner.png">
+
+    <meta property="og:url" content="https://yourwebsite.com/javascript-projects.html">
+
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background: #f8f5ff;
+
+            color: #333;
+
+            line-height: 1.8;
+
+        }
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+        img {
+
+            max-width: 100%;
+
+            display: block;
+
+        }
+
+        ::selection {
+
+            background: #8d21a6;
+
+            color: #fff;
+
+        }
+
+        /* ===========================
+           Header
+        =========================== */
+
+        header {
+
+            background: linear-gradient(135deg, #7b2cbf, #c77dff);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
+
+        }
+
+        header h1 {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+
+        }
+
+        header p {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            font-size: 18px;
+
+            opacity: .95;
+
+        }
+
+        /* ===========================
+           Main Container
+        =========================== */
+
+        .container {
+
+            width: 92%;
+
+            max-width: 1250px;
+
+            margin: 40px auto;
+
+        }
+
+        /* ===========================
+           Breadcrumb
+        =========================== */
+
+        .breadcrumb {
+
+            background: white;
+
+            padding: 15px 20px;
+
+            border-left: 5px solid #8d21a6;
+
+            border-radius: 10px;
+
+            margin-bottom: 25px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+        }
+
+        .breadcrumb a {
+
+            color: #8d21a6;
+
+            font-weight: 600;
+
+        }
+
+        /* ===========================
+           Table of Contents
+        =========================== */
+
+        .toc {
+
+            background: #fff;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            margin-bottom: 35px;
+
+            box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+
+        }
+
+        .toc h2 {
+
+            color: #8d21a6;
+
+            margin-bottom: 15px;
+
+        }
+
+        .toc ul {
+
+            padding-left: 20px;
+
+        }
+
+        .toc li {
+
+            margin: 10px 0;
+
+        }
+
+        .toc a {
+
+            color: #333;
+
+            font-weight: 500;
+
+        }
+
+        .toc a:hover {
+
+            color: #8d21a6;
+
+        }
+
+        /* ===========================
+           Layout
+        =========================== */
+
+        .content-wrapper {
+
+            display: flex;
+
+            gap: 25px;
+
+            align-items: flex-start;
+
+        }
+
+        .left-column {
+
+            flex: 3;
+
+        }
+
+        .right-column {
+
+            flex: 1;
+
+            position: sticky;
+
+            top: 20px;
+
+        }
+
+        /* ===========================
+           Content Boxes
+        =========================== */
+
+        .content-box,
+        .tip-box,
+        .mistake-box,
+        .definition-box,
+        .real-life-box,
+        .important-box,
+        .example-box,
+        .intro-box,
+        .author-info {
+
+            background: #fff;
+
+            padding: 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+
+        }
+
+        .content-box h2,
+        .definition-box h3,
+        .real-life-box h3,
+        .important-box h3,
+        .example-box h3,
+        .tip-box h3,
+        .mistake-box h3,
+        .intro-box h2 {
+
+            color: #8d21a6;
+
+            margin-bottom: 15px;
+
+        }
+
+        .tip-box {
+
+            border-left: 6px solid #28a745;
+
+        }
+
+        .mistake-box {
+
+            border-left: 6px solid #dc3545;
+
+        }
+
+        .definition-box {
+
+            border-left: 6px solid #007bff;
+
+        }
+
+        .real-life-box {
+
+            border-left: 6px solid #ff9800;
+
+        }
+
+        .important-box {
+
+            border-left: 6px solid #8d21a6;
+
+        }
+
+        /* ===========================
+           Code Blocks
+        =========================== */
+
+        pre {
+
+            background: #1f2937;
+
+            color: #f8f8f2;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            overflow-x: auto;
+
+            margin-top: 15px;
+
+        }
+
+        code {
+
+            font-family: Consolas, monospace;
+
+        }
+
+        .example-title {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 15px;
+
+        }
+
+        .copy-btn {
+
+            background: #8d21a6;
+
+            color: white;
+
+            border: none;
+
+            padding: 8px 16px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+        }
+
+        .copy-btn:hover {
+
+            background: #6d1683;
+
+        }
+
+        .example-output {
+
+            margin-top: 15px;
+
+            background: #eef9f0;
+
+            border-left: 5px solid #28a745;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+        }
+
+        /* ===========================
+           Tables
+        =========================== */
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin: 25px 0;
+
+        }
+
+        table th {
+
+            background: #8d21a6;
+
+            color: white;
+
+            padding: 15px;
+
+        }
+
+        table td {
+
+            border: 1px solid #ddd;
+
+            padding: 12px;
+
+        }
+
+        table tr:nth-child(even) {
+
+            background: #f8f8f8;
+
+        }
+
+        /* ===========================
+           Lists
+        =========================== */
+
+        ul,
+        ol {
+
+            padding-left: 25px;
+
+        }
+
+        li {
+
+            margin: 10px 0;
+
+        }
+
+        /* ===========================
+           Footer
+        =========================== */
+
+        footer {
+
+            background: #222;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            margin-top: 60px;
+
+        }
+
+        footer h3 {
+
+            margin-bottom: 15px;
+
+        }
+
+        .footer-links {
+
+            margin: 20px 0;
+
+        }
+
+        .footer-links a {
+
+            color: white;
+
+            margin: 0 12px;
+
+            font-weight: 500;
+
+        }
+
+        .footer-links a:hover {
+
+            color: #ffd54f;
+
+        }
+
+        /* ===========================
+           Responsive Design
+        =========================== */
+
+        @media (max-width: 992px) {
+
+            .content-wrapper {
+
+                flex-direction: column;
+
+            }
+
+            .right-column {
+
+                position: static;
+
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            header h1 {
+
+                font-size: 30px;
+
+            }
+
+            header p {
+
+                font-size: 16px;
+
+            }
+
+            .container {
+
+                width: 95%;
+
+            }
+
+            table {
+
+                display: block;
+
+                overflow-x: auto;
+
+            }
+
+        }
+    </style>
+
+<body>
+
+    <!-- ===========================
+         Header
+    =========================== -->
+
+    <header>
+
+        <h1>🚀 JavaScript Projects (Beginner → Advanced)</h1>
+
+        <p>
+
+            Learn how to build real-world JavaScript projects from beginner to
+            advanced level with complete explanations, source code, interview
+            questions, practical examples, and project ideas.
+
+        </p>
+
+    </header>
+
+
+
+    <div class="container">
+
+        <!-- ===========================
+             Breadcrumb
+        =========================== -->
+
+        <div class="breadcrumb">
+
+            <a href="index.html">🏠 Home</a> →
+
+            <a href="javascript.html">JavaScript</a> →
+
+            <strong>JavaScript Projects</strong>
+
+        </div>
+
+
+
+        <!-- ===========================
+             Table of Contents
+        =========================== -->
+
+        <section class="toc">
+
+            <h2>📑 Table of Contents</h2>
+
+            <ul>
+
+                <li><a href="#introduction">Introduction</a></li>
+
+                <li><a href="#why-projects">Why Build JavaScript Projects?</a></li>
+
+                <li><a href="#skills">Skills You Will Learn</a></li>
+
+                <li><a href="#levels">Project Difficulty Levels</a></li>
+
+                <li><a href="#beginner-projects">Beginner Projects</a></li>
+
+                <li><a href="#intermediate-projects">Intermediate Projects</a></li>
+
+                <li><a href="#advanced-projects">Advanced Projects</a></li>
+
+                <li><a href="#portfolio-projects">Portfolio Projects</a></li>
+
+                <li><a href="#summary">Summary</a></li>
+
+                <li><a href="#interview-questions">Interview Questions</a></li>
+
+                <li><a href="#mcqs">Mini Quiz</a></li>
+
+                <li><a href="#faqs">FAQs</a></li>
+
+            </ul>
+
+        </section>
+
+
+
+        <div class="content-wrapper">
+
+            <!-- ===========================
+                 Left Column
+            =========================== -->
+
+            <div class="left-column">
+
+
+
+                <!-- ===========================
+                     Quick Tip
+                =========================== -->
+
+                <div class="tip-box">
+
+                    <h3>💡 Quick Tip</h3>
+
+                    <p>
+
+                        Don't just read JavaScript tutorials.
+                        Build projects regularly because practical experience
+                        improves your coding skills much faster than theory.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- ===========================
+                     Common Mistakes
+                =========================== -->
+
+                <div class="mistake-box">
+
+                    <h3>❌ Common Mistakes</h3>
+
+                    <ul>
+
+                        <li>Copying code without understanding it.</li>
+
+                        <li>Starting advanced projects too early.</li>
+
+                        <li>Ignoring debugging and browser console errors.</li>
+
+                        <li>Skipping HTML and CSS basics.</li>
+
+                        <li>Not practicing DOM Manipulation.</li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- ===========================
+                     Author Info
+                =========================== -->
+
+                <div class="author-info">
+
+                    <h3>👩 Author</h3>
+
+                    <p>
+
+                        <strong>Roshni Code Charm</strong>
+
+                    </p>
+
+                    <p>
+
+                        📖 Beginner-Friendly Programming Tutorials
+
+                    </p>
+
+                    <p>
+
+                        ⏱ Reading Time: 20–25 Minutes
+
+                    </p>
+
+                    <p>
+
+                        📅 Updated: July 2026
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- ===========================
+                     Introduction
+                =========================== -->
+
+                <section id="introduction" class="intro-box">
+
+                    <h2>📘 Introduction</h2>
+
+                    <p>
+
+                        JavaScript projects are one of the best ways to improve
+                        your programming skills. Instead of only learning theory,
+                        projects help you understand how JavaScript works in
+                        real-world applications.
+
+                    </p>
+
+                    <p>
+
+                        In this tutorial, you'll explore beginner, intermediate,
+                        and advanced JavaScript project ideas along with the
+                        skills required to build them.
+
+                    </p>
+
+                </section>
+
+                <!-- ===========================
+     What are JavaScript Projects?
+=========================== -->
+
+                <section id="what-is-project">
+
+                    <h2>🚀 What are JavaScript Projects?</h2>
+
+                    <p>
+
+                        JavaScript projects are practical applications built using HTML,
+                        CSS, and JavaScript. They help developers apply programming concepts
+                        in real-world situations while improving problem-solving and coding skills.
+
+                    </p>
+
+                    <div class="definition-box">
+
+                        <h3>📘 Definition</h3>
+
+                        <p>
+
+                            A <strong>JavaScript Project</strong> is a web application or feature
+                            created using JavaScript to solve a problem, automate a task,
+                            or provide an interactive user experience.
+
+                        </p>
+
+                    </div>
+
+                    <div class="tip-box">
+
+                        <h3>💡 Did You Know?</h3>
+
+                        <p>
+
+                            Professional web developers improve their skills by building
+                            projects regularly. Projects are considered more valuable than
+                            simply completing tutorials.
+
+                        </p>
+
+                    </div>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 Real-Life Examples</h3>
+
+                        <ul>
+
+                            <li>🧮 Calculator</li>
+
+                            <li>📝 To-Do List</li>
+
+                            <li>🌦 Weather App</li>
+
+                            <li>🛒 Shopping Cart</li>
+
+                            <li>🎵 Music Player</li>
+
+                            <li>📅 Calendar</li>
+
+                            <li>💰 Expense Tracker</li>
+
+                            <li>🔐 Password Generator</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Why Build JavaScript Projects?
+=========================== -->
+
+                <section id="why-projects">
+
+                    <h2>⭐ Why Build JavaScript Projects?</h2>
+
+                    <p>
+
+                        Building projects is the fastest way to become confident in JavaScript.
+                        Every project combines HTML, CSS, JavaScript, debugging,
+                        and logical thinking.
+
+                    </p>
+
+                    <div class="content-box">
+
+                        <h3>🎯 Benefits</h3>
+
+                        <ul>
+
+                            <li>✅ Improve problem-solving skills.</li>
+
+                            <li>✅ Learn real-world coding techniques.</li>
+
+                            <li>✅ Understand JavaScript concepts better.</li>
+
+                            <li>✅ Build a strong portfolio.</li>
+
+                            <li>✅ Prepare for internships and jobs.</li>
+
+                            <li>✅ Gain confidence in coding.</li>
+
+                            <li>✅ Practice DOM, Events, APIs, and Local Storage.</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Skills You Will Learn
+=========================== -->
+
+                <section id="skills">
+
+                    <h2>🎯 Skills You Will Learn</h2>
+
+                    <p>
+
+                        While building JavaScript projects, you'll improve both technical
+                        and problem-solving skills.
+
+                    </p>
+
+                    <div class="important-box">
+
+                        <h3>📚 Technical Skills</h3>
+
+                        <ul>
+
+                            <li>✅ DOM Manipulation</li>
+
+                            <li>✅ Event Handling</li>
+
+                            <li>✅ Functions</li>
+
+                            <li>✅ Arrays & Objects</li>
+
+                            <li>✅ Loops & Conditions</li>
+
+                            <li>✅ Fetch API</li>
+
+                            <li>✅ Local Storage</li>
+
+                            <li>✅ JSON</li>
+
+                            <li>✅ Debugging</li>
+
+                            <li>✅ Responsive Design</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project Difficulty Levels
+=========================== -->
+
+                <section id="levels">
+
+                    <h2>📈 Project Difficulty Levels</h2>
+
+                    <p>
+
+                        JavaScript projects are generally divided into three categories.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Level</th>
+
+                            <th>Description</th>
+
+                            <th>Examples</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🟢 Beginner</td>
+
+                            <td>Simple projects for learning basic concepts.</td>
+
+                            <td>Calculator, Counter, Digital Clock</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🟡 Intermediate</td>
+
+                            <td>Projects using DOM, Local Storage, and Events.</td>
+
+                            <td>To-Do List, Quiz App, Notes App</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🔴 Advanced</td>
+
+                            <td>Projects using APIs and advanced JavaScript concepts.</td>
+
+                            <td>Weather App, Shopping Cart, Expense Tracker</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="important-box">
+
+                        <h3>⭐ Key Points</h3>
+
+                        <ul>
+
+                            <li>✅ Start with beginner projects.</li>
+
+                            <li>✅ Practice consistently.</li>
+
+                            <li>✅ Increase project complexity gradually.</li>
+
+                            <li>✅ Complete each project before starting another.</li>
+
+                            <li>✅ Upload projects to GitHub for your portfolio.</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+                <!-- ===========================
+     Beginner JavaScript Projects
+=========================== -->
+
+                <section id="beginner-projects">
+
+                    <h2>🟢 Beginner JavaScript Projects</h2>
+
+                    <p>
+
+                        Beginner projects help you understand the fundamentals of JavaScript.
+                        They mainly focus on variables, functions, DOM manipulation,
+                        events, loops, and basic logic building.
+
+                    </p>
+
+                    <div class="definition-box">
+
+                        <h3>📘 Who Should Build These Projects?</h3>
+
+                        <p>
+
+                            These projects are ideal for beginners who have completed
+                            JavaScript basics such as Variables, Functions,
+                            DOM Manipulation, Events, Fetch API, and Local Storage.
+
+                        </p>
+
+                    </div>
+
+                    <div class="tip-box">
+
+                        <h3>💡 Quick Tip</h3>
+
+                        <p>
+
+                            Don't memorize project code.
+                            Try building each project yourself first,
+                            then compare it with the final solution.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 1
+=========================== -->
+
+                <section>
+
+                    <h2>🧮 1. Calculator</h2>
+
+                    <p>
+
+                        A calculator performs mathematical operations like
+                        addition, subtraction, multiplication, and division.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐ Beginner</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>DOM, Events, Functions</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>1–2 Hours</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Button Click Events</li>
+
+                            <li>✅ Input Handling</li>
+
+                            <li>✅ Functions</li>
+
+                            <li>✅ Arithmetic Operators</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 2
+=========================== -->
+
+                <section>
+
+                    <h2>⏰ 2. Digital Clock</h2>
+
+                    <p>
+
+                        Display the current time and automatically update it every second.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐ Beginner</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>Date Object, setInterval()</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>30–60 Minutes</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Date Object</li>
+
+                            <li>✅ setInterval()</li>
+
+                            <li>✅ Live Updates</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 3
+=========================== -->
+
+                <section>
+
+                    <h2>🔢 3. Counter App</h2>
+
+                    <p>
+
+                        Create buttons to increase, decrease,
+                        and reset a counter value.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐ Beginner</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>Variables, DOM, Events</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>30 Minutes</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Variables</li>
+
+                            <li>✅ Event Listeners</li>
+
+                            <li>✅ DOM Updates</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 4
+=========================== -->
+
+                <section>
+
+                    <h2>🎨 4. Color Changer</h2>
+
+                    <p>
+
+                        Change the webpage background color
+                        when the user clicks a button.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐ Beginner</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>DOM, CSS, Events</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>20–30 Minutes</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ style Property</li>
+
+                            <li>✅ Random Colors</li>
+
+                            <li>✅ Event Handling</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 5
+=========================== -->
+
+                <section>
+
+                    <h2>💬 5. Random Quote Generator</h2>
+
+                    <p>
+
+                        Display a random motivational quote
+                        every time the user clicks a button.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐⭐ Beginner</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>Arrays, Random Numbers, DOM</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>45–60 Minutes</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Arrays</li>
+
+                            <li>✅ Math.random()</li>
+
+                            <li>✅ DOM Manipulation</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Beginner Projects Summary
+=========================== -->
+
+                <section>
+
+                    <div class="important-box">
+
+                        <h3>⭐ Beginner Projects Summary</h3>
+
+                        <ul>
+
+                            <li>🧮 Calculator</li>
+
+                            <li>⏰ Digital Clock</li>
+
+                            <li>🔢 Counter App</li>
+
+                            <li>🎨 Color Changer</li>
+
+                            <li>💬 Random Quote Generator</li>
+
+                        </ul>
+
+                        <p>
+
+                            After completing these projects, you'll be comfortable with
+                            JavaScript fundamentals and ready to move on to
+                            intermediate-level applications.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- ===========================
+     Intermediate JavaScript Projects
+=========================== -->
+
+                <section id="intermediate-projects">
+
+                    <h2>🟡 Intermediate JavaScript Projects</h2>
+
+                    <p>
+
+                        Intermediate JavaScript projects introduce more advanced concepts such as
+                        Local Storage, Arrays, Objects, Event Handling, DOM Manipulation,
+                        and Dynamic User Interfaces.
+
+                    </p>
+
+                    <div class="definition-box">
+
+                        <h3>📘 Who Should Build These Projects?</h3>
+
+                        <p>
+
+                            These projects are suitable for learners who understand JavaScript
+                            basics and want to create practical web applications.
+
+                        </p>
+
+                    </div>
+
+                    <div class="tip-box">
+
+                        <h3>💡 Pro Tip</h3>
+
+                        <p>
+
+                            Focus on writing clean, readable code. Try to divide your project
+                            into small reusable functions instead of writing everything
+                            in one place.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 1
+=========================== -->
+
+                <section>
+
+                    <h2>📝 1. To-Do List</h2>
+
+                    <p>
+
+                        Create an application where users can add, delete,
+                        edit, and mark tasks as completed.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+                            <th>Difficulty</th>
+                            <td>⭐⭐ Intermediate</td>
+                        </tr>
+
+                        <tr>
+                            <th>Skills Required</th>
+                            <td>DOM, Events, Local Storage</td>
+                        </tr>
+
+                        <tr>
+                            <th>Estimated Time</th>
+                            <td>2–3 Hours</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ CRUD Operations</li>
+
+                            <li>✅ Local Storage</li>
+
+                            <li>✅ Event Handling</li>
+
+                            <li>✅ Dynamic DOM Manipulation</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 2
+=========================== -->
+
+                <section>
+
+                    <h2>📒 2. Notes App</h2>
+
+                    <p>
+
+                        Build a Notes application where users can create,
+                        edit, delete, and save notes permanently.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+                            <th>Difficulty</th>
+                            <td>⭐⭐ Intermediate</td>
+                        </tr>
+
+                        <tr>
+                            <th>Skills Required</th>
+                            <td>Local Storage, Arrays, DOM</td>
+                        </tr>
+
+                        <tr>
+                            <th>Estimated Time</th>
+                            <td>2–4 Hours</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Arrays of Objects</li>
+
+                            <li>✅ JSON.stringify()</li>
+
+                            <li>✅ JSON.parse()</li>
+
+                            <li>✅ Data Persistence</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 3
+=========================== -->
+
+                <section>
+
+                    <h2>🔐 3. Password Generator</h2>
+
+                    <p>
+
+                        Generate strong random passwords using uppercase letters,
+                        lowercase letters, numbers, and special symbols.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+                            <th>Difficulty</th>
+                            <td>⭐⭐ Intermediate</td>
+                        </tr>
+
+                        <tr>
+                            <th>Skills Required</th>
+                            <td>Functions, Loops, Math.random()</td>
+                        </tr>
+
+                        <tr>
+                            <th>Estimated Time</th>
+                            <td>1–2 Hours</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Random Number Generation</li>
+
+                            <li>✅ String Manipulation</li>
+
+                            <li>✅ User Input</li>
+
+                            <li>✅ Clipboard API (Optional)</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 4
+=========================== -->
+
+                <section>
+
+                    <h2>🖼️ 4. Image Slider</h2>
+
+                    <p>
+
+                        Create an image gallery with Next and Previous buttons
+                        and automatic slideshow functionality.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+                            <th>Difficulty</th>
+                            <td>⭐⭐⭐ Intermediate</td>
+                        </tr>
+
+                        <tr>
+                            <th>Skills Required</th>
+                            <td>Arrays, DOM, Events</td>
+                        </tr>
+
+                        <tr>
+                            <th>Estimated Time</th>
+                            <td>2 Hours</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Image Navigation</li>
+
+                            <li>✅ Event Listeners</li>
+
+                            <li>✅ Automatic Slideshow</li>
+
+                            <li>✅ Array Index Management</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 5
+=========================== -->
+
+                <section>
+
+                    <h2>❓ 5. Quiz App</h2>
+
+                    <p>
+
+                        Build an interactive quiz application that displays
+                        questions, checks answers, calculates scores,
+                        and shows the final result.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+                            <th>Difficulty</th>
+                            <td>⭐⭐⭐ Intermediate</td>
+                        </tr>
+
+                        <tr>
+                            <th>Skills Required</th>
+                            <td>Objects, Arrays, DOM, Events</td>
+                        </tr>
+
+                        <tr>
+                            <th>Estimated Time</th>
+                            <td>3–5 Hours</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Arrays of Objects</li>
+
+                            <li>✅ Score Calculation</li>
+
+                            <li>✅ Dynamic Question Rendering</li>
+
+                            <li>✅ Conditional Logic</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Intermediate Projects Summary
+=========================== -->
+
+                <section>
+
+                    <div class="important-box">
+
+                        <h3>⭐ Intermediate Projects Summary</h3>
+
+                        <ul>
+
+                            <li>📝 To-Do List</li>
+
+                            <li>📒 Notes App</li>
+
+                            <li>🔐 Password Generator</li>
+
+                            <li>🖼️ Image Slider</li>
+
+                            <li>❓ Quiz App</li>
+
+                        </ul>
+
+                        <p>
+
+                            These projects strengthen your JavaScript knowledge by combining
+                            DOM manipulation, Local Storage, arrays, objects, functions,
+                            and user interaction. They also make excellent additions to your portfolio.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- ===========================
+     Advanced JavaScript Projects
+=========================== -->
+
+                <section id="advanced-projects">
+
+                    <h2>🔴 Advanced JavaScript Projects</h2>
+
+                    <p>
+
+                        Advanced JavaScript projects combine multiple concepts such as
+                        Fetch API, Local Storage, JSON, DOM Manipulation, Event Handling,
+                        Async/Await, and modern JavaScript techniques.
+
+                        These projects closely resemble real-world web applications.
+
+                    </p>
+
+                    <div class="definition-box">
+
+                        <h3>📘 Who Should Build These Projects?</h3>
+
+                        <p>
+
+                            These projects are recommended for learners who have completed
+                            JavaScript fundamentals, DOM, Events, Fetch API,
+                            Local Storage, and asynchronous programming.
+
+                        </p>
+
+                    </div>
+
+                    <div class="tip-box">
+
+                        <h3>💡 Pro Tip</h3>
+
+                        <p>
+
+                            Build every project from scratch before watching tutorials.
+                            Solving problems yourself greatly improves logical thinking
+                            and debugging skills.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 1
+=========================== -->
+
+                <section>
+
+                    <h2>🌦 1. Weather App</h2>
+
+                    <p>
+
+                        Build a weather application that displays the current weather
+                        using a public weather API based on the city entered by the user.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐⭐⭐ Advanced</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>Fetch API, Async/Await, JSON, DOM</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>3–5 Hours</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Fetch API</li>
+
+                            <li>✅ Async/Await</li>
+
+                            <li>✅ JSON Data</li>
+
+                            <li>✅ Error Handling</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 2
+=========================== -->
+
+                <section>
+
+                    <h2>🛒 2. Shopping Cart</h2>
+
+                    <p>
+
+                        Create an online shopping cart where users can add,
+                        remove, update quantities, and save products using
+                        Local Storage.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐⭐⭐⭐ Advanced</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>DOM, Objects, Arrays, Local Storage</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>5–8 Hours</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Cart Management</li>
+
+                            <li>✅ Local Storage</li>
+
+                            <li>✅ Dynamic UI Updates</li>
+
+                            <li>✅ Array Methods</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 3
+=========================== -->
+
+                <section>
+
+                    <h2>💰 3. Expense Tracker</h2>
+
+                    <p>
+
+                        Build an application that records income and expenses,
+                        calculates the current balance, and stores all transactions
+                        permanently in Local Storage.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐⭐⭐⭐ Advanced</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>Local Storage, Arrays, Objects, DOM</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>5–7 Hours</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ Financial Calculations</li>
+
+                            <li>✅ CRUD Operations</li>
+
+                            <li>✅ Local Storage</li>
+
+                            <li>✅ Dynamic Reports</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 4
+=========================== -->
+
+                <section>
+
+                    <h2>🎬 4. Movie Search App</h2>
+
+                    <p>
+
+                        Develop a movie search application that retrieves movie
+                        information such as title, rating, poster, and release year
+                        using an external movie API.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐⭐⭐⭐ Advanced</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>Fetch API, Async/Await, JSON, DOM</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>4–6 Hours</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ API Integration</li>
+
+                            <li>✅ Search Functionality</li>
+
+                            <li>✅ JSON Parsing</li>
+
+                            <li>✅ Dynamic Content Rendering</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Project 5
+=========================== -->
+
+                <section>
+
+                    <h2>🐙 5. GitHub Profile Finder</h2>
+
+                    <p>
+
+                        Build an application that searches GitHub users
+                        and displays their profile information including
+                        avatar, repositories, followers, and bio.
+
+                    </p>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Difficulty</th>
+
+                            <td>⭐⭐⭐⭐⭐ Advanced</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills Required</th>
+
+                            <td>Fetch API, Async/Await, DOM, REST API</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Estimated Time</th>
+
+                            <td>5–8 Hours</td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="real-life-box">
+
+                        <h3>🌍 What You'll Learn</h3>
+
+                        <ul>
+
+                            <li>✅ REST API</li>
+
+                            <li>✅ Fetch API</li>
+
+                            <li>✅ Error Handling</li>
+
+                            <li>✅ Dynamic User Interface</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Advanced Projects Summary
+=========================== -->
+
+                <section>
+
+                    <div class="important-box">
+
+                        <h3>⭐ Advanced Projects Summary</h3>
+
+                        <ul>
+
+                            <li>🌦 Weather App</li>
+
+                            <li>🛒 Shopping Cart</li>
+
+                            <li>💰 Expense Tracker</li>
+
+                            <li>🎬 Movie Search App</li>
+
+                            <li>🐙 GitHub Profile Finder</li>
+
+                        </ul>
+
+                        <p>
+
+                            These projects combine multiple JavaScript concepts and simulate
+                            real-world applications. Completing them will significantly
+                            strengthen your portfolio and prepare you for internships,
+                            freelance work, and developer interviews.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ===========================
+     Portfolio Projects
+=========================== -->
+
+                <section id="portfolio-projects">
+
+                    <h2>💼 JavaScript Portfolio Projects</h2>
+
+                    <p>
+
+                        Portfolio projects demonstrate your practical JavaScript skills.
+                        They help recruiters and clients evaluate your problem-solving,
+                        coding style, and real-world development experience.
+
+                    </p>
+
+                    <div class="definition-box">
+
+                        <h3>📘 Why Portfolio Projects Matter?</h3>
+
+                        <p>
+
+                            A strong portfolio often speaks louder than certificates.
+                            Building complete projects shows that you can apply JavaScript
+                            concepts to solve real problems.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Portfolio Project Ideas
+=========================== -->
+
+                <section>
+
+                    <h2>🚀 Best Portfolio Project Ideas</h2>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Project</th>
+
+                            <th>Difficulty</th>
+
+                            <th>Main Skills</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🌦 Weather App</td>
+
+                            <td>⭐⭐⭐</td>
+
+                            <td>Fetch API, JSON</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🛒 Shopping Cart</td>
+
+                            <td>⭐⭐⭐⭐</td>
+
+                            <td>DOM, Local Storage</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>💰 Expense Tracker</td>
+
+                            <td>⭐⭐⭐⭐</td>
+
+                            <td>CRUD, Local Storage</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🎬 Movie Search App</td>
+
+                            <td>⭐⭐⭐⭐</td>
+
+                            <td>API Integration</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🐙 GitHub Profile Finder</td>
+
+                            <td>⭐⭐⭐⭐⭐</td>
+
+                            <td>REST API</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>💬 Chat Application</td>
+
+                            <td>⭐⭐⭐⭐⭐</td>
+
+                            <td>Real-Time Concepts</td>
+
+                        </tr>
+
+                    </table>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Real-World Applications
+=========================== -->
+
+                <section id="real-world">
+
+                    <h2>🌍 Real-World Applications</h2>
+
+                    <p>
+
+                        JavaScript projects are used in almost every modern website and web application.
+
+                    </p>
+
+                    <div class="real-life-box">
+
+                        <h3>Examples</h3>
+
+                        <ul>
+
+                            <li>🛍 E-commerce Websites</li>
+
+                            <li>📚 Learning Platforms</li>
+
+                            <li>🏦 Banking Dashboards</li>
+
+                            <li>📱 Social Media Applications</li>
+
+                            <li>🎵 Music Streaming Platforms</li>
+
+                            <li>🎬 Video Streaming Websites</li>
+
+                            <li>📊 Admin Dashboards</li>
+
+                            <li>🌦 Weather Applications</li>
+
+                            <li>📝 Notes & Productivity Apps</li>
+
+                            <li>💰 Finance Trackers</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Best Practices
+=========================== -->
+
+                <section id="best-practices">
+
+                    <h2>⭐ Best Practices</h2>
+
+                    <div class="important-box">
+
+                        <ul>
+
+                            <li>✅ Write clean and readable code.</li>
+
+                            <li>✅ Use meaningful variable names.</li>
+
+                            <li>✅ Divide large projects into small functions.</li>
+
+                            <li>✅ Handle errors properly.</li>
+
+                            <li>✅ Make projects mobile responsive.</li>
+
+                            <li>✅ Comment only where necessary.</li>
+
+                            <li>✅ Test your project in different browsers.</li>
+
+                            <li>✅ Keep improving existing projects.</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     JavaScript Project Roadmap
+=========================== -->
+
+                <section id="roadmap">
+
+                    <h2>🛣 JavaScript Project Roadmap</h2>
+
+                    <table>
+
+                        <tr>
+
+                            <th>Level</th>
+
+                            <th>Projects</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🟢 Beginner</td>
+
+                            <td>Calculator, Counter, Digital Clock, Color Changer</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🟡 Intermediate</td>
+
+                            <td>To-Do List, Notes App, Password Generator, Quiz App</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>🔴 Advanced</td>
+
+                            <td>Weather App, Shopping Cart, Expense Tracker, GitHub Finder</td>
+
+                        </tr>
+
+                    </table>
+
+                </section>
+
+
+
+                <!-- ===========================
+     GitHub Tips
+=========================== -->
+
+                <section id="github-tips">
+
+                    <h2>🐙 GitHub Tips</h2>
+
+                    <div class="tip-box">
+
+                        <ul>
+
+                            <li>✅ Upload every completed project to GitHub.</li>
+
+                            <li>✅ Write a professional README file.</li>
+
+                            <li>✅ Add screenshots or GIF previews.</li>
+
+                            <li>✅ Use meaningful commit messages.</li>
+
+                            <li>✅ Keep repositories updated regularly.</li>
+
+                            <li>✅ Organize projects into separate repositories.</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Deployment Tips
+=========================== -->
+
+                <section id="deployment">
+
+                    <h2>🚀 Deployment Tips</h2>
+
+                    <p>
+
+                        After completing your projects, publish them online so that others
+                        can access and test your work.
+
+                    </p>
+
+                    <div class="content-box">
+
+                        <h3>Popular Deployment Platforms</h3>
+
+                        <ul>
+
+                            <li>🌐 GitHub Pages</li>
+
+                            <li>⚡ Netlify</li>
+
+                            <li>▲ Vercel</li>
+
+                        </ul>
+
+                        <p>
+
+                            Hosting your projects online makes it easier to share them with
+                            recruiters, clients, and friends.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- ===========================
+     Chapter Summary
+=========================== -->
+
+                <section id="summary">
+
+                    <h2>📚 Chapter Summary</h2>
+
+                    <div class="content-box">
+
+                        <p>
+
+                            In this tutorial, you explored JavaScript projects from beginner
+                            to advanced level and learned how to build practical web
+                            applications using modern JavaScript concepts.
+
+                        </p>
+
+                        <ul>
+
+                            <li>✅ Beginner Projects</li>
+
+                            <li>✅ Intermediate Projects</li>
+
+                            <li>✅ Advanced Projects</li>
+
+                            <li>✅ Portfolio Projects</li>
+
+                            <li>✅ Real-World Applications</li>
+
+                            <li>✅ Best Practices</li>
+
+                            <li>✅ GitHub Tips</li>
+
+                            <li>✅ Deployment Tips</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Interview Questions
+=========================== -->
+
+                <section id="interview-questions">
+
+                    <h2>💼 JavaScript Projects Interview Questions</h2>
+
+                    <ol>
+
+                        <li>Why are JavaScript projects important?</li>
+
+                        <li>Which project is best for beginners?</li>
+
+                        <li>What JavaScript concepts are used in a To-Do List project?</li>
+
+                        <li>How is Local Storage used in projects?</li>
+
+                        <li>Why is Fetch API important in real-world applications?</li>
+
+                        <li>Which project demonstrates API integration?</li>
+
+                        <li>What makes a project portfolio-ready?</li>
+
+                        <li>How do you deploy JavaScript projects?</li>
+
+                        <li>Which projects should every web developer build?</li>
+
+                        <li>How can projects improve interview performance?</li>
+
+                    </ol>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Practice Questions
+=========================== -->
+
+                <section id="practice">
+
+                    <h2>📝 Practice Questions</h2>
+
+                    <ol>
+
+                        <li>Create a Calculator application.</li>
+
+                        <li>Build a Digital Clock using JavaScript.</li>
+
+                        <li>Create a To-Do List with Local Storage.</li>
+
+                        <li>Develop a Password Generator.</li>
+
+                        <li>Create an Image Slider.</li>
+
+                        <li>Build a Quiz Application.</li>
+
+                        <li>Create a Weather App using Fetch API.</li>
+
+                        <li>Develop a Shopping Cart.</li>
+
+                        <li>Create an Expense Tracker.</li>
+
+                        <li>Upload your project to GitHub Pages.</li>
+
+                    </ol>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Mini Quiz
+=========================== -->
+
+                <section id="mcqs">
+
+                    <h2>🧠 Mini Quiz (10 MCQs)</h2>
+
+                    <ol>
+
+                        <li>
+                            Which project is best for beginners?
+                            <br>
+                            <strong>A)</strong> Weather App
+                            <strong>B)</strong> Calculator ✅
+                            <strong>C)</strong> GitHub Finder
+                            <strong>D)</strong> Shopping Cart
+                        </li>
+
+                        <li>
+                            Which project commonly uses Fetch API?
+                            <br>
+                            <strong>A)</strong> Counter
+                            <strong>B)</strong> Weather App ✅
+                            <strong>C)</strong> Calculator
+                            <strong>D)</strong> Clock
+                        </li>
+
+                        <li>
+                            Which project commonly uses Local Storage?
+                            <br>
+                            <strong>A)</strong> To-Do List ✅
+                            <strong>B)</strong> Stopwatch
+                            <strong>C)</strong> Counter
+                            <strong>D)</strong> Timer
+                        </li>
+
+                        <li>
+                            Which platform is used to host projects?
+                            <br>
+                            <strong>A)</strong> GitHub Pages ✅
+                            <strong>B)</strong> MS Word
+                            <strong>C)</strong> Paint
+                            <strong>D)</strong> Excel
+                        </li>
+
+                        <li>
+                            Which project demonstrates CRUD operations?
+                            <br>
+                            <strong>A)</strong> To-Do List ✅
+                            <strong>B)</strong> Calculator
+                            <strong>C)</strong> Clock
+                            <strong>D)</strong> Counter
+                        </li>
+
+                        <li>
+                            Which project uses APIs?
+                            <br>
+                            <strong>A)</strong> Movie Search App ✅
+                            <strong>B)</strong> Counter
+                            <strong>C)</strong> Clock
+                            <strong>D)</strong> Calculator
+                        </li>
+
+                        <li>
+                            Which project is best for your portfolio?
+                            <br>
+                            <strong>A)</strong> Expense Tracker ✅
+                            <strong>B)</strong> Counter
+                            <strong>C)</strong> Timer
+                            <strong>D)</strong> Color Changer
+                        </li>
+
+                        <li>
+                            Which language is required for these projects?
+                            <br>
+                            <strong>A)</strong> JavaScript ✅
+                            <strong>B)</strong> COBOL
+                            <strong>C)</strong> Pascal
+                            <strong>D)</strong> Assembly
+                        </li>
+
+                        <li>
+                            Which skill improves the most while building projects?
+                            <br>
+                            <strong>A)</strong> Problem Solving ✅
+                            <strong>B)</strong> Typing
+                            <strong>C)</strong> Printing
+                            <strong>D)</strong> Scanning
+                        </li>
+
+                        <li>
+                            The best way to learn JavaScript is:
+                            <br>
+                            <strong>A)</strong> Only Reading
+                            <strong>B)</strong> Watching Videos
+                            <strong>C)</strong> Building Projects ✅
+                            <strong>D)</strong> Memorizing Code
+                        </li>
+
+                    </ol>
+
+                </section>
+
+
+
+                <!-- ===========================
+     FAQs
+=========================== -->
+
+                <section id="faqs">
+
+                    <h2>❓ Frequently Asked Questions</h2>
+
+                    <h3>1. Which JavaScript project should I build first?</h3>
+
+                    <p>Start with a Calculator or Counter App, then gradually move to To-Do List and Weather App.</p>
+
+                    <h3>2. Are projects important for interviews?</h3>
+
+                    <p>Yes. Projects demonstrate practical knowledge and problem-solving skills.</p>
+
+                    <h3>3. Can I upload projects to GitHub?</h3>
+
+                    <p>Yes. GitHub is one of the best places to showcase your work.</p>
+
+                    <h3>4. Which project is best for a portfolio?</h3>
+
+                    <p>Weather App, Expense Tracker, Shopping Cart, and GitHub Profile Finder are excellent portfolio
+                        projects.</p>
+
+                    <h3>5. Do I need React to build these projects?</h3>
+
+                    <p>No. All of these projects can be built using HTML, CSS, and Vanilla JavaScript.</p>
+
+                </section>
+
+
+
+                <!-- ===========================
+     Glossary
+=========================== -->
+
+                <section id="glossary">
+
+                    <h2>📖 Glossary</h2>
+
+                    <ul>
+
+                        <li><strong>DOM:</strong> Document Object Model.</li>
+
+                        <li><strong>API:</strong> Application Programming Interface.</li>
+
+                        <li><strong>CRUD:</strong> Create, Read, Update, Delete.</li>
+
+                        <li><strong>Local Storage:</strong> Browser storage for saving data.</li>
+
+                        <li><strong>Portfolio:</strong> Collection of your best projects.</li>
+
+                        <li><strong>Deployment:</strong> Publishing a project online.</li>
+
+                    </ul>
+
+                </section>
+
+                <!-- ===========================
+     Related Articles
+=========================== -->
+
+                <section class="related-articles">
+
+                    <h2>📚 Related JavaScript Articles</h2>
+
+                    <p>
+
+                        Continue learning JavaScript with these beginner-friendly tutorials from
+                        <strong>Roshni Code Charm</strong>.
+
+                    </p>
+
+                    <div class="article-box">
+
+                        <h3>📦 JavaScript Variables</h3>
+
+                        <p>
+
+                            Learn how to declare variables using
+                            <code>var</code>, <code>let</code>, and <code>const</code>
+                            with simple examples.
+
+                        </p>
+
+                        <a href="javascript-variables.html">
+                            📖 Read Article →
+                        </a>
+
+                    </div>
+
+                    <div class="article-box">
+
+                        <h3>🔤 JavaScript Data Types</h3>
+
+                        <p>
+
+                            Understand primitive and non-primitive data types
+                            with practical examples and interview questions.
+
+                        </p>
+
+                        <a href="javascript-data-types.html">
+                            📖 Read Article →
+                        </a>
+
+                    </div>
+
+                    <div class="article-box">
+
+                        <h3>🎯 JavaScript DOM Manipulation</h3>
+
+                        <p>
+
+                            Learn DOM selectors, events,
+                            and how to create interactive web pages.
+
+                        </p>
+
+                        <a href="javascript-dom.html">
+                            📖 Read Article →
+                        </a>
+
+                    </div>
+
+                    <div class="article-box">
+
+                        <h3>⚡ JavaScript Events</h3>
+
+                        <p>
+
+                            Master click, keyboard, mouse,
+                            form, and window events with examples.
+
+                        </p>
+
+                        <a href="javascript-events.html">
+                            📖 Read Article →
+                        </a>
+
+                    </div>
+
+                    <div class="article-box">
+
+                        <h3>⏳ JavaScript Asynchronous</h3>
+
+                        <p>
+
+                            Learn Callbacks, Promises,
+                            Async/Await, and the Event Loop in detail.
+
+                        </p>
+
+                        <a href="javascript-asynchronous.html">
+                            📖 Read Article →
+                        </a>
+
+                    </div>
+
+                    <div class="article-box">
+
+                        <h3>🌐 JavaScript Fetch API</h3>
+
+                        <p>
+
+                            Learn how to fetch data from APIs using
+                            Fetch API, JSON, Async/Await,
+                            GET, POST, and Error Handling.
+
+                        </p>
+
+                        <a href="javascript-fetch-api.html">
+                            📖 Read Article →
+                        </a>
+
+                    </div>
+
+                    <div class="article-box">
+
+                        <h3>💾 JavaScript Local Storage</h3>
+
+                        <p>
+
+                            Learn Local Storage, Session Storage,
+                            JSON.stringify(), JSON.parse(),
+                            and browser data storage.
+
+                        </p>
+
+                        <a href="javascript-local-storage.html">
+                            📖 Read Article →
+                        </a>
+
+                    </div>
+
+                </section>
+
+                <!-- ===========================
+     Previous / Next Navigation
+=========================== -->
+
+                <section class="post-navigation">
+
+                    <!-- Previous -->
+
+                    <div class="nav-box prev">
+
+                        <span class="nav-label">⬅ Previous Tutorial</span>
+
+                        <a href="javascript-local-storage.html">
+
+                            💾 JavaScript Local Storage
+
+                        </a>
+
+                        <p>
+
+                            Learn Local Storage, Session Storage,
+                            JSON.stringify(), JSON.parse(),
+                            and browser storage with practical examples.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Next -->
+
+                    <div class="nav-box next">
+
+                        <span class="nav-label">Next Tutorial ➡</span>
+
+                        <a href="es6-javascript.html">
+
+                            ✨ JavaScript ES6 (Modern JavaScript)
+
+                        </a>
+
+                        <p>
+
+                            Learn let, const, arrow functions,
+                            template literals, destructuring,
+                            modules, spread operator, and more.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- ===========================
+     Footer
+=========================== -->
+
+                <footer>
+
+                    <div class="footer-content">
+
+                        <h3>💜 Roshni Code Charm</h3>
+
+                        <p>
+
+                            Learn HTML, CSS, JavaScript, Python, Web Development,
+                            Programming Tips, Interview Questions, Mini Projects,
+                            and Coding Tutorials — all in one place.
+
+                        </p>
+
+                        <div class="footer-links">
+
+                            <a href="index.html">🏠 Home</a>
+
+                            
+
+                        </div>
+
+                        
+
+                        <p class="copyright">
+
+                            © 2026 <strong>Roshni Code Charm</strong>. All Rights Reserved.
+
+                        </p>
+
+                    </div>
+
+                </footer>
+
+
+
+                <!-- ===========================
+     JavaScript File
+=========================== -->
+
+                <script src="script.js"></script>
+
+</body>
+
+</html>

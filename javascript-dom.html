@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript DOM (Document Object Model) Tutorial for Beginners | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Learn JavaScript DOM with examples. Understand getElementById(), querySelector(), DOM manipulation, createElement(), remove(), and more.">
+
+    <meta name="keywords"
+        content="JavaScript DOM, DOM Tutorial, Document Object Model, JavaScript DOM Methods, getElementById, querySelector, querySelectorAll, DOM Manipulation, JavaScript for Beginners">
+
+    <meta name="author" content="Roshni Code Charm">
+    <link rel="canonical" href="https://roshni945.github.io/my-website/javascript-dom.html">
+    <meta property="og:title" content="JavaScript DOM Tutorial for Beginners">
+    <meta property="og:description" content="Learn JavaScript DOM with examples and DOM manipulation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://roshni945.github.io/my-website/javascript-dom.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaScript DOM Tutorial">
+    <meta name="twitter:description" content="Learn JavaScript DOM with examples.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: cursive;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #7b2cbf;
+        }
+
+        h2 {
+            color: #ff4da6;
+            margin-top: 35px;
+        }
+
+        .intro-box {
+            background-color: rgb(239, 203, 244);
+            border-left: 5px solid #7b2cbf;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .intro-box h3 {
+            margin: 0 0 10px;
+            color: #2ebf2c;
+        }
+
+        .intro {
+            margin: 0;
+            color: #111111;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        pre {
+            background: #f3e8ff;
+            color: #333;
+            padding: 2px 10px;
+            border-radius: 5px;
+            border-left: 4px solid #7b2cbf;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #7b2cbf;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #5a189a;
+            transform: translateY(-2px);
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
+
+        .article-info {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .left-column,
+        .right-column {
+            flex: 1;
+        }
+
+
+        .toc {
+            background: #f3e8ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+        }
+
+        .toc h3 {
+            color: #7b2cbf;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .toc li {
+            margin: 10px 0;
+        }
+
+        .toc a {
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .toc a:hover {
+            color: #7b2cbf;
+            padding-left: 6px;
+        }
+
+
+        .tip-box,
+        .mistake-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .tip-box {
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+        }
+
+
+        .mistake-box {
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+        }
+
+
+        .content-box {
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+        }
+
+
+        .author-info {
+            background-color: beige;
+            padding: 18px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 25px 0;
+            color: #222;
+            font-size: 25px;
+            font-weight: 500;
+            border-left: 5px solid #7b2cbf;
+        }
+
+
+        .author-info b {
+            color: #7b2cbf;
+        }
+
+        h3 {
+            color: #7b2cbf;
+        }
+
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul {
+            padding-left: 22px;
+        }
+
+        .content-box ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul li a {
+            color: #7b2cbf;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .content-box ul li a:hover {
+            color: #ff4da6;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width:768px) {
+
+            .article-info {
+                flex-direction: column;
+            }
+
+            .content-box {
+                padding: 25px;
+            }
+
+            body {
+                padding: 18px;
+            }
+        }
+
+        .key-box {
+            background: #ffe8fa;
+            border-left: 5px solid #f4b400;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .key-box h3 {
+            margin-top: 0;
+            color: #d97706;
+        }
+
+        .key-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .key-box li {
+            margin: 8px 0;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .related-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .related-link {
+            display: block;
+            background: #fff;
+            margin: 10px 0;
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .related-link:hover {
+            background: #7b2cbf;
+            color: #fff;
+        }
+
+        .code-title {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin: 15px 0 8px;
+            font-size: 16px;
+        }
+
+        .output-box {
+            background: #e8fff2;
+            border-left: 4px solid #2ecc71;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: #222;
+            font-family: Consolas, monospace;
+        }
+
+        .practice-box {
+            background: #eef7ff;
+            border-left: 5px solid #2196f3;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .practice-box h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        .related-box {
+            background: #f9f5ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+        }
+
+        .related-box h2 {
+            margin-top: 0;
+        }
+
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .related-links a {
+            display: block;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .related-links a:hover {
+            background: #7b2cbf;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #faf5ff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
+            border-left: 4px solid #7b2cbf;
+        }
+
+        .post-meta span {
+            font-weight: 500;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #7b2cbf;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .share-box {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .share-box h2 {
+            margin-top: 0;
+        }
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .share-buttons a {
+            text-decoration: none;
+            background: #7b2cbf;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: .3s;
+        }
+
+        .share-buttons a:hover {
+            background: #5a189a;
+        }
+
+        .did-you-know {
+            background: #fff9e6;
+            border-left: 5px solid #f4b400;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, .08);
+        }
+
+        .did-you-know h3 {
+            margin-top: 0;
+            color: #c77d00;
+        }
+
+        .did-you-know p {
+            margin: 10px 0 0;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .method-table th {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .method-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .method-table tr:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .method-table tr:hover {
+            background: #f3e8ff;
+        }
+
+        .practice-questions {
+            background: #eef8ff;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .practice-questions ol {
+            padding-left: 20px;
+        }
+
+        .practice-questions li {
+            margin: 10px 0;
+        }
+
+        .quiz-box {
+            background: #fff8e8;
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .quiz-box p {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .quiz-box ul {
+            margin: 10px 0 20px 20px;
+        }
+
+        .quiz-box li {
+            margin: 6px 0;
+        }
+
+        .interview-box {
+            background: #eefcf3;
+            border-left: 5px solid #2ecc71;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .interview-box ol {
+            padding-left: 22px;
+        }
+
+        .interview-box li {
+            margin: 12px 0;
+        }
+
+        .glossary-box {
+            background: #f8f9ff;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .glossary-box dt {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .glossary-box dd {
+            margin: 5px 0 15px 20px;
+            color: #444;
+        }
+
+        #topBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background: #7b2cbf;
+            color: #fff;
+            cursor: pointer;
+            padding: 14px 18px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+            transition: .3s;
+        }
+
+        #topBtn:hover {
+            background: #5a189a;
+            transform: translateY(-3px);
+        }
+
+        .code-box {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #7b2cbf;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .copy-btn:hover {
+            background: #5a189a;
+        }
+
+        .code-box pre {
+            margin-top: 0;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .method-table th {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .method-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .method-table tr:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .method-table tr:hover {
+            background: #f3e8ff;
+        }
+    </style>
+
+    <script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"TechArticle",
+"headline":"JavaScript DOM Tutorial",
+"description":"Learn JavaScript DOM with examples.",
+"author":{
+"@type":"Person",
+"name":"Roshni Code Charm"
+}
+}
+</script>
+</head>
+
+<body>
+
+    <div class="content-box">
+
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="javascript-tutorial.html">JavaScript</a>
+                <span>›</span>
+                <span>JavaScript DOM</span>
+            </nav>
+
+
+            <h1>📦 JavaScript DOM (Document Object Model)</h1>
+
+
+            <div class="article-info">
+
+
+                <!-- LEFT COLUMN -->
+                <div class="left-column">
+
+
+                    <div class="toc">
+
+                        <h3>📚 Table of Contents</h3>
+
+                        <ul>
+
+                            <li><a href="#what">What is DOM?</a></li>
+
+                            <li><a href="#tree">DOM Tree</a></li>
+
+                            <li><a href="#select">Selecting Elements</a></li>
+
+                            <li><a href="#content">Changing Content</a></li>
+
+                            <li><a href="#style">Changing CSS</a></li>
+
+                            <li><a href="#attribute">Attributes</a></li>
+
+                            <li><a href="#create">Creating Elements</a></li>
+
+                            <li><a href="#remove">Removing Elements</a></li>
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <h2 id="what">📖 What is DOM?</h2>
+
+
+                    <p>
+                        The <b>DOM (Document Object Model)</b> is a programming interface
+                        that allows JavaScript to interact with HTML documents.
+                    </p>
+
+
+                    <p>
+                        Using DOM, JavaScript can change text, styles, attributes,
+                        add new elements, and remove existing elements without reloading the page.
+                    </p>
+
+
+
+                    <h2 id="tree">🌳 HTML DOM Tree</h2>
+
+
+                    <p>
+                        The browser converts HTML into a tree structure called the
+                        <b>DOM Tree</b>. Every HTML tag becomes a node.
+                    </p>
+
+
+                    <pre>
+HTML
+ |
+ └── body
+      |
+      ├── h1
+      ├── p
+      └── button
+            </pre>
+
+
+
+                    <h2 id="select">🔍 Selecting Elements</h2>
+
+
+
+                    <h3>getElementById()</h3>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.getElementById("demo");
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+                        Selects an element using its ID.
+                    </div>
+
+
+
+                    <h3>querySelector()</h3>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.querySelector("h1");
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+                        Selects the first matching element.
+                    </div>
+
+
+
+                    <h3>querySelectorAll()</h3>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.querySelectorAll("p");
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+                        Selects all matching elements.
+                    </div>
+
+
+
+                    <h2 id="content">✏️ Changing Content</h2>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.getElementById("demo").innerHTML = "Welcome!";
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+
+                        Output:
+                        <br>
+                        Welcome!
+
+                    </div>
+
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.getElementById("demo").textContent = "Hello";
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+
+                        Output:
+                        <br>
+                        Hello
+
+                    </div>
+
+
+
+
+                    <h2 id="style">🎨 Changing CSS</h2>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.getElementById("demo").style.color="red";
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+                        Changes the text color to red.
+                    </div>
+
+
+
+                    <h2 id="attribute">📝 Changing Attributes</h2>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.getElementById("img")
+.setAttribute("width","200");
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+                        Changes image width.
+                    </div>
+
+
+
+
+                    <h2 id="create">➕ Creating Elements</h2>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+let p = document.createElement("p");
+
+p.textContent="New Paragraph";
+
+document.body.appendChild(p);
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+                        Creates and adds a new paragraph.
+                    </div>
+
+
+
+
+                    <h2 id="remove">🗑️ Removing Elements</h2>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+document.getElementById("demo").remove();
+            </pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+                        Removes the selected element.
+                    </div>
+
+                    <div class="key-box">
+
+                        <h3>🛠️ Common DOM Methods</h3>
+
+
+                        <table class="method-table">
+
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+
+
+                            <tr>
+                                <td>getElementById()</td>
+                                <td>Selects element by ID.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>querySelector()</td>
+                                <td>Selects first matching element.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>querySelectorAll()</td>
+                                <td>Selects all matching elements.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>innerHTML</td>
+                                <td>Changes HTML content.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>textContent</td>
+                                <td>Changes text only.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>style</td>
+                                <td>Changes CSS styles.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>setAttribute()</td>
+                                <td>Changes attributes.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>createElement()</td>
+                                <td>Creates new HTML elements.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>appendChild()</td>
+                                <td>Adds new child element.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>remove()</td>
+                                <td>Deletes an element.</td>
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+
+                    <div class="did-you-know">
+
+                        <h3>💡 Did You Know?</h3>
+
+                        <p>
+                            JavaScript can update a complete webpage instantly using DOM without refreshing the page.
+                        </p>
+
+                    </div>
+
+
+
+
+                    <div class="key-box">
+
+                        <h3>⭐ Key Points</h3>
+
+                        <ul>
+
+                            <li>DOM connects JavaScript with HTML.</li>
+
+                            <li>Every HTML element becomes a node.</li>
+
+                            <li>DOM allows creating, changing and deleting elements.</li>
+
+                            <li>DOM makes websites interactive.</li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RIGHT COLUMN -->
+
+                <div class="right-column">
+
+
+                    <div class="tip-box">
+
+                        <h3>⭐ Best Practices</h3>
+
+                        <ul>
+
+                            <li>Use meaningful IDs and classes.</li>
+
+                            <li>Keep JavaScript separate from HTML.</li>
+
+                            <li>Use querySelector() for flexible selection.</li>
+
+                            <li>Avoid unnecessary DOM changes.</li>
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <div class="mistake-box">
+
+                        <h3>⚠️ Common Mistakes</h3>
+
+                        <ul>
+
+                            <li>Wrong element ID.</li>
+
+                            <li>Running JavaScript before HTML loads.</li>
+
+                            <li>Misspelling DOM methods.</li>
+
+                            <li>Using innerHTML unnecessarily.</li>
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <div class="practice-box">
+
+                        <h2>📝 Practice Questions</h2>
+
+                        <ol>
+
+                            <li>What is DOM?</li>
+
+                            <li>What does getElementById() do?</li>
+
+                            <li>Difference between innerHTML and textContent?</li>
+
+                            <li>How can JavaScript change CSS?</li>
+
+                            <li>Which method creates a new element?</li>
+
+                        </ol>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="content-box">
+
+
+                <h2>🌍 Real-Life Example</h2>
+
+                <p>
+                    When you click a Dark Mode button, JavaScript changes website colors using DOM.
+                </p>
+
+
+
+                <h2>💻 Try It Yourself</h2>
+
+
+                <div class="code-box">
+
+                    <button class="copy-btn">📋 Copy</button>
+
+                    <pre>
+document.getElementById("demo").innerHTML="Hello DOM!";
+        </pre>
+
+                </div>
+
+
+                <div class="output-box">
+                    Try changing the text yourself.
+                </div>
+
+
+
+
+
+                <div class="quiz-box">
+
+                    <h2>🧠 JavaScript DOM Mini Quiz</h2>
+
+
+                    <p>1. DOM stands for?</p>
+
+                    <ul>
+                        <li>A. Data Object Model</li>
+                        <li>✅ B. Document Object Model</li>
+                        <li>C. Digital Object Method</li>
+                        <li>D. Document Oriented Model</li>
+                    </ul>
+
+
+
+                    <p>2. Which method selects an element by ID?</p>
+
+                    <ul>
+                        <li>✅ A. getElementById()</li>
+                        <li>B. querySelectorAll()</li>
+                        <li>C. createElement()</li>
+                        <li>D. remove()</li>
+                    </ul>
+
+
+
+                    <p>3. Which method selects the first matching element?</p>
+
+                    <ul>
+                        <li>A. remove()</li>
+                        <li>✅ B. querySelector()</li>
+                        <li>C. appendChild()</li>
+                        <li>D. style()</li>
+                    </ul>
+
+
+
+                    <p>4. Which method creates a new element?</p>
+
+                    <ul>
+                        <li>✅ A. createElement()</li>
+                        <li>B. innerHTML</li>
+                        <li>C. textContent</li>
+                        <li>D. getElement()</li>
+                    </ul>
+
+
+
+                    <p>5. Which property changes HTML content?</p>
+
+                    <ul>
+                        <li>✅ A. innerHTML</li>
+                        <li>B. remove()</li>
+                        <li>C. style()</li>
+                        <li>D. append()</li>
+                    </ul>
+
+
+
+                    <p>6. Which property changes only text?</p>
+
+                    <ul>
+                        <li>A. innerHTML</li>
+                        <li>✅ B. textContent</li>
+                        <li>C. createElement()</li>
+                        <li>D. setAttribute()</li>
+                    </ul>
+
+
+
+                    <p>7. Which method adds a child element?</p>
+
+                    <ul>
+                        <li>✅ A. appendChild()</li>
+                        <li>B. remove()</li>
+                        <li>C. querySelector()</li>
+                        <li>D. style()</li>
+                    </ul>
+
+
+
+                    <p>8. Which method removes an element?</p>
+
+                    <ul>
+                        <li>✅ A. remove()</li>
+                        <li>B. add()</li>
+                        <li>C. create()</li>
+                        <li>D. select()</li>
+                    </ul>
+
+
+
+                    <p>9. DOM makes webpages?</p>
+
+                    <ul>
+                        <li>A. Smaller</li>
+                        <li>✅ B. Interactive</li>
+                        <li>C. Offline</li>
+                        <li>D. Faster only</li>
+                    </ul>
+
+
+
+                    <p>10. HTML elements in DOM are called?</p>
+
+                    <ul>
+                        <li>✅ A. Nodes</li>
+                        <li>B. Files</li>
+                        <li>C. Functions</li>
+                        <li>D. Variables</li>
+                    </ul>
+
+
+                </div>
+
+
+
+
+                <div class="interview-box">
+
+                    <h2>💼 JavaScript DOM Interview Questions</h2>
+
+
+                    <ol>
+
+                        <li>
+                            What is DOM and why is it used in JavaScript?
+                        </li>
+
+
+                        <li>
+                            Explain the difference between HTML and DOM.
+                        </li>
+
+
+                        <li>
+                            How does the browser create the DOM Tree?
+                        </li>
+
+
+                        <li>
+                            What is the difference between getElementById() and querySelector()?
+                        </li>
+
+
+                        <li>
+                            Explain querySelectorAll() with an example.
+                        </li>
+
+
+                        <li>
+                            What is the difference between innerHTML and textContent?
+                        </li>
+
+
+                        <li>
+                            How can you change CSS styles using JavaScript DOM?
+                        </li>
+
+
+                        <li>
+                            How do you create a new HTML element using DOM?
+                        </li>
+
+
+                        <li>
+                            How do you remove an element from DOM?
+                        </li>
+
+
+                        <li>
+                            What is the difference between appendChild() and remove()?
+                        </li>
+
+
+                    </ol>
+
+                </div>
+
+
+
+
+                <div class="glossary-box">
+
+                    <h2>📖 JavaScript DOM Glossary</h2>
+
+
+                    <dl>
+
+                        <dt>DOM</dt>
+                        <dd>
+                            Document Object Model. It represents HTML as objects that JavaScript can access.
+                        </dd>
+
+
+                        <dt>Node</dt>
+                        <dd>
+                            Every item in the DOM tree is called a node.
+                        </dd>
+
+
+                        <dt>Element</dt>
+                        <dd>
+                            An HTML tag represented as an object in DOM.
+                        </dd>
+
+
+                        <dt>DOM Tree</dt>
+                        <dd>
+                            A tree structure created by the browser from HTML elements.
+                        </dd>
+
+
+                        <dt>Document</dt>
+                        <dd>
+                            The complete HTML page loaded in the browser.
+                        </dd>
+
+
+                        <dt>Selector</dt>
+                        <dd>
+                            A pattern used to select HTML elements.
+                        </dd>
+
+
+                        <dt>innerHTML</dt>
+                        <dd>
+                            A property used to change HTML content inside an element.
+                        </dd>
+
+
+                        <dt>textContent</dt>
+                        <dd>
+                            A property used to change only text content.
+                        </dd>
+
+
+                        <dt>Attribute</dt>
+                        <dd>
+                            Extra information inside HTML tags like id, class, and src.
+                        </dd>
+
+
+                        <dt>Event</dt>
+                        <dd>
+                            An action like click, hover, or keyboard input handled by JavaScript.
+                        </dd>
+
+
+                    </dl>
+
+                </div>
+
+
+                <div class="faq-box">
+
+                    <h2>❓ Frequently Asked Questions (FAQs)</h2>
+
+
+                    <h3>1. What is DOM in JavaScript?</h3>
+
+                    <p>
+                        DOM (Document Object Model) is a programming interface that allows JavaScript
+                        to access and modify HTML elements on a webpage.
+                    </p>
+
+
+                    <h3>2. Why is DOM important in JavaScript?</h3>
+
+                    <p>
+                        DOM makes webpages interactive by allowing JavaScript to change content,
+                        styles, and elements dynamically.
+                    </p>
+
+
+                    <h3>3. How does the browser create DOM?</h3>
+
+                    <p>
+                        The browser converts HTML code into a tree structure called the DOM Tree.
+                        Each HTML element becomes a node.
+                    </p>
+
+
+                    <h3>4. What is the difference between HTML and DOM?</h3>
+
+                    <p>
+                        HTML is the original structure of a webpage, while DOM is the browser-created
+                        object representation that JavaScript can manipulate.
+                    </p>
+
+
+                    <h3>5. What is getElementById()?</h3>
+
+                    <p>
+                        getElementById() is a DOM method used to select an HTML element using its ID.
+                    </p>
+
+
+                    <h3>6. What is querySelector()?</h3>
+
+                    <p>
+                        querySelector() selects the first element that matches a CSS selector.
+                    </p>
+
+
+                    <h3>7. Difference between querySelector() and querySelectorAll()?</h3>
+
+                    <p>
+                        querySelector() returns the first matching element, while querySelectorAll()
+                        returns all matching elements.
+                    </p>
+
+
+                    <h3>8. Can JavaScript change CSS using DOM?</h3>
+
+                    <p>
+                        Yes, JavaScript can change CSS properties using the style property.
+                    </p>
+
+
+                    <h3>9. How can we create a new element using DOM?</h3>
+
+                    <p>
+                        We can create new elements using createElement() and add them using appendChild().
+                    </p>
+
+
+                    <h3>10. How can we remove an element using DOM?</h3>
+
+                    <p>
+                        The remove() method is used to delete an element from the webpage.
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div class="related-box">
+
+                    <h2>📚 Related Articles</h2>
+
+
+                    <div class="related-links">
+
+
+                        <a href="javascript-events.html">
+                            JavaScript Events
+                        </a>
+
+
+                        <a href="javascript-functions.html">
+                            JavaScript Functions
+                        </a>
+
+
+                        <a href="javascript-arrays.html">
+                            JavaScript Arrays
+                        </a>
+
+
+                        <a href="javascript-objects.html">
+                            JavaScript Objects
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="page-nav">
+
+
+                    <a href="javascript-objects.html" class="btn">
+                        ⬅️ Previous:javascript-object
+                    </a>
+
+
+                    <a href="javascript-events.html" class="btn">
+                        Next: JavaScript Events ➡️
+                    </a>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <button id="topBtn">↑</button>
+
+
+        <script>
+
+            document.querySelectorAll(".copy-btn").forEach(button => {
+
+                button.addEventListener("click", function () {
+
+                    let code = this.nextElementSibling.innerText;
+
+                    navigator.clipboard.writeText(code);
+
+                    this.innerText = "✅ Copied";
+
+
+                    setTimeout(() => {
+
+                        this.innerText = "📋 Copy";
+
+                    }, 1500);
+
+
+                });
+
+            });
+
+
+            let topBtn = document.getElementById("topBtn");
+
+
+            window.onscroll = function () {
+
+                if (window.scrollY > 200) {
+
+                    topBtn.style.display = "block";
+
+                }
+
+                else {
+
+                    topBtn.style.display = "none";
+
+                }
+
+            };
+
+
+            topBtn.onclick = function () {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            };
+
+
+        </script>
+
+
+</body>
+
+</html>

@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JavaScript Basics | Roshni Code Charm</title>
+    <title>JavaScript Functions | Roshni Code Charm</title>
 
-    <meta name="description" content="Learn JavaScript Basics with simple examples for beginners.">
+    <meta name="description"
+        content="Learn JavaScript Functions with easy examples. Understand function declaration, parameters, return statement and arrow functions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -166,7 +167,7 @@
 
     <div class="container">
 
-        <h1>⚡ JavaScript Basics for Beginners</h1>
+        <h1>⚡ JavaScript Functions</h1>
 
         <div class="article-info">
 
@@ -177,20 +178,19 @@
                     <h3>📚 Table of Contents</h3>
 
                     <ul>
-                        <li>What is JavaScript?</li>
-                        <li>JavaScript Features</li>
-                        <li>JavaScript Syntax</li>
-                        <li>Variables in JavaScript</li>
-                        <li>Data Types</li>
-                        <li>Functions</li>
-                        <li>DOM</li>
-                        <li>Frequently Asked Questions</li>
+                        <li>What are Functions?</li>
+                        <li>Function Declaration</li>
+                        <li>Parameters</li>
+                        <li>Return Statement</li>
+                        <li>Arrow Function</li>
+                        <li>Examples</li>
+                        <li>Best Practices</li>
+                        <li>FAQs</li>
                     </ul>
 
                 </div>
 
             </div>
-
 
             <div class="right-column">
 
@@ -199,21 +199,19 @@
                     <h3>💡 Quick Tip</h3>
 
                     <p>
-                        Practice JavaScript by creating small projects like calculator,
-                        to-do list, and digital clock.
+                        Functions help you write reusable and organized code.
                     </p>
 
                 </div>
-
 
                 <div class="mistake-box">
 
                     <h3>⚠️ Common Mistakes</h3>
 
                     <ul>
-                        <li>Using = instead of == or ===.</li>
-                        <li>Forgetting brackets in functions.</li>
-                        <li>Not checking console errors.</li>
+                        <li>Forgetting to call the function.</li>
+                        <li>Missing the return statement.</li>
+                        <li>Using wrong parameter names.</li>
                     </ul>
 
                 </div>
@@ -222,146 +220,135 @@
 
         </div>
 
-
         <div class="author-info">
 
             <p>✍️ <b>By Roshni Code Charm</b></p>
 
-            <p>📅 July 2026 | ⏱️ 5 min read</p>
+            <p>📅 July 2026 | ⏱️ 6 min read</p>
 
         </div>
 
+        <h2>⚡ What are JavaScript Functions?</h2>
 
-        <div class="content-box">
+        <p>
+            A function is a reusable block of code that performs a specific task.
+            Instead of writing the same code again and again, you can create a function and call it whenever needed.
+        </p>
 
+        <h2>📌 Function Declaration</h2>
 
-            <h2>⚡ What is JavaScript?</h2>
-
-            <p>
-                JavaScript is a programming language used to make websites interactive.
-                It allows developers to add animations, buttons, forms, and dynamic content.
-            </p>
-
-
-            <h2>Basic JavaScript Example</h2>
-
-            <pre>
-let name = "Roshni";
-
+        <pre>
 function greet(){
-    alert("Hello " + name);
+
+    console.log("Hello World");
+
 }
 
 greet();
 </pre>
 
+        <p>
+            The function runs only when it is called.
+        </p>
 
-            <h2>✨ Features of JavaScript</h2>
+        <h2>📌 Function with Parameters</h2>
 
-            <ul>
-                <li>Creates interactive websites</li>
-                <li>Works in all modern browsers</li>
-                <li>Supports animations and effects</li>
-                <li>Used for frontend and backend development</li>
-            </ul>
+        <pre>
+function greet(name){
 
+    console.log("Hello " + name);
 
-            <h2>📦 JavaScript Data Types</h2>
-
-            <ul>
-                <li>String - Text values</li>
-                <li>Number - Numeric values</li>
-                <li>Boolean - True or False</li>
-                <li>Array - Collection of values</li>
-                <li>Object - Stores data in key-value pairs</li>
-            </ul>
-
-
-            <h2>🔤 JavaScript Variables</h2>
-
-            <pre>
-let age = 18;
-const name = "Shreya";
-var city = "Mumbai";
-</pre>
-
-
-            <h2>🚀 JavaScript Functions</h2>
-
-            <p>
-                Functions are reusable blocks of code that perform specific tasks.
-            </p>
-
-
-            <pre>
-function add(a,b){
-    return a+b;
 }
+
+greet("Shreya");
 </pre>
 
+        <p>
+            Parameters allow you to pass values into a function.
+        </p>
 
-            <h2>🌐 DOM (Document Object Model)</h2>
+        <h2>📌 Return Statement</h2>
 
-            <p>
-                DOM allows JavaScript to change HTML and CSS dynamically.
-                It can update text, colors, images, and webpage content.
-            </p>
+        <pre>
+function add(a,b){
 
+    return a+b;
 
-            <h2>💻 JavaScript Projects Ideas</h2>
+}
 
-            <ul>
-                <li>Calculator</li>
-                <li>Digital Clock</li>
-                <li>To-Do List</li>
-                <li>Weather App</li>
-                <li>Quiz Application</li>
-            </ul>
+console.log(add(5,3));
+</pre>
 
+        <p>
+            The <b>return</b> statement sends a value back from the function.
+        </p>
 
-            <h2>❓ Frequently Asked Questions</h2>
+        <h2>📌 Arrow Function (ES6)</h2>
 
-            <h3>1. Is JavaScript easy for beginners?</h3>
+        <pre>
+const add = (a,b) => {
 
-            <p>
-                Yes, beginners can learn JavaScript after understanding HTML and CSS.
-            </p>
+    return a+b;
 
+};
+</pre>
 
-            <h3>2. Is JavaScript and Java same?</h3>
+        <p>
+            Arrow functions provide a shorter way to write functions.
+        </p>
 
-            <p>
-                No, JavaScript and Java are different programming languages.
-            </p>
+        <h2>⭐ Best Practices</h2>
 
+        <ul>
+            <li>Keep functions short and simple.</li>
+            <li>Use meaningful function names.</li>
+            <li>Reuse functions whenever possible.</li>
+            <li>Avoid repeating code.</li>
+        </ul>
 
-            <h3>3. Where is JavaScript used?</h3>
+        <h2>❓ Frequently Asked Questions</h2>
 
-            <p>
-                JavaScript is used in websites, web apps, mobile apps, and backend development.
-            </p>
+        <h3>1. Why are functions used?</h3>
 
-            <h2>📚 Related Articles</h2>
+        <p>
+            Functions reduce code repetition and make programs easier to maintain.
+        </p>
 
-            <ul>
-                <li><a href="python-tutorial.html">🐍 Python Tutorial</a></li>
-                <li><a href="python-variables.html">Python Variables</a></li>
-                <li><a href="html-basics.html">HTML Basics</a></li>
-                <li><a href="css-basics.html">CSS Basics</a></li>
-            </ul>
-            <div class="page-nav">
+        <h3>2. What is a parameter?</h3>
 
-                <a href="css-basics.html" class="btn">
-                    ⬅️ CSS Basics
-                </a>
+        <p>
+            A parameter is a value passed into a function.
+        </p>
 
+        <h3>3. What does return do?</h3>
 
-                <a href="index.html" class="btn">
-                    Next: Home ➡️
-                </a>
+        <p>
+            It sends a value back from the function.
+        </p>
 
-            </div>
+        <h2>📚 Related Articles</h2>
+
+        <ul>
+            <li><a href="javascript-loops.html">JavaScript Loops</a></li>
+            <li><a href="javascript-arrays.html">JavaScript Arrays</a></li>
+            <li><a href="javascript-tutorial.html">JavaScript Tutorial</a></li>
+            <li><a href="python-functions.html">Python Functions</a></li>
+        </ul>
+
+        <div class="page-nav">
+
+            <a href="javascript-loops.html" class="btn">
+                ⬅️ Loops
+            </a>
+
+            <a href="javascript-arrays.html" class="btn">
+                Next: Arrays ➡️
+            </a>
+
         </div>
+
+    </div>
+    </div>
 
     </div>
 

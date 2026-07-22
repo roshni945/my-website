@@ -1,0 +1,3340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        JavaScript DOM Manipulation Part 1 | Roshni Code Charm
+    </title>
+
+    <meta name="description"
+        content="Learn JavaScript DOM Manipulation Part 1 with beginner-friendly examples. Understand the DOM, document object, DOM tree, getElementById(), querySelector(), querySelectorAll(), and other DOM selectors.">
+
+    <meta name="keywords"
+        content="JavaScript DOM, DOM Manipulation, document object, getElementById, querySelector, querySelectorAll, JavaScript Tutorial, JavaScript for Beginners">
+
+    <meta name="author" content="Roshni Code Charm">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#7b2cbf">
+
+    <link rel="canonical" href="https://roshni945.github.io/my-website/javascript-dom-part1.html">
+
+    <!-- Open Graph -->
+
+    <meta property="og:title" content="JavaScript DOM Manipulation Part 1">
+
+    <meta property="og:description"
+        content="Master JavaScript DOM Manipulation with easy examples and colorful explanations.">
+
+    <meta property="og:type" content="article">
+
+    <meta property="og:image" content="images/javascript-dom-part1.png">
+
+    <meta property="og:url" content="https://roshni945.github.io/my-website/javascript-dom-part1.html">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="JavaScript DOM Manipulation Part 1">
+
+    <meta name="twitter:description" content="Learn JavaScript DOM Manipulation with examples and practice questions.">
+
+    <meta name="twitter:image" content="images/javascript-dom-part1.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ====================================
+   Global Styles
+==================================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: Poppins, sans-serif;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+
+        }
+
+        .container {
+
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+        }
+
+        h1 {
+
+            color: #7b2cbf;
+
+        }
+
+        h2 {
+
+            color: #ff4da6;
+            margin-top: 35px;
+
+        }
+
+        h3 {
+
+            color: #7b2cbf;
+
+        }
+
+        /* ====================================
+   Breadcrumb
+==================================== */
+
+        .breadcrumb {
+
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+
+        }
+
+        .breadcrumb a {
+
+            color: #7b2cbf;
+            text-decoration: none;
+
+        }
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+
+        }
+
+        .breadcrumb span {
+
+            margin: 0 6px;
+
+        }
+
+        /* ====================================
+   TOC + Info
+==================================== */
+
+        .article-info {
+
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+
+        }
+
+        .left-column,
+        .right-column {
+
+            flex: 1;
+
+        }
+
+        .toc {
+
+            background: #f3e8ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+
+        }
+
+        .toc ul {
+
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+
+        }
+
+        .toc li {
+
+            margin: 10px 0;
+
+        }
+
+        .toc a {
+
+            color: #444;
+            text-decoration: none;
+            transition: .3s;
+
+        }
+
+        .toc a:hover {
+
+            color: #7b2cbf;
+            padding-left: 6px;
+
+        }
+
+        /* ====================================
+   Tip & Mistake Boxes
+==================================== */
+
+        .tip-box {
+
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+
+        }
+
+        .mistake-box {
+
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+        /* ====================================
+   Author
+==================================== */
+
+        .author-info {
+
+            background: beige;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+            margin: 30px 0;
+
+        }
+
+        .post-meta {
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            background: #faf5ff;
+            padding: 15px;
+            border-left: 4px solid #7b2cbf;
+            border-radius: 10px;
+
+        }
+
+        /* ====================================
+   Intro
+==================================== */
+
+        .intro-box {
+
+            background: #efcbf4;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+
+        }
+
+        .intro {
+
+            font-size: 19px;
+
+        }
+
+        /* ====================================
+   Content
+==================================== */
+
+        .content-box {
+
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+
+        }
+
+        /* Remaining CSS (example-box, code blocks, glossary, quiz, footer, etc.)
+will be added in CSS Part 2 and CSS Part 3, just like your ES6 tutorials. */
+
+        @media(max-width:768px) {
+
+            .article-info {
+
+                flex-direction: column;
+
+            }
+
+            .container {
+
+                padding: 22px;
+
+            }
+
+            body {
+
+                padding: 18px;
+
+            }
+
+        }
+
+        /* ===========================
+   Footer
+=========================== */
+
+        .footer-links,
+        .social-links {
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+
+        }
+
+        .footer-links a,
+        .social-links a {
+
+            text-decoration: none;
+            background: #7b2cbf;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            transition: .3s;
+            font-weight: 600;
+
+        }
+
+        .footer-links a:hover,
+        .social-links a:hover {
+
+            background: #ff4da6;
+            transform: translateY(-3px);
+
+        }
+
+        footer hr {
+
+            margin: 25px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+
+        }
+
+        footer p {
+
+            margin: 10px 0;
+            color: #555;
+
+        }
+
+        /* Related Articles Box */
+
+        .related-articles {
+            margin: 40px auto;
+            padding: 25px;
+            max-width: 900px;
+            background: #fff7fb;
+            border-radius: 15px;
+            border: 2px solid #f3c4dd;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .related-articles h2 {
+            text-align: center;
+            color: #c2185b;
+            font-size: 28px;
+        }
+
+
+        .related-articles>p {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+
+        .article-box {
+
+            background: white;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid #e91e63;
+            transition: 0.3s;
+
+        }
+
+
+        .article-box:hover {
+
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        .article-box h3 {
+
+            color: #6a1b9a;
+            margin-bottom: 8px;
+
+        }
+
+
+        .article-box p {
+
+            color: #444;
+            line-height: 1.6;
+
+        }
+    </style>
+
+<body>
+
+    <div class="container">
+
+        <nav class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <span>›</span>
+
+            <a href="javascript.html">JavaScript</a>
+
+            <span>›</span>
+
+            <span>DOM Manipulation Part 1</span>
+
+        </nav>
+
+        <h1>📘 JavaScript DOM Manipulation Part 1</h1>
+
+        <div class="article-info">
+
+            <div class="left-column">
+
+                <div class="toc">
+
+                    <h3>📚 Table of Contents</h3>
+
+                    <ul>
+
+                        <li><a href="#what-is-dom">📖 What is DOM?</a></li>
+
+                        <li><a href="#dom-tree">🌳 DOM Tree Structure</a></li>
+
+                        <li><a href="#bom-vs-dom">🌐 BOM vs DOM</a></li>
+
+                        <li><a href="#document-object">📄 document Object</a></li>
+
+                        <li><a href="#getid">🔍 getElementById()</a></li>
+
+                        <li><a href="#getclass">🏷️ getElementsByClassName()</a></li>
+
+                        <li><a href="#gettag">📑 getElementsByTagName()</a></li>
+
+                        <li><a href="#queryselector">🎯 querySelector()</a></li>
+
+                        <li><a href="#queryselectorall">🎯 querySelectorAll()</a></li>
+
+                        <li><a href="#difference">⚖️ Selector Differences</a></li>
+
+                        <li><a href="#summary">📚 Summary</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="right-column">
+
+                <div class="tip-box">
+
+                    <h3>💡 Quick Tip</h3>
+
+                    <p>
+
+                        Before changing HTML elements with JavaScript,
+                        you must first select the element using a DOM selector.
+
+                    </p>
+
+                </div>
+
+                <div class="mistake-box">
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+                    <ul>
+
+                        <li>Using an incorrect element ID.</li>
+
+                        <li>Confusing querySelector() with querySelectorAll().</li>
+
+                        <li>Trying to access an element before the page loads.</li>
+
+                        <li>Using getElementById() without the correct ID.</li>
+
+                        <li>Expecting HTMLCollection to behave like an Array.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="author-info">
+
+            <p>
+
+                ✍️ <b>By Roshni Code Charm</b>
+
+            </p>
+
+            <p>
+
+                📅 July 2026 | ⏱️ 12 min read
+
+            </p>
+
+            <div class="post-meta">
+
+                <span>📅 Last Updated: July 2026</span>
+
+                <span>🏷️ JavaScript, DOM, Beginners</span>
+
+            </div>
+
+        </div>
+
+        <div class="intro-box">
+
+            <h2>📖 Introduction</h2>
+
+            <p class="intro">
+
+                The DOM (Document Object Model) is one of the most important concepts in JavaScript.
+                It allows JavaScript to access, modify, create, delete, and update HTML elements dynamically.
+                Every modern website uses DOM Manipulation to build interactive user interfaces.
+
+            </p>
+
+        </div>
+
+        <div class="content-box">
+
+            <!-- ===========================
+     What is DOM?
+=========================== -->
+
+            <section id="what-is-dom">
+
+                <h2>📖 What is DOM?</h2>
+
+                <p>
+                    <b>DOM (Document Object Model)</b> is a programming interface for HTML documents.
+                    It represents every HTML element as an object, allowing JavaScript to access,
+                    modify, create, update, and delete webpage content dynamically.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        The <b>Document Object Model (DOM)</b> is a tree-like structure created by the browser
+                        after loading an HTML document. JavaScript uses this structure to interact with
+                        web page elements.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        The DOM is created automatically by the browser whenever an HTML page is loaded.
+                        JavaScript does not create the DOM—it simply interacts with it.
+                    </p>
+
+                </div>
+
+                <h3>🌳 How DOM Works</h3>
+
+                <p>
+                    When a browser reads an HTML document, it converts every HTML tag into an object.
+                    These objects are connected together like branches of a tree, known as the
+                    <b>DOM Tree</b>.
+                </p>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: Access an HTML Element</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h1 id="title"&gt;Welcome&lt;/h1&gt;
+
+&lt;script&gt;
+
+const heading = document.getElementById("title");
+
+console.log(heading);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>
+                            &lt;h1 id="title"&gt;Welcome&lt;/h1&gt;
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 2: Change Text Using DOM</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h2 id="msg"&gt;Hello&lt;/h2&gt;
+
+&lt;script&gt;
+
+document.getElementById("msg").innerHTML = "Welcome to Roshni Code Charm";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>Welcome to Roshni Code Charm</p>
+
+                    </div>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <p>
+                        Whenever you click the ❤️ Like button on Instagram, submit a form,
+                        add a product to a shopping cart, or switch between Light Mode and
+                        Dark Mode, JavaScript updates the webpage instantly using the DOM
+                        without refreshing the entire page.
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ DOM stands for <b>Document Object Model</b>.</li>
+
+                        <li>✅ Every HTML element becomes a JavaScript object.</li>
+
+                        <li>✅ JavaScript uses the DOM to access and modify webpages.</li>
+
+                        <li>✅ The browser automatically creates the DOM.</li>
+
+                        <li>✅ DOM makes websites interactive and dynamic.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     DOM Tree Structure
+=========================== -->
+
+            <section id="dom-tree">
+
+                <h2>🌳 DOM Tree Structure</h2>
+
+                <p>
+                    When a browser loads an HTML document, it converts every HTML tag into a
+                    <b>Node (Object)</b>. These nodes are connected in a hierarchical structure
+                    called the <b>DOM Tree</b>.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        A <b>DOM Tree</b> is a tree-like representation of an HTML document where
+                        every HTML element becomes a node. The <code>document</code> object is the
+                        root of the tree.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        The browser automatically creates the DOM Tree every time a webpage is
+                        loaded. JavaScript then uses this tree to access and modify HTML elements.
+                    </p>
+
+                </div>
+
+                <h3>🌲 Example HTML</h3>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: HTML Document</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+    &lt;head&gt;
+        &lt;title&gt;DOM Example&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+        &lt;h1&gt;Welcome&lt;/h1&gt;
+
+        &lt;p&gt;Learning DOM&lt;/p&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+                </div>
+
+                <h3>🌳 DOM Tree Representation</h3>
+
+                <div class="example-box">
+
+                    <pre><code>document
+
+│
+
+└── html
+
+    ├── head
+
+    │   └── title
+
+    │       └── "DOM Example"
+
+    │
+
+    └── body
+
+        ├── h1
+
+        │   └── "Welcome"
+
+        │
+
+        └── p
+
+            └── "Learning DOM"
+</code></pre>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <p>
+
+                        Think of the DOM Tree like a <b>family tree</b>.
+
+                    </p>
+
+                    <ul>
+
+                        <li>🌍 <b>document</b> is the Grandparent.</li>
+
+                        <li>🏠 <b>html</b> is the Parent.</li>
+
+                        <li>📄 <b>head</b> and <b>body</b> are Children.</li>
+
+                        <li>📝 <b>h1</b>, <b>p</b>, <b>div</b>, <b>img</b> are Grandchildren.</li>
+
+                    </ul>
+
+                    <p>
+
+                        JavaScript can move through this family tree to find any HTML element.
+
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ Every HTML element becomes a DOM Node.</li>
+
+                        <li>✅ <code>document</code> is the root object.</li>
+
+                        <li>✅ The browser creates the DOM Tree automatically.</li>
+
+                        <li>✅ JavaScript uses the DOM Tree to access and modify elements.</li>
+
+                        <li>✅ Parent, Child, and Sibling relationships exist between nodes.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Browser Object Model (BOM) vs DOM
+=========================== -->
+
+            <section id="bom-vs-dom">
+
+                <h2>🌐 Browser Object Model (BOM) vs DOM</h2>
+
+                <p>
+                    Many beginners confuse the <b>Browser Object Model (BOM)</b> with the
+                    <b>Document Object Model (DOM)</b>. Although both are used in JavaScript,
+                    they have different purposes.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        <b>DOM (Document Object Model)</b> represents the HTML document and allows
+                        JavaScript to access and modify webpage elements.
+                    </p>
+
+                    <p>
+                        <b>BOM (Browser Object Model)</b> represents the browser window and provides
+                        features such as navigation, browser history, screen information,
+                        alerts, timers, and location.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        The <code>document</code> object belongs to the DOM, while the
+                        <code>window</code> object belongs to the BOM.
+                    </p>
+
+                </div>
+
+                <h3>📊 DOM vs BOM Comparison</h3>
+
+                <div class="example-box">
+
+                    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+                        <tr>
+
+                            <th>Feature</th>
+
+                            <th>DOM</th>
+
+                            <th>BOM</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Meaning</td>
+
+                            <td>Document Object Model</td>
+
+                            <td>Browser Object Model</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Represents</td>
+
+                            <td>HTML Document</td>
+
+                            <td>Browser Window</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Main Object</td>
+
+                            <td><code>document</code></td>
+
+                            <td><code>window</code></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Used For</td>
+
+                            <td>Modify HTML & CSS</td>
+
+                            <td>Control Browser Features</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Examples</td>
+
+                            <td>getElementById()</td>
+
+                            <td>alert(), history, location</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: DOM Example</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>document.getElementById("title").innerHTML = "Hello DOM";
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>
+                            Changes the text of the HTML element.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 2: BOM Example</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>alert("Welcome!");
+
+console.log(window.innerWidth);
+
+console.log(location.href);
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>
+                            Displays an alert, browser width, and current page URL.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <ul>
+
+                        <li>📝 Changing a paragraph's text → <b>DOM</b></li>
+
+                        <li>🎨 Changing a button's color → <b>DOM</b></li>
+
+                        <li>🔔 Showing an alert box → <b>BOM</b></li>
+
+                        <li>🔄 Redirecting to another page → <b>BOM</b></li>
+
+                        <li>📜 Accessing browser history → <b>BOM</b></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ DOM works with HTML documents.</li>
+
+                        <li>✅ BOM works with the browser window.</li>
+
+                        <li>✅ DOM uses the <code>document</code> object.</li>
+
+                        <li>✅ BOM uses the <code>window</code> object.</li>
+
+                        <li>✅ Both are essential for modern JavaScript development.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     getElementById()
+=========================== -->
+
+            <section id="getid">
+
+                <h2>🔍 JavaScript <code>getElementById()</code></h2>
+
+                <p>
+                    The <code>getElementById()</code> method is one of the most commonly used DOM
+                    methods in JavaScript. It selects an HTML element using its unique
+                    <code>id</code> attribute.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        The <code>document.getElementById()</code> method returns the HTML element
+                        whose <code>id</code> matches the specified value.
+                        Since IDs are unique, it always returns a single element.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        Every HTML page should have only one element with a particular
+                        <code>id</code>. Duplicate IDs are considered invalid HTML.
+                    </p>
+
+                </div>
+
+                <h3>📝 Syntax</h3>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Syntax</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>document.getElementById("idName");
+</code></pre>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: Select an Element</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h1 id="title"&gt;Hello World&lt;/h1&gt;
+
+&lt;script&gt;
+
+const heading = document.getElementById("title");
+
+console.log(heading);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>&lt;h1 id="title"&gt;Hello World&lt;/h1&gt;</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 2: Change Text</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p id="demo"&gt;Welcome&lt;/p&gt;
+
+&lt;script&gt;
+
+document.getElementById("demo").innerHTML = "Welcome to Roshni Code Charm";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>Welcome to Roshni Code Charm</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 3: Change CSS Style</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h2 id="heading"&gt;JavaScript DOM&lt;/h2&gt;
+
+&lt;script&gt;
+
+document.getElementById("heading").style.color = "blue";
+
+document.getElementById("heading").style.fontSize = "35px";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>The heading becomes blue with a font size of 35px.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 4: Change Image</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;img id="photo" src="cat.jpg"&gt;
+
+&lt;script&gt;
+
+document.getElementById("photo").src = "dog.jpg";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>The displayed image changes from <b>cat.jpg</b> to <b>dog.jpg</b>.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <p>
+                        Imagine you click a <b>Login</b> button. JavaScript uses
+                        <code>getElementById()</code> to access the username and password fields,
+                        validate the input, and display a success or error message without
+                        reloading the page.
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ Selects an element by its unique <code>id</code>.</li>
+
+                        <li>✅ Returns only one HTML element.</li>
+
+                        <li>✅ IDs should always be unique on a webpage.</li>
+
+                        <li>✅ Commonly used to change text, styles, images, and attributes.</li>
+
+                        <li>✅ One of the most frequently used DOM methods in JavaScript.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     getElementsByClassName()
+=========================== -->
+
+            <section id="getclass">
+
+                <h2>🏷️ JavaScript <code>getElementsByClassName()</code></h2>
+
+                <p>
+                    The <code>getElementsByClassName()</code> method is used to select
+                    <b>all HTML elements</b> that have the same class name.
+                    Unlike <code>getElementById()</code>, this method returns
+                    <b>multiple elements</b>.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        <code>document.getElementsByClassName()</code> returns a live
+                        <b>HTMLCollection</b> containing all elements with the specified
+                        class name.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        Since multiple HTML elements can have the same class,
+                        this method returns an <b>HTMLCollection</b>, not a single element.
+                    </p>
+
+                </div>
+
+                <h3>📝 Syntax</h3>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Syntax</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>document.getElementsByClassName("className");
+</code></pre>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: Select Elements by Class</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p class="demo"&gt;Apple&lt;/p&gt;
+
+&lt;p class="demo"&gt;Banana&lt;/p&gt;
+
+&lt;script&gt;
+
+const items = document.getElementsByClassName("demo");
+
+console.log(items);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>HTMLCollection(2)</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 2: Access First Element</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p class="demo"&gt;HTML&lt;/p&gt;
+
+&lt;p class="demo"&gt;CSS&lt;/p&gt;
+
+&lt;script&gt;
+
+const items = document.getElementsByClassName("demo");
+
+console.log(items[0].innerHTML);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>HTML</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 3: Change All Elements</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p class="demo"&gt;One&lt;/p&gt;
+
+&lt;p class="demo"&gt;Two&lt;/p&gt;
+
+&lt;p class="demo"&gt;Three&lt;/p&gt;
+
+&lt;script&gt;
+
+const items = document.getElementsByClassName("demo");
+
+for(let i = 0; i &lt; items.length; i++){
+
+    items[i].style.color = "blue";
+
+}
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>All paragraphs become blue.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 4: Change Font Size</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p class="text"&gt;JavaScript&lt;/p&gt;
+
+&lt;p class="text"&gt;DOM&lt;/p&gt;
+
+&lt;script&gt;
+
+const text = document.getElementsByClassName("text");
+
+text[0].style.fontSize = "30px";
+
+text[1].style.fontWeight = "bold";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>The first paragraph becomes larger and the second becomes bold.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <p>
+                        Suppose an online shopping website has several products marked with the
+                        class <code>"product"</code>. JavaScript can select all these products
+                        using <code>getElementsByClassName()</code> and apply the same style,
+                        discount, or event to every product at once.
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ Selects elements using their class name.</li>
+
+                        <li>✅ Returns an <b>HTMLCollection</b>.</li>
+
+                        <li>✅ Multiple elements can share the same class.</li>
+
+                        <li>✅ Access elements using an index like <code>[0]</code>, <code>[1]</code>.</li>
+
+                        <li>✅ Often used with loops to update multiple elements.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     getElementsByTagName()
+=========================== -->
+
+            <section id="gettag">
+
+                <h2>📑 JavaScript <code>getElementsByTagName()</code></h2>
+
+                <p>
+                    The <code>getElementsByTagName()</code> method selects
+                    <b>all HTML elements</b> with a specific tag name, such as
+                    <code>p</code>, <code>h1</code>, <code>div</code>, or
+                    <code>img</code>.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        The <code>document.getElementsByTagName()</code> method returns
+                        an <b>HTMLCollection</b> containing all elements that match the
+                        specified HTML tag name.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        You can select every paragraph, heading, image, button,
+                        or any other HTML element simply by using its tag name.
+                    </p>
+
+                </div>
+
+                <h3>📝 Syntax</h3>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Syntax</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>document.getElementsByTagName("tagName");
+</code></pre>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: Select All Paragraphs</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p&gt;HTML&lt;/p&gt;
+
+&lt;p&gt;CSS&lt;/p&gt;
+
+&lt;p&gt;JavaScript&lt;/p&gt;
+
+&lt;script&gt;
+
+const paragraphs = document.getElementsByTagName("p");
+
+console.log(paragraphs);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>HTMLCollection(3)</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 2: Access First Paragraph</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p&gt;Welcome&lt;/p&gt;
+
+&lt;p&gt;Learning DOM&lt;/p&gt;
+
+&lt;script&gt;
+
+const p = document.getElementsByTagName("p");
+
+console.log(p[0].innerHTML);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>Welcome</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 3: Change All Headings</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h2&gt;HTML&lt;/h2&gt;
+
+&lt;h2&gt;CSS&lt;/h2&gt;
+
+&lt;h2&gt;JavaScript&lt;/h2&gt;
+
+&lt;script&gt;
+
+const headings = document.getElementsByTagName("h2");
+
+for(let i = 0; i &lt; headings.length; i++){
+
+    headings[i].style.color = "purple";
+
+}
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>All headings become purple.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 4: Change All Images</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;img src="cat.jpg"&gt;
+
+&lt;img src="dog.jpg"&gt;
+
+&lt;script&gt;
+
+const images = document.getElementsByTagName("img");
+
+images[0].style.border = "4px solid blue";
+
+images[1].style.borderRadius = "15px";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>The first image gets a blue border and the second image gets rounded corners.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <p>
+                        Imagine a news website containing hundreds of
+                        <code>&lt;h2&gt;</code> headings.
+                        Using <code>getElementsByTagName("h2")</code>,
+                        JavaScript can instantly change the style of every heading
+                        with just a few lines of code.
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ Selects elements using their HTML tag name.</li>
+
+                        <li>✅ Returns an <b>HTMLCollection</b>.</li>
+
+                        <li>✅ Multiple elements can have the same tag.</li>
+
+                        <li>✅ Access elements using an index like <code>[0]</code>, <code>[1]</code>.</li>
+
+                        <li>✅ Often used with loops to update multiple elements at once.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     querySelector()
+=========================== -->
+
+            <section id="queryselector">
+
+                <h2>🎯 JavaScript <code>querySelector()</code></h2>
+
+                <p>
+                    The <code>querySelector()</code> method is one of the most powerful and modern
+                    DOM methods in JavaScript. It selects the <b>first HTML element</b> that
+                    matches a specified CSS selector.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        The <code>document.querySelector()</code> method returns the
+                        <b>first matching HTML element</b> based on a CSS selector such as
+                        an ID, class, tag name, or attribute selector.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        <code>querySelector()</code> works with CSS selectors, so you can
+                        select elements using IDs (<code>#id</code>), classes
+                        (<code>.class</code>), tag names, attributes, and more.
+                    </p>
+
+                </div>
+
+                <h3>📝 Syntax</h3>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Syntax</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>document.querySelector("CSS Selector");
+</code></pre>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: Select by ID</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h1 id="title"&gt;Welcome&lt;/h1&gt;
+
+&lt;script&gt;
+
+const heading = document.querySelector("#title");
+
+console.log(heading);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>&lt;h1 id="title"&gt;Welcome&lt;/h1&gt;</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 2: Select by Class</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p class="demo"&gt;HTML&lt;/p&gt;
+
+&lt;p class="demo"&gt;CSS&lt;/p&gt;
+
+&lt;script&gt;
+
+const item = document.querySelector(".demo");
+
+console.log(item.innerHTML);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>HTML</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 3: Select by Tag Name</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h2&gt;JavaScript&lt;/h2&gt;
+
+&lt;h2&gt;DOM&lt;/h2&gt;
+
+&lt;script&gt;
+
+const heading = document.querySelector("h2");
+
+heading.style.color = "blue";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>The first heading becomes blue.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 4: Select Using Attribute</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;input type="text" placeholder="Enter Name"&gt;
+
+&lt;script&gt;
+
+const input = document.querySelector("input[type='text']");
+
+input.style.border = "3px solid green";
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>The text input gets a green border.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <p>
+                        On an online shopping website, the first
+                        <b>"Add to Cart"</b> button can be selected using
+                        <code>querySelector()</code> and updated when a user clicks it.
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ Returns only the <b>first matching element</b>.</li>
+
+                        <li>✅ Uses CSS selectors.</li>
+
+                        <li>✅ Can select by ID, class, tag name, or attributes.</li>
+
+                        <li>✅ One of the most commonly used DOM methods.</li>
+
+                        <li>✅ Preferred in modern JavaScript because it is flexible and powerful.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     querySelectorAll()
+=========================== -->
+
+            <section id="queryselectorall">
+
+                <h2>🎯 JavaScript <code>querySelectorAll()</code></h2>
+
+                <p>
+                    The <code>querySelectorAll()</code> method is a modern DOM method that
+                    selects <b>all HTML elements</b> matching a specified CSS selector.
+                    Unlike <code>querySelector()</code>, which returns only the first matching
+                    element, <code>querySelectorAll()</code> returns every matching element.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Definition</h3>
+
+                    <p>
+                        The <code>document.querySelectorAll()</code> method returns a
+                        <b>NodeList</b> containing all HTML elements that match the specified
+                        CSS selector.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        <code>querySelectorAll()</code> returns a
+                        <b>NodeList</b>, which can be easily looped through using
+                        <code>for...of</code> or <code>forEach()</code>.
+                    </p>
+
+                </div>
+
+                <h3>📝 Syntax</h3>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Syntax</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>document.querySelectorAll("CSS Selector");
+</code></pre>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 1: Select All Paragraphs</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p&gt;HTML&lt;/p&gt;
+
+&lt;p&gt;CSS&lt;/p&gt;
+
+&lt;p&gt;JavaScript&lt;/p&gt;
+
+&lt;script&gt;
+
+const paragraphs = document.querySelectorAll("p");
+
+console.log(paragraphs);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>NodeList(3)</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 2: Select All Elements with a Class</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;h2 class="title"&gt;HTML&lt;/h2&gt;
+
+&lt;h2 class="title"&gt;CSS&lt;/h2&gt;
+
+&lt;h2 class="title"&gt;JavaScript&lt;/h2&gt;
+
+&lt;script&gt;
+
+const titles = document.querySelectorAll(".title");
+
+console.log(titles);
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>NodeList(3)</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 3: Change All Paragraph Colors</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;p&gt;Apple&lt;/p&gt;
+
+&lt;p&gt;Banana&lt;/p&gt;
+
+&lt;p&gt;Orange&lt;/p&gt;
+
+&lt;script&gt;
+
+const items = document.querySelectorAll("p");
+
+items.forEach(function(item){
+
+    item.style.color = "red";
+
+});
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>All paragraphs become red.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="example-box">
+
+                    <div class="example-title">
+
+                        <h3>Example 4: Change Background Color</h3>
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                    </div>
+
+                    <pre><code>&lt;div class="box"&gt;One&lt;/div&gt;
+
+&lt;div class="box"&gt;Two&lt;/div&gt;
+
+&lt;div class="box"&gt;Three&lt;/div&gt;
+
+&lt;script&gt;
+
+const boxes = document.querySelectorAll(".box");
+
+boxes.forEach(function(box){
+
+    box.style.backgroundColor = "lightblue";
+
+});
+
+&lt;/script&gt;
+</code></pre>
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>All boxes get a light blue background.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Example</h3>
+
+                    <p>
+                        Imagine an e-commerce website displaying dozens of products with the
+                        same class name. Using <code>querySelectorAll(".product")</code>,
+                        JavaScript can instantly update the style, price, or event for every
+                        product card at once.
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+
+                        <li>✅ Returns <b>all matching elements</b>.</li>
+
+                        <li>✅ Uses CSS selectors.</li>
+
+                        <li>✅ Returns a <b>NodeList</b>.</li>
+
+                        <li>✅ Supports <code>forEach()</code> and <code>for...of</code> loops.</li>
+
+                        <li>✅ More flexible than older DOM selection methods.</li>
+
+                        <li>✅ Widely used in modern JavaScript projects.</li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ===========================
+     Difference Between DOM Selectors
+=========================== -->
+
+            <section id="difference">
+
+                <h2>⚖️ Difference Between DOM Selection Methods</h2>
+
+                <p>
+                    JavaScript provides several DOM methods to select HTML elements.
+                    Each method works differently depending on whether you want to
+                    select an element by its <b>ID</b>, <b>Class</b>, <b>Tag Name</b>,
+                    or <b>CSS Selector</b>.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 Quick Overview</h3>
+
+                    <p>
+                        Choosing the correct DOM selector makes your JavaScript code
+                        simpler, faster, and easier to understand.
+                    </p>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        Modern JavaScript developers mostly use
+                        <code>querySelector()</code> and
+                        <code>querySelectorAll()</code> because they support
+                        CSS selectors.
+                    </p>
+
+                </div>
+
+                <div class="example-box">
+
+                    <h3>📊 Comparison Table</h3>
+
+                    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+                        <tr>
+
+                            <th>Method</th>
+
+                            <th>Selects By</th>
+
+                            <th>Returns</th>
+
+                            <th>Modern?</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td><code>getElementById()</code></td>
+
+                            <td>ID</td>
+
+                            <td>Single Element</td>
+
+                            <td>⭐⭐⭐⭐⭐</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td><code>getElementsByClassName()</code></td>
+
+                            <td>Class</td>
+
+                            <td>HTMLCollection</td>
+
+                            <td>⭐⭐⭐</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td><code>getElementsByTagName()</code></td>
+
+                            <td>Tag Name</td>
+
+                            <td>HTMLCollection</td>
+
+                            <td>⭐⭐⭐</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td><code>querySelector()</code></td>
+
+                            <td>CSS Selector</td>
+
+                            <td>First Matching Element</td>
+
+                            <td>⭐⭐⭐⭐⭐</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td><code>querySelectorAll()</code></td>
+
+                            <td>CSS Selector</td>
+
+                            <td>NodeList</td>
+
+                            <td>⭐⭐⭐⭐⭐</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 When Should You Use Which?</h3>
+
+                    <ul>
+
+                        <li>🆔 Use <code>getElementById()</code> when selecting one unique element.</li>
+
+                        <li>🏷️ Use <code>getElementsByClassName()</code> when many elements share the same class.</li>
+
+                        <li>📑 Use <code>getElementsByTagName()</code> to select all elements of one HTML tag.</li>
+
+                        <li>🎯 Use <code>querySelector()</code> to select the first matching element with a CSS
+                            selector.</li>
+
+                        <li>🎯 Use <code>querySelectorAll()</code> to select every matching element with a CSS selector.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Key Differences</h3>
+
+                    <ul>
+
+                        <li>✅ <code>getElementById()</code> returns only one element.</li>
+
+                        <li>✅ <code>getElementsByClassName()</code> returns an HTMLCollection.</li>
+
+                        <li>✅ <code>getElementsByTagName()</code> returns an HTMLCollection.</li>
+
+                        <li>✅ <code>querySelector()</code> returns the first matching element.</li>
+
+                        <li>✅ <code>querySelectorAll()</code> returns a NodeList of all matching elements.</li>
+
+                        <li>✅ <code>querySelector()</code> and <code>querySelectorAll()</code> support CSS selectors.
+                        </li>
+
+                        <li>✅ Modern developers usually prefer <code>querySelector()</code> and
+                            <code>querySelectorAll()</code>.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Part 1 Summary
+=========================== -->
+
+            <section id="summary">
+
+                <h2>📚 JavaScript DOM Manipulation Part 1 Summary</h2>
+
+                <p>
+                    Congratulations! 🎉 You have completed <b>JavaScript DOM Manipulation Part 1</b>.
+                    In this chapter, you learned the basics of the Document Object Model (DOM),
+                    how browsers represent HTML as a tree structure, and how JavaScript selects
+                    HTML elements using different DOM methods.
+                </p>
+
+                <div class="definition-box">
+
+                    <h3>📘 What You Learned</h3>
+
+                    <ul>
+
+                        <li>✅ What is the DOM?</li>
+
+                        <li>✅ DOM Tree Structure</li>
+
+                        <li>✅ Browser Object Model (BOM) vs DOM</li>
+
+                        <li>✅ The <code>document</code> Object</li>
+
+                        <li>✅ <code>getElementById()</code></li>
+
+                        <li>✅ <code>getElementsByClassName()</code></li>
+
+                        <li>✅ <code>getElementsByTagName()</code></li>
+
+                        <li>✅ <code>querySelector()</code></li>
+
+                        <li>✅ <code>querySelectorAll()</code></li>
+
+                        <li>✅ Difference Between All DOM Selection Methods</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="did-you-know">
+
+                    <h3>💡 Did You Know?</h3>
+
+                    <p>
+                        Almost every modern website uses DOM Manipulation to create interactive
+                        features such as navigation menus, image sliders, forms, dark mode,
+                        popups, shopping carts, and dashboards.
+                    </p>
+
+                </div>
+
+                <div class="important-box">
+
+                    <h3>⭐ Important Points to Remember</h3>
+
+                    <ul>
+
+                        <li>✅ The DOM represents the HTML document as a tree of objects.</li>
+
+                        <li>✅ The <code>document</code> object is the entry point for DOM manipulation.</li>
+
+                        <li>✅ IDs should be unique and are selected using <code>getElementById()</code>.</li>
+
+                        <li>✅ Classes can be shared by multiple elements and are selected using
+                            <code>getElementsByClassName()</code>.
+                        </li>
+
+                        <li>✅ HTML tags can be selected using <code>getElementsByTagName()</code>.</li>
+
+                        <li>✅ <code>querySelector()</code> returns the first matching element.</li>
+
+                        <li>✅ <code>querySelectorAll()</code> returns all matching elements as a NodeList.</li>
+
+                        <li>✅ Modern JavaScript developers mainly use <code>querySelector()</code> and
+                            <code>querySelectorAll()</code>.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="real-life-box">
+
+                    <h3>🌍 Real-Life Applications</h3>
+
+                    <ul>
+
+                        <li>🛒 Online Shopping Websites</li>
+
+                        <li>📝 Registration & Login Forms</li>
+
+                        <li>🌙 Dark Mode Toggle</li>
+
+                        <li>📱 Mobile Navigation Menu</li>
+
+                        <li>🖼️ Image Gallery</li>
+
+                        <li>🎯 Interactive Buttons</li>
+
+                        <li>📊 Dashboards</li>
+
+                        <li>📚 Educational Websites</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="tip-box">
+
+                    <h3>🚀 What's Next?</h3>
+
+                    <p>
+                        In <b>JavaScript DOM Manipulation Part 2</b>, you will learn how to
+                        <b>change HTML content, modify CSS styles, update attributes, create
+                            new elements, remove elements, and handle DOM events</b> to build
+                        fully interactive web applications.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Practice Questions
+=========================== -->
+
+            <section id="practice">
+
+                <div class="practice-box">
+
+                    <h2>📝 Practice Questions</h2>
+
+                    <p>
+                        Test your understanding of <b>JavaScript DOM Manipulation Part 1</b>
+                        by solving these practice questions. Try to answer them yourself before
+                        checking the solutions.
+                    </p>
+
+                    <h3>📖 Theory Questions</h3>
+
+                    <ol>
+
+                        <li>What is the Document Object Model (DOM)?</li>
+
+                        <li>Explain the DOM Tree Structure with an example.</li>
+
+                        <li>What is the difference between DOM and BOM?</li>
+
+                        <li>What is the purpose of the <code>document</code> object?</li>
+
+                        <li>What is <code>getElementById()</code>?</li>
+
+                        <li>What is <code>getElementsByClassName()</code>?</li>
+
+                        <li>What is <code>getElementsByTagName()</code>?</li>
+
+                        <li>What is <code>querySelector()</code>?</li>
+
+                        <li>What is <code>querySelectorAll()</code>?</li>
+
+                        <li>Explain the difference between all DOM selector methods.</li>
+
+                    </ol>
+
+                    <hr>
+
+                    <h3>💻 Practical Questions</h3>
+
+                    <ol>
+
+                        <li>Select an element using <code>getElementById()</code> and change its text.</li>
+
+                        <li>Select all paragraphs using <code>getElementsByTagName()</code> and change their color.</li>
+
+                        <li>Select all elements having the class <code>box</code> and make the text bold.</li>
+
+                        <li>Use <code>querySelector()</code> to change the background color of the first button.</li>
+
+                        <li>Use <code>querySelectorAll()</code> to change the font size of all headings.</li>
+
+                        <li>Display the webpage title using the <code>document</code> object.</li>
+
+                        <li>Change the webpage title using JavaScript.</li>
+
+                        <li>Write a program to change an image using <code>getElementById()</code>.</li>
+
+                        <li>Select all list items and change their text color to green.</li>
+
+                        <li>Write a program that changes the background color of all <code>div</code> elements.</li>
+
+                    </ol>
+
+                    <hr>
+
+                    <h3>🏆 Challenge Questions</h3>
+
+                    <ol>
+
+                        <li>Create a button that changes the heading color when clicked.</li>
+
+                        <li>Create a Dark Mode button using DOM Manipulation.</li>
+
+                        <li>Build a simple "Show/Hide Password" feature.</li>
+
+                        <li>Create a webpage where clicking a button changes the paragraph text.</li>
+
+                        <li>Create a page that changes the background color randomly using JavaScript.</li>
+
+                    </ol>
+
+                    <div class="tip-box">
+
+                        <h3>💡 Practice Tip</h3>
+
+                        <p>
+                            Try writing every program yourself without copying the code.
+                            Practice is the fastest way to master JavaScript DOM Manipulation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Mini Quiz
+=========================== -->
+
+            <section id="quiz">
+
+                <div class="quiz-box">
+
+                    <h2>🧠 Mini Quiz (10 MCQs)</h2>
+
+                    <p>
+                        Check your understanding of <b>JavaScript DOM Manipulation Part 1</b>.
+                        Choose the correct answer for each question.
+                    </p>
+
+                    <hr>
+
+                    <h3>1. What does DOM stand for?</h3>
+
+                    <p>
+                        a) Document Object Model<br>
+                        b) Data Object Method<br>
+                        c) Document Oriented Model<br>
+                        d) Dynamic Object Method
+                    </p>
+
+                    <p><b>✅ Answer:</b> a) Document Object Model</p>
+
+                    <hr>
+
+                    <h3>2. Which object represents the HTML document?</h3>
+
+                    <p>
+                        a) window<br>
+                        b) document<br>
+                        c) browser<br>
+                        d) screen
+                    </p>
+
+                    <p><b>✅ Answer:</b> b) document</p>
+
+                    <hr>
+
+                    <h3>3. Which method selects an element using its ID?</h3>
+
+                    <p>
+                        a) getElementsByClassName()<br>
+                        b) querySelectorAll()<br>
+                        c) getElementById()<br>
+                        d) getElementsByTagName()
+                    </p>
+
+                    <p><b>✅ Answer:</b> c) getElementById()</p>
+
+                    <hr>
+
+                    <h3>4. Which method returns an HTMLCollection?</h3>
+
+                    <p>
+                        a) getElementsByClassName()<br>
+                        b) getElementsByTagName()<br>
+                        c) Both a and b<br>
+                        d) querySelector()
+                    </p>
+
+                    <p><b>✅ Answer:</b> c) Both a and b</p>
+
+                    <hr>
+
+                    <h3>5. Which method returns only the first matching element?</h3>
+
+                    <p>
+                        a) querySelector()<br>
+                        b) querySelectorAll()<br>
+                        c) getElementsByTagName()<br>
+                        d) getElementsByClassName()
+                    </p>
+
+                    <p><b>✅ Answer:</b> a) querySelector()</p>
+
+                    <hr>
+
+                    <h3>6. Which method returns a NodeList?</h3>
+
+                    <p>
+                        a) getElementsByTagName()<br>
+                        b) getElementsByClassName()<br>
+                        c) querySelectorAll()<br>
+                        d) getElementById()
+                    </p>
+
+                    <p><b>✅ Answer:</b> c) querySelectorAll()</p>
+
+                    <hr>
+
+                    <h3>7. Which object belongs to the Browser Object Model (BOM)?</h3>
+
+                    <p>
+                        a) document<br>
+                        b) window<br>
+                        c) element<br>
+                        d) node
+                    </p>
+
+                    <p><b>✅ Answer:</b> b) window</p>
+
+                    <hr>
+
+                    <h3>8. Which method uses CSS selectors?</h3>
+
+                    <p>
+                        a) querySelector()<br>
+                        b) querySelectorAll()<br>
+                        c) Both a and b<br>
+                        d) getElementById()
+                    </p>
+
+                    <p><b>✅ Answer:</b> c) Both a and b</p>
+
+                    <hr>
+
+                    <h3>9. Which selector is used for an ID in <code>querySelector()</code>?</h3>
+
+                    <p>
+                        a) .demo<br>
+                        b) #demo<br>
+                        c) demo<br>
+                        d) *demo
+                    </p>
+
+                    <p><b>✅ Answer:</b> b) #demo</p>
+
+                    <hr>
+
+                    <h3>10. Which DOM method is most commonly used in modern JavaScript?</h3>
+
+                    <p>
+                        a) getElementsByTagName()<br>
+                        b) querySelector() and querySelectorAll()<br>
+                        c) getElementsByClassName()<br>
+                        d) None of these
+                    </p>
+
+                    <p><b>✅ Answer:</b> b) querySelector() and querySelectorAll()</p>
+
+                    <hr>
+
+                    <div class="tip-box">
+
+                        <h3>🎯 Quiz Result Guide</h3>
+
+                        <ul>
+
+                            <li>🏆 <b>9–10 Correct:</b> Excellent! You're ready for DOM Part 2.</li>
+
+                            <li>👍 <b>7–8 Correct:</b> Very Good! Review a few topics and continue.</li>
+
+                            <li>📘 <b>5–6 Correct:</b> Good effort! Revise the examples once.</li>
+
+                            <li>💪 <b>Below 5:</b> Re-read this chapter and practice the code examples.</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Interview Questions
+=========================== -->
+
+            <section id="interview-questions">
+
+                <div class="interview-box">
+
+                    <h2>💼 JavaScript DOM Manipulation Part 1 - Interview Questions</h2>
+
+                    <p>
+                        These are the most frequently asked <strong>JavaScript DOM Manipulation Interview
+                            Questions</strong>
+                        for freshers, internships, BCA/BSc students, and web developer interviews.
+                    </p>
+
+                    <hr>
+
+                    <h3>1. What is the DOM in JavaScript?</h3>
+
+                    <p><strong>Answer:</strong> DOM (Document Object Model) is a programming interface that represents
+                        an HTML document as a tree of objects. It allows JavaScript to access and modify webpage content
+                        dynamically.</p>
+
+                    <hr>
+
+                    <h3>2. What is DOM Manipulation?</h3>
+
+                    <p><strong>Answer:</strong> DOM Manipulation is the process of changing HTML elements, CSS styles,
+                        attributes, and webpage content using JavaScript.</p>
+
+                    <hr>
+
+                    <h3>3. What is the difference between DOM and BOM?</h3>
+
+                    <p><strong>Answer:</strong></p>
+
+                    <ul>
+                        <li><strong>DOM:</strong> Represents the HTML document.</li>
+                        <li><strong>BOM:</strong> Represents the browser window and browser features.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>4. What is the <code>document</code> object?</h3>
+
+                    <p><strong>Answer:</strong> The <code>document</code> object represents the current HTML page and is
+                        the starting point for all DOM operations.</p>
+
+                    <hr>
+
+                    <h3>5. What is <code>getElementById()</code>?</h3>
+
+                    <p><strong>Answer:</strong> It selects a single HTML element using its unique ID.</p>
+
+                    <hr>
+
+                    <h3>6. What is <code>getElementsByClassName()</code>?</h3>
+
+                    <p><strong>Answer:</strong> It selects all elements having the same class name and returns an
+                        HTMLCollection.</p>
+
+                    <hr>
+
+                    <h3>7. What is <code>getElementsByTagName()</code>?</h3>
+
+                    <p><strong>Answer:</strong> It selects all HTML elements with a specified tag name and returns an
+                        HTMLCollection.</p>
+
+                    <hr>
+
+                    <h3>8. What is the difference between <code>querySelector()</code> and
+                        <code>querySelectorAll()</code>?
+                    </h3>
+
+                    <p><strong>Answer:</strong></p>
+
+                    <ul>
+                        <li><code>querySelector()</code> returns the first matching element.</li>
+                        <li><code>querySelectorAll()</code> returns all matching elements as a NodeList.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>9. Which DOM selector is most commonly used in modern JavaScript?</h3>
+
+                    <p><strong>Answer:</strong> <code>querySelector()</code> and <code>querySelectorAll()</code> because
+                        they support CSS selectors and are more flexible.</p>
+
+                    <hr>
+
+                    <h3>10. What is an HTMLCollection?</h3>
+
+                    <p><strong>Answer:</strong> HTMLCollection is a collection of HTML elements returned by methods like
+                        <code>getElementsByClassName()</code> and <code>getElementsByTagName()</code>.
+                    </p>
+
+                    <hr>
+
+                    <h3>11. What is a NodeList?</h3>
+
+                    <p><strong>Answer:</strong> NodeList is a collection of nodes returned by
+                        <code>querySelectorAll()</code>. It supports methods like <code>forEach()</code>.
+                    </p>
+
+                    <hr>
+
+                    <h3>12. Why is <code>getElementById()</code> faster than other selectors?</h3>
+
+                    <p><strong>Answer:</strong> Because IDs are unique in an HTML document, the browser can find the
+                        element directly without searching through multiple elements.</p>
+
+                    <hr>
+
+                    <div class="important-box">
+
+                        <h3>⭐ Interview Tips</h3>
+
+                        <ul>
+
+                            <li>✅ Know the difference between <strong>DOM</strong> and <strong>BOM</strong>.</li>
+
+                            <li>✅ Understand when to use each DOM selector.</li>
+
+                            <li>✅ Remember that <code>querySelector()</code> returns one element.</li>
+
+                            <li>✅ Remember that <code>querySelectorAll()</code> returns a NodeList.</li>
+
+                            <li>✅ Explain concepts with simple examples during interviews.</li>
+
+                            <li>✅ Practice writing small DOM programs.</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Glossary
+=========================== -->
+
+            <section id="glossary">
+
+                <div class="glossary-box">
+
+                    <h2>📖 JavaScript DOM Manipulation Part 1 - Glossary</h2>
+
+                    <p>
+                        Here are some important terms you learned in this chapter.
+                        Understanding these keywords will help you build a strong foundation in
+                        JavaScript DOM Manipulation.
+                    </p>
+
+                    <div class="glossary-grid">
+
+                        <div class="glossary-card">
+                            <h3>🌐 DOM</h3>
+                            <p>
+                                The <strong>Document Object Model</strong> represents an HTML page as a tree of objects
+                                that JavaScript can access and modify.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>🖥️ BOM</h3>
+                            <p>
+                                The <strong>Browser Object Model</strong> represents browser features such as the
+                                window, history, navigator, and location.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>📄 document</h3>
+                            <p>
+                                The <code>document</code> object represents the current HTML document and is the
+                                starting point of DOM Manipulation.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>🆔 ID</h3>
+                            <p>
+                                A unique identifier assigned to an HTML element. It is selected using
+                                <code>getElementById()</code>.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>🏷️ Class</h3>
+                            <p>
+                                A class groups multiple HTML elements together. It is commonly selected using
+                                <code>getElementsByClassName()</code>.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>📑 Tag Name</h3>
+                            <p>
+                                The name of an HTML element such as <code>p</code>, <code>h1</code>, <code>div</code>,
+                                or <code>img</code>.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>🎯 querySelector()</h3>
+                            <p>
+                                Selects the <strong>first</strong> HTML element that matches a CSS selector.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>🎯 querySelectorAll()</h3>
+                            <p>
+                                Selects <strong>all</strong> HTML elements matching a CSS selector and returns a
+                                NodeList.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>📦 HTMLCollection</h3>
+                            <p>
+                                A live collection of HTML elements returned by methods like
+                                <code>getElementsByClassName()</code> and
+                                <code>getElementsByTagName()</code>.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>📋 NodeList</h3>
+                            <p>
+                                A collection of nodes returned by
+                                <code>querySelectorAll()</code>. It supports methods such as
+                                <code>forEach()</code>.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>🎨 CSS Selector</h3>
+                            <p>
+                                A pattern used to select HTML elements, such as
+                                <code>#id</code>, <code>.class</code>, or
+                                <code>div p</code>.
+                            </p>
+                        </div>
+
+                        <div class="glossary-card">
+                            <h3>🌳 DOM Tree</h3>
+                            <p>
+                                The hierarchical structure of an HTML document where every element is represented as a
+                                node.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="tip-box">
+
+                        <h3>💡 Quick Tip</h3>
+
+                        <p>
+                            Memorizing these terms will make it much easier to understand future
+                            JavaScript topics such as Events, Forms, DOM Traversal, and Dynamic
+                            Web Applications.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     FAQs
+=========================== -->
+
+            <section id="faqs">
+
+                <div class="faq-box">
+
+                    <h2>❓ Frequently Asked Questions (FAQs)</h2>
+
+                    <p>
+                        Here are some commonly asked questions about
+                        <strong>JavaScript DOM Manipulation Part 1</strong>.
+                    </p>
+
+                    <hr>
+
+                    <h3>1. What is the DOM in JavaScript?</h3>
+
+                    <p>
+                        The <strong>Document Object Model (DOM)</strong> is a programming interface
+                        that represents an HTML document as a tree of objects. It allows JavaScript
+                        to read, modify, create, and delete HTML elements dynamically.
+                    </p>
+
+                    <hr>
+
+                    <h3>2. Why is DOM Manipulation important?</h3>
+
+                    <p>
+                        DOM Manipulation makes web pages interactive. It allows developers to
+                        change text, images, styles, forms, and other webpage elements without
+                        reloading the page.
+                    </p>
+
+                    <hr>
+
+                    <h3>3. What is the difference between DOM and BOM?</h3>
+
+                    <p>
+                        <strong>DOM</strong> represents the HTML document, while
+                        <strong>BOM (Browser Object Model)</strong> represents browser-related
+                        objects like <code>window</code>, <code>history</code>,
+                        <code>navigator</code>, and <code>location</code>.
+                    </p>
+
+                    <hr>
+
+                    <h3>4. What does <code>getElementById()</code> return?</h3>
+
+                    <p>
+                        It returns a single HTML element whose ID matches the specified value.
+                        If no matching element exists, it returns <code>null</code>.
+                    </p>
+
+                    <hr>
+
+                    <h3>5. What is the difference between <code>querySelector()</code> and
+                        <code>querySelectorAll()</code>?
+                    </h3>
+
+                    <p>
+                        <code>querySelector()</code> returns the <strong>first matching element</strong>,
+                        while <code>querySelectorAll()</code> returns <strong>all matching elements</strong>
+                        as a <code>NodeList</code>.
+                    </p>
+
+                    <hr>
+
+                    <h3>6. What is an HTMLCollection?</h3>
+
+                    <p>
+                        An <strong>HTMLCollection</strong> is a live collection of HTML elements
+                        returned by methods like
+                        <code>getElementsByClassName()</code> and
+                        <code>getElementsByTagName()</code>.
+                    </p>
+
+                    <hr>
+
+                    <h3>7. What is a NodeList?</h3>
+
+                    <p>
+                        A <strong>NodeList</strong> is a collection of nodes returned by
+                        <code>querySelectorAll()</code>. It supports iteration using
+                        <code>forEach()</code> and loops.
+                    </p>
+
+                    <hr>
+
+                    <h3>8. Which DOM selector should I use?</h3>
+
+                    <p>
+                        For modern JavaScript, use
+                        <code>querySelector()</code> and
+                        <code>querySelectorAll()</code>.
+                        Use <code>getElementById()</code> when selecting a single element by ID.
+                    </p>
+
+                    <hr>
+
+                    <h3>9. Can multiple HTML elements have the same ID?</h3>
+
+                    <p>
+                        No. Every ID should be unique within an HTML document.
+                        If multiple elements have the same ID, the page becomes invalid and may
+                        produce unexpected results.
+                    </p>
+
+                    <hr>
+
+                    <h3>10. What will I learn in DOM Manipulation Part 2?</h3>
+
+                    <p>
+                        In Part 2, you'll learn how to change HTML content, modify CSS styles,
+                        update attributes, create and remove elements, and build interactive
+                        webpages using JavaScript.
+                    </p>
+
+                    <div class="tip-box">
+
+                        <h3>💡 Quick Tip</h3>
+
+                        <p>
+                            If you're new to JavaScript, practice every DOM method with small
+                            examples. Hands-on coding is the fastest way to master DOM Manipulation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Related Articles
+=========================== -->
+
+            <section class="related-articles">
+
+                <h2>📚 Related Articles</h2>
+
+                <p>
+                    Continue learning JavaScript with these beginner-friendly tutorials
+                    from <strong>Roshni Code Charm</strong>.
+                </p>
+
+                <div class="article-box">
+
+                    <h3>⚡ JavaScript ES6 Part 1</h3>
+                    <p>
+                        Learn Let, Const, Arrow Functions, Template Literals, and more ES6 features.
+                    </p>
+
+                </div>
+
+
+                <div class="article-box">
+
+                    <h3>🚀 JavaScript ES6 Part 2</h3>
+                    <p>
+                        Explore Classes, Modules, Promises, Async/Await, Maps, Sets, and Symbols.
+                    </p>
+
+                </div>
+
+
+                <div class="article-box">
+
+                    <h3>✨ JavaScript ES6 Part 3</h3>
+                    <p>
+                        Learn Iterators, Proxy, Reflect, Destructuring, Spread, Rest Parameters,
+                        and Default Parameters.
+                    </p>
+
+                </div>
+
+
+                <div class="article-box">
+
+                    <h3>🖥️ JavaScript DOM Manipulation Part 2</h3>
+                    <p>
+                        Learn how to change content, modify styles, create elements,
+                        remove elements, and work with attributes.
+                    </p>
+
+                </div>
+
+
+                <div class="article-box">
+
+                    <h3>🖱️ JavaScript Events</h3>
+                    <p>
+                        Understand click, mouse, keyboard, form, and window events
+                        with practical examples.
+                    </p>
+
+                </div>
+
+
+                <div class="article-box">
+
+                    <h3>🔧 JavaScript Functions</h3>
+                    <p>
+                        Master function declarations, expressions, arrow functions,
+                        parameters, and return values.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- ===========================
+     Footer
+=========================== -->
+
+            <footer>
+
+                <div class="author-info">
+
+                    <h2>❤️ Thank You for Reading!</h2>
+
+                    <p>
+                        Thank you for learning <strong>JavaScript DOM Manipulation Part 1</strong>
+                        with <strong>Roshni Code Charm</strong>. 🎉
+                    </p>
+
+                    <p>
+                        Keep practicing JavaScript every day and build amazing, interactive
+                        websites. Consistent practice is the key to becoming a great web developer.
+                    </p>
+
+                    <div class="footer-links">
+
+                        <a href="index.html">🏠 Home</a>
+
+                        <a href="javascript.html">📚 JavaScript Tutorials</a>
+
+
+
+                    </div>
+
+                    <div class="social-links">
+
+                        <a href="https://github.com/roshni945" target="_blank">💻 GitHub</a>
+
+                        <a href="https://www.pinterest.com/roshnicodecharm/" target="_blank">📌 Pinterest</a>
+
+                    </div>
+
+                    <hr>
+
+                    <p>
+                        © 2026 <strong>Roshni Code Charm</strong>. All Rights Reserved.
+                    </p>
+
+                    <p>
+                        Made with ❤️ for JavaScript Beginners.
+                    </p>
+                </div>
+
+        </div>
+
+        </footer>
+
+        <button onclick="topFunction()" id="topBtn" title="Go to top">
+
+            ⬆</button>
+
+        <script>
+            let mybutton = document.getElementById("topBtn");
+
+            window.onscroll = function () {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            };
+
+            function topFunction() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            document.querySelectorAll(".copy-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    const code = button.nextElementSibling.innerText;
+                    navigator.clipboard.writeText(code);
+
+                    button.innerText = "✅ Copied!";
+
+                    setTimeout(() => {
+                        button.innerText = "📋 Copy";
+                    }, 2000);
+                });
+            });
+        </script>
+
+</body>
+
+</html>

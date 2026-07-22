@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Events Tutorial for Beginners | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Learn JavaScript Events with examples. Understand click events, mouse events, keyboard events, form events, addEventListener(), and event handling in JavaScript.">
+
+    <meta name="keywords"
+        content="JavaScript Events, JavaScript Event Handling, DOM Events, addEventListener, Click Event, Mouse Events, Keyboard Events, Form Events, JavaScript Tutorial for Beginners">
+
+    <meta name="author" content="Roshni Code Charm">
+
+
+    <!-- Canonical URL -->
+
+    <link rel="canonical" href="https://roshni945.github.io/my-website/javascript-events.html">
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:title" content="JavaScript Events Tutorial for Beginners">
+
+    <meta property="og:description"
+        content="Learn JavaScript Events like click, mouse, keyboard, and form events with easy examples.">
+
+    <meta property="og:type" content="article">
+
+    <meta property="og:url" content="https://roshni945.github.io/my-website/javascript-events.html">
+
+
+    <!-- Twitter Card -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="JavaScript Events Tutorial">
+
+    <meta name="twitter:description" content="Complete JavaScript Events guide for beginners with examples.">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Structured Data -->
+
+    <script type="application/ld+json">
+
+{
+ "@context":"https://schema.org",
+ "@type":"TechArticle",
+ "headline":"JavaScript Events Tutorial for Beginners",
+ "description":"Learn JavaScript Events, event handling, click events, mouse events, keyboard events and addEventListener.",
+ "author":{
+    "@type":"Person",
+    "name":"Roshni Code Charm"
+ },
+ "publisher":{
+    "@type":"Organization",
+    "name":"Roshni Code Charm"
+ }
+}
+
+    </script>
+
+
+</head>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: cursive;
+        background: #f0ebeb;
+        max-width: 900px;
+        margin: auto;
+        padding: 30px;
+        line-height: 1.8;
+    }
+
+    h1 {
+        color: #7b2cbf;
+    }
+
+    h2 {
+        color: #ff4da6;
+        margin-top: 35px;
+    }
+
+    .intro-box {
+        background-color: rgb(239, 203, 244);
+        border-left: 5px solid #7b2cbf;
+        border-radius: 15px;
+        padding: 20px 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    }
+
+    .intro-box h3 {
+        margin: 0 0 10px;
+        color: #2ebf2c;
+    }
+
+    .intro {
+        margin: 0;
+        color: #111111;
+        font-size: 20px;
+        line-height: 1.8;
+    }
+
+    pre {
+        background: #f3e8ff;
+        color: #333;
+        padding: 2px 10px;
+        border-radius: 5px;
+        border-left: 4px solid #7b2cbf;
+        overflow-x: auto;
+        font-family: Consolas, monospace;
+        font-size: 14px;
+        line-height: 1.1;
+        margin: 6px 0;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #7b2cbf;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .btn:hover {
+        background: #5a189a;
+        transform: translateY(-2px);
+    }
+
+    .page-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    @media(max-width:600px) {
+        .page-nav {
+            flex-direction: column;
+        }
+    }
+
+    .article-info {
+        display: flex;
+        gap: 20px;
+        margin: 25px 0;
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1;
+    }
+
+
+    .toc {
+        background: #f3e8ff;
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 5px solid #7b2cbf;
+    }
+
+    .toc h3 {
+        color: #7b2cbf;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .toc li {
+        margin: 10px 0;
+    }
+
+    .toc a {
+        color: #444;
+        text-decoration: none;
+        font-weight: 500;
+        transition: .3s;
+    }
+
+    .toc a:hover {
+        color: #7b2cbf;
+        padding-left: 6px;
+    }
+
+
+    .tip-box,
+    .mistake-box {
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+
+    .tip-box {
+        background: #e8fff2;
+        border-left: 5px solid #2ecc71;
+    }
+
+
+    .mistake-box {
+        background: #fff2f2;
+        border-left: 5px solid #ff4d4d;
+    }
+
+
+    .content-box {
+        background: #fff;
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+        margin-top: 30px;
+    }
+
+
+    .author-info {
+        background-color: beige;
+        padding: 18px;
+        text-align: center;
+        border-radius: 15px;
+        margin: 25px 0;
+        color: #222;
+        font-size: 25px;
+        font-weight: 500;
+        border-left: 5px solid #7b2cbf;
+    }
+
+
+    .author-info b {
+        color: #7b2cbf;
+    }
+
+    h3 {
+        color: #7b2cbf;
+    }
+
+
+    ul li {
+        margin: 10px 0;
+    }
+
+    .content-box ul {
+        padding-left: 22px;
+    }
+
+    .content-box ul li {
+        margin: 10px 0;
+    }
+
+    .content-box ul li a {
+        color: #7b2cbf;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .content-box ul li a:hover {
+        color: #ff4da6;
+    }
+
+    p {
+        margin: 15px 0;
+    }
+
+    h2 {
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+
+    @media(max-width:768px) {
+
+        .article-info {
+            flex-direction: column;
+        }
+
+        .content-box {
+            padding: 25px;
+        }
+
+        body {
+            padding: 18px;
+        }
+    }
+
+    .key-box {
+        background: #ffe8fa;
+        border-left: 5px solid #f4b400;
+        border-radius: 15px;
+        padding: 20px 25px;
+        margin: 30px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    }
+
+    .key-box h3 {
+        margin-top: 0;
+        color: #d97706;
+    }
+
+    .key-box ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .key-box li {
+        margin: 8px 0;
+    }
+
+    .faq-box {
+        background: #f8f3ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 30px;
+    }
+
+    .faq-box {
+        background: #f8f3ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 30px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .related-box {
+        background: #f8f3ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 35px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+    }
+
+    .related-link {
+        display: block;
+        background: #fff;
+        margin: 10px 0;
+        padding: 12px 18px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #7b2cbf;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .related-link:hover {
+        background: #7b2cbf;
+        color: #fff;
+    }
+
+    .code-title {
+        color: #7b2cbf;
+        font-weight: 600;
+        margin: 15px 0 8px;
+        font-size: 16px;
+    }
+
+    .output-box {
+        background: #e8fff2;
+        border-left: 4px solid #2ecc71;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-top: 8px;
+        color: #222;
+        font-family: Consolas, monospace;
+    }
+
+    .practice-box {
+        background: #eef7ff;
+        border-left: 5px solid #2196f3;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 35px 0;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+    }
+
+    .practice-box h2 {
+        margin-top: 0;
+        color: #1565c0;
+    }
+
+    .related-box {
+        background: #f9f5ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 35px;
+    }
+
+    .related-box h2 {
+        margin-top: 0;
+    }
+
+    .related-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+    }
+
+    .related-links a {
+        display: block;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #7b2cbf;
+        font-weight: 600;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        transition: .3s;
+    }
+
+    .related-links a:hover {
+        background: #7b2cbf;
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+    .post-meta {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        background: #faf5ff;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin: 20px 0;
+        font-size: 14px;
+        color: #555;
+        border-left: 4px solid #7b2cbf;
+    }
+
+    .post-meta span {
+        font-weight: 500;
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+        margin-bottom: 20px;
+        color: #666;
+    }
+
+    .breadcrumb a {
+        color: #7b2cbf;
+        text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumb span {
+        margin: 0 5px;
+    }
+
+    .share-box {
+        background: #f8f9ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 35px 0;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    }
+
+    .share-box h2 {
+        margin-top: 0;
+    }
+
+    .share-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    .share-buttons a {
+        text-decoration: none;
+        background: #7b2cbf;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 25px;
+        transition: .3s;
+    }
+
+    .share-buttons a:hover {
+        background: #5a189a;
+    }
+
+    .did-you-know {
+        background: #fff9e6;
+        border-left: 5px solid #f4b400;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 12px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, .08);
+    }
+
+    .did-you-know h3 {
+        margin-top: 0;
+        color: #c77d00;
+    }
+
+    .did-you-know p {
+        margin: 10px 0 0;
+    }
+
+    .method-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .method-table th {
+        background: #7b2cbf;
+        color: #fff;
+        padding: 12px;
+    }
+
+    .method-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    .method-table tr:nth-child(even) {
+        background: #f8f8ff;
+    }
+
+    .method-table tr:hover {
+        background: #f3e8ff;
+    }
+
+    .practice-questions {
+        background: #eef8ff;
+        border-left: 5px solid #2196f3;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 25px 0;
+    }
+
+    .practice-questions ol {
+        padding-left: 20px;
+    }
+
+    .practice-questions li {
+        margin: 10px 0;
+    }
+
+    .quiz-box {
+        background: #fff8e8;
+        border-left: 5px solid #ff9800;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+    }
+
+    .quiz-box p {
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .quiz-box ul {
+        margin: 10px 0 20px 20px;
+    }
+
+    .quiz-box li {
+        margin: 6px 0;
+    }
+
+    .interview-box {
+        background: #eefcf3;
+        border-left: 5px solid #2ecc71;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+    }
+
+    .interview-box ol {
+        padding-left: 22px;
+    }
+
+    .interview-box li {
+        margin: 12px 0;
+    }
+
+    .glossary-box {
+        background: #f8f9ff;
+        border-left: 5px solid #7b2cbf;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+    }
+
+    .glossary-box dt {
+        color: #7b2cbf;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+
+    .glossary-box dd {
+        margin: 5px 0 15px 20px;
+        color: #444;
+    }
+
+    #topBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background: #7b2cbf;
+        color: #fff;
+        cursor: pointer;
+        padding: 14px 18px;
+        border-radius: 50%;
+        font-size: 18px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+        transition: .3s;
+    }
+
+    #topBtn:hover {
+        background: #5a189a;
+        transform: translateY(-3px);
+    }
+
+    .code-box {
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #7b2cbf;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: .3s;
+    }
+
+    .copy-btn:hover {
+        background: #5a189a;
+    }
+
+    .code-box pre {
+        margin-top: 0;
+    }
+
+    .method-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .method-table th {
+        background: #7b2cbf;
+        color: #fff;
+        padding: 12px;
+    }
+
+    .method-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    .method-table tr:nth-child(even) {
+        background: #f8f8ff;
+    }
+
+    .method-table tr:hover {
+        background: #f3e8ff;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <div class="content-box">
+
+        <div class="container">
+
+
+            <!-- Breadcrumb -->
+
+            <nav class="breadcrumb">
+
+                <a href="index.html">Home</a>
+
+                <span>›</span>
+
+                <a href="javascript-tutorial.html">JavaScript</a>
+
+                <span>›</span>
+
+                <span>JavaScript Events</span>
+
+            </nav>
+
+
+
+            <h1>⚡ JavaScript Events</h1>
+
+
+
+            <div class="article-info">
+
+
+                <!-- LEFT COLUMN -->
+
+                <div class="left-column">
+
+
+                    <div class="toc">
+
+                        <h3>📚 Table of Contents</h3>
+
+
+                        <ul>
+
+                            <li><a href="#what">What are Events?</a></li>
+
+                            <li><a href="#types">Types of Events</a></li>
+
+                            <li><a href="#mouse">Mouse Events</a></li>
+
+                            <li><a href="#keyboard">Keyboard Events</a></li>
+
+                            <li><a href="#form">Form Events</a></li>
+
+                            <li><a href="#addevent">addEventListener()</a></li>
+
+                            <li><a href="#remove">Remove Event Listener</a></li>
+
+                        </ul>
+
+
+                    </div>
+
+
+
+
+                    <h2 id="what">📖 What are JavaScript Events?</h2>
+
+
+                    <p>
+                        JavaScript Events are actions that happen in a webpage.
+                        When a user clicks a button, moves the mouse, presses a key,
+                        or submits a form, an event occurs.
+                    </p>
+
+
+                    <p>
+                        JavaScript uses events to make webpages interactive and dynamic.
+                    </p>
+
+
+
+
+                    <h2 id="types">⚡ Types of JavaScript Events</h2>
+
+
+                    <p>
+                        Common JavaScript events are:
+                    </p>
+
+
+                    <ul>
+
+                        <li>Mouse Events</li>
+
+                        <li>Keyboard Events</li>
+
+                        <li>Form Events</li>
+
+                        <li>Window Events</li>
+
+                        <li>Clipboard Events</li>
+
+                    </ul>
+
+
+
+
+
+                    <h2 id="mouse">🖱️ Mouse Events</h2>
+
+
+                    <h3>onclick Event</h3>
+
+
+                    <p>
+                        The onclick event runs when a user clicks an element.
+                    </p>
+
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+<button onclick="showMessage()">
+Click Me
+</button>
+
+
+<script>
+
+    function showMessage() {
+
+        alert("Button Clicked!");
+
+    }
+
+</script>
+</pre>
+
+
+                    </div>
+
+
+
+                    <div class="output-box">
+
+                        Output:
+                        <br>
+
+                        When button is clicked, alert message appears.
+
+                    </div>
+
+
+
+
+
+
+                    <h3>onmouseover Event</h3>
+
+
+                    <p>
+                        It runs when the mouse pointer moves over an element.
+                    </p>
+
+
+                    <div class="code-box">
+
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+
+<p onmouseover="changeColor()">
+Move mouse here
+</p>
+
+
+<script>
+
+    function changeColor() {
+
+        document.body.style.background = "pink";
+
+    }
+
+</script>
+
+</pre>
+
+
+                    </div>
+
+
+
+                    <div class="output-box">
+
+                        Background changes when mouse moves over text.
+
+                    </div>
+
+
+
+
+
+
+                    <h3>onmouseout Event</h3>
+
+
+                    <p>
+                        It runs when the mouse leaves an element.
+                    </p>
+
+
+                    <div class="code-box">
+
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+
+<div onmouseout="message()">
+
+Move mouse away
+
+</div>
+
+
+<script>
+
+    function message() {
+
+        alert("Mouse left");
+
+    }
+
+</script>
+
+</pre>
+
+
+                    </div>
+
+
+
+
+                    <div class="output-box">
+
+                        Alert appears when mouse leaves the element.
+
+                    </div>
+
+
+
+
+
+
+                    <h2 id="keyboard">⌨️ Keyboard Events</h2>
+
+
+                    <p>
+                        Keyboard events happen when a user presses or releases keys.
+                    </p>
+
+
+
+                    <h3>onkeydown Event</h3>
+
+
+                    <div class="code-box">
+
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+
+<input 
+onkeydown="keyPressed()">
+
+
+<script>
+
+    function keyPressed() {
+
+        alert("Key pressed");
+
+    }
+
+</script>
+
+</pre>
+
+
+                    </div>
+
+
+
+                    <div class="output-box">
+
+                        Runs when any keyboard key is pressed.
+
+                    </div>
+
+
+
+
+
+
+                    <h3>onkeyup Event</h3>
+
+
+                    <div class="code-box">
+
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+
+<input onkeyup="typing()">
+
+
+<script>
+
+    function typing() {
+
+        console.log("Typing...");
+
+    }
+
+</script>
+
+</pre>
+
+
+                    </div>
+
+
+
+                    <div class="output-box">
+
+                        Runs when the key is released.
+
+                    </div>
+
+
+
+
+
+                    <h2 id="form">📝 Form Events</h2>
+
+
+                    <h3>onsubmit Event</h3>
+
+
+                    <p>
+                        The onsubmit event occurs when a form is submitted.
+                    </p>
+
+
+
+                    <div class="code-box">
+
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+
+<form onsubmit="submitForm()">
+
+<input type="text">
+
+<button>
+Submit
+</button>
+
+</form>
+
+
+<script>
+
+    function submitForm() {
+
+        alert("Form Submitted");
+
+    }
+
+</script>
+
+</pre>
+
+
+                    </div>
+
+
+
+                    <div class="output-box">
+
+                        Runs when the form button is clicked.
+
+                    </div>
+
+                    <!-- addEventListener -->
+
+                    <h2 id="addevent">🎯 addEventListener()</h2>
+
+
+                    <p>
+                        The <b>addEventListener()</b> method is the modern way to handle JavaScript events.
+                        It allows us to attach events without writing HTML attributes.
+                    </p>
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+                        <pre>
+
+<button id="btn">
+Click Me
+</button>
+
+
+<script>
+
+    let button = document.getElementById("btn");
+
+
+    button.addEventListener("click", function () {
+
+        alert("Button Clicked!");
+
+    });
+
+
+</script>
+
+</pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+
+                        Output:
+                        <br>
+
+                        Event runs when the button is clicked.
+
+                    </div>
+
+
+
+
+
+                    <h2>📌 Event Object</h2>
+
+
+                    <p>
+                        The event object contains information about the event that happened.
+                    </p>
+
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+
+document.addEventListener("click", function(event){
+
+console.log(event);
+
+});
+
+
+</pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+
+                        Shows details about the clicked event.
+
+                    </div>
+
+
+
+
+
+
+                    <h2 id="remove">🗑️ Remove Event Listener</h2>
+
+
+                    <p>
+                        removeEventListener() removes an event that was added using addEventListener().
+                    </p>
+
+
+
+                    <div class="code-box">
+
+                        <button class="copy-btn">📋 Copy</button>
+
+
+                        <pre>
+
+function message(){
+
+alert("Hello");
+
+}
+
+
+button.addEventListener(
+"click",
+message
+);
+
+
+button.removeEventListener(
+"click",
+message
+);
+
+
+</pre>
+
+                    </div>
+
+
+                    <div class="output-box">
+
+                        The click event is removed.
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="key-box">
+
+
+                        <h3>⚡ Common JavaScript Events</h3>
+
+
+                        <table class="method-table">
+
+
+                            <tr>
+
+                                <th>Event</th>
+
+                                <th>Description</th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onclick</td>
+
+                                <td>Runs when an element is clicked.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onmouseover</td>
+
+                                <td>Runs when mouse moves over an element.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onmouseout</td>
+
+                                <td>Runs when mouse leaves an element.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onkeydown</td>
+
+                                <td>Runs when a keyboard key is pressed.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onkeyup</td>
+
+                                <td>Runs when a keyboard key is released.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onsubmit</td>
+
+                                <td>Runs when a form is submitted.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onchange</td>
+
+                                <td>Runs when input value changes.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>onload</td>
+
+                                <td>Runs when webpage finishes loading.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>addEventListener()</td>
+
+                                <td>Adds event handlers.</td>
+
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="did-you-know">
+
+
+                        <h3>💡 Did You Know?</h3>
+
+
+                        <p>
+                            Modern websites like shopping apps and social media platforms use JavaScript
+                            events to handle clicks, searches, likes, and user interactions.
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="key-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+                            <li>Events make webpages interactive.</li>
+
+                            <li>JavaScript responds to user actions.</li>
+
+                            <li>onclick handles button clicks.</li>
+
+                            <li>Keyboard events handle user typing.</li>
+
+                            <li>Forms use submit events.</li>
+
+                            <li>addEventListener() is the recommended method.</li>
+
+                            <li>Event objects provide event information.</li>
+
+                            <li>Events improve user experience.</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+                <!-- RIGHT COLUMN -->
+
+                <div class="right-column">
+
+
+                    <div class="tip-box">
+
+
+                        <h3>⭐ Best Practices</h3>
+
+
+                        <ul>
+
+                            <li>Prefer addEventListener() over inline events.</li>
+
+                            <li>Use meaningful function names.</li>
+
+                            <li>Keep JavaScript code separate.</li>
+
+                            <li>Remove unused event listeners.</li>
+
+                            <li>Test events on different devices.</li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="mistake-box">
+
+
+                        <h3>⚠️ Common Mistakes</h3>
+
+
+                        <ul>
+
+                            <li>Using wrong event names.</li>
+
+                            <li>Forgetting parentheses and brackets.</li>
+
+                            <li>Calling functions incorrectly.</li>
+
+                            <li>Adding duplicate events.</li>
+
+                            <li>Not checking browser errors.</li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+
+                    <div class="practice-box">
+
+
+                        <h2>📝 Practice Questions</h2>
+
+
+                        <ol>
+
+                            <li>What are JavaScript Events?</li>
+
+                            <li>Explain onclick event.</li>
+
+                            <li>What is addEventListener()?</li>
+
+                            <li>Difference between onclick and addEventListener().</li>
+
+                            <li>What are keyboard events?</li>
+
+                            <li>Explain form events.</li>
+
+                            <li>What is an event object?</li>
+
+                            <li>How do you remove an event listener?</li>
+
+                            <li>Explain mouse events.</li>
+
+                            <li>Why are events important?</li>
+
+
+                        </ol>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="content-box">
+
+
+
+                <div class="quiz-box">
+
+
+                    <h2>🧠 JavaScript Events Mini Quiz</h2>
+
+
+                    <p>1. Which event occurs when a button is clicked?</p>
+
+                    <ul>
+
+                        <li>A. onload</li>
+
+                        <li>✅ B. onclick</li>
+
+                        <li>C. onkeyup</li>
+
+                        <li>D. onchange</li>
+
+                    </ul>
+
+
+
+                    <p>2. Which method adds an event?</p>
+
+                    <ul>
+
+                        <li>✅ A. addEventListener()</li>
+
+                        <li>B. remove()</li>
+
+                        <li>C. createElement()</li>
+
+                        <li>D. querySelector()</li>
+
+                    </ul>
+
+
+
+                    <p>3. Which event is used for keyboard press?</p>
+
+                    <ul>
+
+                        <li>✅ A. onkeydown</li>
+
+                        <li>B. onclick</li>
+
+                        <li>C. onsubmit</li>
+
+                        <li>D. onload</li>
+
+                    </ul>
+
+
+
+                    <p>4. Which event works with forms?</p>
+
+                    <ul>
+
+                        <li>✅ A. onsubmit</li>
+
+                        <li>B. onmouseover</li>
+
+                        <li>C. onclick</li>
+
+                        <li>D. onmouseout</li>
+
+                    </ul>
+
+
+
+                    <p>5. Which method removes an event?</p>
+
+                    <ul>
+
+                        <li>✅ A. removeEventListener()</li>
+
+                        <li>B. remove()</li>
+
+                        <li>C. deleteEvent()</li>
+
+                        <li>D. clear()</li>
+
+                    </ul>
+
+
+                </div>
+
+                <!-- Interview Questions -->
+
+                <div class="interview-box">
+
+                    <h2>💼 JavaScript Events Interview Questions</h2>
+
+
+                    <ol>
+
+                        <li>
+                            What are JavaScript Events?
+                        </li>
+
+                        <li>
+                            Why are events important in JavaScript?
+                        </li>
+
+                        <li>
+                            Explain the onclick event with an example.
+                        </li>
+
+                        <li>
+                            What is the difference between onclick and addEventListener()?
+                        </li>
+
+                        <li>
+                            Explain mouse events in JavaScript.
+                        </li>
+
+                        <li>
+                            What are keyboard events?
+                        </li>
+
+                        <li>
+                            What is the use of the event object?
+                        </li>
+
+                        <li>
+                            Explain preventDefault() method.
+                        </li>
+
+                        <li>
+                            What is event bubbling in JavaScript?
+                        </li>
+
+                        <li>
+                            Difference between event bubbling and event capturing?
+                        </li>
+
+                    </ol>
+
+
+                </div>
+
+
+
+
+
+                <!-- Glossary -->
+
+
+                <div class="glossary-box">
+
+
+                    <h2>📖 JavaScript Events Glossary</h2>
+
+
+                    <dl>
+
+
+                        <dt>Event</dt>
+
+                        <dd>
+                            An action performed by the user or browser, like click or typing.
+                        </dd>
+
+
+
+                        <dt>Event Handler</dt>
+
+                        <dd>
+                            A function that runs when an event occurs.
+                        </dd>
+
+
+
+                        <dt>Event Listener</dt>
+
+                        <dd>
+                            A method that waits for an event and executes code.
+                        </dd>
+
+
+
+                        <dt>addEventListener()</dt>
+
+                        <dd>
+                            A method used to attach events to HTML elements.
+                        </dd>
+
+
+
+                        <dt>Event Object</dt>
+
+                        <dd>
+                            An object that contains information about an event.
+                        </dd>
+
+
+
+                        <dt>Mouse Event</dt>
+
+                        <dd>
+                            Events caused by mouse actions like click and hover.
+                        </dd>
+
+
+
+                        <dt>Keyboard Event</dt>
+
+                        <dd>
+                            Events generated by keyboard actions.
+                        </dd>
+
+
+
+                        <dt>Form Event</dt>
+
+                        <dd>
+                            Events related to forms like submit and change.
+                        </dd>
+
+
+
+                        <dt>Event Bubbling</dt>
+
+                        <dd>
+                            A process where an event moves from child element to parent element.
+                        </dd>
+
+
+
+                        <dt>Event Capturing</dt>
+
+                        <dd>
+                            A process where an event moves from parent element to child element.
+                        </dd>
+
+
+                    </dl>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- FAQs -->
+
+
+                <div class="faq-box">
+
+
+                    <h2>❓ Frequently Asked Questions (FAQs)</h2>
+
+
+
+                    <h3>1. What are JavaScript Events?</h3>
+
+                    <p>
+                        JavaScript Events are actions that happen on a webpage such as clicking,
+                        typing, or loading a page.
+                    </p>
+
+
+
+                    <h3>2. Why do we use events in JavaScript?</h3>
+
+                    <p>
+                        Events make websites interactive and allow JavaScript to respond to users.
+                    </p>
+
+
+
+                    <h3>3. What is onclick event?</h3>
+
+                    <p>
+                        onclick runs when a user clicks on an HTML element.
+                    </p>
+
+
+
+                    <h3>4. What is addEventListener()?</h3>
+
+                    <p>
+                        It is a modern method used to attach events to elements.
+                    </p>
+
+
+
+                    <h3>5. Difference between onclick and addEventListener()?</h3>
+
+                    <p>
+                        onclick allows one event, while addEventListener() can attach multiple events.
+                    </p>
+
+
+
+                    <h3>6. What are mouse events?</h3>
+
+                    <p>
+                        Mouse events happen when users interact using a mouse.
+                    </p>
+
+
+
+                    <h3>7. What are keyboard events?</h3>
+
+                    <p>
+                        Keyboard events occur when users press or release keyboard keys.
+                    </p>
+
+
+
+                    <h3>8. What is event object?</h3>
+
+                    <p>
+                        Event object provides details about the event that occurred.
+                    </p>
+
+
+
+                    <h3>9. What is event bubbling?</h3>
+
+                    <p>
+                        Event bubbling means an event moves from the child element to its parent.
+                    </p>
+
+
+
+                    <h3>10. Can JavaScript handle multiple events?</h3>
+
+                    <p>
+                        Yes, JavaScript can handle multiple events using addEventListener().
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- Related Articles -->
+
+
+                <div class="related-box">
+
+
+                    <h2>📚 Related Articles</h2>
+
+
+                    <div class="related-links">
+
+
+                        <a href="javascript-dom.html">
+                            JavaScript DOM
+                        </a>
+
+
+                        <a href="javascript-functions.html">
+                            JavaScript Functions
+                        </a>
+
+
+                        <a href="javascript-arrays.html">
+                            JavaScript Arrays
+                        </a>
+
+
+                        <a href="javascript-objects.html">
+                            JavaScript Objects
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- Navigation -->
+
+
+                <div class="page-nav">
+
+
+                    <a href="javascript-dom.html" class="btn">
+
+                        ⬅️ Previous: JavaScript DOM
+
+                    </a>
+
+                    <a href="javascript-es6.html" class="btn">
+
+                        Next: JavaScript ES6 ➡️
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+            <footer style="text-align:center;padding:25px;color:#777;margin-top:30px;border-top:1px solid #ddd;">
+
+                <p>Made with ❤️ by <b>Roshni Code Charm</b></p>
+
+                <p>© 2026 All Rights Reserved.</p>
+
+            </footer>
+
+            <button id="topBtn">↑</button>
+
+            <script>
+
+
+                // Copy Button
+
+                document.querySelectorAll(".copy-btn").forEach(button => {
+
+
+                    button.addEventListener("click", function () {
+
+
+                        let code = this.nextElementSibling.innerText;
+
+
+                        navigator.clipboard.writeText(code);
+
+
+
+                        this.innerText = "✅ Copied";
+
+
+
+                        setTimeout(() => {
+
+
+                            this.innerText = "📋 Copy";
+
+
+                        }, 1500);
+
+
+
+                    });
+
+
+                });
+
+
+
+
+
+
+                // Back To Top Button
+
+
+                let topBtn = document.getElementById("topBtn");
+
+
+
+                window.onscroll = function () {
+
+
+                    if (window.scrollY > 200) {
+
+
+                        topBtn.style.display = "block";
+
+
+                    }
+
+                    else {
+
+
+                        topBtn.style.display = "none";
+
+
+                    }
+
+
+                };
+
+
+
+                topBtn.onclick = function () {
+
+
+                    window.scrollTo({
+
+                        top: 0,
+
+                        behavior: "smooth"
+
+                    });
+
+
+                };
+
+
+            </script>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

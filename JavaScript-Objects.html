@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Objects | Roshni Code Charm</title>
+
+    <meta name="keywords"
+        content="JavaScript Objects, JS Objects Tutorial, JavaScript for Beginners, Objects in JavaScript">
+
+    <meta name="author" content="Roshni Code Charm">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: cursive;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #7b2cbf;
+        }
+
+        h2 {
+            color: #ff4da6;
+            margin-top: 35px;
+        }
+
+        .intro-box {
+            background-color: rgb(239, 203, 244);
+            border-left: 5px solid #7b2cbf;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .intro-box h3 {
+            margin: 0 0 10px;
+            color: #2ebf2c;
+        }
+
+        .intro {
+            margin: 0;
+            color: #111111;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        pre {
+            background: #f3e8ff;
+            color: #333;
+            padding: 2px 10px;
+            border-radius: 5px;
+            border-left: 4px solid #7b2cbf;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.1;
+            margin: 6px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #7b2cbf;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #5a189a;
+            transform: translateY(-2px);
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        @media(max-width:600px) {
+            .page-nav {
+                flex-direction: column;
+            }
+        }
+
+        .article-info {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .left-column,
+        .right-column {
+            flex: 1;
+        }
+
+
+        .toc {
+            background: #f3e8ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+        }
+
+        .toc h3 {
+            color: #7b2cbf;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .toc li {
+            margin: 10px 0;
+        }
+
+        .toc a {
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .toc a:hover {
+            color: #7b2cbf;
+            padding-left: 6px;
+        }
+
+
+        .tip-box,
+        .mistake-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .tip-box {
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+        }
+
+
+        .mistake-box {
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+        }
+
+
+        .content-box {
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+        }
+
+
+        .author-info {
+            background-color: beige;
+            padding: 18px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 25px 0;
+            color: #222;
+            font-size: 25px;
+            font-weight: 500;
+            border-left: 5px solid #7b2cbf;
+        }
+
+
+        .author-info b {
+            color: #7b2cbf;
+        }
+
+        h3 {
+            color: #7b2cbf;
+        }
+
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul {
+            padding-left: 22px;
+        }
+
+        .content-box ul li {
+            margin: 10px 0;
+        }
+
+        .content-box ul li a {
+            color: #7b2cbf;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .content-box ul li a:hover {
+            color: #ff4da6;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width:768px) {
+
+            .article-info {
+                flex-direction: column;
+            }
+
+            .content-box {
+                padding: 25px;
+            }
+
+            body {
+                padding: 18px;
+            }
+        }
+
+        .key-box {
+            background: #ffe8fa;
+            border-left: 5px solid #f4b400;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .key-box h3 {
+            margin-top: 0;
+            color: #d97706;
+        }
+
+        .key-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .key-box li {
+            margin: 8px 0;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .faq-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .related-box {
+            background: #f8f3ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .related-link {
+            display: block;
+            background: #fff;
+            margin: 10px 0;
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .related-link:hover {
+            background: #7b2cbf;
+            color: #fff;
+        }
+
+        .code-title {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin: 15px 0 8px;
+            font-size: 16px;
+        }
+
+        .output-box {
+            background: #e8fff2;
+            border-left: 4px solid #2ecc71;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: #222;
+            font-family: Consolas, monospace;
+        }
+
+        .practice-box {
+            background: #eef7ff;
+            border-left: 5px solid #2196f3;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        .practice-box h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        .related-box {
+            background: #f9f5ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 35px;
+        }
+
+        .related-box h2 {
+            margin-top: 0;
+        }
+
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .related-links a {
+            display: block;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #7b2cbf;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .related-links a:hover {
+            background: #7b2cbf;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #faf5ff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
+            border-left: 4px solid #7b2cbf;
+        }
+
+        .post-meta span {
+            font-weight: 500;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #7b2cbf;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .share-box {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+        }
+
+        .share-box h2 {
+            margin-top: 0;
+        }
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .share-buttons a {
+            text-decoration: none;
+            background: #7b2cbf;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: .3s;
+        }
+
+        .share-buttons a:hover {
+            background: #5a189a;
+        }
+
+        .did-you-know {
+            background: #fff9e6;
+            border-left: 5px solid #f4b400;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, .08);
+        }
+
+        .did-you-know h3 {
+            margin-top: 0;
+            color: #c77d00;
+        }
+
+        .did-you-know p {
+            margin: 10px 0 0;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .method-table th {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .method-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .method-table tr:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .method-table tr:hover {
+            background: #f3e8ff;
+        }
+
+        .practice-questions {
+            background: #eef8ff;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .practice-questions ol {
+            padding-left: 20px;
+        }
+
+        .practice-questions li {
+            margin: 10px 0;
+        }
+
+        .quiz-box {
+            background: #fff8e8;
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .quiz-box p {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .quiz-box ul {
+            margin: 10px 0 20px 20px;
+        }
+
+        .quiz-box li {
+            margin: 6px 0;
+        }
+
+        .interview-box {
+            background: #eefcf3;
+            border-left: 5px solid #2ecc71;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .interview-box ol {
+            padding-left: 22px;
+        }
+
+        .interview-box li {
+            margin: 12px 0;
+        }
+
+        .glossary-box {
+            background: #f8f9ff;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .glossary-box dt {
+            color: #7b2cbf;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .glossary-box dd {
+            margin: 5px 0 15px 20px;
+            color: #444;
+        }
+
+        #topBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background: #7b2cbf;
+            color: #fff;
+            cursor: pointer;
+            padding: 14px 18px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+            transition: .3s;
+        }
+
+        #topBtn:hover {
+            background: #5a189a;
+            transform: translateY(-3px);
+        }
+
+        .code-box {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #7b2cbf;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .copy-btn:hover {
+            background: #5a189a;
+        }
+
+        .code-box pre {
+            margin-top: 0;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .method-table th {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .method-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .method-table tr:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .method-table tr:hover {
+            background: #f3e8ff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <a href="javascript-tutorial.html">JavaScript</a>
+            <span>›</span>
+            <span>JavaScript Object</span>
+        </nav>
+        <h1>📦 JavaScript Objects</h1>
+
+        <div class="article-info">
+
+            <div class="left-column">
+
+                <div class="toc">
+
+                    <h3>📚 Table of Contents</h3>
+
+                    <li><a href="#what">📦 What is an Object?</a></li>
+                    <li><a href="#create">📝 Create an Object</a></li>
+                    <li><a href="#access">🔑 Access Properties</a></li>
+                    <li><a href="#update">✏️ Update Properties</a></li>
+                    <li><a href="#add">➕ Add Properties</a></li>
+                    <li><a href="#delete">❌ Delete Properties</a></li>
+                    <li><a href="#loop">🔄 Loop Through Objects</a></li>
+                    <li><a href="#real-life">🌍 Real-Life Example</a></li>
+                    <li><a href="#practice">💻 Try It Yourself</a></li>
+                    <li><a href="#examples">⚡ Object Methods Example</a></li>
+                    <li><a href="#best">⭐ Best Practices</a></li>
+                    <li><a href="#practice">💻 Practice</a></li>
+                    <li><a href="#quiz">🧠 Quiz</a></li>
+                    <li><a href="#interview">💼 Interview Questions</a></li>
+                    <li><a href="#glossary">📖 Glossary</a></li>
+                    <li><a href="#faq">❓ FAQs</a></li>
+
+                    <div class="practice-box" id="practice">
+
+                        <h2 id="practice">💻 Try It Yourself</h2>
+
+                        <div class="practice-box">
+
+                            <p>
+                                Copy the code below and run it in your browser or VS Code.
+                            </p>
+
+                            <button class="copy-btn">📋 Copy</button>
+
+                            <pre>
+let person = {
+    name: "Roshni",
+    age: 18,
+    city: "Mumbai"
+};
+
+console.log(person.name);
+console.log(person.city);
+    </pre>
+
+                            <div class="output-box">
+                                Output:<br>
+                                Roshni<br>
+                                Mumbai
+                            </div>
+
+                        </div>
+
+                        <h2 id="real-life">🌍 Real-Life Example</h2>
+
+                        <div class="practice-box">
+
+                            <p>
+                                Objects are commonly used to store information about a person, product, student, or
+                                employee.
+                            </p>
+
+                            <button class="copy-btn">📋 Copy</button>
+
+                            <pre>
+let student = {
+    name: "Roshni",
+    age: 18,
+    course: "BCA"
+};
+
+console.log(student.name);
+</pre>
+
+                            <div class="output-box">
+                                Output:<br>
+                                Roshni
+                            </div>
+
+                        </div>
+                        <li><a href="#best">⭐ Best Practices</a></li>
+                        <h2 id="practice">📝 Practice Questions</h2>
+
+                        <div class="practice-questions">
+
+                            <ol>
+
+                                <li>Create an object named <b>student</b> with <b>name</b>, <b>age</b>, and <b>city</b>
+                                    properties.</li>
+
+                                <li>Print the <b>name</b> property using dot notation.</li>
+
+                                <li>Print the <b>city</b> property using bracket notation.</li>
+
+                                <li>Update the <b>age</b> property to a new value.</li>
+
+                                <li>Add a new property called <b>country</b>.</li>
+
+                                <li>Delete the <b>city</b> property from the object.</li>
+
+                                <li>Use a <b>for...in</b> loop to print all object properties.</li>
+
+                                <li>Find all keys using <b>Object.keys()</b>.</li>
+
+                                <li>Find all values using <b>Object.values()</b>.</li>
+
+                                <li>Print all key-value pairs using <b>Object.entries()</b>.</li>
+
+                            </ol>
+
+                        </div>
+
+                        <h2 id="quiz">🧠 Mini Quiz</h2>
+
+                        <div class="quiz-box">
+
+                            <p><b>1. What is an object in JavaScript?</b></p>
+
+                            <ul>
+                                <li>A. A loop</li>
+                                <li>B. A function</li>
+                                <li>C. A collection of key-value pairs ✅</li>
+                                <li>D. A variable type</li>
+                            </ul>
+
+                            <p><b>2. Which notation is used to access object properties?</b></p>
+
+                            <ul>
+                                <li>A. Dot notation (.) ✅</li>
+                                <li>B. Slash notation (/)</li>
+                                <li>C. Colon notation (:)</li>
+                                <li>D. Hash notation (#)</li>
+                            </ul>
+
+                            <p><b>3. Which keyword removes a property from an object?</b></p>
+
+                            <ul>
+                                <li>A. remove</li>
+                                <li>B. erase</li>
+                                <li>C. delete ✅</li>
+                                <li>D. pop</li>
+                            </ul>
+
+                            <p><b>4. Which loop is commonly used to iterate over object properties?</b></p>
+
+                            <ul>
+                                <li>A. while</li>
+                                <li>B. for...in ✅</li>
+                                <li>C. do...while</li>
+                                <li>D. switch</li>
+                            </ul>
+
+                            <p><b>5. Which method returns all the keys of an object?</b></p>
+
+                            <ul>
+                                <li>A. Object.values()</li>
+                                <li>B. Object.entries()</li>
+                                <li>C. Object.keys() ✅</li>
+                                <li>D. Object.names()</li>
+                            </ul>
+
+                        </div>
+
+
+
+                        <h2 id="interview">💼 Interview Questions</h2>
+
+                        <div class="interview-box">
+
+                            <ol>
+
+                                <li>What is an object in JavaScript?</li>
+
+                                <li>What is the difference between an object and an array?</li>
+
+                                <li>How do you create an object in JavaScript?</li>
+
+                                <li>How do you access object properties?</li>
+
+                                <li>What is the difference between dot notation and bracket notation?</li>
+
+                                <li>How do you add a new property to an object?</li>
+
+                                <li>How do you update an existing property?</li>
+
+                                <li>How do you delete a property from an object?</li>
+
+                                <li>What is the purpose of the <b>for...in</b> loop?</li>
+
+                                <li>What do <b>Object.keys()</b>, <b>Object.values()</b>, and <b>Object.entries()</b>
+                                    do?
+                                </li>
+
+                            </ol>
+
+                        </div>
+
+                        <h2 id="glossary">📖 Glossary</h2>
+
+                        <div class="glossary-box">
+
+                            <dl>
+
+                                <dt><b>Object</b></dt>
+                                <dd>A collection of key-value pairs used to store related data.</dd>
+
+                                <dt><b>Property</b></dt>
+                                <dd>A key and its value inside an object.</dd>
+
+                                <dt><b>Key</b></dt>
+                                <dd>The name used to identify a value in an object.</dd>
+
+                                <dt><b>Value</b></dt>
+                                <dd>The data stored for a specific key.</dd>
+
+                                <dt><b>Dot Notation</b></dt>
+                                <dd>Accessing properties using the dot (.) operator.</dd>
+
+                                <dt><b>Bracket Notation</b></dt>
+                                <dd>Accessing properties using square brackets [].</dd>
+
+                                <dt><b>Object.keys()</b></dt>
+                                <dd>Returns an array of all object keys.</dd>
+
+                                <dt><b>Object.values()</b></dt>
+                                <dd>Returns an array of all object values.</dd>
+
+                                <dt><b>Object.entries()</b></dt>
+                                <dd>Returns an array of key-value pairs.</dd>
+
+                                <dt><b>for...in Loop</b></dt>
+                                <dd>Used to iterate through object properties.</dd>
+
+                            </dl>
+
+                        </div>
+
+                    </div>
+
+                    <h2 id="examples">⚡ Common Object Methods Example</h2>
+
+                    <p class="code-title">Example:</p>
+
+                    <button class="copy-btn">📋 Copy</button>
+
+                    <pre>
+let person = {
+    name: "Roshni",
+    age: 18
+};
+
+console.log(Object.keys(person));
+console.log(Object.values(person));
+console.log(Object.entries(person));
+</pre>
+
+                    <div class="output-box">
+                        Output:<br>
+                        ["name", "age"]<br>
+                        ["Roshni", 18]<br>
+                        [["name","Roshni"],["age",18]]
+                    </div>
+
+                    <div class="did-you-know">
+
+                        <h3>💡 Did You Know?</h3>
+
+                        <p>
+                            In JavaScript, almost everything is an object. Arrays, functions, and dates are all objects.
+                        </p>
+
+                    </div>
+
+                    <li><a href="#faq">❓ FAQs</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="right-column">
+
+                <div class="tip-box">
+
+                    <h3>💡 Quick Tip</h3>
+
+                    <p>
+                        Objects make your code more organized by grouping related information into a single variable.
+                    </p>
+
+                </div>
+                <div class="mistake-box">
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+                    <ul>
+                        <li>Trying to access a property that doesn't exist.</li>
+
+                        <li>Using <b>=</b> instead of <b>:</b> while creating an object.</li>
+
+                        <li>Forgetting that object keys are case-sensitive.</li>
+
+                        <li>Using dot (<b>.</b>) notation for invalid property names.</li>
+
+                        <li>Not checking whether a property exists before using it.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="author-info">
+
+            <p>✍️ <b>By Roshni Code Charm</b></p>
+
+            <p>📅 July 2026 | ⏱️ 6 min read</p>
+
+            <div class="post-meta">
+
+                <span>📅 Last Updated: July 2026</span>
+
+                <span>🏷️ JavaScript, Arrays, Beginners</span>
+
+            </div>
+
+            <div class="intro-box">
+
+                <h2>📖 Introduction</h2>
+
+                <p class="intro">
+                    JavaScript Objects are used to store data as key-value pairs. In this guide, you'll learn how to
+                    create objects, access properties, update values, add and delete properties, and loop through
+                    objects with easy examples.
+                </p>
+
+            </div>
+
+            <div class="content-box">
+
+                <h2 id="what">📦 What is an Object?</h2>
+
+                <p>
+                    A JavaScript object stores data in the form of <b>key-value pairs</b>.
+                </p>
+
+                <h2 id="create">📝 Create an Object</h2>
+
+                <p class="code-title">Example:</p>
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+let person = {
+    name: "Roshni",
+    age: 18,
+    city: "Mumbai"
+};
+    </pre>
+
+                <div class="output-box">
+                    Object Created Successfully
+                </div>
+
+                <h2 id="access">🔑 Access Object Properties</h2>
+
+                <p class="code-title">Example:</p>
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+console.log(person.name);
+console.log(person.age);
+    </pre>
+
+                <div class="output-box">
+                    Output:<br>
+                    Roshni<br>
+                    18
+                </div>
+
+                <h2 id="update">✏️ Update Object Values</h2>
+
+                <p class="code-title">Example:</p>
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+person.city = "Pune";
+
+console.log(person.city);
+    </pre>
+
+                <div class="output-box">
+                    Output:<br>
+                    Pune
+                </div>
+
+                <h2 id="add">➕ Add New Property</h2>
+
+                <p class="code-title">Example:</p>
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+person.country = "India";
+
+console.log(person.country);
+    </pre>
+
+                <div class="output-box">
+                    Output:<br>
+                    India
+                </div>
+
+                <h2 id="delete">❌ Delete Property</h2>
+
+                <p class="code-title">Example:</p>
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+delete person.age;
+
+console.log(person);
+    </pre>
+
+                <div class="output-box">
+                    Output:<br>
+                    { name: "Roshni", city: "Pune", country: "India" }
+                </div>
+
+                <h2 id="loop">🔄 Loop Through Object</h2>
+
+                <p class="code-title">Example:</p>
+
+                <button class="copy-btn">📋 Copy</button>
+
+                <pre>
+for(let key in person){
+    console.log(key + " : " + person[key]);
+}
+    </pre>
+
+                <div class="output-box">
+                    Output:<br>
+                    name : Roshni<br>
+                    city : Pune<br>
+                    country : India
+                </div>
+
+                <div class="key-box">
+
+                    <h2 id="methods">🛠️ Common Object Methods</h2>
+
+                    <table class="method-table">
+
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+
+                        <tr>
+                            <td>Object.keys()</td>
+                            <td>Returns all object keys.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Object.values()</td>
+                            <td>Returns all object values.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Object.entries()</td>
+                            <td>Returns key-value pairs.</td>
+                        </tr>
+
+                        <tr>
+                            <td>hasOwnProperty()</td>
+                            <td>Checks if a property exists.</td>
+                        </tr>
+
+                    </table>
+
+                    <h3>⭐ Key Points</h3>
+
+                    <ul>
+                        <li>Objects store data as key-value pairs.</li>
+                        <li>Use dot (.) or bracket [] notation to access properties.</li>
+                        <li>Properties can be added, updated, or deleted.</li>
+                        <li>Use <b>for...in</b> loop to iterate over objects.</li>
+                        <li>Objects are useful for storing related information.</li>
+                    </ul>
+
+                </div>
+
+                <h2 id="best">⭐ Best Practices</h2>
+
+                <ul>
+                    <li>Use meaningful property names.</li>
+                    <li>Keep related data inside one object.</li>
+                    <li>Avoid duplicate property names.</li>
+                    <li>Use const when the object reference doesn't change.</li>
+                </ul>
+
+            </div>
+
+            <h2 id="faq">❓ Frequently Asked Questions</h2>
+
+            <div class="faq-box">
+
+                <h3>1. What is an object in JavaScript?</h3>
+                <p>
+                    A JavaScript object is a collection of key-value pairs used to store related data.
+                </p>
+
+                <h3>2. How do you create an object?</h3>
+                <p>
+                    You create an object using curly braces <b>{ }</b>.
+                </p>
+
+                <h3>3. How do you access object properties?</h3>
+                <p>
+                    You can access properties using dot notation (.) or bracket notation ([]).
+                </p>
+
+                <h3>4. How do you add a new property?</h3>
+                <p>
+                    Simply assign a new key and value, for example:
+                    <b>person.city = "Mumbai";</b>
+                </p>
+
+                <h3>5. How do you delete a property?</h3>
+                <p>
+                    Use the <b>delete</b> keyword, for example:
+                    <b>delete person.age;</b>
+                </p>
+
+            </div>
+
+            <div class="related-box">
+
+                <h2>📚 Related Articles</h2>
+
+                <div class="related-links">
+
+                    <a href="javascript-arrays.html">📋 JavaScript Arrays</a>
+
+                    <a href="javascript-functions.html">⚡ JavaScript Functions</a>
+
+                    <a href="javascript-loops.html">🔄 JavaScript Loops</a>
+
+                    <a href="javascript-variables.html">📝 JavaScript Variables</a>
+
+                </div>
+
+            </div>
+
+            <div class="page-nav">
+
+                <a href="javascript-arrays.html" class="btn">
+                    ⬅️ Arrays
+                </a>
+
+                <a href="javasrcipt-dom.html" class="btn">
+                    Next: DOM ➡️
+                </a>
+
+            </div>
+        </div>
+
+        <footer style="text-align:center;padding:25px;color:#777;margin-top:30px;border-top:1px solid #ddd;">
+
+            <p>Made with ❤️ by <b>Roshni Code Charm</b></p>
+
+            <p>© 2026 All Rights Reserved.</p>
+
+        </footer>
+        <button onclick="topFunction()" id="topBtn" title="Go to top">
+            ⬆
+        </button>
+
+        <script>
+
+            let mybutton = document.getElementById("topBtn");
+
+            window.onscroll = function () {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            };
+
+            function topFunction() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            const copyButtons = document.querySelectorAll(".copy-btn");
+
+            copyButtons.forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const code = button.nextElementSibling.innerText;
+
+                    navigator.clipboard.writeText(code);
+
+                    button.innerText = "✅ Copied!";
+
+                    setTimeout(() => {
+
+                        button.innerText = "📋 Copy";
+
+                    }, 2000);
+
+                });
+
+            });
+
+        </script>
+</body>
+
+</html>

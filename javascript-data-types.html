@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JavaScript Basics | Roshni Code Charm</title>
+    <title>JavaScript Data Types | Roshni Code Charm</title>
 
-    <meta name="description" content="Learn JavaScript Basics with simple examples for beginners.">
+    <meta name="description"
+        content="Learn JavaScript Data Types with easy examples. Understand String, Number, Boolean, Null, Undefined, Object and Array.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -166,7 +167,7 @@
 
     <div class="container">
 
-        <h1>⚡ JavaScript Basics for Beginners</h1>
+        <h1>📦 JavaScript Data Types</h1>
 
         <div class="article-info">
 
@@ -177,20 +178,20 @@
                     <h3>📚 Table of Contents</h3>
 
                     <ul>
-                        <li>What is JavaScript?</li>
-                        <li>JavaScript Features</li>
-                        <li>JavaScript Syntax</li>
-                        <li>Variables in JavaScript</li>
-                        <li>Data Types</li>
-                        <li>Functions</li>
-                        <li>DOM</li>
-                        <li>Frequently Asked Questions</li>
+                        <li>What are Data Types?</li>
+                        <li>String</li>
+                        <li>Number</li>
+                        <li>Boolean</li>
+                        <li>Undefined</li>
+                        <li>Null</li>
+                        <li>Object</li>
+                        <li>Array</li>
+                        <li>FAQs</li>
                     </ul>
 
                 </div>
 
             </div>
-
 
             <div class="right-column">
 
@@ -199,21 +200,19 @@
                     <h3>💡 Quick Tip</h3>
 
                     <p>
-                        Practice JavaScript by creating small projects like calculator,
-                        to-do list, and digital clock.
+                        Learn the basic data types first before moving to Objects and Arrays.
                     </p>
 
                 </div>
-
 
                 <div class="mistake-box">
 
                     <h3>⚠️ Common Mistakes</h3>
 
                     <ul>
-                        <li>Using = instead of == or ===.</li>
-                        <li>Forgetting brackets in functions.</li>
-                        <li>Not checking console errors.</li>
+                        <li>Confusing null and undefined.</li>
+                        <li>Using == instead of ===.</li>
+                        <li>Thinking arrays are separate data types.</li>
                     </ul>
 
                 </div>
@@ -221,7 +220,6 @@
             </div>
 
         </div>
-
 
         <div class="author-info">
 
@@ -231,136 +229,118 @@
 
         </div>
 
+        <h2>📦 What are JavaScript Data Types?</h2>
 
-        <div class="content-box">
+        <p>
+            Data Types tell JavaScript what kind of value a variable stores,
+            such as text, numbers, true/false values, objects, or arrays.
+        </p>
 
+        <h2>🔤 String</h2>
 
-            <h2>⚡ What is JavaScript?</h2>
-
-            <p>
-                JavaScript is a programming language used to make websites interactive.
-                It allows developers to add animations, buttons, forms, and dynamic content.
-            </p>
-
-
-            <h2>Basic JavaScript Example</h2>
-
-            <pre>
-let name = "Roshni";
-
-function greet(){
-    alert("Hello " + name);
-}
-
-greet();
+        <pre>
+let name = "Shreya";
 </pre>
 
+        <p>A String stores text.</p>
 
-            <h2>✨ Features of JavaScript</h2>
+        <h2>🔢 Number</h2>
 
-            <ul>
-                <li>Creates interactive websites</li>
-                <li>Works in all modern browsers</li>
-                <li>Supports animations and effects</li>
-                <li>Used for frontend and backend development</li>
-            </ul>
-
-
-            <h2>📦 JavaScript Data Types</h2>
-
-            <ul>
-                <li>String - Text values</li>
-                <li>Number - Numeric values</li>
-                <li>Boolean - True or False</li>
-                <li>Array - Collection of values</li>
-                <li>Object - Stores data in key-value pairs</li>
-            </ul>
-
-
-            <h2>🔤 JavaScript Variables</h2>
-
-            <pre>
+        <pre>
 let age = 18;
-const name = "Shreya";
-var city = "Mumbai";
 </pre>
 
+        <p>Numbers store integer and decimal values.</p>
 
-            <h2>🚀 JavaScript Functions</h2>
+        <h2>✅ Boolean</h2>
 
-            <p>
-                Functions are reusable blocks of code that perform specific tasks.
-            </p>
-
-
-            <pre>
-function add(a,b){
-    return a+b;
-}
+        <pre>
+let isStudent = true;
 </pre>
 
+        <p>Boolean has only two values: true and false.</p>
 
-            <h2>🌐 DOM (Document Object Model)</h2>
+        <h2>❓ Undefined</h2>
 
-            <p>
-                DOM allows JavaScript to change HTML and CSS dynamically.
-                It can update text, colors, images, and webpage content.
-            </p>
+        <pre>
+let city;
+console.log(city);
+</pre>
 
+        <p>A variable that has no value is undefined.</p>
 
-            <h2>💻 JavaScript Projects Ideas</h2>
+        <h2>⭕ Null</h2>
 
-            <ul>
-                <li>Calculator</li>
-                <li>Digital Clock</li>
-                <li>To-Do List</li>
-                <li>Weather App</li>
-                <li>Quiz Application</li>
-            </ul>
+        <pre>
+let phone = null;
+</pre>
 
+        <p>Null means an empty or intentionally unknown value.</p>
 
-            <h2>❓ Frequently Asked Questions</h2>
+        <h2>📦 Object</h2>
 
-            <h3>1. Is JavaScript easy for beginners?</h3>
+        <pre>
+let student = {
+  name: "Shreya",
+  age: 18
+};
+</pre>
 
-            <p>
-                Yes, beginners can learn JavaScript after understanding HTML and CSS.
-            </p>
+        <p>Objects store data in key-value pairs.</p>
 
+        <h2>📋 Array</h2>
 
-            <h3>2. Is JavaScript and Java same?</h3>
+        <pre>
+let colors = ["Red", "Blue", "Green"];
+</pre>
 
-            <p>
-                No, JavaScript and Java are different programming languages.
-            </p>
+        <p>Arrays store multiple values in a single variable.</p>
 
+        <h2>⭐ Summary</h2>
 
-            <h3>3. Where is JavaScript used?</h3>
+        <ul>
+            <li>String → Text</li>
+            <li>Number → Numbers</li>
+            <li>Boolean → True / False</li>
+            <li>Undefined → No value assigned</li>
+            <li>Null → Empty value</li>
+            <li>Object → Key-value data</li>
+            <li>Array → Collection of values</li>
+        </ul>
 
-            <p>
-                JavaScript is used in websites, web apps, mobile apps, and backend development.
-            </p>
+        <h2>❓ Frequently Asked Questions</h2>
 
-            <h2>📚 Related Articles</h2>
+        <h3>1. How many basic data types are there?</h3>
 
-            <ul>
-                <li><a href="python-tutorial.html">🐍 Python Tutorial</a></li>
-                <li><a href="python-variables.html">Python Variables</a></li>
-                <li><a href="html-basics.html">HTML Basics</a></li>
-                <li><a href="css-basics.html">CSS Basics</a></li>
-            </ul>
-            <div class="page-nav">
+        <p>JavaScript has String, Number, Boolean, Undefined, Null, Object and more.</p>
 
-                <a href="css-basics.html" class="btn">
-                    ⬅️ CSS Basics
-                </a>
+        <h3>2. Is Array a data type?</h3>
 
+        <p>Yes. Arrays are special objects used to store multiple values.</p>
 
-                <a href="index.html" class="btn">
-                    Next: Home ➡️
-                </a>
+        <h3>3. Which data type stores text?</h3>
 
-            </div>
+        <p>String stores text values.</p>
+
+        <h2>📚 Related Articles</h2>
+
+        <ul>
+            <li><a href="javascript-basics.html">JavaScript Basics</a></li>
+            <li><a href="javascript-variables.html">JavaScript Variables</a></li>
+            <li><a href="javascript-tutorial.html">JavaScript Tutorial</a></li>
+            <li><a href="python-data-types.html">Python Data Types</a></li>
+        </ul>
+
+        <div class="page-nav">
+
+            <a href="javascript-variables.html" class="btn">
+                ⬅️ JavaScript Variables
+            </a>
+
+            <a href="javascript-loops.html" class="btn">
+                Next: Loops ➡️
+            </a>
+
         </div>
 
     </div>

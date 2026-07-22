@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Strings | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Learn JavaScript Strings with easy examples. Understand string methods, properties, template literals, and common interview questions for beginners.">
+
+    <meta name="keywords"
+        content="JavaScript Strings, JS String Tutorial, JavaScript String Methods, String in JavaScript, JavaScript for Beginners, String Examples, Template Literals">
+
+    <meta name="author" content="Roshni Code Charm">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: cursive;
+        background: #f0ebeb;
+        max-width: 900px;
+        margin: auto;
+        padding: 30px;
+        line-height: 1.8;
+    }
+
+    h1 {
+        color: #7b2cbf;
+    }
+
+    h2 {
+        color: #ff4da6;
+        margin-top: 35px;
+    }
+
+    .intro-box {
+        background-color: rgb(239, 203, 244);
+        border-left: 5px solid #7b2cbf;
+        border-radius: 15px;
+        padding: 20px 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    }
+
+    .intro-box h3 {
+        margin: 0 0 10px;
+        color: #2ebf2c;
+    }
+
+    .intro {
+        margin: 0;
+        color: #111111;
+        font-size: 20px;
+        line-height: 1.8;
+    }
+
+    pre {
+        background: #f3e8ff;
+        color: #333;
+        padding: 2px 10px;
+        border-radius: 5px;
+        border-left: 4px solid #7b2cbf;
+        overflow-x: auto;
+        font-family: Consolas, monospace;
+        font-size: 14px;
+        line-height: 1.1;
+        margin: 6px 0;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #7b2cbf;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .btn:hover {
+        background: #5a189a;
+        transform: translateY(-2px);
+    }
+
+    .page-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    @media(max-width:600px) {
+        .page-nav {
+            flex-direction: column;
+        }
+    }
+
+    .article-info {
+        display: flex;
+        gap: 20px;
+        margin: 25px 0;
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1;
+    }
+
+
+    .toc {
+        background: #f3e8ff;
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 5px solid #7b2cbf;
+    }
+
+    .toc h3 {
+        color: #7b2cbf;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .toc li {
+        margin: 10px 0;
+    }
+
+    .toc a {
+        color: #444;
+        text-decoration: none;
+        font-weight: 500;
+        transition: .3s;
+    }
+
+    .toc a:hover {
+        color: #7b2cbf;
+        padding-left: 6px;
+    }
+
+
+    .tip-box,
+    .mistake-box {
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+
+    .tip-box {
+        background: #e8fff2;
+        border-left: 5px solid #2ecc71;
+    }
+
+
+    .mistake-box {
+        background: #fff2f2;
+        border-left: 5px solid #ff4d4d;
+    }
+
+
+    .content-box {
+        background: #fff;
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+        margin-top: 30px;
+    }
+
+
+    .author-info {
+        background-color: beige;
+        padding: 18px;
+        text-align: center;
+        border-radius: 15px;
+        margin: 25px 0;
+        color: #222;
+        font-size: 25px;
+        font-weight: 500;
+        border-left: 5px solid #7b2cbf;
+    }
+
+
+    .author-info b {
+        color: #7b2cbf;
+    }
+
+    h3 {
+        color: #7b2cbf;
+    }
+
+
+    ul li {
+        margin: 10px 0;
+    }
+
+    .content-box ul {
+        padding-left: 22px;
+    }
+
+    .content-box ul li {
+        margin: 10px 0;
+    }
+
+    .content-box ul li a {
+        color: #7b2cbf;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .content-box ul li a:hover {
+        color: #ff4da6;
+    }
+
+    p {
+        margin: 15px 0;
+    }
+
+    h2 {
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+
+    @media(max-width:768px) {
+
+        .article-info {
+            flex-direction: column;
+        }
+
+        .content-box {
+            padding: 25px;
+        }
+
+        body {
+            padding: 18px;
+        }
+    }
+
+    .key-box {
+        background: #ffe8fa;
+        border-left: 5px solid #f4b400;
+        border-radius: 15px;
+        padding: 20px 25px;
+        margin: 30px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    }
+
+    .key-box h3 {
+        margin-top: 0;
+        color: #d97706;
+    }
+
+    .key-box ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .key-box li {
+        margin: 8px 0;
+    }
+
+    .faq-box {
+        background: #f8f3ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 30px;
+    }
+
+    .faq-box {
+        background: #f8f3ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 30px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .related-box {
+        background: #f8f3ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 35px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+    }
+
+    .related-link {
+        display: block;
+        background: #fff;
+        margin: 10px 0;
+        padding: 12px 18px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #7b2cbf;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .related-link:hover {
+        background: #7b2cbf;
+        color: #fff;
+    }
+
+    .code-title {
+        color: #7b2cbf;
+        font-weight: 600;
+        margin: 15px 0 8px;
+        font-size: 16px;
+    }
+
+    .output-box {
+        background: #e8fff2;
+        border-left: 4px solid #2ecc71;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-top: 8px;
+        color: #222;
+        font-family: Consolas, monospace;
+    }
+
+    .practice-box {
+        background: #eef7ff;
+        border-left: 5px solid #2196f3;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 35px 0;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+    }
+
+    .practice-box h2 {
+        margin-top: 0;
+        color: #1565c0;
+    }
+
+    .related-box {
+        background: #f9f5ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 35px;
+    }
+
+    .related-box h2 {
+        margin-top: 0;
+    }
+
+    .related-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+    }
+
+    .related-links a {
+        display: block;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #7b2cbf;
+        font-weight: 600;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        transition: .3s;
+    }
+
+    .related-links a:hover {
+        background: #7b2cbf;
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+    .post-meta {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        background: #faf5ff;
+        padding: 12px 18px;
+        border-radius: 10px;
+        margin: 20px 0;
+        font-size: 14px;
+        color: #555;
+        border-left: 4px solid #7b2cbf;
+    }
+
+    .post-meta span {
+        font-weight: 500;
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+        margin-bottom: 20px;
+        color: #666;
+    }
+
+    .breadcrumb a {
+        color: #7b2cbf;
+        text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumb span {
+        margin: 0 5px;
+    }
+
+    .share-box {
+        background: #f8f9ff;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 35px 0;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    }
+
+    .share-box h2 {
+        margin-top: 0;
+    }
+
+    .share-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    .share-buttons a {
+        text-decoration: none;
+        background: #7b2cbf;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 25px;
+        transition: .3s;
+    }
+
+    .share-buttons a:hover {
+        background: #5a189a;
+    }
+
+    .did-you-know {
+        background: #fff9e6;
+        border-left: 5px solid #f4b400;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 12px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, .08);
+    }
+
+    .did-you-know h3 {
+        margin-top: 0;
+        color: #c77d00;
+    }
+
+    .did-you-know p {
+        margin: 10px 0 0;
+    }
+
+    .method-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .method-table th {
+        background: #7b2cbf;
+        color: #fff;
+        padding: 12px;
+    }
+
+    .method-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    .method-table tr:nth-child(even) {
+        background: #f8f8ff;
+    }
+
+    .method-table tr:hover {
+        background: #f3e8ff;
+    }
+
+    .practice-questions {
+        background: #eef8ff;
+        border-left: 5px solid #2196f3;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 25px 0;
+    }
+
+    .practice-questions ol {
+        padding-left: 20px;
+    }
+
+    .practice-questions li {
+        margin: 10px 0;
+    }
+
+    .quiz-box {
+        background: #fff8e8;
+        border-left: 5px solid #ff9800;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+    }
+
+    .quiz-box p {
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .quiz-box ul {
+        margin: 10px 0 20px 20px;
+    }
+
+    .quiz-box li {
+        margin: 6px 0;
+    }
+
+    .interview-box {
+        background: #eefcf3;
+        border-left: 5px solid #2ecc71;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+    }
+
+    .interview-box ol {
+        padding-left: 22px;
+    }
+
+    .interview-box li {
+        margin: 12px 0;
+    }
+
+    .glossary-box {
+        background: #f8f9ff;
+        border-left: 5px solid #7b2cbf;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 30px 0;
+    }
+
+    .glossary-box dt {
+        color: #7b2cbf;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+
+    .glossary-box dd {
+        margin: 5px 0 15px 20px;
+        color: #444;
+    }
+
+    #topBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background: #7b2cbf;
+        color: #fff;
+        cursor: pointer;
+        padding: 14px 18px;
+        border-radius: 50%;
+        font-size: 18px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+        transition: .3s;
+    }
+
+    #topBtn:hover {
+        background: #5a189a;
+        transform: translateY(-3px);
+    }
+
+    .code-box {
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #7b2cbf;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: .3s;
+    }
+
+    .copy-btn:hover {
+        background: #5a189a;
+    }
+
+    .code-box pre {
+        margin-top: 0;
+    }
+
+    .method-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .method-table th {
+        background: #7b2cbf;
+        color: #fff;
+        padding: 12px;
+    }
+
+    .method-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    .method-table tr:nth-child(even) {
+        background: #f8f8ff;
+    }
+
+    .method-table tr:hover {
+        background: #f3e8ff;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <a href="javascript-tutorial.html">JavaScript</a>
+            <span>›</span>
+            <span>JavaScript Strings</span>
+        </nav>
+
+        <h1>📦 JavaScript Strings</h1>
+
+        <div class="article-info">
+
+            <div class="left-column">
+
+                <div class="toc">
+
+                    <h3>📚 Table of Contents</h3>
+
+                    <ul>
+                        <li><a href="#what">📖 What is a String?</a></li>
+                        <li><a href="#create">📝 Create a String</a></li>
+                        <li><a href="#length">📏 String Length</a></li>
+                        <li><a href="#access">🔑 Access Characters</a></li>
+                        <li><a href="#concat">➕ Concatenate Strings</a></li>
+                        <li><a href="#case">🔄 Change Case</a></li>
+                        <li><a href="#slice">✂️ Slice & Substring</a></li>
+                        <li><a href="#methods">🛠️ Common String Methods</a></li>
+                        <li><a href="#part2">➡️ Continue to Part 2</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="right-column">
+
+                <div class="tip-box">
+
+                    <h3>💡 Quick Tip</h3>
+
+                    <p>
+                        Strings are immutable. String methods return a new string instead of changing the original one.
+                    </p>
+
+                </div>
+
+                <div class="mistake-box">
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+                    <ul>
+                        <li>Forgetting quotation marks around text.</li>
+                        <li>Using the wrong string method.</li>
+                        <li>Expecting methods to change the original string.</li>
+                        <li>Using incorrect index values.</li>
+                        <li>Confusing slice() with substring().</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="author-info">
+
+            <p>✍️ <b>By Roshni Code Charm</b></p>
+
+            <p>📅 July 2026 | ⏱️ 8 min read</p>
+
+            <div class="post-meta">
+                <span>📅 Last Updated: July 2026</span>
+                <span>🏷️ JavaScript, Strings, Beginners</span>
+            </div>
+
+        </div>
+
+        <div class="intro-box">
+
+            <h2>📖 Introduction</h2>
+
+            <p class="intro">
+                JavaScript Strings are used to store and manipulate text.
+                A string can contain letters, numbers, symbols, spaces, and special characters.
+                JavaScript provides many built-in methods to work with strings easily.
+            </p>
+
+        </div>
+
+        <div class="content-box">
+
+            <h2 id="what">📖 What is a String?</h2>
+
+            <p>
+                A <b>String</b> is a sequence of characters enclosed in quotes.
+                You can use single quotes (' '), double quotes (" "), or backticks (` `).
+            </p>
+
+            <p class="code-title">Example:</p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let text = "Hello JavaScript";
+
+console.log(text);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Hello JavaScript
+            </div>
+
+            <h2 id="create">📝 Create a String</h2>
+
+            <p>You can create strings in three different ways.</p>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let name = "Roshni";
+
+let city = 'Mumbai';
+
+let message = `Welcome`;
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Roshni<br>
+                Mumbai<br>
+                Welcome
+            </div>
+
+            <h2 id="length">📏 String Length</h2>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let text = "JavaScript";
+
+console.log(text.length);
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                10
+            </div>
+
+            <h2 id="access">🔑 Access Characters</h2>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let text = "JavaScript";
+
+console.log(text[0]);
+
+console.log(text.charAt(4));
+
+console.log(text.at(-1));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                J<br>
+                S<br>
+                t
+            </div>
+
+            <h2 id="concat">➕ Concatenate Strings</h2>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let first = "Hello";
+
+let second = "World";
+
+console.log(first + " " + second);
+
+console.log(first.concat(" ", second));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Hello World<br>
+                Hello World
+            </div>
+
+            <h2 id="case">🔄 Change Case</h2>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let text = "JavaScript";
+
+console.log(text.toUpperCase());
+
+console.log(text.toLowerCase());
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                JAVASCRIPT<br>
+                javascript
+            </div>
+
+            <h2 id="slice">✂️ Slice() & Substring()</h2>
+
+            <button class="copy-btn">📋 Copy</button>
+
+            <pre>
+let text = "JavaScript";
+
+console.log(text.slice(0,4));
+
+console.log(text.substring(4));
+</pre>
+
+            <div class="output-box">
+                Output:<br>
+                Java<br>
+                Script
+            </div>
+
+</body>
+
+<h2 id="methods">🛠️ Common String Methods</h2>
+
+<table class="method-table">
+
+    <tr>
+        <th>Method</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>length</td>
+        <td>Returns the length of a string.</td>
+    </tr>
+
+    <tr>
+        <td>charAt()</td>
+        <td>Returns the character at a specific index.</td>
+    </tr>
+
+    <tr>
+        <td>at()</td>
+        <td>Returns the character at the given index (supports negative index).</td>
+    </tr>
+
+    <tr>
+        <td>concat()</td>
+        <td>Joins two or more strings.</td>
+    </tr>
+
+    <tr>
+        <td>toUpperCase()</td>
+        <td>Converts text to uppercase.</td>
+    </tr>
+
+    <tr>
+        <td>toLowerCase()</td>
+        <td>Converts text to lowercase.</td>
+    </tr>
+
+    <tr>
+        <td>slice()</td>
+        <td>Extracts part of a string.</td>
+    </tr>
+
+    <tr>
+        <td>substring()</td>
+        <td>Returns part of a string.</td>
+    </tr>
+
+    <tr>
+        <td>replace()</td>
+        <td>Replaces text.</td>
+    </tr>
+
+    <tr>
+        <td>trim()</td>
+        <td>Removes extra spaces.</td>
+    </tr>
+
+    <tr>
+        <td>includes()</td>
+        <td>Checks whether text exists.</td>
+    </tr>
+
+    <tr>
+        <td>indexOf()</td>
+        <td>Returns the first position of a value.</td>
+    </tr>
+
+    <tr>
+        <td>startsWith()</td>
+        <td>Checks whether the string starts with a value.</td>
+    </tr>
+
+    <tr>
+        <td>endsWith()</td>
+        <td>Checks whether the string ends with a value.</td>
+    </tr>
+
+    <tr>
+        <td>split()</td>
+        <td>Splits a string into an array.</td>
+    </tr>
+
+</table>
+
+<div class="did-you-know">
+
+    <h3>💡 Did You Know?</h3>
+
+    <p>
+        Every text enclosed in quotes is a string. Even <b>"123"</b> is a string,
+        not a number.
+    </p>
+
+</div>
+
+<div class="key-box">
+
+    <h3>⭐ Key Points</h3>
+
+    <ul>
+        <li>Strings store text values.</li>
+        <li>String indexing starts from 0.</li>
+        <li>Strings are immutable.</li>
+        <li>Use built-in methods for string manipulation.</li>
+        <li>JavaScript provides many useful string methods.</li>
+    </ul>
+
+</div>
+
+<h2 id="part2">🌍 Real Life Example</h2>
+
+<p>
+    Think of a student's name stored in a school database.
+    JavaScript strings help store and display names, addresses, emails, and messages.
+</p>
+
+<div class="output-box">
+    Example:<br>
+    Student Name: Roshni<br>
+    City: Mumbai
+</div>
+
+<hr>
+
+<h2>💻 Try It Yourself</h2>
+
+<p>Write code to print your own name in uppercase.</p>
+
+<button class="copy-btn">📋 Copy</button>
+
+<pre>
+let name = "Your Name";
+
+console.log(name.toUpperCase());
+</pre>
+
+<hr>
+
+<h2>⭐ Best Practices</h2>
+
+<ul>
+    <li>Use meaningful string variable names.</li>
+    <li>Use template literals (` `) for long strings.</li>
+    <li>Prefer built-in string methods instead of manual operations.</li>
+    <li>Keep strings readable.</li>
+</ul>
+
+<hr>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+    <li>Forgetting quotation marks.</li>
+    <li>Using wrong index numbers.</li>
+    <li>Thinking strings change after using methods.</li>
+    <li>Using == instead of === for comparison.</li>
+</ul>
+
+<hr>
+
+<div class="practice-questions">
+
+    <h2>📝 Practice Questions</h2>
+
+    <ol>
+        <li>Create a string called <b>city</b>.</li>
+        <li>Find the length of <b>"JavaScript"</b>.</li>
+        <li>Convert <b>"hello"</b> into uppercase.</li>
+        <li>Replace "Java" with "Type".</li>
+        <li>Check whether "Script" exists.</li>
+    </ol>
+
+</div>
+
+<hr>
+
+<div class="quiz-box">
+
+    <h2>🧠 Mini Quiz</h2>
+
+    <p><b>1. Which method converts text into uppercase?</b></p>
+
+    <ul>
+        <li>a) lower()</li>
+        <li>b) toUpperCase()</li>
+        <li>c) upper()</li>
+        <li>d) uppercase()</li>
+    </ul>
+
+    <p><b>Answer:</b> b) toUpperCase()</p>
+
+    <p><b>2. Which property returns string length?</b></p>
+
+    <ul>
+        <li>a) size</li>
+        <li>b) count</li>
+        <li>c) length</li>
+        <li>d) total</li>
+    </ul>
+
+    <p><b>Answer:</b> c) length</p>
+
+</div>
+
+<hr>
+
+<div class="interview-box">
+
+    <h2>💼 Interview Questions</h2>
+
+    <ol>
+        <li>What is a string in JavaScript?</li>
+        <li>Difference between slice() and substring()?</li>
+        <li>What is the use of trim()?</li>
+        <li>Explain replace().</li>
+        <li>How do you find string length?</li>
+    </ol>
+
+</div>
+
+<hr>
+
+<div class="glossary-box">
+
+    <h2>📖 Glossary</h2>
+
+    <dl>
+
+        <dt>String</dt>
+        <dd>A sequence of characters.</dd>
+
+        <dt>Index</dt>
+        <dd>Position of a character starting from 0.</dd>
+
+        <dt>Method</dt>
+        <dd>A built-in function used with strings.</dd>
+
+        <dt>Immutable</dt>
+        <dd>A string cannot be changed directly.</dd>
+
+    </dl>
+
+</div>
+
+<hr>
+
+<div class="faq-box">
+
+    <h2>❓ FAQs</h2>
+
+    <h3>Can a string contain numbers?</h3>
+
+    <p>Yes. Example: "12345".</p>
+
+    <h3>Can strings contain spaces?</h3>
+
+    <p>Yes.</p>
+
+    <h3>Can we use single and double quotes?</h3>
+
+    <p>Yes, both are valid.</p>
+
+</div>
+
+<hr>
+
+<div class="related-box">
+
+    <h2>📚 Related Articles</h2>
+
+    <div class="related-links">
+
+        <a href="javascript-variables.html">Variables</a>
+
+        <a href="javascript-data-types.html">Data Types</a>
+
+        <a href="javascript-arrays.html">Arrays</a>
+
+        <a href="javascript-functions.html">Functions</a>
+
+    </div>
+
+</div>
+
+<div class="page-nav">
+
+    <a href="javascript-numbers.html" class="btn">
+        ⬅️ JavaScript Numbers
+    </a>
+
+    <a href="javascript-arrays.html" class="btn">
+        Next: Arrays ➡️
+    </a>
+
+</div>
+
+</div>
+
+
+<footer style="text-align:center;padding:25px;color:#777;margin-top:30px;border-top:1px solid #ddd;">
+
+    <p>Made with ❤️ by <b>Roshni Code Charm</b></p>
+
+    <p>© 2026 All Rights Reserved.</p>
+
+</footer>
+
+<button onclick="topFunction()" id="topBtn" title="Go to top">
+    ⬆
+</button>
+
+<script>
+
+    let mybutton = document.getElementById("topBtn");
+
+    window.onscroll = function () {
+
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+
+            mybutton.style.display = "block";
+
+        } else {
+
+            mybutton.style.display = "none";
+
+        }
+
+    };
+
+    function topFunction() {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+    const copyButtons = document.querySelectorAll(".copy-btn");
+
+    copyButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const code = button.nextElementSibling.innerText;
+
+            navigator.clipboard.writeText(code);
+
+            button.innerText = "✅ Copied!";
+
+            setTimeout(() => {
+
+                button.innerText = "📋 Copy";
+
+            }, 2000);
+
+        });
+
+    });
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,5599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        JavaScript Asynchronous JavaScript Part 1 | Roshni Code Charm
+    </title>
+
+
+    <meta name="description"
+        content="Learn JavaScript Asynchronous Programming with beginner-friendly examples. Understand synchronous vs asynchronous JavaScript, call stack, Web APIs, and Event Loop.">
+
+
+    <meta name="keywords"
+        content="JavaScript Asynchronous, Async JavaScript, JavaScript Event Loop, Call Stack, Web APIs, JavaScript Tutorial">
+
+
+    <meta name="author" content="Roshni Code Charm">
+
+
+    <meta name="robots" content="index, follow">
+
+
+    <meta name="theme-color" content="#7b2cbf">
+
+
+    <link rel="canonical" href="https://roshni945.github.io/my-website/javascript-asynchronous-part1.html">
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:title" content="JavaScript Asynchronous JavaScript Part 1">
+
+
+    <meta property="og:description" content="Learn Asynchronous JavaScript with simple examples and explanations.">
+
+
+    <meta property="og:type" content="article">
+
+
+    <meta property="og:image" content="images/javascript-asynchronous.png">
+
+
+    <meta property="og:url" content="https://roshni945.github.io/my-website/javascript-asynchronous-part1.html">
+
+
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+
+    <meta name="twitter:title" content="JavaScript Asynchronous JavaScript Part 1">
+
+
+    <meta name="twitter:description" content="Learn Async JavaScript, Call Stack, Web APIs and Event Loop.">
+
+
+    <meta name="twitter:image" content="images/javascript-asynchronous.png">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+    <style>
+        /* ===========================
+   Global Styles
+=========================== */
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family: Poppins, sans-serif;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+
+        }
+
+
+
+        .container {
+
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+        }
+
+
+
+        h1 {
+
+            color: #7b2cbf;
+
+        }
+
+
+        h2 {
+
+            color: #ff4da6;
+            margin-top: 35px;
+
+        }
+
+
+        h3 {
+
+            color: #7b2cbf;
+
+        }
+
+
+
+
+
+        /* ===========================
+ Breadcrumb
+=========================== */
+
+
+        .breadcrumb {
+
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+
+        }
+
+
+        .breadcrumb a {
+
+            color: #7b2cbf;
+            text-decoration: none;
+
+        }
+
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+
+
+
+        /* ===========================
+ Article Info
+=========================== */
+
+
+        .article-info {
+
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+
+        }
+
+
+
+        .left-column,
+        .right-column {
+
+            flex: 1;
+
+        }
+
+
+
+
+
+        /* ===========================
+ TOC
+=========================== */
+
+
+        .toc {
+
+            background: #f3e8ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+
+        }
+
+
+
+        .toc ul {
+
+            list-style: none;
+            padding: 0;
+
+        }
+
+
+
+        .toc li {
+
+            margin: 10px 0;
+
+        }
+
+
+
+        .toc a {
+
+            color: #444;
+            text-decoration: none;
+
+        }
+
+
+        .toc a:hover {
+
+            color: #7b2cbf;
+
+        }
+
+
+
+
+
+        /* ===========================
+ Tip & Mistake Box
+=========================== */
+
+
+        .tip-box {
+
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+
+
+        .mistake-box {
+
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+
+
+
+
+
+        /* ===========================
+ Author Info
+=========================== */
+
+
+        .author-info {
+
+            background: beige;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+            margin: 30px 0;
+
+        }
+
+
+
+        .post-meta {
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #faf5ff;
+            padding: 15px;
+            border-radius: 10px;
+
+        }
+
+
+
+
+
+
+        /* ===========================
+ Intro Box
+=========================== */
+
+
+        .intro-box {
+
+            background: #efcbf4;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+
+        }
+
+
+
+        .intro {
+
+            font-size: 19px;
+
+        }
+
+
+
+
+
+
+        /* ===========================
+ Content Box
+=========================== */
+
+
+        .content-box {
+
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+
+        }
+
+
+
+
+
+
+        /* ===========================
+ Responsive
+=========================== */
+
+
+        @media(max-width:768px) {
+
+
+            .article-info {
+
+                flex-direction: column;
+
+            }
+
+
+            .container {
+
+                padding: 22px;
+
+            }
+
+
+            body {
+
+                padding: 18px;
+
+            }
+
+
+        }
+
+
+
+
+        /* ===========================
+ Footer
+=========================== */
+
+
+        .footer-links,
+        .social-links {
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+
+        }
+
+
+
+        .footer-links a,
+        .social-links a {
+
+            background: #7b2cbf;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+
+        }
+
+
+
+        .footer-links a:hover,
+        .social-links a:hover {
+
+            background: #ff4da6;
+
+        }
+
+
+
+
+
+        /* ===========================
+ Related Articles
+=========================== */
+
+
+        .related-articles {
+
+            margin: 40px auto;
+            padding: 25px;
+            background: #fff7fb;
+            border-radius: 15px;
+            border: 2px solid #f3c4dd;
+
+        }
+
+
+
+        .article-box {
+
+            background: white;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid #e91e63;
+
+        }
+
+
+
+        .article-box:hover {
+
+            transform: translateY(-5px);
+
+        }
+
+
+
+
+
+        /* ===========================
+ Example Boxes
+=========================== */
+
+
+        .example-box {
+
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #7b2cbf;
+
+        }
+
+
+
+        .example-output {
+
+            background: #e8fff2;
+            padding: 15px;
+            border-radius: 10px;
+
+        }
+
+
+
+
+
+        /* ===========================
+ Important & Real Life Box
+=========================== */
+
+
+        .important-box {
+
+            background: #fff8e1;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+
+
+        .real-life-box {
+
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+
+
+        .did-you-know {
+
+            background: #fce4ec;
+            border-left: 5px solid #ff4da6;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+
+
+        .definition-box {
+
+            background: #f3e8ff;
+            border-left: 5px solid #7b2cbf;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+        /* Previous Next Navigation */
+
+        .navigation-box {
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 20px;
+            background: #f3e8ff;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+
+        }
+
+
+        .navigation-box a {
+
+            text-decoration: none;
+            background: #7b2cbf;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-align: center;
+            transition: .3s;
+
+        }
+
+
+        .navigation-box a:hover {
+
+            background: #ff4da6;
+            transform: translateY(-3px);
+
+        }
+
+
+
+        @media(max-width:600px) {
+
+            .navigation-box {
+
+                flex-direction: column;
+
+            }
+
+        }
+    </style>
+
+<body>
+
+    <div class="container">
+
+
+        <!-- ===========================
+     Breadcrumb
+=========================== -->
+
+        <nav class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <span>›</span>
+
+            <a href="javascript.html">JavaScript</a>
+
+            <span>›</span>
+
+            <span>Asynchronous JavaScript Part 1</span>
+
+        </nav>
+
+
+
+
+
+        <h1>⚡ JavaScript Asynchronous JavaScript Part 1</h1>
+
+
+
+
+
+        <!-- ===========================
+     Article Info
+=========================== -->
+
+        <div class="article-info">
+
+
+            <div class="left-column">
+
+
+                <div class="toc">
+
+
+                    <h3>📚 Table of Contents</h3>
+
+
+                    <ul>
+
+                        <li>
+                            <a href="#intro">
+                                📖 Introduction to Asynchronous JavaScript
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#sync">
+                                ⏳ Synchronous JavaScript
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#async">
+                                ⚡ Asynchronous JavaScript
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#difference">
+                                ⚖️ Synchronous vs Asynchronous
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#execution">
+                                ▶️ JavaScript Execution Flow
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#call-stack">
+                                📚 Call Stack
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#web-api">
+                                🌐 Web APIs
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#event-loop">
+                                🔄 Event Loop
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#summary">
+                                📚 Summary
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="right-column">
+
+
+                <div class="tip-box">
+
+
+                    <h3>💡 Quick Tip</h3>
+
+
+                    <p>
+
+                        JavaScript executes code line by line, but asynchronous
+                        features allow time-consuming tasks to run without blocking
+                        the main program.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="mistake-box">
+
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            Confusing asynchronous code with multi-threading.
+                        </li>
+
+
+                        <li>
+                            Thinking setTimeout() runs immediately.
+                        </li>
+
+
+                        <li>
+                            Ignoring Promises and async/await concepts.
+                        </li>
+
+
+                        <li>
+                            Not understanding Event Loop execution.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- ===========================
+     Author Info
+=========================== -->
+
+
+        <div class="author-info">
+
+
+            <p>
+
+                ✍️ <b>By Roshni Code Charm</b>
+
+            </p>
+
+
+            <p>
+
+                📅 July 2026 | ⏱️ 15 min read
+
+            </p>
+
+
+
+            <div class="post-meta">
+
+
+                <span>
+                    📅 Last Updated: July 2026
+                </span>
+
+
+                <span>
+                    🏷️ JavaScript, Async, Beginners
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ===========================
+     Introduction
+=========================== -->
+
+
+        <div class="intro-box">
+
+
+            <h2>📖 Introduction</h2>
+
+
+            <p class="intro">
+
+
+                Asynchronous JavaScript is an important concept that allows
+                websites to perform tasks like API calls, timers, and data
+                loading without freezing the webpage.
+
+                Understanding asynchronous programming helps developers build
+                fast and interactive applications.
+
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- ===========================
+     Main Content
+=========================== -->
+
+
+        <div class="content-box">
+
+            <!-- ===========================
+     Asynchronous JavaScript
+=========================== -->
+
+            <section id="what-is-async">
+
+
+                <h2>⚡ What is Asynchronous JavaScript?</h2>
+
+
+                <p>
+
+                    JavaScript is a single-threaded programming language, which means it
+                    executes one task at a time. However, JavaScript can perform long-running
+                    tasks like API calls, timers, and file operations without blocking the
+                    main program using <b>Asynchronous JavaScript</b>.
+
+                </p>
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        <b>Asynchronous JavaScript</b> allows JavaScript to execute tasks in the
+                        background and continue running other code without waiting for the previous
+                        task to complete.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        Although JavaScript is single-threaded, browsers provide Web APIs that help
+                        JavaScript handle asynchronous operations.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <h3>📝 Example: Normal Synchronous Code</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Synchronous Example</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+console.log("Start");
+
+
+console.log("Middle");
+
+
+console.log("End");
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+
+                            Start<br>
+                            Middle<br>
+                            End
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <h3>⏳ Example: Asynchronous Code</h3>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>setTimeout Example</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+console.log("Start");
+
+
+setTimeout(function(){
+
+    console.log("Task Completed");
+
+},2000);
+
+
+
+console.log("End");
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+
+                            Start<br>
+                            End<br>
+                            Task Completed
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="real-life-box">
+
+
+                    <h3>🌍 Real-Life Example</h3>
+
+
+                    <p>
+
+                        Imagine ordering food online:
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>🍔 Place order → JavaScript starts request</li>
+
+                        <li>🚚 Delivery process runs in background</li>
+
+                        <li>📱 You can continue using the app</li>
+
+                        <li>✅ When food is ready, you get notification</li>
+
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>⭐ Key Points</h3>
+
+
+                    <ul>
+
+                        <li>
+                            ✅ JavaScript is single-threaded.
+                        </li>
+
+                        <li>
+                            ✅ Asynchronous code does not block execution.
+                        </li>
+
+                        <li>
+                            ✅ setTimeout(), API calls, and Promises are asynchronous.
+                        </li>
+
+                        <li>
+                            ✅ Event Loop manages asynchronous tasks.
+                        </li>
+
+                        <li>
+                            ✅ Async programming improves website performance.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     Call Stack
+=========================== -->
+
+
+            <section id="call-stack">
+
+
+                <h2>📚 JavaScript Call Stack</h2>
+
+
+                <p>
+
+                    The <b>Call Stack</b> is a mechanism that JavaScript uses to keep track
+                    of function execution. It follows the <b>LIFO (Last In First Out)</b>
+                    principle.
+
+                </p>
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        The Call Stack is a memory structure that stores function calls
+                        and executes them one by one.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        JavaScript has a single Call Stack, which means it can execute
+                        only one task at a time.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <h3>📝 Example: Call Stack</h3>
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Function Execution</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+function first(){
+
+    console.log("First Function");
+
+}
+
+
+function second(){
+
+    first();
+
+    console.log("Second Function");
+
+}
+
+
+second();
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+
+                            First Function<br>
+                            Second Function
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="real-life-box">
+
+
+                    <h3>🌍 Real-Life Example</h3>
+
+
+                    <p>
+
+                        Think of a stack of plates:
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>🍽️ Last plate placed → Removed first</li>
+
+                        <li>📚 Last function called → Executed first</li>
+
+                    </ul>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+
+            <!-- ===========================
+     Web APIs
+=========================== -->
+
+
+            <section id="web-api">
+
+
+                <h2>🌐 Web APIs in JavaScript</h2>
+
+
+
+                <p>
+
+                    Web APIs are provided by the browser to perform tasks that JavaScript
+                    cannot handle directly, such as timers, API requests, and DOM events.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        Web APIs are browser features that allow JavaScript to perform
+                        asynchronous operations outside the Call Stack.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <h3>Examples of Web APIs</h3>
+
+
+                <ul>
+
+
+                    <li>
+                        ⏰ setTimeout()
+                    </li>
+
+
+                    <li>
+                        🌐 Fetch API
+                    </li>
+
+
+                    <li>
+                        🖱️ DOM Events
+                    </li>
+
+
+                    <li>
+                        📍 Geolocation
+                    </li>
+
+
+                    <li>
+                        💾 Local Storage
+                    </li>
+
+
+                </ul>
+
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: setTimeout()</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+console.log("Start");
+
+
+setTimeout(function(){
+
+
+console.log("Hello");
+
+
+},2000);
+
+
+
+console.log("End");
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+
+                            Start<br>
+                            End<br>
+                            Hello
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- ===========================
+     Callback Queue
+=========================== -->
+
+
+                <section id="callback-queue">
+
+
+                    <h2>📋 Callback Queue</h2>
+
+
+                    <p>
+
+                        The Callback Queue stores completed asynchronous tasks waiting
+                        to be executed by the Call Stack.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            Callback Queue is a queue where callback functions wait until
+                            the Call Stack becomes empty.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <p>
+
+                            Imagine a restaurant:
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>👨‍🍳 Order completed → Added to waiting list</li>
+
+                            <li>📋 Free chef → Takes next order</li>
+
+                            <li>⚙️ Call Stack → Chef working</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+                <!-- ===========================
+     Event Loop
+=========================== -->
+
+
+                <section id="event-loop">
+
+
+                    <h2>🔄 JavaScript Event Loop</h2>
+
+
+                    <p>
+
+                        The Event Loop is the mechanism that continuously checks whether
+                        the Call Stack is empty. If the stack is empty, it moves tasks
+                        from the Callback Queue to the Call Stack.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            The Event Loop manages asynchronous JavaScript execution by
+                            connecting the Call Stack and Callback Queue.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                    <h3>⚙️ Event Loop Working Process</h3>
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+1. JavaScript code enters Call Stack
+
+
+            ↓
+
+
+2. Async task goes to Web API
+
+
+            ↓
+
+
+3. Task completes
+
+
+            ↓
+
+
+4. Callback moves to Callback Queue
+
+
+            ↓
+
+
+5. Event Loop checks Call Stack
+
+
+            ↓
+
+
+6. Callback executes
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ Call Stack executes JavaScript code.
+                            </li>
+
+
+                            <li>
+                                ✅ Web APIs handle asynchronous tasks.
+                            </li>
+
+
+                            <li>
+                                ✅ Callback Queue stores completed callbacks.
+                            </li>
+
+
+                            <li>
+                                ✅ Event Loop connects Queue and Stack.
+                            </li>
+
+
+                            <li>
+                                ✅ This process makes JavaScript non-blocking.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+
+                </section>
+
+                <!-- ===========================
+     Callback Functions
+=========================== -->
+
+                <section id="callback">
+
+
+                    <h2>📞 Callback Functions</h2>
+
+
+                    <p>
+
+                        A <b>Callback Function</b> is a function that is passed as an argument
+                        to another function and executed later after a task is completed.
+
+                    </p>
+
+
+
+                    <div class="definition-box">
+
+                        <h3>📘 Definition</h3>
+
+                        <p>
+
+                            A callback is a function that is passed into another function as a
+                            parameter and called when a specific operation is finished.
+
+                        </p>
+
+                    </div>
+
+
+
+
+                    <div class="did-you-know">
+
+                        <h3>💡 Did You Know?</h3>
+
+                        <p>
+
+                            Callbacks are one of the oldest ways to handle asynchronous operations
+                            in JavaScript before Promises and Async/Await were introduced.
+
+                        </p>
+
+                    </div>
+
+
+
+
+
+                    <h3>📝 Syntax</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+                            <h3>Callback Syntax</h3>
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+                        </div>
+
+
+                        <pre><code>
+
+function firstFunction(callback){
+
+    callback();
+
+}
+
+
+firstFunction(secondFunction);
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>Example: Callback Function</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+                            <h3>Simple Callback Example</h3>
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+                        </div>
+
+
+
+                        <pre><code>
+
+function greet(name, callback){
+
+
+    console.log("Hello " + name);
+
+
+    callback();
+
+
+}
+
+
+
+function message(){
+
+
+    console.log("Welcome to JavaScript");
+
+
+}
+
+
+
+greet("Roshni", message);
+
+
+</code></pre>
+
+
+
+
+                        <div class="example-output">
+
+                            <h4>✅ Output</h4>
+
+                            <p>
+
+                                Hello Roshni<br>
+                                Welcome to JavaScript
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <p>
+
+                            When you upload a photo:
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>📤 Upload starts</li>
+
+                            <li>⏳ Waiting for completion</li>
+
+                            <li>✅ After upload finishes, success message appears</li>
+
+                        </ul>
+
+
+                        <p>
+
+                            The success message works like a callback function.
+
+                        </p>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+                <!-- ===========================
+     Callback Hell
+=========================== -->
+
+
+                <section id="callback-hell">
+
+
+                    <h2>🔥 Callback Hell</h2>
+
+
+                    <p>
+
+                        When multiple asynchronous tasks depend on each other, callbacks
+                        can become deeply nested. This situation is called
+                        <b>Callback Hell</b>.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            Callback Hell is a situation where many nested callbacks make code
+                            difficult to read, understand, and maintain.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                    <h3>❌ Example of Callback Hell</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Nested Callbacks</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+login(function(){
+
+
+    getUser(function(){
+
+
+        getData(function(){
+
+
+            showResult(function(){
+
+
+                console.log("Completed");
+
+
+            });
+
+
+        });
+
+
+    });
+
+
+});
+
+
+
+</code></pre>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="mistake-box">
+
+
+                        <h3>⚠️ Problems of Callback Hell</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                Code becomes difficult to read.
+                            </li>
+
+
+                            <li>
+                                Debugging becomes harder.
+                            </li>
+
+
+                            <li>
+                                Maintenance becomes difficult.
+                            </li>
+
+
+                            <li>
+                                Creates pyramid-like structure.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Promises
+=========================== -->
+
+
+                <section id="promises">
+
+
+                    <h2>🤝 JavaScript Promises</h2>
+
+
+                    <p>
+
+                        Promises are a modern way to handle asynchronous operations.
+                        They solve the problems created by callback hell.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            A Promise is an object that represents the future result of an
+                            asynchronous operation.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>Promise States</h3>
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+        Promise
+
+
+           |
+
+   -----------------
+
+   |       |       |
+
+Pending Fulfilled Rejected
+
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+                    <ul>
+
+                        <li>
+                            ⏳ <b>Pending:</b> Operation is running
+                        </li>
+
+
+                        <li>
+                            ✅ <b>Fulfilled:</b> Operation completed successfully
+                        </li>
+
+
+                        <li>
+                            ❌ <b>Rejected:</b> Operation failed
+                        </li>
+
+
+                    </ul>
+
+
+
+
+
+
+
+                    <h3>📝 Promise Syntax</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+                            <h3>Create Promise</h3>
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+                        </div>
+
+
+                        <pre><code>
+
+
+let promise = new Promise(function(resolve, reject){
+
+
+    let success = true;
+
+
+    if(success){
+
+        resolve("Task Completed");
+
+    }
+
+    else{
+
+        reject("Task Failed");
+
+    }
+
+
+});
+
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>Using then() and catch()</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+                            <h3>Promise Handling</h3>
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+promise
+
+.then(function(result){
+
+    console.log(result);
+
+})
+
+
+.catch(function(error){
+
+    console.log(error);
+
+});
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Task Completed
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ Callback functions handle tasks after completion.
+                            </li>
+
+
+                            <li>
+                                ✅ Too many nested callbacks create Callback Hell.
+                            </li>
+
+
+                            <li>
+                                ✅ Promises provide cleaner asynchronous code.
+                            </li>
+
+
+                            <li>
+                                ✅ Promise has three states: Pending, Fulfilled, Rejected.
+                            </li>
+
+
+                            <li>
+                                ✅ Promises use then(), catch(), and finally().
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+                <!-- ===========================
+     Promise Methods
+=========================== -->
+
+                <section id="promise-methods">
+
+
+                    <h2>⚡ JavaScript Promise Methods</h2>
+
+
+                    <p>
+
+                        Promises provide different methods to handle asynchronous operations
+                        and manage multiple tasks efficiently.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+                        <h3>📘 Definition</h3>
+
+                        <p>
+
+                            Promise methods are built-in methods that help us work with
+                            successful and failed asynchronous operations.
+
+                        </p>
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>⭐ Important Promise Methods</h3>
+
+
+                    <div class="example-box">
+
+
+                        <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                            <tr>
+
+                                <th>Method</th>
+
+                                <th>Description</th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>then()</td>
+
+                                <td>Runs when Promise is successful</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>catch()</td>
+
+                                <td>Handles errors</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>finally()</td>
+
+                                <td>Runs after completion (success or failure)</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>Promise.all()</td>
+
+                                <td>Runs multiple promises together</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>Promise.race()</td>
+
+                                <td>Returns first completed promise</td>
+
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>📝 Example: finally()</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Promise finally Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+let task = new Promise(function(resolve,reject){
+
+
+    resolve("Data Loaded");
+
+
+});
+
+
+
+task
+
+.then(function(result){
+
+    console.log(result);
+
+})
+
+
+.catch(function(error){
+
+    console.log(error);
+
+})
+
+
+.finally(function(){
+
+    console.log("Task Finished");
+
+});
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Data Loaded<br>
+                                Task Finished
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Async Await
+=========================== -->
+
+
+                <section id="async-await">
+
+
+                    <h2>⏳ Async/Await in JavaScript</h2>
+
+
+
+                    <p>
+
+                        Async/Await is a modern way to write asynchronous code.
+                        It makes Promise-based code easier to read and understand.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            <b>async</b> makes a function return a Promise, while
+                            <b>await</b> pauses the execution until the Promise is completed.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="did-you-know">
+
+
+                        <h3>💡 Did You Know?</h3>
+
+
+                        <p>
+
+                            Async/Await was introduced in ES2017 and is widely used in
+                            modern JavaScript applications.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>📝 Async Function Syntax</h3>
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+async function functionName(){
+
+
+    let result = await promise;
+
+
+}
+
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <h3>Example: Async/Await</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Fetch Data Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+function getData(){
+
+
+return new Promise(function(resolve){
+
+
+setTimeout(function(){
+
+
+resolve("Data Received");
+
+
+},2000);
+
+
+});
+
+
+}
+
+
+
+
+async function displayData(){
+
+
+let result = await getData();
+
+
+console.log(result);
+
+
+}
+
+
+
+displayData();
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Data Received
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <p>
+
+                            When a shopping website loads products:
+
+                        </p>
+
+
+                        <ul>
+
+
+                            <li>🛒 Request product data</li>
+
+
+                            <li>⏳ Wait for server response</li>
+
+
+                            <li>📦 Display products after data arrives</li>
+
+
+                        </ul>
+
+
+                        <p>
+
+                            Async/Await makes this process easier to write.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Error Handling
+=========================== -->
+
+
+                <section id="error-handling">
+
+
+                    <h2>⚠️ Error Handling in Async JavaScript</h2>
+
+
+                    <p>
+
+                        Errors can happen during asynchronous operations.
+                        JavaScript provides error handling methods to manage these problems.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            Error handling allows developers to detect and handle errors
+                            without stopping the entire program.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <h3>try...catch with Async/Await</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Error Handling Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+async function getUser(){
+
+
+try{
+
+
+let response = await fetch("invalid-url");
+
+
+console.log(response);
+
+
+}
+
+
+catch(error){
+
+
+console.log("Error Found");
+
+
+}
+
+
+}
+
+
+
+getUser();
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Error Found
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ Async/Await makes Promise code simple.
+                            </li>
+
+
+                            <li>
+                                ✅ async function always returns a Promise.
+                            </li>
+
+
+                            <li>
+                                ✅ await waits for Promise completion.
+                            </li>
+
+
+                            <li>
+                                ✅ try...catch handles asynchronous errors.
+                            </li>
+
+
+                            <li>
+                                ✅ Modern JavaScript uses Async/Await frequently.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+                <!-- ===========================
+     Event Loop Deep Explanation
+=========================== -->
+
+                <section id="event-loop-deep">
+
+
+                    <h2>🔄 JavaScript Event Loop Deep Explanation</h2>
+
+
+                    <p>
+
+                        The <b>Event Loop</b> is one of the most important concepts in
+                        Asynchronous JavaScript. It allows JavaScript to perform
+                        non-blocking operations even though it has a single Call Stack.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            The Event Loop continuously checks the Call Stack and Task Queues.
+                            When the Call Stack is empty, it moves waiting tasks into the stack
+                            for execution.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="did-you-know">
+
+
+                        <h3>💡 Did You Know?</h3>
+
+
+                        <p>
+
+                            The Event Loop is the reason JavaScript can handle timers,
+                            API requests, and user interactions smoothly without freezing
+                            the webpage.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>⚙️ How Event Loop Works</h3>
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+JavaScript Code
+
+       ↓
+
+Call Stack
+
+       ↓
+
+Web APIs
+
+       ↓
+
+Callback Queue
+
+       ↓
+
+Event Loop
+
+       ↓
+
+Call Stack
+
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Event Loop Steps</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                1️⃣ JavaScript code enters the Call Stack.
+                            </li>
+
+
+                            <li>
+                                2️⃣ Asynchronous tasks are sent to Web APIs.
+                            </li>
+
+
+                            <li>
+                                3️⃣ After completion, callbacks move to a queue.
+                            </li>
+
+
+                            <li>
+                                4️⃣ Event Loop checks if Call Stack is empty.
+                            </li>
+
+
+                            <li>
+                                5️⃣ Callback is moved to Call Stack and executed.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Microtask Queue
+=========================== -->
+
+
+                <section id="microtask">
+
+
+                    <h2>⚡ Microtask Queue</h2>
+
+
+                    <p>
+
+                        The Microtask Queue stores high-priority asynchronous tasks.
+                        Promises and Async/Await use the Microtask Queue.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            The Microtask Queue is a queue that stores callbacks from
+                            Promises and executes them before normal callback tasks.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>Examples of Microtasks</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            🤝 Promise.then()
+                        </li>
+
+
+                        <li>
+                            ⏳ Promise.catch()
+                        </li>
+
+
+                        <li>
+                            ⚡ Async/Await
+                        </li>
+
+
+                        <li>
+                            🔄 MutationObserver
+                        </li>
+
+
+                    </ul>
+
+
+
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Promise Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+console.log("Start");
+
+
+
+Promise.resolve()
+
+.then(function(){
+
+console.log("Promise Task");
+
+});
+
+
+
+console.log("End");
+
+
+
+</code></pre>
+
+
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Start<br>
+                                End<br>
+                                Promise Task
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Macrotask Queue
+=========================== -->
+
+
+                <section id="macrotask">
+
+
+                    <h2>⏰ Macrotask Queue</h2>
+
+
+                    <p>
+
+                        The Macrotask Queue stores normal asynchronous tasks like
+                        timers and browser events.
+
+                    </p>
+
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            The Macrotask Queue contains callbacks from setTimeout(),
+                            setInterval(), and DOM events.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>Examples of Macrotasks</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ⏰ setTimeout()
+                        </li>
+
+
+                        <li>
+                            🔁 setInterval()
+                        </li>
+
+
+                        <li>
+                            🖱️ Click Events
+                        </li>
+
+
+                        <li>
+                            ⌨️ Keyboard Events
+                        </li>
+
+
+                    </ul>
+
+
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>setTimeout Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+console.log("Start");
+
+
+
+setTimeout(function(){
+
+
+console.log("Timer");
+
+
+},0);
+
+
+
+console.log("End");
+
+
+
+</code></pre>
+
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Start<br>
+                                End<br>
+                                Timer
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Execution Order
+=========================== -->
+
+
+                <section id="execution-order">
+
+
+                    <h2>📌 JavaScript Execution Order</h2>
+
+
+                    <p>
+
+                        When JavaScript runs asynchronous code, Microtasks have higher
+                        priority than Macrotasks.
+
+                    </p>
+
+
+
+
+
+
+
+                    <h3>📝 Example: Execution Priority</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Microtask vs Macrotask</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+console.log("1");
+
+
+
+setTimeout(()=>{
+
+
+console.log("2");
+
+
+},0);
+
+
+
+Promise.resolve()
+
+.then(()=>{
+
+
+console.log("3");
+
+
+});
+
+
+
+console.log("4");
+
+
+
+</code></pre>
+
+
+
+
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                1<br>
+                                4<br>
+                                3<br>
+                                2
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <p>
+
+                            Think of priority system:
+
+                        </p>
+
+
+                        <ul>
+
+
+                            <li>
+                                🚨 Emergency work → Microtask Queue
+                            </li>
+
+
+                            <li>
+                                📋 Normal work → Macrotask Queue
+                            </li>
+
+
+                            <li>
+                                👨‍💻 Manager → Event Loop
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ Event Loop manages asynchronous execution.
+                            </li>
+
+
+                            <li>
+                                ✅ Promise tasks go to Microtask Queue.
+                            </li>
+
+
+                            <li>
+                                ✅ setTimeout tasks go to Macrotask Queue.
+                            </li>
+
+
+                            <li>
+                                ✅ Microtasks execute before Macrotasks.
+                            </li>
+
+
+                            <li>
+                                ✅ Understanding Event Loop is important for interviews.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+                <!-- ===========================
+     Fetch API Introduction
+=========================== -->
+
+                <section id="fetch-api">
+
+
+                    <h2>🌐 JavaScript Fetch API</h2>
+
+
+                    <p>
+
+                        The <b>Fetch API</b> is a modern JavaScript feature used to make
+                        HTTP requests and communicate with servers. It allows developers
+                        to get data from APIs and display it on webpages.
+
+                    </p>
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            Fetch API provides a simple way to make network requests using
+                            the <code>fetch()</code> method. It returns a Promise that resolves
+                            with the response from the server.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="did-you-know">
+
+
+                        <h3>💡 Did You Know?</h3>
+
+
+                        <p>
+
+                            The Fetch API replaced older techniques like XMLHttpRequest (XHR)
+                            and is commonly used in modern web applications.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+                    <h3>📝 Fetch Syntax</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Basic Fetch Syntax</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+fetch("URL")
+
+.then(response =&gt; {
+
+    return response.json();
+
+})
+
+.then(data =&gt; {
+
+    console.log(data);
+
+})
+
+.catch(error =&gt; {
+
+    console.log(error);
+
+});
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     HTTP Requests
+=========================== -->
+
+                <section id="http-request">
+
+
+                    <h2>📡 HTTP Requests in JavaScript</h2>
+
+
+                    <p>
+
+                        Fetch API is used to send and receive data using different HTTP
+                        methods.
+
+                    </p>
+
+
+
+
+                    <div class="example-box">
+
+
+                        <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                            <tr>
+
+                                <th>Method</th>
+
+                                <th>Purpose</th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>GET</td>
+
+                                <td>Fetch data from server</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>POST</td>
+
+                                <td>Send new data to server</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>PUT</td>
+
+                                <td>Update existing data</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>DELETE</td>
+
+                                <td>Remove data</td>
+
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <p>
+
+                            When you open a weather app:
+
+                        </p>
+
+
+                        <ul>
+
+
+                            <li>📱 App sends request to weather API</li>
+
+                            <li>🌐 Server sends weather data</li>
+
+                            <li>☁️ JavaScript displays temperature</li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     GET Request
+=========================== -->
+
+                <section id="get-request">
+
+
+                    <h2>📥 GET Request using Fetch</h2>
+
+
+                    <p>
+
+                        A GET request is used to retrieve data from a server.
+
+                    </p>
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Fetch Data Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+
+                        <pre><code>
+
+
+fetch("https://jsonplaceholder.typicode.com/users")
+
+
+.then(response =&gt; response.json())
+
+
+.then(data =&gt; {
+
+
+console.log(data);
+
+
+})
+
+
+.catch(error =&gt; {
+
+
+console.log(error);
+
+
+});
+
+
+</code></pre>
+
+
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                User data displayed from API.
+
+                            </p>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     JSON Handling
+=========================== -->
+
+                <section id="json">
+
+
+                    <h2>📦 JSON in JavaScript</h2>
+
+
+                    <p>
+
+                        JSON stands for <b>JavaScript Object Notation</b>. It is a format
+                        used to store and exchange data between client and server.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            JSON is a lightweight data format that allows applications to
+                            exchange information easily.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>JSON Example</h3>
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+{
+
+"name":"Roshni",
+
+"language":"JavaScript",
+
+"level":"Beginner"
+
+}
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <!-- JSON Methods -->
+
+
+                    <h3>🔄 JSON.parse()</h3>
+
+
+                    <p>
+
+                        JSON.parse() converts JSON string into JavaScript object.
+
+                    </p>
+
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+let data = '{"name":"Roshni"}';
+
+
+let obj = JSON.parse(data);
+
+
+console.log(obj.name);
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Roshni
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>🔄 JSON.stringify()</h3>
+
+
+                    <p>
+
+                        JSON.stringify() converts JavaScript object into JSON string.
+
+                    </p>
+
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+let user = {
+
+name:"Roshni"
+
+};
+
+
+let jsonData = JSON.stringify(user);
+
+
+console.log(jsonData);
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                {"name":"Roshni"}
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Async Await Fetch
+=========================== -->
+
+                <section id="async-fetch">
+
+
+                    <h2>⚡ Fetch API with Async/Await</h2>
+
+
+                    <p>
+
+                        Async/Await makes Fetch API code cleaner and easier to understand.
+
+                    </p>
+
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Async Fetch Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+async function getUsers(){
+
+
+try{
+
+
+let response = await fetch(
+"https://jsonplaceholder.typicode.com/users"
+);
+
+
+let data = await response.json();
+
+
+console.log(data);
+
+
+}
+
+
+catch(error){
+
+
+console.log(error);
+
+
+}
+
+
+}
+
+
+
+getUsers();
+
+
+
+</code></pre>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ Fetch API is used for server communication.
+                            </li>
+
+
+                            <li>
+                                ✅ fetch() returns a Promise.
+                            </li>
+
+
+                            <li>
+                                ✅ JSON is used for data exchange.
+                            </li>
+
+
+                            <li>
+                                ✅ response.json() converts response into JavaScript object.
+                            </li>
+
+
+                            <li>
+                                ✅ Async/Await makes API code easier.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+                <!-- ===========================
+     Browser Storage
+=========================== -->
+
+                <section id="browser-storage">
+
+
+                    <h2>💾 JavaScript Browser Storage</h2>
+
+
+                    <p>
+
+                        Browser Storage allows websites to store data inside the user's
+                        browser. It helps save information even after refreshing or closing
+                        the webpage.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            Browser Storage is a feature that allows JavaScript applications
+                            to store and retrieve data directly from the browser.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+                    <h3>Types of Browser Storage</h3>
+
+
+                    <div class="example-box">
+
+
+                        <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                            <tr>
+
+                                <th>Storage</th>
+
+                                <th>Description</th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>localStorage</td>
+
+                                <td>Stores data permanently until manually removed</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>sessionStorage</td>
+
+                                <td>Stores data only during current browser session</td>
+
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <ul>
+
+
+                            <li>🛒 Shopping cart items</li>
+
+                            <li>🌙 Dark mode preference</li>
+
+                            <li>🔐 Remember login settings</li>
+
+                            <li>📝 Saved notes</li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Local Storage
+=========================== -->
+
+                <section id="local-storage">
+
+
+                    <h2>📦 JavaScript localStorage</h2>
+
+
+                    <p>
+
+                        localStorage allows developers to store data permanently in the
+                        browser. Data remains available even after closing the browser.
+
+                    </p>
+
+
+
+
+                    <div class="definition-box">
+
+
+                        <h3>📘 Definition</h3>
+
+
+                        <p>
+
+                            localStorage stores data as key-value pairs and provides methods
+                            to save, read, update, and remove data.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>⭐ localStorage Methods</h3>
+
+
+                    <div class="example-box">
+
+
+                        <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                            <tr>
+
+                                <th>Method</th>
+
+                                <th>Purpose</th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>setItem()</td>
+
+                                <td>Store data</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>getItem()</td>
+
+                                <td>Retrieve data</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>removeItem()</td>
+
+                                <td>Remove specific data</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>clear()</td>
+
+                                <td>Remove all data</td>
+
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>📝 Example: Store Data</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>setItem()</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+localStorage.setItem(
+"name",
+"Roshni"
+);
+
+
+
+</code></pre>
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Data saved in browser storage.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <h3>📖 Example: Get Data</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>getItem()</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+let username = localStorage.getItem("name");
+
+
+console.log(username);
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                Roshni
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                    <h3>🗑️ Example: Remove Data</h3>
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+localStorage.removeItem("name");
+
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+                    <h3>🧹 Example: Clear Storage</h3>
+
+
+                    <div class="example-box">
+
+
+                        <pre><code>
+
+
+localStorage.clear();
+
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Session Storage
+=========================== -->
+
+                <section id="session-storage">
+
+
+                    <h2>⏳ JavaScript SessionStorage</h2>
+
+
+                    <p>
+
+                        sessionStorage works similar to localStorage, but the data exists
+                        only until the browser tab is closed.
+
+                    </p>
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Session Storage Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+sessionStorage.setItem(
+"course",
+"JavaScript"
+);
+
+
+
+let course =
+sessionStorage.getItem("course");
+
+
+
+console.log(course);
+
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+
+                                JavaScript
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     CRUD Operations
+=========================== -->
+
+                <section id="crud">
+
+
+                    <h2>🔄 CRUD Operations with Storage</h2>
+
+
+                    <p>
+
+                        CRUD means Create, Read, Update, and Delete data.
+
+                    </p>
+
+
+
+
+                    <div class="example-box">
+
+
+                        <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+
+                            <tr>
+
+                                <th>Operation</th>
+
+                                <th>Storage Method</th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>Create</td>
+
+                                <td>setItem()</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>Read</td>
+
+                                <td>getItem()</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>Update</td>
+
+                                <td>setItem()</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>Delete</td>
+
+                                <td>removeItem()</td>
+
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <h3>🚀 Mini Example: Save User</h3>
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>CRUD Example</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+// Create
+
+localStorage.setItem(
+"user",
+"Roshni"
+);
+
+
+
+// Read
+
+let user =
+localStorage.getItem("user");
+
+console.log(user);
+
+
+
+// Update
+
+localStorage.setItem(
+"user",
+"Developer"
+);
+
+
+
+// Delete
+
+localStorage.removeItem("user");
+
+
+
+</code></pre>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ localStorage stores data permanently.
+                            </li>
+
+
+                            <li>
+                                ✅ sessionStorage stores temporary data.
+                            </li>
+
+
+                            <li>
+                                ✅ Data is stored as key-value pairs.
+                            </li>
+
+
+                            <li>
+                                ✅ Storage methods are simple to use.
+                            </li>
+
+
+                            <li>
+                                ✅ Local Storage is widely used in JavaScript projects.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+                <!-- ===========================
+     Summary
+=========================== -->
+
+                <section id="summary">
+
+
+                    <h2>📚 Asynchronous JavaScript Summary</h2>
+
+
+                    <p>
+
+                        Asynchronous JavaScript allows programs to perform time-consuming tasks
+                        without blocking the execution of other code. It is used for API calls,
+                        timers, animations, and handling user interactions.
+
+                    </p>
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Important Points</h3>
+
+
+                        <ul>
+
+                            <li>✅ JavaScript executes code using the Call Stack.</li>
+
+                            <li>✅ Web APIs handle asynchronous operations.</li>
+
+                            <li>✅ Callback functions execute after a task completes.</li>
+
+                            <li>✅ Promises solve callback hell problems.</li>
+
+                            <li>✅ Async/Await makes asynchronous code cleaner.</li>
+
+                            <li>✅ Event Loop manages task execution.</li>
+
+                            <li>✅ Fetch API is used for server communication.</li>
+
+                            <li>✅ Local Storage saves data in the browser.</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Practice Questions
+=========================== -->
+
+                <section id="practice">
+
+
+                    <h2>📝 Practice Questions</h2>
+
+
+                    <div class="example-box">
+
+
+                        <ol>
+
+
+                            <li>
+                                What is the difference between synchronous and asynchronous JavaScript?
+                            </li>
+
+
+                            <li>
+                                Explain the role of the Call Stack.
+                            </li>
+
+
+                            <li>
+                                What are Web APIs?
+                            </li>
+
+
+                            <li>
+                                What is Callback Hell?
+                            </li>
+
+
+                            <li>
+                                Explain Promise states.
+                            </li>
+
+
+                            <li>
+                                Difference between Promise and Async/Await?
+                            </li>
+
+
+                            <li>
+                                What is the Event Loop?
+                            </li>
+
+
+                            <li>
+                                Difference between Microtask Queue and Macrotask Queue?
+                            </li>
+
+
+                            <li>
+                                What is Fetch API?
+                            </li>
+
+
+                            <li>
+                                Difference between localStorage and sessionStorage?
+                            </li>
+
+
+                        </ol>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Mini Quiz
+=========================== -->
+
+                <section id="quiz">
+
+
+                    <h2>🧠 Mini Quiz (10 MCQs)</h2>
+
+
+
+                    <div class="example-box">
+
+
+                        <p><b>1. JavaScript is a ______ language.</b></p>
+
+                        <p>
+                            A) Multi-threaded<br>
+                            B) Single-threaded<br>
+                            C) Machine<br>
+                            D) Database
+                        </p>
+
+                        <p>✅ Answer: B</p>
+
+
+
+
+                        <p><b>2. Which handles asynchronous tasks?</b></p>
+
+                        <p>
+                            A) Web APIs<br>
+                            B) HTML<br>
+                            C) CSS<br>
+                            D) Compiler
+                        </p>
+
+                        <p>✅ Answer: A</p>
+
+
+
+
+                        <p><b>3. Promise has how many states?</b></p>
+
+                        <p>
+                            A) 2<br>
+                            B) 3<br>
+                            C) 4<br>
+                            D) 5
+                        </p>
+
+                        <p>✅ Answer: B</p>
+
+
+
+
+                        <p><b>4. Which keyword is used with promises?</b></p>
+
+                        <p>
+                            A) then()<br>
+                            B) print()<br>
+                            C) write()<br>
+                            D) display()
+                        </p>
+
+                        <p>✅ Answer: A</p>
+
+
+
+
+                        <p><b>5. Async/Await was introduced in?</b></p>
+
+                        <p>
+                            A) ES5<br>
+                            B) ES6<br>
+                            C) ES2017<br>
+                            D) ES3
+                        </p>
+
+                        <p>✅ Answer: C</p>
+
+
+
+
+                        <p><b>6. Fetch API returns a?</b></p>
+
+                        <p>
+                            A) Array<br>
+                            B) Promise<br>
+                            C) String<br>
+                            D) Number
+                        </p>
+
+                        <p>✅ Answer: B</p>
+
+
+
+
+                        <p><b>7. localStorage stores data as?</b></p>
+
+                        <p>
+                            A) Key-value pairs<br>
+                            B) Images<br>
+                            C) Functions<br>
+                            D) HTML
+                        </p>
+
+                        <p>✅ Answer: A</p>
+
+
+
+
+                        <p><b>8. Event Loop connects?</b></p>
+
+                        <p>
+                            A) HTML and CSS<br>
+                            B) Stack and Queue<br>
+                            C) Browser and Server<br>
+                            D) File and Folder
+                        </p>
+
+                        <p>✅ Answer: B</p>
+
+
+
+
+                        <p><b>9. Promise callbacks are stored in?</b></p>
+
+                        <p>
+                            A) Microtask Queue<br>
+                            B) HTML Queue<br>
+                            C) CSS Queue<br>
+                            D) Memory
+                        </p>
+
+                        <p>✅ Answer: A</p>
+
+
+
+
+                        <p><b>10. setTimeout belongs to?</b></p>
+
+                        <p>
+                            A) Microtask<br>
+                            B) Macrotask<br>
+                            C) DOM<br>
+                            D) Object
+                        </p>
+
+                        <p>✅ Answer: B</p>
+
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Interview Questions
+=========================== -->
+
+                <section id="interview">
+
+
+                    <h2>💼 Interview Questions</h2>
+
+
+                    <div class="example-box">
+
+
+                        <h3>Q1. What is asynchronous JavaScript?</h3>
+
+                        <p>
+                            Asynchronous JavaScript allows tasks to run without blocking the main
+                            execution flow.
+                        </p>
+
+
+
+                        <h3>Q2. What is Event Loop?</h3>
+
+                        <p>
+                            Event Loop manages communication between Call Stack and task queues.
+                        </p>
+
+
+
+                        <h3>Q3. Difference between Promise and Callback?</h3>
+
+                        <p>
+                            Promises provide cleaner code and avoid callback hell.
+                        </p>
+
+
+
+                        <h3>Q4. What is Async/Await?</h3>
+
+                        <p>
+                            Async/Await is a modern syntax for handling Promises.
+                        </p>
+
+
+
+                        <h3>Q5. Difference between localStorage and sessionStorage?</h3>
+
+                        <p>
+                            localStorage remains until removed, while sessionStorage clears after
+                            closing the tab.
+                        </p>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     FAQ
+=========================== -->
+
+
+                <section id="faq">
+
+
+                    <h2>❓ FAQs</h2>
+
+
+                    <div class="example-box">
+
+
+                        <h3>Q1. Is JavaScript asynchronous by default?</h3>
+
+                        <p>
+                            No. JavaScript is synchronous, but browsers provide asynchronous features.
+                        </p>
+
+
+
+                        <h3>Q2. Why do we use Async/Await?</h3>
+
+                        <p>
+                            To write asynchronous code in a simple and readable way.
+                        </p>
+
+
+
+                        <h3>Q3. Is Fetch API synchronous or asynchronous?</h3>
+
+                        <p>
+                            Fetch API is asynchronous and returns a Promise.
+                        </p>
+
+
+
+                        <h3>Q4. Where is localStorage data saved?</h3>
+
+                        <p>
+                            It is saved inside the user's browser.
+                        </p>
+
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- ===========================
+     Related Articles
+=========================== -->
+
+                <section class="related-articles">
+
+                    <h2>📚 Related Articles</h2>
+
+                    <p>
+                        Continue learning JavaScript with these beginner-friendly tutorials
+                        from <b>Roshni Code Charm</b>.
+                    </p>
+
+
+                    <div class="article-box">
+
+                        <h3>⚡ JavaScript DOM Manipulation</h3>
+
+                        <p>
+                            Learn how JavaScript interacts with HTML elements using DOM methods,
+                            selectors, events, and dynamic changes.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="article-box">
+
+                        <h3>🌐 JavaScript Fetch API</h3>
+
+                        <p>
+                            Learn API requests, JSON handling, GET requests, and displaying
+                            server data on webpages.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="article-box">
+
+                        <h3>💾 JavaScript Local Storage</h3>
+
+                        <p>
+                            Learn how to save, read, update, and delete data using browser storage.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="article-box">
+
+                        <h3>🖱️ JavaScript Events</h3>
+
+                        <p>
+                            Understand click, keyboard, mouse, form, and window events with
+                            practical examples.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="article-box">
+
+                        <h3>⚡ JavaScript ES6 Features</h3>
+
+                        <p>
+                            Explore let, const, arrow functions, template literals, promises,
+                            classes, and modern JavaScript features.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Previous Next Navigation
+=========================== -->
+
+
+                <div class="navigation-box">
+
+
+                    <a href="javascript-events.html">
+
+                        ⬅️ Previous
+                        <br>
+                        JavaScript Events
+
+                    </a>
+
+
+
+                    <a href="fetch-api.html">
+
+                        Next ➡️
+                        <br>
+                        Fetch API
+
+                    </a>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Footer
+=========================== -->
+
+
+                <footer>
+
+
+                    <div class="author-info">
+
+
+                        <h2>❤️ Thank You for Reading!</h2>
+
+
+
+                        <p>
+
+                            Thank you for learning
+                            <strong>Asynchronous JavaScript</strong>
+                            with <strong>Roshni Code Charm</strong>. 🎉
+
+                        </p>
+
+
+
+                        <p>
+
+                            Keep practicing JavaScript and build amazing interactive websites.
+                            Consistent practice is the key to becoming a great web developer.
+
+                        </p>
+
+
+
+
+                        <div class="footer-links">
+
+
+                            <a href="index.html">
+                                🏠 Home
+                            </a>
+
+
+                            <a href="javascript.html">
+                                📚 JavaScript Tutorials
+                            </a>
+
+
+                        </div>
+
+
+
+
+                        <div class="social-links">
+
+
+                            <a href="https://github.com/roshni945" target="_blank">
+
+                                💻 GitHub
+
+                            </a>
+
+
+
+                            <a href="https://www.pinterest.com/roshnicodecharm/" target="_blank">
+
+                                📌 Pinterest
+
+                            </a>
+
+
+
+                        </div>
+
+
+
+                        <hr>
+
+
+
+                        <p>
+
+                            © 2026 <strong>Roshni Code Charm</strong>. All Rights Reserved.
+
+                        </p>
+
+
+
+                        <p>
+
+                            Made with ❤️ for JavaScript Beginners.
+
+                        </p>
+
+
+
+                    </div>
+
+
+                </footer>
+
+        </div>
+
+</body>
+
+</html>

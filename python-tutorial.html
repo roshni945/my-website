@@ -2,18 +2,31 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Python Tutorial for Beginners | Roshni Code Charm</title>
 
     <meta name="description"
-        content="Complete Python Tutorial for Beginners. Learn Python step by step with easy examples and projects.">
+        content="Complete Python Tutorial for Beginners. Learn Python step by step with easy examples, projects and interview questions.">
+
+    <meta name="keywords"
+        content="Python Tutorial, Learn Python, Python for Beginners, Python Notes, Python Programming">
+
+    <meta name="author" content="Roshni Code Charm">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://roshni945.github.io/my-website/python-tutorial.html">
+
+    <!-- Google Fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <style>
@@ -23,164 +36,902 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+
             font-family: 'Poppins', sans-serif;
+
             background: #f8f9ff;
-            line-height: 1.8;
+
             color: #333;
+
+            line-height: 1.8;
+
+        }
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+        img {
+
+            max-width: 100%;
+
+            display: block;
+
         }
 
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 30px;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 20px;
+
         }
 
-        h1 {
-            text-align: center;
-            font-size: 46px;
-            background: linear-gradient(90deg, #7b2cbf, #ff4da6);
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 15px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 35px;
-        }
-
-        .hero {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        /* ==========================
+              BUTTON
+        ========================== */
 
         .btn {
+
             display: inline-block;
-            margin-top: 20px;
+
+            padding: 14px 28px;
+
             background: #7b2cbf;
+
             color: white;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 30px;
+
+            border-radius: 50px;
+
+            font-weight: 600;
+
             transition: .3s;
+
         }
 
         .btn:hover {
+
             background: #ff4da6;
+
+            transform: translateY(-3px);
+
         }
 
-        .toc {
-            background: #f3e8ff;
-            padding: 25px;
-            border-radius: 18px;
-            margin: 30px 0;
-            border-left: 6px solid #7b2cbf;
+        /* ==========================
+              SECTION TITLE
+        ========================== */
+
+        .section-title {
+
+            text-align: center;
+
+            margin: 70px 0 40px;
+
         }
 
-        .toc h2 {
+        .section-title span {
+
+            font-size: 42px;
+
+            font-weight: 700;
+
             color: #7b2cbf;
-            margin-bottom: 15px;
+
         }
 
-        .toc ul {
-            padding-left: 20px;
+        .section-title p {
+
+            margin-top: 12px;
+
+            color: #666;
+
+            font-size: 18px;
+
         }
 
-        .tip-box {
-            background: #e8fff2;
-            border-left: 6px solid #2ecc71;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 25px 0;
-        }
-
-        .mistake-box {
-            background: #fff2f2;
-            border-left: 6px solid #ff4d4d;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 25px 0;
-        }
-
-        .roadmap {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-            margin: 35px 0;
-        }
-
-        .roadmap h2 {
-            color: #7b2cbf;
-            margin-bottom: 15px;
-        }
-
-        .roadmap li {
-            margin: 10px 0;
-        }
+        /* ==========================
+              CARDS GRID
+        ========================== */
 
         .cards {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
             gap: 25px;
-            margin-top: 40px;
+
         }
 
         .card {
+
             background: white;
+
+            border-radius: 22px;
+
             padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-            transition: .3s;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+            transition: .35s;
+
         }
 
         .card:hover {
-            transform: translateY(-8px);
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 20px 45px rgba(123, 44, 191, .15);
+
         }
 
         .card h3 {
+
             color: #7b2cbf;
-            margin-bottom: 12px;
+
+            margin: 15px 0;
+
         }
+
+        .card p {
+
+            color: #666;
+
+            margin-bottom: 20px;
+
+        }
+
+        /* ==========================
+              FOOTER
+        ========================== */
+
+        footer {
+
+            text-align: center;
+
+            margin: 70px 0 30px;
+
+            color: #777;
+
+        }
+
+        /* ==========================
+             MOBILE
+        ========================== */
 
         @media(max-width:768px) {
 
-            h1 {
+            .section-title span {
+
                 font-size: 34px;
+
             }
 
             .container {
+
                 padding: 18px;
+
             }
+
+        }
+
+        /* ==========================
+   HERO SECTION
+========================== */
+
+        .tutorial-hero {
+
+            background: linear-gradient(135deg, #f6ebff, #eef4ff);
+
+            padding: 90px 20px;
+
+            text-align: center;
+
+        }
+
+        .tutorial-badge {
+
+            display: inline-block;
+
+            background: #7b2cbf;
+
+            color: #fff;
+
+            padding: 8px 22px;
+
+            border-radius: 40px;
+
+            font-weight: 600;
+
+            margin-bottom: 25px;
+
+        }
+
+        .tutorial-hero h1 {
+
+            font-size: 60px;
+
+            line-height: 1.2;
+
+            color: #7b2cbf;
+
+            margin-bottom: 20px;
+
+        }
+
+        .hero-text {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #666;
+
+            font-size: 20px;
+
+        }
+
+        .hero-info {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin: 35px 0;
+
+        }
+
+        .hero-info span {
+
+            background: #fff;
+
+            padding: 12px 20px;
+
+            border-radius: 30px;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+            font-weight: 600;
+
+        }
+
+        .hero-buttons {
+
+            margin-top: 25px;
+
+        }
+
+        .secondary-btn {
+
+            background: #ffffff;
+
+            color: #7b2cbf;
+
+            border: 2px solid #7b2cbf;
+
+            margin-left: 15px;
+
+        }
+
+        .secondary-btn:hover {
+
+            background: #7b2cbf;
+
+            color: white;
 
         }
 
         .author-info {
-            background: #f8f5ff;
-            padding: 15px;
-            margin-top: 25px;
-            border-radius: 15px;
+
+            margin-top: 35px;
+
+            color: #666;
+
+        }
+
+        @media(max-width:768px) {
+
+            .tutorial-hero h1 {
+
+                font-size: 40px;
+
+            }
+
+            .hero-text {
+
+                font-size: 17px;
+
+            }
+
+            .secondary-btn {
+
+                margin-left: 0;
+
+                margin-top: 15px;
+
+            }
+
+        }
+
+        /* ==========================
+   TUTORIAL LAYOUT
+========================== */
+
+        .tutorial-layout {
+
+            display: grid;
+
+            grid-template-columns: 280px 1fr;
+
+            gap: 35px;
+
+            margin-top: 60px;
+
+        }
+
+        /* LEFT SIDEBAR */
+
+        .sidebar {
+
+            position: sticky;
+
+            top: 100px;
+
+            height: max-content;
+
+            background: #fff;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+        }
+
+        .sidebar h2 {
+
+            color: #7b2cbf;
+
+            font-size: 22px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .sidebar a {
+
+            display: block;
+
             color: #555;
+
+            padding: 10px 0;
+
+            font-weight: 500;
+
+            transition: .3s;
+
+        }
+
+        .sidebar a:hover {
+
+            color: #7b2cbf;
+
+            padding-left: 10px;
+
+        }
+
+        /* RIGHT CONTENT */
+
+        .tutorial-content {
+
+            background: #fff;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+        }
+
+        .tutorial-content h2 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 15px;
+
+        }
+
+        .tutorial-content p {
+
+            color: #555;
+
+            margin-bottom: 20px;
+
+        }
+
+        @media(max-width:900px) {
+
+            .tutorial-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .sidebar {
+
+                position: static;
+
+            }
+
+        }
+
+        /* ==========================
+   INFO BOXES
+========================== */
+
+        .info-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 25px;
+
+            margin: 50px 0;
+
+        }
+
+        .info-box {
+
+            background: #fff;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+        }
+
+        .tip-box {
+
+            border-left: 6px solid #2ecc71;
+
+        }
+
+        .mistake-box {
+
+            border-left: 6px solid #ff4d4d;
+
+        }
+
+        .info-box h2 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 15px;
+
+        }
+
+        .info-box ul {
+
+            padding-left: 20px;
+
+        }
+
+        .info-box li {
+
+            margin: 12px 0;
+
+        }
+
+        /* ==========================
+   ROADMAP
+========================== */
+
+        .roadmap {
+
+            background: #fff;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+            margin: 50px 0;
+
+        }
+
+        .roadmap h2 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 20px;
+
+        }
+
+        .roadmap ol {
+
+            padding-left: 25px;
+
+        }
+
+        .roadmap li {
+
+            margin: 12px 0;
+
+            font-weight: 500;
+
+        }
+
+        /* ==========================
+   PREMIUM CARD DESIGN
+========================== */
+
+        .card {
+
+            background: #fff;
+
+            border-radius: 22px;
+
+            padding: 25px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+            transition: .35s;
+
+        }
+
+        .card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 20px 45px rgba(123, 44, 191, .18);
+
+        }
+
+        .card-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .category {
+
+            background: #f3e8ff;
+
+            color: #7b2cbf;
+
+            padding: 6px 14px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+        .read-time {
+
+            color: #888;
+
+            font-size: 14px;
+
+        }
+
+        .card-icon {
+
+            font-size: 42px;
+
+            margin: 20px 0;
+
+        }
+
+        .card h3 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 12px;
+
+        }
+
+        .card p {
+
+            color: #666;
+
+            margin-bottom: 20px;
+
+        }
+
+        /* ==========================
+   FOOTER
+========================== */
+
+        .footer {
+
+            margin-top: 70px;
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            background: #ffffff;
+
+            border-top: 1px solid #eee;
+
+        }
+
+        .footer h3 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 15px;
+
+        }
+
+        .footer p {
+
+            color: #666;
+
+            margin: 10px 0;
+
+        }
+
+        .footer-links {
+
+            margin: 25px 0;
+
+        }
+
+        .footer-links a {
+
+            color: #555;
+
+            margin: 0 12px;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+        }
+
+        .footer-links a:hover {
+
+            color: #7b2cbf;
+
         }
 
         .page-nav {
+
             display: flex;
+
             justify-content: space-between;
-            margin-top: 40px;
-            gap: 15px;
+
+            gap: 20px;
+
+            margin: 40px 0;
+
         }
 
-        @media(max-width:600px) {
+        .copyright {
+
+            margin-top: 25px;
+
+            color: #888;
+
+            font-size: 14px;
+
+        }
+
+        @media(max-width:768px) {
+
             .page-nav {
+
                 flex-direction: column;
+
             }
+
+        }
+
+        /* ==========================
+   PREMIUM ANIMATIONS
+========================== */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .tutorial-hero,
+        .sidebar,
+        .tutorial-content,
+        .info-box,
+        .roadmap,
+        .card {
+
+            animation: fadeUp .8s ease;
+
+        }
+
+        /* ==========================
+   CUSTOM SCROLLBAR
+========================== */
+
+        ::-webkit-scrollbar {
+
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+
+            background: #f2f2f2;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: #7b2cbf;
+
+            border-radius: 20px;
+
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+
+            background: #ff4da6;
+
+        }
+
+        /* ==========================
+   CARD ICON
+========================== */
+
+        .card-icon {
+
+            font-size: 42px;
+            margin: 18px 0;
+            transition: .3s;
+
+        }
+
+        .card:hover .card-icon {
+
+            transform: scale(1.2) rotate(8deg);
+
+        }
+
+        /* ==========================
+   BUTTON EFFECT
+========================== */
+
+        .btn {
+
+            transition: .3s;
+
+        }
+
+        .btn:hover {
+
+            transform: translateY(-3px);
+
+        }
+
+        /* ==========================
+   SELECTION COLOR
+========================== */
+
+        ::selection {
+
+            background: #7b2cbf;
+            color: white;
+
+        }
+
+        /* ==========================
+   MOBILE
+========================== */
+
+        @media(max-width:768px) {
+
+            .tutorial-hero {
+
+                padding: 60px 20px;
+
+            }
+
+            .hero-info {
+
+                gap: 10px;
+
+            }
+
+            .hero-info span {
+
+                width: 100%;
+
+                text-align: center;
+
+            }
+
+            .cards {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+        /* Back To Top */
+
+        .back-top {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 50px;
+
+            height: 50px;
+
+            background: #7b2cbf;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-size: 22px;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+
+            transition: .3s;
+
+        }
+
+        .back-top:hover {
+
+            background: #ff4da6;
+
+            transform: translateY(-5px);
+
         }
     </style>
 
@@ -188,252 +939,436 @@
 
 <body>
 
-    <div class="container">
+    <!-- ==========================
+         PREMIUM HERO SECTION
+    =========================== -->
 
-        <div class="hero">
+    <section class="tutorial-hero">
 
-            <h1>🐍 Complete Python Tutorial</h1>
+        <div class="container">
 
-            <p class="subtitle">
-                Learn Python from Beginner to Advanced with simple explanations,
-                examples and mini projects.
+            <span class="tutorial-badge">
+                🐍 Python Programming
+            </span>
+
+            <h1>
+                Complete Python Tutorial
+                <br>
+                for Beginners
+            </h1>
+
+            <p class="hero-text">
+                Learn Python from beginner to advanced with simple explanations,
+                real-world examples, quizzes, interview questions and projects.
             </p>
 
-            <a href="python-variables.html" class="btn">
-                Start Learning 🚀
-            </a>
+            <div class="hero-info">
+
+                <span>📖 18 Lessons</span>
+
+                <span>⏱️ 2 Hours</span>
+
+                <span>🟢 Beginner Friendly</span>
+
+                <span>⭐ Updated 2026</span>
+
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="python-variables.html" class="btn">
+                    🚀 Start Learning
+                </a>
+
+                <a href="#tutorials" class="btn secondary-btn">
+                    📚 View Tutorials
+                </a>
+
+            </div>
 
             <div class="author-info">
-                <p>✍️ <b>By Roshni Code Charm</b></p>
-                <p>📅 July 2026 | ⏱️ 10 min read</p>
+
+                ✍️ By <strong>Roshni Code Charm</strong>
+                &nbsp;•&nbsp;
+                📅 Updated July 2026
+
             </div>
 
         </div>
 
-        <div class="toc">
+    </section>
 
-            <h2>📚 Table of Contents</h2>
+    <div class="container">
 
-            <ul>
+        <div class="tutorial-layout">
 
-                <li>Python Variables</li>
-                <li>Python Data Types</li>
-                <li>Python Input</li>
-                <li>Python If Else</li>
-                <li>Python Loops</li>
-                <li>Python Functions</li>
-                <li>Python Lists</li>
-                <li>Python Tuples</li>
-                <li>Python Sets</li>
-                <li>Python Dictionaries</li>
-                <li>Python Strings</li>
-                <li>Python File Handling</li>
-                <li>Python Exception Handling</li>
-                <li>Python OOP</li>
-                <li>Python Modules</li>
-                <li>Python Libraries</li>
-                <li>Python Projects</li>
-                <li>Python Interview Questions</li>
+            <!-- LEFT SIDEBAR -->
 
-            </ul>
+            <aside class="sidebar">
 
-        </div>
+                <h2>📚 Contents</h2>
 
-        <div class="tip-box">
+                <a href="#intro">Introduction</a>
 
-            <h2>💡 Quick Tip</h2>
+                <a href="#features">Features</a>
+
+                <a href="#installation">Installation</a>
+
+                <a href="#syntax">Syntax</a>
+
+                <a href="#variables">Variables</a>
+
+                <a href="#datatypes">Data Types</a>
+
+                <a href="#operators">Operators</a>
+
+                <a href="#input">Input & Output</a>
+
+                <a href="#projects">Projects</a>
+
+                <a href="#interview">Interview Questions</a>
+
+            </aside>
+
+            <!-- RIGHT CONTENT -->
+
+            <main class="tutorial-content">
+
+                <section id="intro">
+
+                    <h2>🐍 Introduction</h2>
+
+                    <p>
+
+                        Python is one of the most popular programming languages.
+                        It is simple, powerful and beginner-friendly.
+
+                    </p>
+
+                </section>
+
+                <section id="features">
+
+                    <h2>✨ Features of Python</h2>
+
+                    <p>
+
+                        Python is easy to learn, readable, fast to develop,
+                        cross-platform and widely used in Web Development,
+                        AI, Data Science and Automation.
+
+                    </p>
+
+                </section>
+
+                <!-- ==========================
+     QUICK TIP + MISTAKES
+========================== -->
+
+                <div class="info-grid">
+
+                    <div class="info-box tip-box">
+
+                        <h2>💡 Quick Tip</h2>
+
+                        <p>
+                            Practice every Python concept by writing code yourself.
+                            Reading alone is not enough.
+                        </p>
+
+                    </div>
+
+                    <div class="info-box mistake-box">
+
+                        <h2>⚠️ Common Mistakes</h2>
+
+                        <ul>
+
+                            <li>Skipping basic concepts</li>
+
+                            <li>Copy-pasting code without understanding</li>
+
+                            <li>Not practicing daily</li>
+
+                            <li>Ignoring error messages</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================
+     PYTHON ROADMAP
+========================== -->
+
+                <div class="roadmap">
+
+                    <h2>🗺️ Python Learning Roadmap</h2>
+
+                    <ol>
+
+                        <li>Python Introduction</li>
+
+                        <li>Variables</li>
+
+                        <li>Data Types</li>
+
+                        <li>Operators</li>
+
+                        <li>Input & Output</li>
+
+                        <li>If Else</li>
+
+                        <li>Loops</li>
+
+                        <li>Functions</li>
+
+                        <li>Lists</li>
+
+                        <li>Tuples</li>
+
+                        <li>Sets</li>
+
+                        <li>Dictionaries</li>
+
+                        <li>Strings</li>
+
+                        <li>File Handling</li>
+
+                        <li>Exception Handling</li>
+
+                        <li>OOP</li>
+
+                        <li>Projects</li>
+
+                        <li>Interview Questions</li>
+
+                    </ol>
+
+                </div>
+
+                <!-- ==========================
+     PYTHON TUTORIALS
+========================== -->
+
+                <section id="tutorials">
+
+                    <div class="section-title">
+
+                        <span>📖 Python Tutorials</span>
+
+                        <p>
+                            Choose a topic and start learning Python step by step.
+                        </p>
+
+                    </div>
+
+                    <div class="cards">
+
+                        <!-- Card 1 -->
+
+                        <div class="card">
+
+                            <div class="card-top">
+
+                                <span class="category">🐍 Python</span>
+
+                                <span class="read-time">5 min</span>
+
+                            </div>
+
+                            <div class="card-icon">🐍</div>
+
+                            <h3>Python Variables</h3>
+
+                            <p>
+                                Learn variables with simple beginner-friendly examples.
+                            </p>
+
+                            <a href="python-variables.html" class="btn">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                        <!-- Card 2 -->
+
+                        <div class="card">
+
+                            <div class="card-top">
+
+                                <span class="category">📦 Python</span>
+
+                                <span class="read-time">6 min</span>
+
+                            </div>
+
+                            <div class="card-icon">📦</div>
+
+                            <h3>Python Data Types</h3>
+
+                            <p>
+                                Understand String, Integer, Float, Boolean and more.
+                            </p>
+
+                            <a href="python-data-types.html" class="btn">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                        <!-- Card 3 -->
+
+                        <div class="card">
+
+                            <div class="card-top">
+
+                                <span class="category">⌨️ Python</span>
+
+                                <span class="read-time">5 min</span>
+
+                            </div>
+
+                            <div class="card-icon">⌨️</div>
+
+                            <h3>Python Input</h3>
+
+                            <p>
+                                Learn how to take user input using input().
+                            </p>
+
+                            <a href="python-input.html" class="btn">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                        <!-- Card 4 -->
+
+                        <div class="card">
+
+                            <div class="card-top">
+
+                                <span class="category">🔀 Python</span>
+
+                                <span class="read-time">6 min</span>
+
+                            </div>
+
+                            <div class="card-icon">🔀</div>
+
+                            <h3>Python If Else</h3>
+
+                            <p>
+                                Learn decision making using if, elif and else.
+                            </p>
+
+                            <a href="python-if-else.html" class="btn">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                        <!-- Card 5 -->
+
+                        <div class="card">
+
+                            <div class="card-top">
+
+                                <span class="category">🔁 Python</span>
+
+                                <span class="read-time">7 min</span>
+
+                            </div>
+
+                            <div class="card-icon">🔁</div>
+
+                            <h3>Python Loops</h3>
+
+                            <p>
+                                Master for loops and while loops with examples.
+                            </p>
+
+                            <a href="python-loops.html" class="btn">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                        <!-- Card 6 -->
+
+                        <div class="card">
+
+                            <div class="card-top">
+
+                                <span class="category">⚡ Python</span>
+
+                                <span class="read-time">8 min</span>
+
+                            </div>
+
+                            <div class="card-icon">⚡</div>
+
+                            <h3>Python Functions</h3>
+
+                            <p>
+                                Create reusable functions in Python.
+                            </p>
+
+                            <a href="python-functions.html" class="btn">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div> <!-- tutorial-layout -->
+
+        <footer class="footer">
+
+            <h3>💜 Roshni Code Charm</h3>
 
             <p>
-                Practice every concept by writing code yourself.
-                Learning Python is easier when you build small projects regularly.
+                Learn Python, HTML, CSS, JavaScript and Web Development
+                with beginner-friendly tutorials.
             </p>
 
-        </div>
+            <div class="footer-links">
 
-        <div class="mistake-box">
+                <a href="index.html">🏠 Home</a>
 
-            <h2>⚠️ Common Mistakes</h2>
+                <a href="python-tutorial.html">🐍 Python</a>
 
-            <ul>
-
-                <li>Skipping basic concepts.</li>
-
-                <li>Copy-pasting code without understanding it.</li>
-
-                <li>Not practicing daily.</li>
-
-                <li>Ignoring error messages.</li>
-
-            </ul>
-
-        </div>
-
-        <div class="roadmap">
-
-            <h2>🗺️ Python Learning Roadmap</h2>
-
-            <ol>
-
-                <li>Variables</li>
-
-                <li>Data Types</li>
-
-                <li>Input Output</li>
-
-                <li>If Else</li>
-
-                <li>Loops</li>
-
-                <li>Functions</li>
-
-                <li>Lists</li>
-
-                <li>Tuples</li>
-
-                <li>Sets</li>
-
-                <li>Dictionaries</li>
-
-                <li>Strings</li>
-
-                <li>OOP</li>
-
-                <li>Projects</li>
-
-            </ol>
-
-        </div>
-
-        <h2 style="text-align:center;color:#7b2cbf;margin:40px 0;">
-            📖 Python Tutorials
-        </h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>🐍 Python Variables</h3>
-                <p>Learn variables with simple beginner-friendly examples.</p>
-                <a href="python-variables.html" class="btn">Read Article</a>
             </div>
 
-            <div class="card">
-                <h3>📦 Python Data Types</h3>
-                <p>Understand String, Integer, Float, Boolean, List and more.</p>
-                <a href="python-data-types.html" class="btn">Read Article</a>
+            <div class="page-nav">
+
+                <a href="index.html" class="btn">
+                    ⬅ Home
+                </a>
+
+                <a href="python-variables.html" class="btn">
+                    Next: Python Variables ➜
+                </a>
+
             </div>
 
-            <div class="card">
-                <h3>⌨️ Python Input</h3>
-                <p>Take user input using the input() function.</p>
-                <a href="python-input.html" class="btn">Read Article</a>
-            </div>
+            <p class="copyright">
+                © 2026 Roshni Code Charm • All Rights Reserved.
+            </p>
 
-            <div class="card">
-                <h3>🔀 Python If Else</h3>
-                <p>Learn decision making using if, elif and else.</p>
-                <a href="python-if-else.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>🔁 Python Loops</h3>
-                <p>Master for loops and while loops with examples.</p>
-                <a href="python-loops.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>⚡ Python Functions</h3>
-                <p>Create reusable functions in Python.</p>
-                <a href="python-functions.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>📋 Python Lists</h3>
-                <p>Store multiple values using Python Lists.</p>
-                <a href="python-lists.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>📦 Python Tuples</h3>
-                <p>Learn immutable collections with Tuples.</p>
-                <a href="python-tuples.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>🧩 Python Sets</h3>
-                <p>Understand unique values using Sets.</p>
-                <a href="python-sets.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>📖 Python Dictionaries</h3>
-                <p>Store data using key-value pairs.</p>
-                <a href="python-dictionaries.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>🔤 Python Strings</h3>
-                <p>Learn string methods and operations.</p>
-                <a href="python-strings.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>📁 File Handling</h3>
-                <p>Read and write files using Python.</p>
-                <a href="python-file-handling.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>⚠️ Exception Handling</h3>
-                <p>Handle errors using try, except and finally.</p>
-                <a href="python-exception-handling.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>🏗️ Python OOP</h3>
-                <p>Learn Classes, Objects, Inheritance and more.</p>
-                <a href="python-oop.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>📦 Python Modules</h3>
-                <p>Reuse code using Python modules.</p>
-                <a href="python-modules.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>📚 Python Libraries</h3>
-                <p>Explore popular Python libraries.</p>
-                <a href="python-libraries.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>🚀 Python Projects</h3>
-                <p>Build beginner-friendly Python projects.</p>
-                <a href="python-projects.html" class="btn">Read Article</a>
-            </div>
-
-            <div class="card">
-                <h3>💼 Interview Questions</h3>
-                <p>Practice common Python interview questions.</p>
-                <a href="python-interview-questions.html" class="btn">Read Article</a>
-            </div>
-
-        </div> <!-- cards end -->
-
-        <footer style="text-align:center; margin:50px 0; color:#777;">
-            © 2026 Roshni Code Charm • Happy Coding 💜
         </footer>
 
-    </div> <!-- container end -->
-
+    </div>
+    <a href="#" class="back-top">
+        ⬆
+    </a>
 </body>
 
 </html>
-
-<div class="page-nav">
-    <a href="index.html" class="btn">🏠 Home</a>
-
-    <a href="python-variables.html" class="btn">
-        Next: Python Variables ➜
-    </a>
-</div>

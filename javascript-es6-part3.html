@@ -1,0 +1,4190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        JavaScript DOM Manipulation Part 3 | Roshni Code Charm
+    </title>
+
+
+    <meta name="description"
+        content="Learn JavaScript DOM Manipulation Part 3 with advanced DOM concepts. Understand DOM Traversing, parentElement, children, createTextNode, append, prepend, replaceWith, forms, classList methods, and advanced DOM techniques.">
+
+
+    <meta name="keywords"
+        content="JavaScript DOM Manipulation Part 3, DOM Traversing, parentElement, children, append, prepend, replaceWith, JavaScript Tutorial, DOM Advanced">
+
+
+    <meta name="author" content="Roshni Code Charm">
+
+
+    <meta name="robots" content="index, follow">
+
+
+    <meta name="theme-color" content="#7b2cbf">
+
+
+    <link rel="canonical" href="https://roshni945.github.io/my-website/javascript-dom-part3.html">
+
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:title" content="JavaScript DOM Manipulation Part 3">
+
+
+    <meta property="og:description" content="Learn advanced JavaScript DOM Manipulation with practical examples.">
+
+
+    <meta property="og:type" content="article">
+
+
+    <meta property="og:image" content="images/javascript-dom-part3.png">
+
+
+    <meta property="og:url" content="https://roshni945.github.io/my-website/javascript-dom-part3.html">
+
+
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+
+    <meta name="twitter:title" content="JavaScript DOM Manipulation Part 3">
+
+
+    <meta name="twitter:description"
+        content="Master advanced DOM concepts like traversal, dynamic elements, forms, and classes.">
+
+
+    <meta name="twitter:image" content="images/javascript-dom-part3.png">
+
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+    <style>
+        /* ====================================
+   Global Styles
+==================================== */
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family: Poppins, sans-serif;
+            background: #f0ebeb;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.8;
+
+        }
+
+
+
+        .container {
+
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+        }
+
+
+
+        h1 {
+
+            color: #7b2cbf;
+
+        }
+
+
+
+        h2 {
+
+            color: #ff4da6;
+            margin-top: 35px;
+
+        }
+
+
+
+        h3 {
+
+            color: #7b2cbf;
+
+        }
+
+
+
+        /* ====================================
+   Breadcrumb
+==================================== */
+
+
+        .breadcrumb {
+
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+
+        }
+
+
+        .breadcrumb a {
+
+            color: #7b2cbf;
+            text-decoration: none;
+
+        }
+
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .breadcrumb span {
+
+            margin: 0 6px;
+
+        }
+
+
+
+        /* ====================================
+   Article Info
+==================================== */
+
+
+        .article-info {
+
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+
+        }
+
+
+        .left-column,
+        .right-column {
+
+            flex: 1;
+
+        }
+
+
+
+        /* ====================================
+   Table Of Contents
+==================================== */
+
+
+        .toc {
+
+            background: #f3e8ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+
+        }
+
+
+        .toc ul {
+
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+
+        }
+
+
+        .toc li {
+
+            margin: 10px 0;
+
+        }
+
+
+        .toc a {
+
+            color: #444;
+            text-decoration: none;
+            transition: .3s;
+
+        }
+
+
+        .toc a:hover {
+
+            color: #7b2cbf;
+            padding-left: 6px;
+
+        }
+
+        /* ====================================
+   Tip & Mistake Boxes
+==================================== */
+
+
+        .tip-box {
+
+            background: #e8fff2;
+            border-left: 5px solid #2ecc71;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .mistake-box {
+
+            background: #fff2f2;
+            border-left: 5px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+
+
+        /* ====================================
+   Author Information
+==================================== */
+
+
+        .author-info {
+
+            background: beige;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+            margin: 30px 0;
+
+        }
+
+
+
+        .post-meta {
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            background: #faf5ff;
+            padding: 15px;
+            border-left: 4px solid #7b2cbf;
+            border-radius: 10px;
+
+        }
+
+
+
+        /* ====================================
+   Introduction Box
+==================================== */
+
+
+        .intro-box {
+
+            background: #efcbf4;
+            border-left: 5px solid #7b2cbf;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+
+        }
+
+
+
+        .intro {
+
+            font-size: 19px;
+
+        }
+
+
+
+        /* ====================================
+   Main Content
+==================================== */
+
+
+        .content-box {
+
+            background: #fff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            margin-top: 30px;
+
+        }
+
+
+
+        /* ====================================
+   Definition / Info Boxes
+==================================== */
+
+
+        .definition-box {
+
+            background: #f3e8ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+            margin: 20px 0;
+
+        }
+
+
+
+        .did-you-know {
+
+            background: #fff8e7;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+
+        }
+
+
+
+        .real-life-box {
+
+            background: #eaf7ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+
+        }
+
+
+
+        .important-box {
+
+            background: #f8f0ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+            margin: 20px 0;
+
+        }
+
+
+
+        /* ====================================
+   Code Example Box
+==================================== */
+
+
+        .example-box {
+
+            background: #fafafa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px solid #ddd;
+
+        }
+
+
+
+        .example-title {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+
+
+        .copy-btn {
+
+            background: #7b2cbf;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+
+        }
+
+
+
+        .copy-btn:hover {
+
+            background: #ff4da6;
+
+        }
+
+
+
+        pre {
+
+            background: #1e1e1e;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+
+        }
+
+
+
+        code {
+
+            font-family: monospace;
+
+        }
+
+
+
+        .example-output {
+
+            background: #e8fff2;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+
+        }
+
+
+
+        /* ====================================
+   Related Articles
+==================================== */
+
+
+        .related-articles {
+
+            margin: 40px auto;
+            padding: 25px;
+            max-width: 900px;
+            background: #fff7fb;
+            border-radius: 15px;
+            border: 2px solid #f3c4dd;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+
+        }
+
+
+
+        .related-articles h2 {
+
+            text-align: center;
+            color: #c2185b;
+
+        }
+
+
+
+        .article-box {
+
+            background: white;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid #e91e63;
+            transition: .3s;
+
+        }
+
+
+
+        .article-box:hover {
+
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .12);
+
+        }
+
+
+
+        /* ====================================
+   Footer
+==================================== */
+
+
+        .footer-links,
+        .social-links {
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+
+        }
+
+
+
+        .footer-links a,
+        .social-links a {
+
+            text-decoration: none;
+            background: #7b2cbf;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: .3s;
+
+        }
+
+
+
+        .footer-links a:hover,
+        .social-links a:hover {
+
+            background: #ff4da6;
+            transform: translateY(-3px);
+
+        }
+
+
+
+        footer hr {
+
+            margin: 25px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+
+        }
+
+
+
+        footer p {
+
+            color: #555;
+            margin: 10px 0;
+
+        }
+
+
+
+        /* ====================================
+   Responsive Design
+==================================== */
+
+
+        @media(max-width:768px) {
+
+
+            .article-info {
+
+                flex-direction: column;
+
+            }
+
+
+            .container {
+
+                padding: 22px;
+
+            }
+
+
+            body {
+
+                padding: 18px;
+
+            }
+
+
+            .example-title {
+
+                flex-direction: column;
+                gap: 10px;
+
+            }
+
+
+        }
+
+        /* ===========================
+   Previous Next Navigation
+=========================== */
+
+        .post-navigation {
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+
+        }
+
+
+        .post-navigation a {
+
+            flex: 1;
+            min-width: 250px;
+            background: #f3e8ff;
+            color: #7b2cbf;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #7b2cbf;
+            font-weight: 600;
+            text-align: center;
+            transition: 0.3s;
+
+        }
+
+
+        .post-navigation a:hover {
+
+            background: #7b2cbf;
+            color: white;
+            transform: translateY(-5px);
+
+        }
+
+
+        /* Mobile */
+
+        @media(max-width:768px) {
+
+            .post-navigation {
+
+                flex-direction: column;
+
+            }
+
+        }
+    </style>
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- ===========================
+     Breadcrumb
+=========================== -->
+
+        <nav class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <span>›</span>
+
+            <a href="javascript.html">JavaScript</a>
+
+            <span>›</span>
+
+            <span>DOM Manipulation Part 3</span>
+
+        </nav>
+
+
+
+        <h1>
+            📘 JavaScript DOM Manipulation Part 3
+        </h1>
+
+
+
+
+        <!-- ===========================
+     Article Info
+=========================== -->
+
+
+        <div class="article-info">
+
+
+            <div class="left-column">
+
+
+                <div class="toc">
+
+
+                    <h3>📚 Table of Contents</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            <a href="#introduction">
+                                📖 Introduction
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#dom-traversing">
+                                🔄 DOM Traversing
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#parent-child">
+                                👨‍👩‍👦 Parent & Child Elements
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#siblings">
+                                ↔️ Sibling Elements
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#dynamic-content">
+                                🧩 Creating Dynamic Content
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#replace">
+                                🔁 Replacing Elements
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#forms">
+                                📋 Working with Forms
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#class-manipulation">
+                                🎨 Advanced Class Manipulation
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#performance">
+                                ⚡ DOM Performance Tips
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#summary">
+                                📚 Summary
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="right-column">
+
+
+
+                <div class="tip-box">
+
+
+                    <h3>💡 Quick Tip</h3>
+
+
+                    <p>
+
+                        DOM Traversing helps JavaScript move between HTML elements.
+                        You can access parent, child, and sibling elements without searching again.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="mistake-box">
+
+
+                    <h3>⚠️ Common Mistakes</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            Confusing <code>childNodes</code> with <code>children</code>.
+                        </li>
+
+
+                        <li>
+                            Using DOM methods before the page loads.
+                        </li>
+
+
+                        <li>
+                            Forgetting that some methods return collections.
+                        </li>
+
+
+                        <li>
+                            Changing the wrong element because of incorrect selectors.
+                        </li>
+
+
+                        <li>
+                            Creating too many unnecessary DOM updates.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- ===========================
+     Author Information
+=========================== -->
+
+
+        <div class="author-info">
+
+
+            <p>
+
+                ✍️ <b>By Roshni Code Charm</b>
+
+            </p>
+
+
+            <p>
+
+                📅 July 2026 | ⏱️ 15 min read
+
+            </p>
+
+
+
+            <div class="post-meta">
+
+
+                <span>
+                    📅 Last Updated: July 2026
+                </span>
+
+
+                <span>
+                    🏷️ JavaScript, DOM, Advanced DOM
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+        <!-- ===========================
+     Introduction
+=========================== -->
+
+
+        <div class="intro-box" id="introduction">
+
+
+            <h2>
+                📖 Introduction
+            </h2>
+
+
+
+            <p class="intro">
+
+                JavaScript DOM Manipulation Part 3 focuses on advanced DOM techniques
+                that help developers interact with HTML elements more efficiently.
+
+                After learning DOM selectors, changing content, styles, and creating elements,
+                now we will learn how to navigate through elements, create dynamic content,
+                replace elements, work with forms, and manage classes using advanced DOM methods.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="content-box">
+
+            <!-- ===========================
+     DOM Traversing
+=========================== -->
+
+            <section id="dom-traversing">
+
+
+                <h2>🔄 DOM Traversing in JavaScript</h2>
+
+
+                <p>
+
+                    DOM Traversing means moving between HTML elements in the DOM Tree.
+                    JavaScript allows us to access parent, child, and sibling elements easily.
+
+                </p>
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        <b>DOM Traversing</b> is the process of navigating through DOM elements
+                        using properties like <code>parentElement</code>, <code>children</code>,
+                        <code>firstElementChild</code>, and <code>nextElementSibling</code>.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        Every HTML element has relationships with other elements.
+                        An element can have a parent, children, and siblings in the DOM Tree.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <!-- ===========================
+     Parent Element
+=========================== -->
+
+
+                <section id="parent-child">
+
+
+                    <h3>👨‍👩‍👦 Access Parent Element</h3>
+
+
+                    <p>
+
+                        The <code>parentElement</code> property returns the parent HTML element
+                        of the selected element.
+
+                    </p>
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+                            <h3>Example: parentElement</h3>
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+                        </div>
+
+
+                        <pre><code>
+&lt;div id="box"&gt;
+
+    &lt;p id="text"&gt;
+        Hello DOM
+    &lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;script&gt;
+
+let text = document.getElementById("text");
+
+console.log(text.parentElement);
+
+&lt;/script&gt;
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+                            <h4>✅ Output</h4>
+
+                            <p>
+                                Returns the parent div element.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+
+
+                <!-- ===========================
+     Children
+=========================== -->
+
+
+                <h3>👶 Access Child Elements</h3>
+
+
+                <p>
+
+                    The <code>children</code> property returns all child elements
+                    inside a selected element.
+
+                </p>
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: children</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+&lt;div id="parent"&gt;
+
+    &lt;p&gt;HTML&lt;/p&gt;
+
+    &lt;p&gt;CSS&lt;/p&gt;
+
+    &lt;p&gt;JavaScript&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;script&gt;
+
+let parent = document.getElementById("parent");
+
+console.log(parent.children);
+
+&lt;/script&gt;
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>
+                            HTMLCollection(3)
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- ===========================
+     Child Nodes
+=========================== -->
+
+
+                <h3>🌳 childNodes</h3>
+
+
+                <p>
+
+                    The <code>childNodes</code> property returns all child nodes including
+                    text nodes, comments, and elements.
+
+                </p>
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: childNodes</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre><code>
+
+let box = document.querySelector(".box");
+
+console.log(box.childNodes);
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>
+                            Returns all nodes inside the element.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <!-- ===========================
+     First & Last Child
+=========================== -->
+
+
+                <h3>➡️ First and Last Child</h3>
+
+
+                <p>
+
+                    JavaScript provides properties to access the first and last child element.
+
+                </p>
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: firstElementChild & lastElementChild</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre><code>
+
+let list = document.querySelector("ul");
+
+
+console.log(list.firstElementChild);
+
+
+console.log(list.lastElementChild);
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>
+
+                            Returns the first and last element inside the list.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- ===========================
+     Siblings
+=========================== -->
+
+
+                <section id="siblings">
+
+
+                    <h3>↔️ Sibling Elements</h3>
+
+
+                    <p>
+
+                        Sibling elements are elements that have the same parent element.
+
+                        JavaScript provides methods to move between siblings.
+
+                    </p>
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+                            <h3>Example: nextElementSibling</h3>
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+                        </div>
+
+
+                        <pre><code>
+
+let first = document.querySelector("p");
+
+
+console.log(first.nextElementSibling);
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+                            <h4>✅ Output</h4>
+
+                            <p>
+
+                                Returns the next paragraph element.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <p>
+
+                            Imagine a shopping website product card:
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>🛒 Product Box → Parent Element</li>
+
+                            <li>🏷️ Product Name & Price → Child Elements</li>
+
+                            <li>➡️ Next Product Card → Sibling Element</li>
+
+                        </ul>
+
+
+                        <p>
+
+                            JavaScript can move between these elements using DOM Traversing methods.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ <code>parentElement</code> finds the parent element.
+                            </li>
+
+
+                            <li>
+                                ✅ <code>children</code> returns only HTML child elements.
+                            </li>
+
+
+                            <li>
+                                ✅ <code>childNodes</code> returns all nodes.
+                            </li>
+
+
+                            <li>
+                                ✅ <code>firstElementChild</code> selects the first child element.
+                            </li>
+
+
+                            <li>
+                                ✅ <code>nextElementSibling</code> moves to the next sibling.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </section>
+
+            <!-- ===========================
+     Creating Dynamic Content
+=========================== -->
+
+
+            <section id="dynamic-content">
+
+
+                <h2>🧩 Creating Dynamic Content in JavaScript</h2>
+
+
+                <p>
+
+                    JavaScript DOM allows us to create new HTML elements dynamically
+                    without writing them directly in the HTML file.
+
+                    We can create elements, add text, and insert them anywhere on the webpage.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        Creating dynamic content means generating new HTML elements using JavaScript
+                        while the webpage is running.
+
+                        Methods like <code>createElement()</code> and <code>append()</code>
+                        help developers build interactive webpages.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        Modern websites like shopping carts, comment sections, and social media feeds
+                        use dynamic DOM creation to add new content instantly.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <!-- ===========================
+     createElement()
+=========================== -->
+
+
+                <h3>➕ createElement() Method</h3>
+
+
+                <p>
+
+                    The <code>createElement()</code> method creates a new HTML element using JavaScript.
+
+                </p>
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example 1: Creating a New Paragraph</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+&lt;script&gt;
+
+
+let paragraph = document.createElement("p");
+
+
+paragraph.innerHTML = "Hello, JavaScript DOM";
+
+
+document.body.appendChild(paragraph);
+
+
+&lt;/script&gt;
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            A new paragraph is added to the webpage.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- ===========================
+     createTextNode()
+=========================== -->
+
+
+                <h3>📝 createTextNode() Method</h3>
+
+
+                <p>
+
+                    The <code>createTextNode()</code> method creates text content separately
+                    and adds it to an element.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: createTextNode()</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+                    <pre><code>
+
+
+let heading = document.createElement("h2");
+
+
+let text = document.createTextNode(
+"Welcome to Roshni Code Charm"
+);
+
+
+heading.appendChild(text);
+
+
+document.body.appendChild(heading);
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            A new heading with text is created.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- ===========================
+     append()
+=========================== -->
+
+
+                <h3>📌 append() Method</h3>
+
+
+                <p>
+
+                    The <code>append()</code> method adds elements or text
+                    at the end of a parent element.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: append()</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+let box = document.getElementById("box");
+
+
+let item = document.createElement("p");
+
+
+item.textContent = "New Item Added";
+
+
+box.append(item);
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            New item appears at the end of the box.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- ===========================
+     prepend()
+=========================== -->
+
+
+                <h3>⬆️ prepend() Method</h3>
+
+
+                <p>
+
+                    The <code>prepend()</code> method adds content at the beginning
+                    of a parent element.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: prepend()</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+let list = document.querySelector("ul");
+
+
+let firstItem = document.createElement("li");
+
+
+firstItem.textContent = "First Item";
+
+
+list.prepend(firstItem);
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            New item is added at the top of the list.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- ===========================
+     insertBefore()
+=========================== -->
+
+
+                <h3>↔️ insertBefore() Method</h3>
+
+
+                <p>
+
+                    The <code>insertBefore()</code> method inserts a new element
+                    before an existing element.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: insertBefore()</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+let parent = document.getElementById("list");
+
+
+let newItem = document.createElement("li");
+
+
+newItem.textContent = "New Item";
+
+
+let oldItem = parent.children[1];
+
+
+parent.insertBefore(newItem, oldItem);
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            New item is inserted before the second item.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="real-life-box">
+
+
+                    <h3>🌍 Real-Life Example</h3>
+
+
+                    <p>
+
+                        Think about a social media app:
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>💬 Adding a new comment → createElement()</li>
+
+                        <li>❤️ Adding a new notification → append()</li>
+
+                        <li>📌 Pinning important content at top → prepend()</li>
+
+                        <li>📝 Adding items in a specific position → insertBefore()</li>
+
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>⭐ Key Points</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ <code>createElement()</code> creates new HTML elements.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>createTextNode()</code> creates text separately.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>append()</code> adds content at the end.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>prepend()</code> adds content at the beginning.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>insertBefore()</code> inserts content before another element.
+                        </li>
+
+
+                        <li>
+                            ✅ Dynamic DOM creation makes websites interactive.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     Replacing Elements
+=========================== -->
+
+
+            <section id="replace">
+
+
+                <h2>🔁 Replacing Elements in JavaScript</h2>
+
+
+                <p>
+
+                    JavaScript DOM provides methods to replace existing HTML elements
+                    with new elements dynamically.
+
+                    This is useful when we want to update content without refreshing the webpage.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        Replacing elements means removing an existing element and placing
+                        a new element in its position using DOM methods like
+                        <code>replaceWith()</code> and <code>replaceChild()</code>.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        Many modern websites update sections dynamically using element replacement.
+                        For example, updating a shopping cart or changing a profile section.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- ===========================
+     replaceWith()
+=========================== -->
+
+
+                <h3>🔄 replaceWith() Method</h3>
+
+
+                <p>
+
+                    The <code>replaceWith()</code> method replaces an existing element
+                    with a new element.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: replaceWith()</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+&lt;h2 id="title"&gt;
+Old Heading
+&lt;/h2&gt;
+
+
+&lt;script&gt;
+
+
+let heading = document.getElementById("title");
+
+
+let newHeading = document.createElement("h2");
+
+
+newHeading.textContent = "New Heading";
+
+
+heading.replaceWith(newHeading);
+
+
+&lt;/script&gt;
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            Old Heading is replaced with New Heading.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     replaceChild()
+=========================== -->
+
+
+                <h3>🔁 replaceChild() Method</h3>
+
+
+                <p>
+
+                    The <code>replaceChild()</code> method replaces one child element
+                    with another child element inside a parent element.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: replaceChild()</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+let parent = document.getElementById("box");
+
+
+let oldElement = document.getElementById("old");
+
+
+let newElement = document.createElement("p");
+
+
+newElement.textContent = "New Content";
+
+
+parent.replaceChild(newElement, oldElement);
+
+
+</code></pre>
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            Old child element is replaced with a new element.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Removing Elements
+=========================== -->
+
+
+                <section id="remove-elements">
+
+
+                    <h2>❌ Removing Elements in JavaScript</h2>
+
+
+                    <p>
+
+                        JavaScript allows us to remove HTML elements dynamically from a webpage.
+
+                        This helps create interactive applications where content can be deleted.
+
+                    </p>
+
+
+
+
+
+
+                    <h3>🗑️ remove() Method</h3>
+
+
+                    <p>
+
+                        The <code>remove()</code> method directly removes the selected element
+                        from the DOM.
+
+                    </p>
+
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Example: remove()</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+let box = document.getElementById("box");
+
+
+box.remove();
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+                                The complete box element is removed from the webpage.
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <!-- ===========================
+     removeChild()
+=========================== -->
+
+
+                    <h3>🗑️ removeChild() Method</h3>
+
+
+                    <p>
+
+                        The <code>removeChild()</code> method removes a specific child element
+                        from a parent element.
+
+                    </p>
+
+
+
+
+
+                    <div class="example-box">
+
+
+                        <div class="example-title">
+
+
+                            <h3>Example: removeChild()</h3>
+
+
+                            <button class="copy-btn">
+                                📋 Copy
+                            </button>
+
+
+                        </div>
+
+
+
+                        <pre><code>
+
+
+let parent = document.getElementById("list");
+
+
+let item = document.getElementById("item1");
+
+
+parent.removeChild(item);
+
+
+</code></pre>
+
+
+
+                        <div class="example-output">
+
+
+                            <h4>✅ Output</h4>
+
+
+                            <p>
+                                Selected child element is removed.
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="real-life-box">
+
+
+                        <h3>🌍 Real-Life Example</h3>
+
+
+                        <p>
+
+                            Consider an online shopping website:
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>🛒 Removing a product from cart → <code>remove()</code></li>
+
+                            <li>🔄 Updating product details → <code>replaceWith()</code></li>
+
+                            <li>❌ Deleting a comment → <code>removeChild()</code></li>
+
+                            <li>📝 Updating a message → <code>replaceChild()</code></li>
+
+                        </ul>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="important-box">
+
+
+                        <h3>⭐ Key Points</h3>
+
+
+                        <ul>
+
+
+                            <li>
+                                ✅ <code>replaceWith()</code> replaces an element directly.
+                            </li>
+
+
+                            <li>
+                                ✅ <code>replaceChild()</code> replaces a child element inside a parent.
+                            </li>
+
+
+                            <li>
+                                ✅ <code>remove()</code> removes an element completely.
+                            </li>
+
+
+                            <li>
+                                ✅ <code>removeChild()</code> removes a specific child element.
+                            </li>
+
+
+                            <li>
+                                ✅ These methods help create dynamic webpages.
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+            </section>
+
+            <!-- ===========================
+     Working with Forms
+=========================== -->
+
+
+            <section id="forms">
+
+
+                <h2>📋 Working with Forms using DOM</h2>
+
+
+                <p>
+
+                    JavaScript DOM allows us to access and control form elements
+                    like input fields, checkboxes, buttons, and select boxes dynamically.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        Working with forms means using JavaScript to read user input,
+                        change form values, validate data, and control form elements
+                        without reloading the webpage.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        Login forms, registration forms, search boxes, and online checkout forms
+                        all use DOM manipulation to collect and process user data.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- ===========================
+     Value Property
+=========================== -->
+
+
+                <h3>📝 value Property</h3>
+
+
+                <p>
+
+                    The <code>value</code> property is used to get or change the value
+                    of an input element.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: Getting Input Value</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+&lt;input id="username" value="Roshni"&gt;
+
+
+&lt;script&gt;
+
+
+let name = document.getElementById("username").value;
+
+
+console.log(name);
+
+
+&lt;/script&gt;
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            Roshni
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- ===========================
+     Checked Property
+=========================== -->
+
+
+                <h3>☑️ checked Property</h3>
+
+
+                <p>
+
+                    The <code>checked</code> property is used with checkbox and radio buttons
+                    to check whether they are selected or not.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: Checkbox Checked</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+&lt;input type="checkbox" id="agree"&gt;
+
+
+&lt;script&gt;
+
+
+let check = document.getElementById("agree").checked;
+
+
+console.log(check);
+
+
+&lt;/script&gt;
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            true / false
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     Disabled Property
+=========================== -->
+
+
+                <h3>🚫 disabled Property</h3>
+
+
+                <p>
+
+                    The <code>disabled</code> property is used to enable or disable
+                    HTML elements like buttons and input fields.
+
+                </p>
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: Disable Button</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+let button = document.getElementById("btn");
+
+
+button.disabled = true;
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            Button becomes disabled.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Advanced Class Manipulation
+=========================== -->
+
+
+            <section id="class-manipulation">
+
+
+                <h2>🎨 Advanced Class Manipulation</h2>
+
+
+                <p>
+
+                    The <code>classList</code> property allows JavaScript to add,
+                    remove, check, and toggle CSS classes dynamically.
+
+                </p>
+
+
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        <code>classList</code> is a DOM property that provides methods
+                        to manage CSS classes of HTML elements.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- ===========================
+     contains()
+=========================== -->
+
+
+                <h3>🔍 classList.contains()</h3>
+
+
+                <p>
+
+                    The <code>contains()</code> method checks whether an element
+                    has a specific class or not.
+
+                </p>
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: contains()</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+let box = document.querySelector(".box");
+
+
+console.log(
+box.classList.contains("active")
+);
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            true or false
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <!-- ===========================
+     toggle()
+=========================== -->
+
+
+                <h3>🔄 classList.toggle()</h3>
+
+
+                <p>
+
+                    The <code>toggle()</code> method adds a class if it does not exist
+                    and removes it if it already exists.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+
+                        <h3>Example: Dark Mode Toggle</h3>
+
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+function darkMode(){
+
+
+document.body.classList.toggle("dark");
+
+
+}
+
+
+</code></pre>
+
+
+
+
+                    <div class="example-output">
+
+
+                        <h4>✅ Output</h4>
+
+
+                        <p>
+                            Dark mode class is added or removed.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <div class="real-life-box">
+
+
+                    <h3>🌍 Real-Life Example</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            🔐 Login form → Getting username and password values
+                        </li>
+
+
+                        <li>
+                            ☑️ Accept terms checkbox → Using checked property
+                        </li>
+
+
+                        <li>
+                            🌙 Dark mode button → Using classList.toggle()
+                        </li>
+
+
+                        <li>
+                            🚫 Disable submit button → Using disabled property
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>⭐ Key Points</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ <code>value</code> gets or changes input values.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>checked</code> works with checkbox and radio buttons.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>disabled</code> controls element availability.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>classList.contains()</code> checks classes.
+                        </li>
+
+
+                        <li>
+                            ✅ <code>classList.toggle()</code> adds or removes classes.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+            <!-- ===========================
+     DOM Performance Tips
+=========================== -->
+
+
+            <section id="performance">
+
+
+                <h2>⚡ DOM Performance Tips</h2>
+
+
+                <p>
+
+                    DOM manipulation is powerful, but too many unnecessary DOM updates
+                    can slow down a webpage. Developers should use efficient techniques
+                    to improve performance.
+
+                </p>
+
+
+
+
+                <div class="definition-box">
+
+
+                    <h3>📘 Definition</h3>
+
+
+                    <p>
+
+                        DOM Performance means optimizing the way JavaScript interacts with
+                        HTML elements so websites load faster and work smoothly.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="did-you-know">
+
+
+                    <h3>💡 Did You Know?</h3>
+
+
+                    <p>
+
+                        Every time JavaScript changes the DOM, the browser may need to
+                        recalculate styles and update the page layout. Too many updates
+                        can reduce performance.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>🚀 1. Store DOM Selectors in Variables</h3>
+
+
+                <p>
+
+                    Instead of selecting the same element multiple times,
+                    store it in a variable and reuse it.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+// Better Approach
+
+let heading = document.getElementById("title");
+
+
+heading.style.color = "blue";
+
+heading.style.fontSize = "30px";
+
+
+</code></pre>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>🚀 2. Use DocumentFragment()</h3>
+
+
+                <p>
+
+                    <code>DocumentFragment</code> allows you to create multiple elements
+                    in memory before adding them to the webpage.
+
+                </p>
+
+
+
+
+                <div class="example-box">
+
+
+                    <div class="example-title">
+
+                        <h3>Example: DocumentFragment()</h3>
+
+                        <button class="copy-btn">
+                            📋 Copy
+                        </button>
+
+                    </div>
+
+
+
+                    <pre><code>
+
+
+let fragment = document.createDocumentFragment();
+
+
+let item = document.createElement("p");
+
+
+item.textContent = "New Item";
+
+
+fragment.appendChild(item);
+
+
+document.body.appendChild(fragment);
+
+
+</code></pre>
+
+
+                    <div class="example-output">
+
+                        <h4>✅ Output</h4>
+
+                        <p>
+                            Content is added efficiently to the page.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <h3>🚀 3. Avoid Unnecessary DOM Changes</h3>
+
+
+                <p>
+
+                    Updating the DOM again and again can decrease performance.
+                    Try to update multiple changes together.
+
+                </p>
+
+
+
+
+
+
+                <h3>🚀 4. Use Modern DOM Methods</h3>
+
+
+                <ul>
+
+                    <li>
+                        ✅ Use <code>append()</code> instead of older methods when possible.
+                    </li>
+
+
+                    <li>
+                        ✅ Use <code>querySelector()</code> for flexible selection.
+                    </li>
+
+
+                    <li>
+                        ✅ Use <code>classList</code> for changing classes.
+                    </li>
+
+
+                    <li>
+                        ✅ Avoid creating unnecessary elements.
+                    </li>
+
+
+                </ul>
+
+
+
+
+
+
+                <div class="real-life-box">
+
+
+                    <h3>🌍 Real-Life Example</h3>
+
+
+                    <p>
+
+                        Large websites like shopping platforms and social media apps
+                        use optimized DOM techniques to display thousands of products,
+                        posts, and comments smoothly.
+
+                    </p>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>⭐ Key Points</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ Store frequently used DOM elements in variables.
+                        </li>
+
+
+                        <li>
+                            ✅ Use DocumentFragment for multiple elements.
+                        </li>
+
+
+                        <li>
+                            ✅ Reduce unnecessary DOM updates.
+                        </li>
+
+
+                        <li>
+                            ✅ Efficient DOM coding improves website speed.
+                        </li>
+
+
+                        <li>
+                            ✅ Performance optimization is important for large applications.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     Summary
+=========================== -->
+
+
+            <section id="summary">
+
+
+                <h2>📚 JavaScript DOM Manipulation Part 3 Summary</h2>
+
+
+
+                <p>
+
+                    In this tutorial, we learned advanced DOM manipulation techniques
+                    that help JavaScript interact with webpages more efficiently.
+
+                </p>
+
+
+
+
+
+                <div class="important-box">
+
+
+                    <h3>🎯 What We Learned</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            ✅ DOM Traversing using parent, child, and sibling relationships.
+                        </li>
+
+
+                        <li>
+                            ✅ Creating dynamic elements using createElement().
+                        </li>
+
+
+                        <li>
+                            ✅ Adding content using append(), prepend(), and insertBefore().
+                        </li>
+
+
+                        <li>
+                            ✅ Replacing elements using replaceWith() and replaceChild().
+                        </li>
+
+
+                        <li>
+                            ✅ Removing elements using remove() and removeChild().
+                        </li>
+
+
+                        <li>
+                            ✅ Working with forms using value, checked, and disabled.
+                        </li>
+
+
+                        <li>
+                            ✅ Managing CSS classes using classList methods.
+                        </li>
+
+
+                        <li>
+                            ✅ Improving DOM performance.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="tip-box">
+
+
+                    <h3>💡 Final Tip</h3>
+
+
+                    <p>
+
+                        DOM is the bridge between JavaScript and HTML.
+                        The more you practice DOM manipulation, the easier it becomes
+                        to build interactive websites and real-world projects.
+
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+            <!-- ===========================
+     Practice Questions
+=========================== -->
+
+            <section id="practice">
+
+
+                <h2>📝 Practice Questions</h2>
+
+
+                <div class="important-box">
+
+
+                    <h3>Try Yourself</h3>
+
+
+                    <ol>
+
+
+                        <li>
+                            What is DOM Traversing in JavaScript?
+                        </li>
+
+
+                        <li>
+                            Explain the difference between children and childNodes.
+                        </li>
+
+
+                        <li>
+                            What is the use of createElement() method?
+                        </li>
+
+
+                        <li>
+                            Difference between append() and prepend().
+                        </li>
+
+
+                        <li>
+                            How can you remove an HTML element using JavaScript?
+                        </li>
+
+
+                        <li>
+                            What is the use of classList.toggle()?
+                        </li>
+
+
+                        <li>
+                            Explain replaceChild() method with example.
+                        </li>
+
+
+                        <li>
+                            How can you access input values using DOM?
+                        </li>
+
+
+                        <li>
+                            Why is DOM performance optimization important?
+                        </li>
+
+
+                        <li>
+                            What is DocumentFragment?
+                        </li>
+
+
+                    </ol>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+            <!-- ===========================
+     Mini Quiz
+=========================== -->
+
+
+            <section id="quiz">
+
+
+                <h2>🧠 Mini Quiz (10 MCQs)</h2>
+
+
+
+                <div class="example-box">
+
+
+                    <h3>1. DOM stands for?</h3>
+
+
+                    <p>
+                        A) Data Object Model<br>
+                        B) Document Object Model<br>
+                        C) Digital Object Model<br>
+                        D) Document Order Method
+                    </p>
+
+
+                    <b>Answer: B) Document Object Model</b>
+
+
+                </div>
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>2. Which method creates a new HTML element?</h3>
+
+
+                    <p>
+                        A) createElement()<br>
+                        B) append()<br>
+                        C) remove()<br>
+                        D) replace()
+                    </p>
+
+
+                    <b>Answer: A) createElement()</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>3. Which property returns child elements?</h3>
+
+
+                    <p>
+                        A) parent<br>
+                        B) children<br>
+                        C) sibling<br>
+                        D) value
+                    </p>
+
+
+                    <b>Answer: B) children</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>4. Which method removes an element?</h3>
+
+
+                    <p>
+                        A) add()<br>
+                        B) remove()<br>
+                        C) create()<br>
+                        D) insert()
+                    </p>
+
+
+                    <b>Answer: B) remove()</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>5. Which method adds content at the beginning?</h3>
+
+
+                    <p>
+                        A) append()<br>
+                        B) prepend()<br>
+                        C) replace()<br>
+                        D) delete()
+                    </p>
+
+
+                    <b>Answer: B) prepend()</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>6. Which property gets input value?</h3>
+
+
+                    <p>
+                        A) text<br>
+                        B) value<br>
+                        C) input<br>
+                        D) data
+                    </p>
+
+
+                    <b>Answer: B) value</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>7. Which method checks if a class exists?</h3>
+
+
+                    <p>
+                        A) contains()<br>
+                        B) check()<br>
+                        C) hasClass()<br>
+                        D) verify()
+                    </p>
+
+
+                    <b>Answer: A) contains()</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>8. Which method changes classes dynamically?</h3>
+
+
+                    <p>
+                        A) classList.toggle()<br>
+                        B) style.change()<br>
+                        C) css()<br>
+                        D) classChange()
+                    </p>
+
+
+                    <b>Answer: A) classList.toggle()</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>9. Which object represents HTML document?</h3>
+
+
+                    <p>
+                        A) window<br>
+                        B) document<br>
+                        C) browser<br>
+                        D) screen
+                    </p>
+
+
+                    <b>Answer: B) document</b>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="example-box">
+
+
+                    <h3>10. DocumentFragment improves?</h3>
+
+
+                    <p>
+                        A) Security<br>
+                        B) Performance<br>
+                        C) Design<br>
+                        D) Storage
+                    </p>
+
+
+                    <b>Answer: B) Performance</b>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+
+            <!-- ===========================
+     Interview Questions
+=========================== -->
+
+
+            <section id="interview">
+
+
+                <h2>💼 Interview Questions</h2>
+
+
+
+                <div class="important-box">
+
+
+                    <h3>Common DOM Interview Questions</h3>
+
+
+                    <ul>
+
+
+                        <li>
+                            <b>Q1:</b> What is DOM?<br>
+                            <b>Ans:</b> DOM is a programming interface that represents HTML as objects.
+                        </li>
+
+
+                        <br>
+
+
+                        <li>
+                            <b>Q2:</b> Difference between DOM and BOM?<br>
+                            <b>Ans:</b> DOM handles webpage elements, BOM handles browser features.
+                        </li>
+
+
+                        <br>
+
+
+                        <li>
+                            <b>Q3:</b> Difference between append() and appendChild()?<br>
+                            <b>Ans:</b> append() accepts text and multiple nodes, appendChild() accepts only nodes.
+                        </li>
+
+
+                        <br>
+
+
+                        <li>
+                            <b>Q4:</b> What is classList?<br>
+                            <b>Ans:</b> classList is used to manage CSS classes dynamically.
+                        </li>
+
+
+                        <br>
+
+
+                        <li>
+                            <b>Q5:</b> How do you remove an element?<br>
+                            <b>Ans:</b> Using remove() or removeChild().
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+
+            <!-- ===========================
+     Glossary
+=========================== -->
+
+
+            <section id="glossary">
+
+
+                <h2>📖 Glossary</h2>
+
+
+                <div class="example-box">
+
+
+                    <table border="1" width="100%" cellpadding="10">
+
+
+                        <tr>
+
+                            <th>Term</th>
+
+                            <th>Meaning</th>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>DOM</td>
+
+                            <td>Document Object Model</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Node</td>
+
+                            <td>A single object in DOM Tree</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Element</td>
+
+                            <td>An HTML tag represented as object</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>classList</td>
+
+                            <td>Collection of CSS classes</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>DocumentFragment</td>
+
+                            <td>Temporary container for DOM elements</td>
+
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+
+
+            <!-- ===========================
+     FAQs
+=========================== -->
+
+
+            <section id="faq">
+
+
+                <h2>❓ FAQs</h2>
+
+
+
+                <div class="tip-box">
+
+
+                    <h3>Q1. Why is DOM important?</h3>
+
+
+                    <p>
+                        DOM allows JavaScript to create interactive and dynamic webpages.
+                    </p>
+
+
+                    <h3>Q2. Can JavaScript change HTML?</h3>
+
+
+                    <p>
+                        Yes, JavaScript can add, remove, and modify HTML elements using DOM.
+                    </p>
+
+
+                    <h3>Q3. Is DOM a programming language?</h3>
+
+
+                    <p>
+                        No, DOM is an interface that allows programs to interact with HTML.
+                    </p>
+
+
+                    <h3>Q4. Which object is the root of DOM?</h3>
+
+
+                    <p>
+                        The document object is the root of the DOM tree.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+            <!-- ===========================
+     Related Articles
+=========================== -->
+
+
+            <section class="related-articles">
+
+
+                <h2>📚 Related Articles</h2>
+
+
+                <p>
+                    Continue learning JavaScript with these beginner-friendly tutorials from Roshni Code Charm.
+                </p>
+
+
+
+                <div class="article-box">
+
+
+                    <h3>⚡ JavaScript ES6 Part 1</h3>
+
+
+                    <p>
+                        Learn Let, Const, Arrow Functions, Template Literals, and modern ES6 features.
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>🚀 JavaScript ES6 Part 2</h3>
+
+
+                    <p>
+                        Explore Classes, Modules, Promises, Async/Await, Maps and Sets.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>🖥️ JavaScript DOM Manipulation Part 2</h3>
+
+
+                    <p>
+                        Learn changing content, styles, attributes, and events.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="article-box">
+
+
+                    <h3>🖱️ JavaScript Events</h3>
+
+
+                    <p>
+                        Understand click, mouse, keyboard, form and window events.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+            <!-- ===========================
+     Previous Next Navigation
+=========================== -->
+
+            <div class="post-navigation">
+
+                <a href="javascript-dom-part2.html">
+                    ⬅️ Previous
+                    <br>
+                    JavaScript DOM Manipulation Part 2
+                </a>
+
+
+                <a href="javascript-events.html">
+                    Next ➡️
+                    <br>
+                    JavaScript Events
+                </a>
+
+            </div>
+
+            <!-- ===========================
+     Footer
+=========================== -->
+
+            <footer>
+
+                <div class="author-info">
+
+                    <h2>❤️ Thank You for Reading!</h2>
+
+                    <p>
+                        Thank you for learning
+                        <strong>JavaScript DOM Manipulation Part 3</strong>
+                        with <strong>Roshni Code Charm</strong>. 🎉
+                    </p>
+
+                    <p>
+                        Keep practicing JavaScript and build interactive websites.
+                        Consistent practice helps you become a better web developer.
+                    </p>
+
+
+                    <div class="footer-links">
+
+                        <a href="index.html">🏠 Home</a>
+
+                        <a href="javascript.html">📚 JavaScript Tutorials</a>
+
+                    </div>
+
+
+                    <div class="social-links">
+
+                        <a href="https://github.com/roshni945" target="_blank">
+                            💻 GitHub
+                        </a>
+
+                        <a href="https://www.pinterest.com/roshnicodecharm/" target="_blank">
+                            📌 Pinterest
+                        </a>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <p>
+                        © 2026 <strong>Roshni Code Charm</strong>.
+                        All Rights Reserved.
+                    </p>
+
+
+                    <p>
+                        Made with ❤️ for JavaScript Beginners.
+                    </p>
+
+
+                </div>
+
+
+            </footer>
+
+
+
+        </div> <!-- container close -->
+
+
+</body>
+
+</html>
