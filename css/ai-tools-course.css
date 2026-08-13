@@ -1,0 +1,609 @@
+/* =========================================
+ROSHNI CODE CHARM
+AI TOOLS COURSE CSS
+========================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #f7f8fc;
+
+    color: #222;
+
+    line-height: 1.8;
+
+    overflow-x: hidden;
+
+}
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+.container {
+
+    width: 90%;
+
+    max-width: 1300px;
+
+    margin: auto;
+
+}
+
+/* =========================================
+NAVBAR
+========================================= */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+
+    z-index: 999;
+
+}
+
+.nav-container {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 5%;
+
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #7b2cbf;
+
+}
+
+.logo img {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+}
+
+.nav-links {
+
+    display: flex;
+
+    list-style: none;
+
+    gap: 25px;
+
+}
+
+.nav-links a {
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+.nav-links a:hover {
+
+    color: #7b2cbf;
+
+}
+
+.search-box input {
+
+    padding: 10px 16px;
+
+    border: 2px solid #ddd;
+
+    border-radius: 30px;
+
+    outline: none;
+
+    font-size: 15px;
+
+}
+
+#darkModeBtn {
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    background: #7b2cbf;
+
+    color: #fff;
+
+    transition: .3s;
+
+}
+
+#darkModeBtn:hover {
+
+    transform: rotate(20deg);
+
+    background: #5a189a;
+
+}
+
+/* =========================================
+HERO
+========================================= */
+
+.hero {
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+    background: linear-gradient(135deg, #7b2cbf, #9d4edd, #c77dff);
+
+    color: #fff;
+
+}
+
+.hero-badge {
+
+    display: inline-block;
+
+    background: #fff;
+
+    color: #7b2cbf;
+
+    padding: 8px 18px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+
+}
+
+.hero h1 {
+
+    font-size: 60px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+}
+
+.hero p {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    font-size: 20px;
+
+    opacity: .95;
+
+}
+
+.hero-image {
+
+    width: 420px;
+
+    margin: 45px auto;
+
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+}
+
+.btn-primary {
+
+    background: #fff;
+
+    color: #7b2cbf;
+
+    padding: 14px 30px;
+
+    border-radius: 40px;
+
+    font-weight: 700;
+
+    transition: .3s;
+
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-4px);
+
+}
+
+.btn-secondary {
+
+    background: transparent;
+
+    border: 2px solid #fff;
+
+    color: #fff;
+
+    padding: 14px 30px;
+
+    border-radius: 40px;
+
+    font-weight: 700;
+
+    transition: .3s;
+
+}
+
+.btn-secondary:hover {
+
+    background: #fff;
+
+    color: #7b2cbf;
+
+}
+
+/* =========================================
+COURSE LAYOUT
+========================================= */
+
+.tutorial-layout {
+
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 35px;
+
+    margin: 60px auto;
+
+    align-items: start;
+
+}
+
+/* =========================================
+SIDEBAR
+========================================= */
+
+.sidebar {
+
+    position: sticky;
+
+    top: 90px;
+
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+}
+
+.sidebar h2 {
+
+    font-size: 24px;
+
+    color: #7b2cbf;
+
+    margin-bottom: 20px;
+
+}
+
+.sidebar a {
+
+    display: block;
+
+    padding: 12px 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    font-weight: 500;
+
+    transition: .3s;
+
+}
+
+.sidebar a:hover {
+
+    background: #7b2cbf;
+
+    color: #fff;
+
+    padding-left: 20px;
+
+}
+
+/* =========================================
+CONTENT
+========================================= */
+
+.content {
+
+    background: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+}
+
+/* =========================================
+HEADINGS
+========================================= */
+
+.content h1 {
+
+    font-size: 42px;
+
+    color: #7b2cbf;
+
+    margin-bottom: 20px;
+
+}
+
+.content h2 {
+
+    font-size: 30px;
+
+    margin-top: 40px;
+
+    margin-bottom: 18px;
+
+    color: #5a189a;
+
+}
+
+.content p {
+
+    font-size: 17px;
+
+    margin-bottom: 18px;
+
+    color: #444;
+
+}
+
+/* =========================================
+CARD
+========================================= */
+
+.card {
+
+    background: #faf7ff;
+
+    border-left: 6px solid #7b2cbf;
+
+    padding: 25px;
+
+    margin: 25px 0;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
+
+    transition: .3s;
+
+}
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+/* =========================================
+TABLE
+========================================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin: 25px 0;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+}
+
+table th {
+
+    background: #7b2cbf;
+
+    color: #fff;
+
+    padding: 15px;
+
+    text-align: left;
+
+}
+
+table td {
+
+    padding: 15px;
+
+    border: 1px solid #e5e5e5;
+
+    background: #fff;
+
+}
+
+table tr:nth-child(even) {
+
+    background: #f8f8ff;
+
+}
+
+/* =========================================
+LISTS
+========================================= */
+
+ul,
+
+ol {
+
+    margin: 20px 0 20px 30px;
+
+}
+
+li {
+
+    margin-bottom: 10px;
+
+}
+
+/* =========================================
+TIP BOX
+========================================= */
+
+.tip-box {
+
+    background: #e8fff1;
+
+    border-left: 6px solid #16a34a;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    margin: 30px 0;
+
+}
+
+/* =========================================
+WARNING BOX
+========================================= */
+
+.warning-box {
+
+    background: #fff3cd;
+
+    border-left: 6px solid #f59e0b;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    margin: 30px 0;
+
+}
+
+/* =========================================
+CODE BLOCK
+========================================= */
+
+pre {
+
+    background: #1e1e1e;
+
+    color: #ffffff;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    overflow-x: auto;
+
+    margin: 20px 0;
+
+}
+
+code {
+
+    font-family: Consolas, monospace;
+
+    font-size: 15px;
+
+}
+
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: block;
+}
+
+nav {
+    display: flex;
+}

@@ -2,2030 +2,1310 @@
 <html lang="en">
 
 <head>
-  <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Pacifico&display=swap"
-    rel="stylesheet">
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="p:domain_verify" content="8ff7f3bf580464df13b34b320acefb68" />
-  <title>
-    Roshni Code Charm | Learn Python, HTML, CSS & JavaScript
-  </title>
 
-  <meta name="description"
-    content="Learn Python, HTML, CSS and JavaScript with beginner-friendly tutorials, coding tips, projects and creative resources by Roshni Code Charm.">
+  <title>Roshni Code Charm | Learn Coding Step by Step</title>
 
-  <meta name="keywords"
-    content="Python Tutorial, HTML Basics, CSS Tutorial, JavaScript Tutorial, Web Development, Coding for Beginners, BCA Notes">
+  <!-- Google Font -->
 
-  <meta name="author" content="Roshni Code Charm">
-  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <style>
-    .main-logo:hover {
-      transform: scale(1.04);
-    }
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    .main-logo {
-      width: 360px;
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-      max-width: 100%;
+  <!-- Font Awesome -->
 
-      display: block;
-      margin: auto;
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-      border-radius: 35px;
+  <!-- CSS -->
 
-      padding: 10px;
+  <link rel="stylesheet" href="css/style.css">
 
-      background: rgba(255, 255, 255, 0.08);
-
-      backdrop-filter: blur(8px);
-
-      box-shadow:
-        0 0 30px rgba(180, 255, 220, 0.35);
-
-      transition: 0.4s;
-    }
-
-    .main-logo:hover {
-      transform: scale(1.03);
-    }
-
-    body {
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.72),
-          rgba(255, 255, 255, 0.55)),
-        url("bg.jpg");
-
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-
-      overflow-x: hidden;
-      color: #222;
-    }
-
-
-    /* ===========================
-   PREMIUM NAVBAR
-=========================== */
-
-    .navbar {
-
-      position: sticky;
-      top: 0;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      padding: 14px 7%;
-
-      background: rgba(255, 255, 255, .85);
-
-      backdrop-filter: blur(18px);
-
-      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
-
-      z-index: 999;
-
-    }
-
-    .nav-logo img {
-
-      height: 70px;
-      border-radius: 12px;
-
-    }
-
-    .nav-links {
-
-      display: flex;
-      gap: 30px;
-
-      list-style: none;
-
-    }
-
-    .nav-links a {
-
-      text-decoration: none;
-
-      font-size: 18px;
-      font-weight: 600;
-
-      color: #6f2cff;
-
-      transition: .3s;
-
-    }
-
-    .nav-links a:hover {
-
-      color: #ff4da6;
-
-    }
-
-    .nav-right {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 15px;
-
-    }
-
-    .nav-search {
-
-      padding: 10px 18px;
-
-      border: 2px solid #ececec;
-
-      border-radius: 30px;
-
-      width: 220px;
-
-      outline: none;
-
-      transition: .3s;
-
-    }
-
-    .nav-search:focus {
-
-      border-color: #7b2cbf;
-
-    }
-
-    .share-btn {
-
-      padding: 10px 22px;
-
-      border: none;
-
-      border-radius: 30px;
-
-      background: linear-gradient(135deg, #ff4da6, #7b2cbf);
-
-      color: white;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transition: .3s;
-
-    }
-
-    .share-btn:hover {
-
-      transform: translateY(-3px);
-
-      box-shadow: 0 8px 20px rgba(123, 44, 191, .25);
-
-    }
-
-    @media(max-width:900px) {
-
-      .navbar {
-
-        flex-direction: column;
-
-        gap: 15px;
-
-        padding: 15px;
-
-      }
-
-      .nav-links {
-
-        gap: 18px;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-      }
-
-      .nav-search {
-
-        width: 100%;
-
-        max-width: 260px;
-
-      }
-
-      .nav-right {
-
-        flex-direction: column;
-
-      }
-
-    }
-
-    /* PAGE SYSTEM */
-
-    .page {
-      display: none;
-      padding: 20px;
-      animation: fade 0.5s;
-    }
-
-    .active {
-      display: block;
-    }
-
-    @keyframes fade {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .logo {
-      font-family: 'Pacifico', cursive;
-
-      font-size: 130px;
-
-      font-style: italic;
-      font-weight: bold;
-
-      background: linear-gradient(to right,
-          #d8ffe7,
-          #b7ffda,
-          #ffffff,
-          #b7ffda);
-
-      background-clip: text;
-      -webkit-background-clip: text;
-
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-
-      text-align: center;
-
-      text-shadow:
-        0 0 12px rgba(183, 255, 218, 0.8),
-        0 0 25px rgba(183, 255, 218, 0.6),
-        0 0 40px rgba(183, 255, 218, 0.4);
-
-      animation: glow 2s infinite alternate;
-    }
-
-
-    /* HERO */
-
-    .hero {
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .hero h1 {
-      font-size: 65px;
-      color: #7b2cbf;
-      text-shadow: 0 0 15px #ff9ff3;
-      animation: glow 2s infinite alternate;
-    }
-
-    .hero-title {
-      font-size: 60px;
-      font-weight: 700;
-      color: #7b2cbf;
-      margin: 20px auto;
-      text-shadow: 0 0 15px #ff9ff3;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ff9ff3;
-      }
-
-      to {
-        text-shadow: 0 0 25px #c77dff;
-      }
-    }
-
-
-    .hero p {
-      margin-top: 20px;
-
-      font-size: 34px;
-
-      font-style: italic;
-      font-weight: bold;
-
-      color: white;
-
-      text-shadow:
-        0 0 10px black,
-        0 0 20px black;
-    }
-
-
-    .typing {
-      margin-top: 20px;
-      font-size: 24px;
-      font-style: italic;
-      font-weight: bold;
-      color: #d8ffe7;
-
-      text-shadow:
-        0 0 10px black,
-        0 0 20px black;
-
-      animation: blink 1s infinite;
-    }
-
-    .hero-subtitle {
-      max-width: 850px;
-      margin: 20px auto;
-      line-height: 1.8;
-    }
-
-
-    @keyframes blink {
-      50% {
-        opacity: 0.5;
-      }
-    }
-
-    /* BUTTON */
-
-    .btn {
-      margin-top: 30px;
-      padding: 16px 38px;
-      border: none;
-      border-radius: 40px;
-      background: linear-gradient(to right, #ff4da6, #7b2cbf);
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px #c77dff;
-    }
-
-    /* CARDS */
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 25px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transition: 0.4s;
-    }
-
-    .card:hover {
-
-      transform: translateY(-12px);
-
-      box-shadow:
-        0 20px 45px rgba(123, 44, 191, .25);
-
-    }
-
-    .card h2 {
-      color: #7b2cbf;
-      margin-bottom: 12px;
-    }
-
-    /* STATS */
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin: 70px auto;
-    }
-
-    .stat-box {
-
-      background: rgba(255, 255, 255, .85);
-
-      backdrop-filter: blur(12px);
-
-      padding: 30px;
-
-      border-radius: 25px;
-
-      width: 230px;
-
-      text-align: center;
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, .08);
-
-      transition: .3s;
-
-    }
-
-    .stat-box h2 {
-      color: #7b2cbf;
-      font-size: 40px;
-    }
-
-    /* GALLERY */
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1800px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: .4s;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    .pin-card img {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-    }
-
-    /* VIDEO GALLERY */
-
-    .video-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    .video-gallery video {
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
-    }
-
-    /* POPUP */
-
-    .popup {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .popup img {
-      width: auto;
-      height: 75vh;
-      max-width: 70vw;
-      object-fit: contain;
-      border-radius: 20px;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:768px) {
-
-      .main-logo {
-        width: 260px;
-      }
-
-
-      .hero {
-        padding: 40px 15px;
-      }
-
-
-      .hero-title {
-        font-size: 35px;
-      }
-
-
-      .hero p {
-        font-size: 20px;
-      }
-
-
-      .container {
-        grid-template-columns: 1fr;
-        padding: 15px;
-      }
-
-
-      .card {
-        padding: 20px;
-      }
-
-
-      .section-title span {
-        font-size: 30px;
-      }
-
-
-      .stats {
-        flex-direction: column;
-        align-items: center;
-      }
-
-
-      .stat-box {
-        width: 90%;
-      }
-
-
-      .category-title {
-        font-size: 30px;
-      }
-
-
-      .footer-logo {
-        font-size: 28px;
-      }
-
-    }
-
-    /* QUOTE */
-
-    .quote {
-      margin-top: 70px;
-      text-align: center;
-      font-size: 28px;
-      color: #7b2cbf;
-      font-style: italic;
-    }
-
-    /* FOOTER */
-
-    .footer {
-      margin-top: 70px;
-      padding: 25px;
-      text-align: center;
-      background: white;
-      font-size: 18px;
-      color: #666;
-    }
-
-    /* MOBILE */
-
-    @media (max-width:768px) {
-
-
-
-      .video-gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 10px;
-      }
-
-      .video-gallery video {
-        width: 100%;
-        height: 320px;
-        object-fit: cover;
-        border-radius: 15px;
-      }
-    }
-
-    .search-box {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .search-box input {
-      width: 70%;
-      max-width: 500px;
-      padding: 12px;
-      border: 2px solid #7b2cbf;
-      border-radius: 30px;
-      font-size: 16px;
-      outline: none;
-    }
-
-    .categories {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin: 20px 0 30px;
-    }
-
-    .cat-btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      background: #7b2cbf;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      transition: .3s;
-    }
-
-    .cat-btn:hover {
-      background: #ff4da6;
-    }
-
-    /* Featured Article */
-
-    .featured {
-      max-width: 900px;
-      margin: 50px auto;
-      text-align: center;
-    }
-
-    .featured-card {
-      background: rgba(255, 255, 255, .92);
-      backdrop-filter: blur(15px);
-      padding: 45px;
-      border-radius: 30px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
-      transition: .3s;
-    }
-
-    .featured-card:hover {
-      transform: translateY(-8px);
-    }
-
-
-    .featured h2 {
-      color: #7b2cbf;
-      font-size: 36px;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .featured h3 {
-      color: #ff4da6;
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
-
-    .featured p {
-      font-size: 18px;
-      color: #555;
-    }
-
-    .featured .btn {
-      margin-top: 20px;
-    }
-
-    /* ===========================
-   PREMIUM ARTICLE CARDS
-=========================== */
-
-    .container {
-
-      display: grid;
-
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-      gap: 30px;
-
-      margin-top: 40px;
-
-    }
-
-    .card {
-
-      background: white;
-
-      border-radius: 20px;
-
-      padding: 25px;
-
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-
-      transition: .35s;
-
-      overflow: hidden;
-
-      position: relative;
-
-    }
-
-    .card:hover {
-
-      transform: translateY(-10px);
-
-      box-shadow: 0 20px 45px rgba(123, 44, 191, .18);
-
-    }
-
-    .card::before {
-
-      content: "";
-
-      position: absolute;
-
-      top: 0;
-      left: 0;
-
-      width: 100%;
-      height: 6px;
-
-      background: linear-gradient(90deg, #ff4da6, #7b2cbf);
-
-    }
-
-    .card h2 {
-
-      font-size: 28px;
-
-      color: #7b2cbf;
-
-      margin-top: 10px;
-
-    }
-
-    .card p {
-
-      color: #555;
-
-      line-height: 1.8;
-
-      margin: 18px 0;
-
-    }
-
-    .card .btn {
-
-      margin-top: auto;
-
-      display: inline-block;
-
-    }
-
-    /* CARD ICON */
-
-    .card-icon {
-
-      width: 65px;
-      height: 65px;
-
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 32px;
-
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-
-      margin-bottom: 15px;
-
-    }
-
-    /* CATEGORY */
-
-    .badge {
-
-      display: inline-block;
-
-      padding: 6px 14px;
-
-      background: #7b2cbf;
-
-      color: white;
-
-      border-radius: 30px;
-
-      font-size: 14px;
-
-      margin-bottom: 15px;
-
-    }
-
-    /* META */
-
-    .card-meta {
-
-      color: #888;
-
-      font-size: 14px;
-
-      margin-bottom: 15px;
-
-    }
-
-    /* ==========================
-   MAIN CONTENT
-========================== */
-
-    .content-wrapper {
-
-      max-width: 1400px;
-
-      margin: 0 auto;
-
-      background: #ffffff;
-
-      border-radius: 40px 40px 0 0;
-
-      padding: 60px 40px;
-
-      margin-top: 60px;
-
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, .08);
-
-    }
-
-    /* ===== SECTION TITLE ===== */
-
-    .section-title {
-      text-align: center;
-      margin: 60px 0 40px;
-    }
-
-    .section-title span {
-      font-size: 38px;
-      font-weight: 700;
-      color: #7b2cbf;
-    }
-
-    .section-title p {
-      color: #666;
-      margin-top: 10px;
-      font-size: 18px;
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .category {
-      background: #7b2cbf;
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .read-time {
-      color: #777;
-      font-size: 14px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 10px 20px;
-      background: rgba(255, 255, 255, .8);
-      border: 1px solid rgba(123, 44, 191, .15);
-      border-radius: 50px;
-      color: #7b2cbf;
-      font-weight: 600;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(123, 44, 191, .08);
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 35px;
-    }
-
-    .secondary-btn {
-      background: white;
-      color: #7b2cbf;
-      border: 2px solid #7b2cbf;
-    }
-
-    .secondary-btn:hover {
-      background: #7b2cbf;
-      color: white;
-    }
-
-    .stat-box:hover {
-
-      transform: translateY(-10px);
-
-      box-shadow:
-        0 20px 40px rgba(123, 44, 191, .20);
-
-    }
-
-    .stat-box h2 {
-
-      font-size: 45px;
-
-      color: #7b2cbf;
-
-      margin-bottom: 10px;
-
-    }
-
-    /* ==========================
-   CATEGORY SECTION
-========================== */
-
-    .category-title {
-
-      text-align: center;
-
-      font-size: 38px;
-
-      color: #7b2cbf;
-
-      margin-top: 60px;
-
-    }
-
-
-    .category-subtitle {
-
-      text-align: center;
-
-      color: #666;
-
-      font-size: 18px;
-
-      margin-bottom: 30px;
-
-    }
-
-
-    .categories {
-
-      display: flex;
-
-      justify-content: center;
-
-      gap: 18px;
-
-      flex-wrap: wrap;
-
-      margin: 30px auto 50px;
-
-    }
-
-
-    .cat-btn {
-
-      padding: 14px 28px;
-
-      border: none;
-
-      border-radius: 40px;
-
-      background: white;
-
-      color: #7b2cbf;
-
-      font-size: 17px;
-
-      font-weight: 600;
-
-      cursor: pointer;
-
-      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
-
-      transition: .3s;
-
-    }
-
-
-    .cat-btn:hover {
-
-      background: linear-gradient(135deg, #ff4da6, #7b2cbf);
-
-      color: white;
-
-      transform: translateY(-5px);
-
-    }
-
-    /* ==========================
-   ABOUT CARD
-========================== */
-
-    .about-card {
-
-      max-width: 700px;
-
-      margin: 60px auto;
-
-      background: rgba(255, 255, 255, .85);
-
-      backdrop-filter: blur(12px);
-
-      padding: 40px;
-
-      border-radius: 30px;
-
-      text-align: center;
-
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .1);
-
-      transition: .3s;
-
-    }
-
-
-    .about-card:hover {
-
-      transform: translateY(-8px);
-
-      box-shadow: 0 20px 45px rgba(123, 44, 191, .2);
-
-    }
-
-
-    .about-icon {
-
-      width: 80px;
-
-      height: 80px;
-
-      margin: auto;
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 40px;
-
-      background: #f5edff;
-
-    }
-
-
-    .about-card h2 {
-
-      color: #7b2cbf;
-
-      font-size: 35px;
-
-    }
-
-
-    .about-card p {
-
-      color: #555;
-
-      line-height: 1.8;
-
-      font-size: 17px;
-
-    }
-
-    /* ==========================
-        PREMIUM FOOTER
-========================== */
-
-
-    .footer {
-
-      margin-top: 80px;
-
-      padding: 50px 20px 25px;
-
-      text-align: center;
-
-      background: rgba(255, 255, 255, .85);
-
-      backdrop-filter: blur(15px);
-
-      box-shadow: 0 -10px 30px rgba(0, 0, 0, .08);
-
-    }
-
-
-    .footer-logo {
-
-      font-size: 35px;
-
-      font-weight: 700;
-
-      color: #7b2cbf;
-
-      margin-bottom: 10px;
-
-    }
-
-
-    .footer p {
-
-      color: #666;
-
-      font-size: 18px;
-
-    }
-
-
-    .footer-links {
-
-      display: flex;
-
-      justify-content: center;
-
-      gap: 25px;
-
-      flex-wrap: wrap;
-
-      margin: 25px 0;
-
-    }
-
-
-    .footer-links a {
-
-      text-decoration: none;
-
-      color: #7b2cbf;
-
-      font-weight: 600;
-
-      transition: .3s;
-
-    }
-
-
-    .footer-links a:hover {
-
-      color: #ff4da6;
-
-    }
-
-
-    .footer-bottom {
-
-      border-top: 1px solid #eee;
-
-      padding-top: 20px;
-
-      margin-top: 25px;
-
-      color: #777;
-
-      font-size: 15px;
-
-    }
-  </style>
-
-
-  <meta name="google-site-verification" content="ZF64uVO4A1rW03yP_p099bxi0T8Nz6RBFRlTRA8dEUs" />
 </head>
 
 <body>
 
+  <!--==========================
+        HEADER
+===========================-->
 
+  <header>
 
-  <!-- PREMIUM NAVBAR -->
+    <div class="container">
 
-  <nav class="navbar">
+      <nav class="navbar">
 
-    <div class="nav-logo">
-      <a href="#" onclick="showPage('home')">
-        <img src="logo.png" alt="Roshni Code Charm">
-      </a>
-    </div>
+        <a href="#" class="logo">
 
-    <ul class="nav-links">
-      <li><a href="#" onclick="showPage('home')">🏠 Home</a></li>
-      <li><a href="#" onclick="showPage('articles')">📚 Articles</a></li>
-      <li><a href="#" onclick="showPage('pins')">📌 Pinterest</a></li>
-    </ul>
+          <i class="fa-solid fa-code"></i>
 
-    <div class="nav-right">
+          <span>Roshni Code Charm</span>
 
-      <input type="text" placeholder="Search..." class="nav-search">
-
-      <button class="share-btn">🔗 Share</button>
-
-    </div>
-
-  </nav>
-
-  <!-- HOME PAGE -->
-
-  <div id="home" class="page active">
-
-    <section class="hero">
-
-      <h1 class="logo">
-        <div class="logo">
-          <img src="logo.png" class="main-logo">
-
-
-        </div>
-      </h1>
-
-      <div class="hero-badge">
-        🚀 Learn • Build • Create
-      </div>
-
-      <h2 class="hero-title">
-        Learn Programming the Smart Way
-      </h2>
-
-      <p class="hero-subtitle">
-        Free tutorials on Python, HTML, CSS & JavaScript with simple examples,
-        coding tips and beginner-friendly guides.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="python-tutorial.html" class="btn">
-          🚀 Start Learning
         </a>
 
-        <button class="btn secondary-btn" onclick="showPage('pins')">
-          📌 Explore Pins
-        </button>
-      </div>
+        <ul class="nav-menu">
 
-    </section>
+          <li>
 
-    <div class="content-wrapper">
+            <a href="#" class="active">
 
-      <div class="featured">
-        <h2>⭐ Featured Article</h2>
+              Home
 
-        <div class="featured-card">
-          <h3>🐍 Complete Python Tutorial</h3>
+            </a>
 
-          <p>
-            Start learning Python with one of the most important concepts — Variables.
-          </p>
+          </li>
 
-          <a href="python-tutorial.html" class="btn">
-            Read Now
-          </a>
+          <li>
+
+            <a href="#about">
+
+              About
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="#tutorials">
+
+              Tutorials
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="#projects">
+
+              Projects
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="#roadmap">
+
+              Roadmap
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="#contact">
+
+              Contact
+
+            </a>
+
+          </li>
+
+        </ul>
+
+        <div class="nav-buttons">
+
+          <button id="themeToggle" class="theme-btn">
+
+            <i class="fa-regular fa-moon"></i>
+
+          </button>
+
+          <button class="menu-btn">
+
+            <i class="fa-solid fa-bars"></i>
+
+          </button>
+
         </div>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!--==========================
+        HERO
+===========================-->
+
+  <section class="hero">
+
+    <div class="hero-shape shape1"></div>
+
+    <div class="hero-shape shape2"></div>
+
+    <div class="hero-shape shape3"></div>
+
+    <div class="container hero-container">
+
+      <!-- Left -->
+
+      <div class="hero-left">
+
+        <span class="hero-tag">
+
+          ✨ Beginner Friendly Coding Website
+
+        </span>
+
+        <h1>
+
+          Learn Coding
+
+          <span>
+
+            Step by Step.
+
+          </span>
+
+        </h1>
+
+        <p>
+
+          Simple tutorials, coding notes, practice examples,
+          and mini projects to help beginners learn programming
+          with confidence.
+
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#tutorials" class="primary-btn">
+
+            Start Learning
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+          </a>
+
+          <a href="#about" class="secondary-btn">
+
+            About Website
+
+          </a>
+
+        </div>
+
+        <div class="hero-features">
+
+          <div class="feature">
+
+            <i class="fa-solid fa-book"></i>
+
+            <span>
+
+              Easy Notes
+
+            </span>
+
+          </div>
+
+          <div class="feature">
+
+            <i class="fa-solid fa-code"></i>
+
+            <span>
+
+              Practice Examples
+
+            </span>
+
+          </div>
+
+          <div class="feature">
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+            <span>
+
+              Mini Projects
+
+            </span>
+
+          </div>
+
+          <div class="feature">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <span>
+
+              Coding Tips
+
+            </span>
+
+          </div>
+
+        </div>
+
       </div>
+
+      <!-- Right -->
+
+      <div class="hero-right">
+
+        <div class="hero-image">
+
+          <img src="images/hero-girl.png" alt="Coding Girl">
+
+          <div class="tech html">
+
+            HTML
+
+          </div>
+
+          <div class="tech css">
+
+            CSS
+
+          </div>
+
+          <div class="tech js">
+
+            JavaScript
+
+          </div>
+
+          <div class="tech python">
+
+            Python
+
+          </div>
+
+          <div class="tech sql">
+
+            SQL
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--=========================================
+                ABOUT
+==========================================-->
+
+  <section class="about" id="about">
+
+    <div class="container">
 
       <div class="section-title">
-        <span>🔥 Latest Articles</span>
-        <p>Learn programming with beginner-friendly tutorials.</p>
+
+        <span>ABOUT THIS WEBSITE</span>
+
+        <h2>Learning Together, One Step at a Time.</h2>
+
       </div>
 
-      <div class="container">
+      <div class="about-wrapper">
 
-        <div class="card">
+        <div class="about-image">
 
-          <img src="python-thumb.jpg" class="card-img" alt="Python Variables">
+          <img src="images/about-girl.png" alt="About Roshni Code Charm">
 
-          <div class="card-icon">🐍</div>
+        </div>
 
-          <span class="badge">Python</span>
+        <div class="about-content">
 
-          <h2>Python Variables</h2>
-
-          <div class="card-meta">
-            ⏱ 5 min read
-          </div>
+          <h3>Hello! 👋</h3>
 
           <p>
-            Learn Python Variables with simple examples and beginner-friendly explanations.
+
+            Welcome to <strong>Roshni Code Charm</strong>.
+
+            This website is created for beginners who want to
+            learn coding in a simple and practical way.
+
           </p>
 
-          <a href="python-variables.html" class="btn">
-            Read Article →
+          <p>
+
+            Here you'll find beginner-friendly tutorials,
+            coding notes, practice examples, mini projects,
+            and learning tips that make programming easier.
+
+          </p>
+
+          <div class="about-boxes">
+
+            <div class="about-box">
+
+              <i class="fa-solid fa-book-open"></i>
+
+              <h4>Easy Notes</h4>
+
+              <p>
+                Simple explanations with examples.
+              </p>
+
+            </div>
+
+            <div class="about-box">
+
+              <i class="fa-solid fa-code"></i>
+
+              <h4>Practice</h4>
+
+              <p>
+                Learn by writing code yourself.
+              </p>
+
+            </div>
+
+            <div class="about-box">
+
+              <i class="fa-solid fa-laptop-code"></i>
+
+              <h4>Mini Projects</h4>
+
+              <p>
+                Build projects step by step.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--=========================================
+          LEARNING CATEGORIES
+==========================================-->
+
+  <section class="categories" id="tutorials">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>LEARNING CATEGORIES</span>
+
+        <h2>Choose What You Want To Learn</h2>
+
+      </div>
+
+      <div class="category-grid">
+
+        <div class="category-card">
+
+          <img src="images/html.jpg" alt="HTML">
+
+          <h3>HTML</h3>
+
+          <p>
+
+            Learn the structure of every website.
+
+          </p>
+
+        </div>
+
+        <div class="category-card">
+
+          <img src="images/css.png" alt="CSS">
+
+          <h3>CSS</h3>
+
+          <p>
+
+            Design beautiful and responsive pages.
+
+          </p>
+
+        </div>
+
+        <div class="category-card">
+
+          <img src="images/javascript.jpg" alt="JavaScript">
+
+          <h3>JavaScript</h3>
+
+          <p>
+
+            Make websites interactive and dynamic.
+
+          </p>
+
+        </div>
+
+        <div class="category-card">
+
+          <img src="images/python.png" alt="Python">
+
+          <h3>Python</h3>
+
+          <p>
+
+            A beginner-friendly programming language.
+
+          </p>
+
+        </div>
+
+        <div class="category-card">
+
+          <img src="images/sql.jpg" alt="SQL">
+
+          <h3>SQL</h3>
+
+          <p>
+
+            Learn how databases work.
+
+          </p>
+
+        </div>
+
+        <div class="category-card">
+
+          <img src="images/excel.png" alt="Excel">
+
+          <h3>Excel</h3>
+
+          <p>
+
+            Master formulas, functions and shortcuts.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--=========================================
+          FEATURED TUTORIALS
+==========================================-->
+
+  <section class="featured">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>FEATURED TUTORIALS</span>
+
+        <h2>Start Learning Today</h2>
+
+      </div>
+
+      <div class="tutorial-grid">
+
+        <article class="tutorial-card">
+
+          <div class="tutorial-top">
+
+            <span class="badge">
+
+              Beginner
+
+            </span>
+
+          </div>
+
+          <h3>
+
+            HTML Basics
+
+          </h3>
+
+          <p>
+
+            Learn HTML tags, headings, paragraphs,
+            images, links and lists.
+
+          </p>
+
+          <a href="html-basics.html">
+            Start Learning
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </article>
+
+        <article class="tutorial-card">
+
+          <div class="tutorial-top">
+
+            <span class="badge">
+
+              Beginner
+
+            </span>
+
+          </div>
+
+          <h3>
+
+            CSS Basics
+
+          </h3>
+
+          <p>
+
+            Learn selectors, colors, spacing,
+            flexbox and responsive design.
+
+          </p>
+
+          <a href="css-basics.html">
+            Start Learning
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </article>
+
+        <article class="tutorial-card">
+
+          <div class="tutorial-top">
+
+            <span class="badge">
+
+              Beginner
+
+            </span>
+
+          </div>
+
+          <h3>
+
+            JavaScript Basics
+
+          </h3>
+
+          <p>
+
+            Variables, loops, functions,
+            events and DOM manipulation.
+
+          </p>
+
+          <a href="javascript-basics.html">
+            Start Learning
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ============================= -->
+  <!-- PROGRAMMING TUTORIALS -->
+  <!-- ============================= -->
+
+  <section class="programming-tutorials">
+
+    <div class="programming-container">
+
+      <div class="programming-title">
+
+        <span>💻 PROGRAMMING</span>
+
+        <h2>Programming Tutorials</h2>
+
+        <p>
+          Learn programming step by step with
+          simple explanations, examples and projects.
+        </p>
+
+      </div>
+
+
+      <div class="programming-cards">
+
+
+        <!-- JAVASCRIPT -->
+
+        <div class="programming-card">
+
+          <div class="programming-icon">
+            ⚡
+          </div>
+
+          <span class="programming-level">
+            💻 BEGINNER → ADVANCED
+          </span>
+
+          <h3>
+            JavaScript Full Tutorial
+          </h3>
+
+          <p>
+            Learn JavaScript from beginner to advanced
+            with easy explanations, examples, DOM,
+            events and practical projects.
+          </p>
+
+          <ul>
+            <li>✓ JavaScript Basics</li>
+            <li>✓ Variables & Data Types</li>
+            <li>✓ Functions & Arrays</li>
+            <li>✓ DOM & Events</li>
+            <li>✓ Projects & Practice</li>
+          </ul>
+
+          <a href="javascript-tutorial.html">
+            Start JavaScript 🚀
           </a>
 
         </div>
 
-        <div class="card">
 
-          <img src="html-thumb.jpg" class="card-img" alt="HTML Basics">
+        <!-- PYTHON -->
 
-          <div class="card-top">
-            <span class="category">🌐 HTML</span>
-            <span class="read-time">4 min</span>
+        <div class="programming-card">
+
+          <div class="programming-icon">
+            🐍
           </div>
 
-          <div class="card-icon">🌐</div>
+          <span class="programming-level">
+            🌿 BEGINNER → ADVANCED
+          </span>
 
-          <h2>HTML Basics</h2>
-
-          <p>
-            Learn HTML from scratch with simple examples and beginner-friendly explanations.
-          </p>
-
-          <a href="html-basics.html" class="btn">
-            Read Article →
-          </a>
-
-        </div>
-
-        <div class="card">
-          <img src="css-thumb.jpg" class="card-img" alt="CSS Basics">
-          <div class="card-top">
-            <span class="category">🎨 CSS</span>
-            <span class="read-time">6 min</span>
-          </div>
-
-          <div class="card-icon">🎨</div>
-
-          <h2>CSS Basics</h2>
+          <h3>
+            Python Full Tutorial
+          </h3>
 
           <p>
-            Learn how CSS styles webpages with colors, layouts, spacing and responsive design.
+            Learn Python step by step with simple
+            explanations, coding examples,
+            problem-solving practice and projects.
           </p>
 
-          <a href="css-basics.html" class="btn">
-            Read Article →
+          <ul>
+            <li>✓ Python Basics</li>
+            <li>✓ Variables & Data Types</li>
+            <li>✓ Conditions & Loops</li>
+            <li>✓ Functions</li>
+            <li>✓ Projects & Practice</li>
+          </ul>
+
+          <a href="python-tutorial.html">
+            Start Python 🚀
           </a>
 
         </div>
 
 
+        <!-- SQL -->
 
-        <div class="featured">
+        <div class="programming-card">
 
-          <div class="featured-header">
-            <span class="featured-badge">⭐ Featured Tutorial</span>
-            <h2>Complete Python Tutorial</h2>
+          <div class="programming-icon">
+            🗄️
+          </div>
+
+          <span class="programming-level">
+            🌿 BEGINNER → ADVANCED
+          </span>
+
+          <h3>
+            SQL Full Tutorial
+          </h3>
+
+          <p>
+            Learn SQL from beginner to advanced with
+            databases, queries, functions, joins
+            and practical examples.
+          </p>
+
+          <ul>
+            <li>✓ SQL Basics</li>
+            <li>✓ Database & Tables</li>
+            <li>✓ SQL Queries</li>
+            <li>✓ Functions & Joins</li>
+            <li>✓ Practice & Projects</li>
+          </ul>
+
+          <a href="sql-introduction.html">
+            Start SQL 🚀
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================= -->
+  <!-- PYTHON FULL TUTORIAL -->
+  <!-- ============================= -->
+
+  <div class="student-ai-card">
+
+    <div class="student-ai-icon">
+      🐍
+    </div>
+
+    <span class="tutorial-label">
+      🐍 BEGINNER → ADVANCED
+    </span>
+
+    <h3>
+      Python Full Tutorial
+    </h3>
+
+    <p>
+      Learn Python step by step with simple explanations,
+      coding examples, problem-solving practice,
+      and practical projects.
+    </p>
+
+    <ul class="tutorial-points">
+
+      <li>✓ Python Basics</li>
+      <li>✓ Variables & Data Types</li>
+      <li>✓ Conditions & Loops</li>
+      <li>✓ Functions</li>
+      <li>✓ Lists, Tuples & Dictionaries</li>
+      <li>✓ Projects & Practice</li>
+
+    </ul>
+
+    <a href="python-tutorial.html" class="tool-btn">
+      Start Python 🚀
+    </a>
+
+  </div>
+
+
+  </div>
+
+  </div>
+
+  </section>
+
+  <!--=========================================
+            MINI PROJECTS
+==========================================-->
+
+  <section class="projects" id="projects">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>MINI PROJECTS</span>
+
+        <h2>Practice by Building Real Projects</h2>
+
+        <p>
+          Learning becomes easier when you build something yourself.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+
+          <img src="images/calculator.png" alt="Calculator">
+
+          <div class="project-content">
+
+            <h3>Calculator</h3>
+
             <p>
-              Learn Python from Beginner to Advanced with easy explanations,
-              examples, interview questions, quizzes and mini projects.
+              Build a simple calculator using HTML, CSS and JavaScript.
             </p>
+
+            <a href="projects/calculator/index.html" class="project-btn">
+              View Project
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
 
-          <div class="featured-stats">
+        </div>
 
-            <div class="stat-box">
-              <h3>18+</h3>
-              <span>Lessons</span>
-            </div>
+        <div class="project-card">
 
-            <div class="stat-box">
-              <h3>100+</h3>
-              <span>Examples</span>
-            </div>
+          <img src="images/weather.png" alt="Weather App">
 
-            <div class="stat-box">
-              <h3>FREE</h3>
-              <span>Access</span>
-            </div>
+          <div class="project-content">
+
+            <h3>Weather App</h3>
+
+            <p>
+              Learn how to fetch live weather data using APIs.
+            </p>
+
+            <a href="projects/calculator/weather-app.html">
+              View Project
+            </a>
 
           </div>
 
-          <a href="python-tutorial.html" class="btn featured-btn">
-            🚀 Start Learning
-          </a>
-
         </div>
 
-        <div class="card">
-          <img src="js-thumb.jpg" class="card-img" alt="JavaScript Tutorial">
-          <div class="card-top">
-            <span class="category">⚡ JavaScript</span>
-            <span class="read-time">8 min</span>
+
+        <div class="project-card">
+          <img src="images/ecommerce.png" alt="E-Commerce Website">
+
+          <div class="project-content">
+
+            <h3>E-Commerce Website</h3>
+
+            <p>
+              Build a modern online shopping website using HTML, CSS and JavaScript.
+            </p>
+
+            <a href="projects/calculator/ecommerce/index.html">
+              View Project
+            </a>
+
           </div>
 
-
-
-          <div class="card-icon">⚡</div>
-
-          <h2>JavaScript Tutorial</h2>
-
-          <p>
-            Master JavaScript from basics to advanced with examples, DOM, events and projects.
-          </p>
-
-          <a href="javascript-tutorial.html" class="btn">
-            Start Learning →
-          </a>
-
         </div>
 
-      </div>
-
-      <!-- CARDS -->
-
-      <div class="container">
-
-        <div class="card">
-          <h2>🐍 Python Tips</h2>
-          <p>
-            Simple, beginner-friendly Python tips, coding tricks & creative mini projects to make learning fun 💻✨
-
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>📌 Pinterest Ideas</h2>
-          <p>
-            Discover aesthetic Pinterest inspiration, trendy creative ideas & beautiful digital content for everyday
-            creativity ✨🌸
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>💻 Coding Journey</h2>
-          <p>
-            From simple HTML pages to creative web designs — exploring coding step by step with passion and creativity
-            🚀💖
-
-            Beautiful websites and fun coding experiences.
-          </p>
-        </div>
-
-        <div class="about-card">
-
-          <div class="about-icon">
-            💻
-          </div>
-
-          <h2>
-            🌸 About Me
-          </h2>
-
-          <p>
-            Hi, I am Roshni 💖
-          </p>
-
-          <p>
-            A creative coder who loves programming,
-            aesthetic web design, Pinterest inspiration
-            and digital creativity ✨
-          </p>
-
-          <p>
-            I enjoy creating beautiful websites using
-            HTML, CSS & JavaScript and sharing my coding journey 🚀
-          </p>
-
-          <a href="about.html" class="btn">
-            Know More →
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- STATS -->
-
-      <div class="stats">
-
-        <div class="stat-box">
-          <h2>100+</h2>
-          <p>Pinterest Pins</p>
-        </div>
-
-        <div class="stat-box">
-          <h2>100+</h2>
-          <p>Coding Ideas</p>
-        </div>
-
-        <div class="stat-box">
-          <h2>110K+</h2>
-          <p>Creative Views</p>
-        </div>
-
-      </div>
-
-      <div class="quote">
-        “Code + Creativity = Magic ✨”
       </div>
 
     </div>
 
-    <!-- ARTICLES PAGE -->
+  </section>
 
-    <div id="articles" class="page">
+  <!--=========================================
+            DAILY CODING TIP
+==========================================-->
 
-      <h1 style="text-align:center; color:#7b2cbf;">
-        📚 Coding Articles
-      </h1>
+  <section class="coding-tip">
 
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="🔍 Search articles..." onkeyup="searchArticles()">
-      </div>
+    <div class="container">
 
-      <h2 class="category-title">
-        🌸 Explore Categories
-      </h2>
+      <div class="tip-box">
 
-      <p class="category-subtitle">
-        Discover tutorials, coding ideas and creative resources.
-      </p>
-      <div class="categories">
-        <button class="cat-btn" onclick="filterCategory('python')">🐍 Python</button>
-        <button class="cat-btn" onclick="filterCategory('html')">🌐 HTML</button>
-        <button class="cat-btn" onclick="filterCategory('css')">🎨 CSS</button>
-        <button class="cat-btn" onclick="filterCategory('javascript')">⚡ JavaScript</button>
-        <button class="cat-btn" onclick="filterCategory('all')">📚 All</button>
+        <div class="tip-icon">
 
-      </div>
+          💡
 
-      <div class="container">
-
-        <div class="card article-card">
-          <h2>🐍 Python Variables</h2>
-          <p>Learn what Python variables are with simple examples for beginners.</p>
-          <a href="python-variables.html" class="btn">Read Article</a>
         </div>
 
-        <div class="card article-card">
-          <h2>🌐 HTML Basics</h2>
-          <p>Learn the basic HTML tags every beginner should know.</p>
-          <a href="html-basics.html" class="btn">Read Article</a>
+        <div class="tip-content">
+
+          <h2>Daily Coding Tip</h2>
+
+          <p>
+
+            Every expert was once a beginner.
+            Focus on learning one concept every day instead of trying
+            to learn everything at once.
+
+          </p>
+
         </div>
 
-        <div class="card article-card">
-          <h2>🎨 CSS Basics</h2>
-          <p>Learn how CSS makes websites beautiful and responsive.</p>
-          <a href="css-basics.html" class="btn">Read Article</a>
-        </div>
-
-        <div class="card article-card">
-          <h2>⚡ JavaScript Basics</h2>
-          <p>Learn JavaScript from scratch with simple beginner-friendly examples.</p>
-          <a href="javascript-basics.html" class="btn">Read Article</a>
-        </div>
-
-        <div class="card article-card">
-          <h2>🐍 Python Data Types</h2>
-          <p>Learn String, List, Tuple, Set, Dictionary and more Python data types.</p>
-          <a href="python-data-types.html" class="btn">Read Article</a>
-        </div>
-
-
-        <div class="card article-card">
-          <h2>🔢 Python Input</h2>
-          <p>Learn how to take user input in Python programs.</p>
-          <a href="python-input.html" class="btn">Read Article</a>
-        </div>
-
-
-        <div class="card article-card">
-          <h2>🔀 Python If Else</h2>
-          <p>Learn decision making statements in Python.</p>
-          <a href="python-if-else.html" class="btn">Read Article</a>
-        </div>
-
-
-        <div class="card article-card">
-          <h2>🔁 Python Loops</h2>
-          <p>Learn for loop and while loop with examples.</p>
-          <a href="python-loops.html" class="btn">Read Article</a>
-        </div>
-
-
-        <div class="card article-card">
-          <h2>⚡ Python Functions</h2>
-          <p>Understand reusable blocks of code in Python.</p>
-          <a href="python-functions.html" class="btn">Read Article</a>
-        </div>
-
-
-        <div class="card article-card">
-          <h2>📦 Python Lists</h2>
-          <p>Learn Python list methods and operations.</p>
-          <a href="python-lists.html" class="btn">Read Article</a>
-        </div>
-
-
-        <div class="card article-card">
-          <h2>📚 Python OOP</h2>
-          <p>Learn Object Oriented Programming concepts in Python.</p>
-          <a href="python-oop.html" class="btn">Read Article</a>
-        </div>
-
-
-        <div class="card article-card">
-          <h2>🚀 Python Projects</h2>
-          <p>Beginner Python project ideas to practice coding.</p>
-          <a href="python-projects.html" class="btn">Read Article</a>
-        </div>
-
-      </div>
-      <div class="card article-card">
-        <h2>🐍 Python Data Types</h2>
-        <p>Learn String, List, Tuple, Set, Dictionary and more Python data types.</p>
-        <a href="python-data-types.html" class="btn">Read Article</a>
-      </div>
-
-
-      <div class="card article-card">
-        <h2>🔢 Python Input</h2>
-        <p>Learn how to take user input in Python programs.</p>
-        <a href="python-input.html" class="btn">Read Article</a>
-      </div>
-
-
-      <div class="card article-card">
-        <h2>🔀 Python If Else</h2>
-        <p>Learn decision making statements in Python.</p>
-        <a href="python-if-else.html" class="btn">Read Article</a>
-      </div>
-
-
-      <div class="card article-card">
-        <h2>🔁 Python Loops</h2>
-        <p>Learn for loop and while loop with examples.</p>
-        <a href="python-loops.html" class="btn">Read Article</a>
-      </div>
-
-
-      <div class="card article-card">
-        <h2>⚡ Python Functions</h2>
-        <p>Understand reusable blocks of code in Python.</p>
-        <a href="python-functions.html" class="btn">Read Article</a>
-      </div>
-
-
-      <div class="card article-card">
-        <h2>📦 Python Lists</h2>
-        <p>Learn Python list methods and operations.</p>
-        <a href="python-lists.html" class="btn">Read Article</a>
-      </div>
-
-
-      <div class="card article-card">
-        <h2>📚 Python OOP</h2>
-        <p>Learn Object Oriented Programming concepts in Python.</p>
-        <a href="python-oop.html" class="btn">Read Article</a>
-      </div>
-
-
-      <div class="card article-card">
-        <h2>🚀 Python Projects</h2>
-        <p>Beginner Python project ideas to practice coding.</p>
-        <a href="python-projects.html" class="btn">Read Article</a>
-      </div>
-
-      <div class="card article-card">
-        <h2>🐍 Complete Python Tutorial</h2>
-        <p>Learn Python from Beginner to Advanced with 18+ free tutorials.</p>
-        <a href="python-tutorial.html" class="btn">🚀 Start Learning</a>
-      </div>
-
-      <div class="card article-card">
-        <h2>⚡ JavaScript Tutorial</h2>
-        <p>Complete JavaScript tutorial from basics to advanced.</p>
-        <a href="javascript-tutorial.html" class="btn">Start Learning</a>
-      </div>
-
-    </div>
-    <!-- ARTICLES PAGE END -->
-
-  </div> <!-- PINS PAGE -->
-
-  <div id="pins" class="page">
-
-    <h1 class="title">
-      📌 My Pinterest Pins
-    </h1>
-
-    <div class="gallery">
-
-      <div class="pin-card">
-        <img src="pin1.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin2.jpg" onclick="openImg(this.src)">
-
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin3.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin4.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin5.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin6.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin7.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin8.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin9.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin10.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin11.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin12.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin13.jpg" onclick="openImg(this.src)">
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin14.jpg" onclick="openImg(this.src)">
-
-
-      </div>
-
-      <div class="pin-card">
-        <img src="pin15.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin16.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin17.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin18.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin19.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin20.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin21.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin22.jpg" onclick="openImg(this.src)">
-      </div>
-
-
-      <div class="pin-card">
-        <img src="pin23.jpg" onclick="openImg(this.src)">
-      </div>
-
-
-      <div class="pin-card">
-        <img src="pin24.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin25.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin26.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin27.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin28.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin29.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin30.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin31.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin32.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin33.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin34.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin35.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin36.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin37.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin38.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin39.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin40.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin41.jpg" onclick="openImg(this.src)">
-      </div>
-
-
-      <div class="pin-card">
-        <img src="pin42.jpg" onclick="openImg(this.src)">
       </div>
 
     </div>
 
-    <!-- gallery close -->
+  </section>
 
-    <!-- VIDEO SECTION -->
+  <!--=========================================
+            LEARNING ROADMAP
+==========================================-->
 
-    <h1 class="title">
-      🎬 My Videos
-    </h1>
+  <section class="roadmap" id="roadmap">
 
-    <div class="video-gallery">
+    <div class="container">
 
-      <video controls>
-        <source src="video1.mp4" type="video/mp4">
-      </video>
+      <div class="section-title">
 
-      <video controls>
-        <source src="video2.mp4" type="video/mp4">
-      </video>
+        <span>LEARNING ROADMAP</span>
+
+        <h2>Your Beginner Learning Journey</h2>
+
+      </div>
+
+      <div class="roadmap-grid">
+
+        <div class="road-card">
+
+          <div class="number">01</div>
+
+          <h3>HTML</h3>
+
+          <p>
+            Learn the structure of web pages.
+          </p>
+
+        </div>
+
+        <div class="road-card">
+
+          <div class="number">02</div>
+
+          <h3>CSS</h3>
+
+          <p>
+            Design responsive websites beautifully.
+          </p>
+
+        </div>
+
+        <div class="road-card">
+
+          <div class="number">03</div>
+
+          <h3>JavaScript</h3>
+
+          <p>
+            Add interaction to your web pages.
+          </p>
+
+        </div>
+
+        <div class="road-card">
+
+          <div class="number">04</div>
+
+          <h3>Projects</h3>
+
+          <p>
+            Build projects and improve your confidence.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--=========================================
+                    FAQ
+==========================================-->
+
+  <section class="faq">
+
+    <div class="container faq-container">
+
+      <div class="faq-content">
+
+        <div class="section-title">
+
+          <span>FAQ</span>
+
+          <h2>Frequently Asked Questions</h2>
+
+        </div>
+
+        <div class="faq-item">
+          <h3>1. Is Roshni Code Charm free to use?</h3>
+          <p>Yes. Most tutorials, coding notes, and learning resources are free.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>2. Who is this website for?</h3>
+          <p>This website is designed for beginners, students, and anyone interested in learning coding.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>3. Do I need programming experience?</h3>
+          <p>No. You can start learning from the basics.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>4. Can I practice projects?</h3>
+          <p>Yes. Build projects like Calculator, Weather App, Portfolio, and E-Commerce Website.</p>
+        </div>
+
+      </div>
+      <div class="faq-item">
+
+        <h3>5. Are coding projects available?</h3>
+
+        <p>
+          Yes. You can practice by building simple projects like Calculator, Weather App, Portfolio, and E-Commerce
+          Website.
+        </p>
+
+      </div>
+
+      <div class="faq-item">
+
+        <h3>6. Can I use this website on my mobile?</h3>
+
+        <p>
+          Yes. The website is designed to work on mobile phones, tablets, and desktop computers.
+        </p>
+
+      </div>
+
+      <div class="faq-item">
+
+        <h3>7. Will more tutorials be added?</h3>
+
+        <p>
+          Yes. New tutorials, coding tips, and projects will be added regularly.
+        </p>
+
+      </div>
+
+      <div class="faq-image">
+
+        <img src="images/faq.png" alt="Coding FAQ">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>COMMENTS</span>
+
+      <h2>Leave a Comment</h2>
+
+    </div>
+
+    <div class="contact-wrapper">
+
+      <form>
+
+        <input type="text" placeholder="Your Name" required>
+
+        <textarea rows="6" placeholder="Write your comment..." required></textarea>
+
+        <button type="submit">
+
+          Post Comment
+          <i class="fa-solid fa-comment"></i>
+
+        </button>
+
+      </form>
 
     </div>
 
   </div>
 
-  <footer class="footer">
+  <!--==================================================
+                GENERATIVE AI
+==================================================-->
 
-    <div class="footer-logo">
-      Roshni Code Charm 💜
-    </div>
+  <section class="generative-ai">
 
-    <p>
-      Learn • Build • Create 🚀
-    </p>
+    <div class="container">
 
-    <div class="footer-links">
+      <div class="section-title">
 
-      <a href="index.html">Home</a>
+        <span>GENERATIVE AI</span>
 
-      <a href="python-tutorial.html">Python</a>
+        <h2>Learn About Generative AI</h2>
 
-      <a href="#">HTML</a>
+        <p>
+          Simple and beginner-friendly AI topics, tools and ideas.
+        </p>
 
-      <a href="#">JavaScript</a>
+      </div>
 
-      <a href="https://in.pinterest.com/codeewithroshni_08/">
-        Pinterest
-      </a>
+      <div class="ai-cards">
 
-    </div>
+        <div class="ai-card">
+
+          <div class="ai-icon">
+            🤖
+          </div>
+
+          <h3>What is Generative AI?</h3>
+
+          <p>
+            Understand Generative AI and how it creates text,
+            images, code and other content.
+          </p>
+
+          <a href="ai-tools.html">
+            Learn More →
+          </a>
+
+        </div>
+  </section>
 
 
-    <div class="footer-bottom">
 
-      © 2026 Roshni Code Charm.
-      All Rights Reserved.
+
+  <!--==================================================
+              AI TOOLS FOR STUDENTS
+==================================================-->
+
+  <section class="student-ai">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>AI TOOLS</span>
+
+        <h2>AI Tools for Students</h2>
+
+        <p>
+          Discover useful AI tools that can help students
+          learn, organize, create, and study more effectively.
+        </p>
+
+      </div>
+
+
+      <div class="student-ai-cards">
+
+
+        <!-- Study Assistant -->
+
+        <div class="student-ai-card">
+
+          <div class="student-ai-icon">
+            📚
+          </div>
+
+          <h3>
+            AI Study Assistant
+          </h3>
+
+          <p>
+            Learn how AI can help explain difficult concepts,
+            create practice questions, and support your study.
+          </p>
+
+          <a href="projects/ai-study-assistant.html">
+            Explore AI Study Assistant →
+          </a>
+
+        </div>
+
+
+        <!-- AI Notes -->
+
+        <div class="student-ai-card">
+
+          <div class="student-ai-icon">
+            📝
+          </div>
+
+          <h3>
+            AI Note Maker
+          </h3>
+
+          <p>
+            Turn information into simple summaries and
+            organized study notes.
+          </p>
+
+          <a href="projects/ai-note-maker.html" class="tool-btn">
+            Explore AI Note Maker →
+          </a>
+
+        </div>
+
+
+        <!-- AI Presentation & PDF Tools -->
+
+        <div class="student-ai-card">
+
+          <div class="student-ai-icon">
+            🎤📄
+          </div>
+
+          <h3>
+            AI Presentation & PDF Tools
+          </h3>
+
+          <p>
+            Use AI to organize presentation ideas, create slide content,
+            summarize PDFs, and understand long documents more easily.
+          </p>
+
+          <a href="projects/ai-presentation-pdf.html" class="tool-btn">
+            Explore Presentation & PDF Tools →
+          </a>
+
+        </div>
+
+      </div>
+  </section>
+
+
+  <!--=========================================
+                FOOTER
+==========================================-->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <h2>
+
+          <i class="fa-solid fa-code"></i>
+
+          Roshni Code Charm
+
+        </h2>
+
+        <p>
+
+          Learning coding one step at a time.
+
+        </p>
+
+        <div class="footer-social">
+
+          <a href="#"><i class="fab fa-github"></i></a>
+
+          <a href="https://www.pinterest.com/codeewithroshni_08/" target="_blank">
+            <i class="fab fa-pinterest"></i>
+          </a>
+        </div>
+
+        <p class="copyright">
+
+          © 2026 Roshni Code Charm. All Rights Reserved.
+
+        </p>
+
+      </div>
 
     </div>
 
   </footer>
 
-  <!-- PINS PAGE CLOSE -->
-
-  <!-- POPUP -->
-
-  <div id="popup" class="popup" onclick="closeImg()">
-    <img id="popupImg">
-  </div>
-
-  <script>
-
-
-    function showPage(page) {
-      document.querySelectorAll(".page").forEach(function (p) {
-        p.classList.remove("active");
-      });
-
-      document.getElementById(page).classList.add("active");
-      window.scrollTo(0, 0);
-    }
-
-    // IMAGE POPUP
-    function openImg(src) {
-      document.getElementById("popup").style.display = "flex";
-      document.getElementById("popupImg").src = src;
-    }
-
-    function closeImg() {
-      document.getElementById("popup").style.display = "none";
-    }
-
-    // SEARCH ARTICLES
-    function searchArticles() {
-      let input = document.getElementById("searchInput").value.toLowerCase();
-      let cards = document.querySelectorAll(".article-card");
-
-      cards.forEach(function (card) {
-        let text = card.innerText.toLowerCase();
-
-        if (text.includes(input)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-
-    // FILTER ARTICLES
-    function filterCategory(category) {
-      let cards = document.querySelectorAll(".article-card");
-
-      cards.forEach(function (card) {
-        let text = card.innerText.toLowerCase();
-
-        if (category === "all") {
-          card.style.display = "block";
-        } else if (text.includes(category)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
 

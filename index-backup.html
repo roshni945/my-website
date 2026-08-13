@@ -1,834 +1,3433 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Pacifico&display=swap"
-    rel="stylesheet">
+
+  <!-- =========================
+         BASIC META TAGS
+    ========================== -->
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="p:domain_verify" content="8ff7f3bf580464df13b34b320acefb68"/>
-  <title>Roshni Code Charm</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- =========================
+         TITLE
+    ========================== -->
+
+  <title>
+    Roshni Code Charm | Learn Coding the Easy Way
+  </title>
+
+  <!-- =========================
+         SEO
+    ========================== -->
+
+  <meta name="description"
+    content="Learn HTML, CSS, JavaScript, Python, SQL and Web Development with beginner-friendly tutorials, projects and coding notes.">
+
+  <meta name="keywords"
+    content="HTML Tutorial, CSS Tutorial, JavaScript Tutorial, Python Tutorial, Coding, Programming, Web Development, Roshni Code Charm">
+
+  <meta name="author" content="Roshni Code Charm">
+
+  <meta name="robots" content="index, follow">
+
+  <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+  <meta property="og:title" content="Roshni Code Charm">
+
+  <meta property="og:description" content="Learn Coding with Beautiful Tutorials.">
+
+  <meta property="og:image" content="images/banner.jpg">
+
+  <meta property="og:type" content="website">
+
+  <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- =========================
+         FAVICON
+    ========================== -->
+
+  <link rel="icon" href="images/favicon.png">
+
+  <!-- =========================
+         CSS START
+    ========================== -->
 
   <style>
-    .main-logo:hover {
-      transform: scale(1.04);
+    /* ==========================================================
+   RESET
+========================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .main-logo {
-      width: 900px;
-
-      max-width: 100%;
-
-      display: block;
-      margin: auto;
-
-      border-radius: 35px;
-
-      padding: 10px;
-
-      background: rgba(255, 255, 255, 0.08);
-
-      backdrop-filter: blur(8px);
-
-      box-shadow:
-        0 0 30px rgba(180, 255, 220, 0.35);
-
-      transition: 0.4s;
-    }
-
-    .main-logo:hover {
-      transform: scale(1.03);
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.72),
-          rgba(255, 255, 255, 0.72)),
-        url("bg.jpg");
 
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif;
+
+      background: linear-gradient(180deg, #f8f5ff, #ffffff);
+
+      color: #333;
 
       overflow-x: hidden;
-      color: #222;
+
     }
 
+    /* ==========================================================
+   CONTAINER
+========================================================== */
 
-    /* NAVBAR */
+    .container {
 
-    nav {
-      position: sticky;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    }
-    
-    nav button {
-      border: none;
-      background: none;
-      font-size: 18px;
-      font-weight: bold;
-      color: #7b2cbf;
-      cursor: pointer;
-      transition: 0.3s;
+      width: 100%;
+
+      max-width: 1400px;
+
+      margin: auto;
+
+      padding: 0 25px;
+
     }
 
-    nav button:hover {
-      color: #ff4da6;
-      transform: scale(1.08);
+    /* ==========================================================
+   LINKS
+========================================================== */
+
+    a {
+
+      text-decoration: none;
+
+      transition: .35s;
+
     }
 
-    /* PAGE SYSTEM */
+    img {
 
-    .page {
-      display: none;
-      padding: 20px;
-      animation: fade 0.5s;
-    }
-
-    .active {
       display: block;
+
+      max-width: 100%;
+
     }
 
-    @keyframes fade {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
+    /* ==========================================================
+   SECTION SPACING
+========================================================== */
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    section {
+
+      padding: 90px 0;
+
+    }
+
+    /* ==========================================================
+   TITLES
+========================================================== */
+
+    .section-title {
+
+      font-size: 48px;
+
+      font-weight: 700;
+
+      color: #6d28d9;
+
+      text-align: center;
+
+      margin-bottom: 20px;
+
+    }
+
+    .section-subtitle {
+
+      max-width: 760px;
+
+      margin: auto;
+
+      text-align: center;
+
+      color: #666;
+
+      font-size: 18px;
+
+      line-height: 1.8;
+
+    }
+
+    /* ==========================================================
+   BUTTONS
+========================================================== */
+
+    .btn {
+
+      display: inline-block;
+
+      padding: 15px 34px;
+
+      border-radius: 50px;
+
+      font-weight: 600;
+
+      transition: .35s;
+
+    }
+
+    .btn-primary {
+
+      background: #7b2cbf;
+
+      color: white;
+
+      box-shadow: 0 12px 30px rgba(123, 44, 191, .25);
+
+    }
+
+    .btn-primary:hover {
+
+      transform: translateY(-5px);
+
+      background: #6520a8;
+
+    }
+
+    .btn-secondary {
+
+      border: 2px solid #7b2cbf;
+
+      color: #7b2cbf;
+
+      background: white;
+
+    }
+
+    .btn-secondary:hover {
+
+      background: #7b2cbf;
+
+      color: white;
+
+    }
+
+    /* ==========================================================
+   GLASS CARD
+========================================================== */
+
+    .glass {
+
+      background: rgba(255, 255, 255, .75);
+
+      backdrop-filter: blur(14px);
+
+      border-radius: 24px;
+
+      border: 1px solid rgba(255, 255, 255, .5);
+
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .08);
+
+    }
+
+    /* ==========================================================
+   PREMIUM NAVBAR
+========================================================== */
+
+    header {
+
+      position: sticky;
+
+      top: 0;
+
+      width: 100%;
+
+      z-index: 999;
+
+      background: rgba(255, 255, 255, .88);
+
+      backdrop-filter: blur(16px);
+
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+
+    }
+
+    .navbar {
+
+      max-width: 1400px;
+
+      margin: auto;
+
+      padding: 18px 25px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
     }
 
     .logo {
-      font-family: 'Pacifico', cursive;
 
-      font-size: 130px;
+      font-size: 30px;
 
-      font-style: italic;
-      font-weight: bold;
+      font-weight: 800;
 
-      background: linear-gradient(to right,
-          #d8ffe7,
-          #b7ffda,
-          #ffffff,
-          #b7ffda);
+      color: #7b2cbf;
 
-      background-clip: text;
+      letter-spacing: .5px;
+
+    }
+
+    .logo span {
+
+      color: #ff4da6;
+
+    }
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 28px;
+
+    }
+
+    .nav-links a {
+
+      color: #444;
+
+      font-weight: 600;
+
+      position: relative;
+
+    }
+
+    .nav-links a::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      bottom: -6px;
+
+      width: 0;
+
+      height: 3px;
+
+      background: #7b2cbf;
+
+      transition: .3s;
+
+      border-radius: 5px;
+
+    }
+
+    .nav-links a:hover {
+
+      color: #7b2cbf;
+
+    }
+
+    .nav-links a:hover::after {
+
+      width: 100%;
+
+    }
+
+    .nav-buttons {
+
+      display: flex;
+
+      gap: 12px;
+
+    }
+
+    .nav-btn {
+
+      padding: 12px 24px;
+
+      border-radius: 40px;
+
+      font-weight: 600;
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      transition: .3s;
+
+    }
+
+    .nav-btn:hover {
+
+      background: #ff4da6;
+
+      transform: translateY(-3px);
+
+    }
+
+    /* ==========================================================
+   RESPONSIVE NAVBAR
+========================================================== */
+
+    @media(max-width:900px) {
+
+      .navbar {
+
+        flex-direction: column;
+
+        gap: 18px;
+
+      }
+
+      .nav-links {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 16px;
+
+      }
+
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+
+      padding: 80px 8%;
+
+      background:
+        linear-gradient(135deg, #fff0f8, #f3e8ff);
+
+    }
+
+
+
+    .hero-content {
+
+      max-width: 600px;
+
+    }
+
+
+
+    .hero-badge {
+
+      display: inline-block;
+
+      padding: 10px 20px;
+
+      border-radius: 30px;
+
+      background: #ffffff;
+
+      color: #7b2cbf;
+
+      font-weight: 600;
+
+      box-shadow: 0 5px 20px rgba(123, 44, 191, 0.15);
+
+    }
+
+
+
+    .hero h1 {
+
+      font-size: 65px;
+
+      line-height: 1.1;
+
+      margin: 20px 0;
+
+      color: #222;
+
+    }
+
+
+
+    .hero h1 span {
+
+      background: linear-gradient(90deg, #7b2cbf, #ff4d9d);
+
       -webkit-background-clip: text;
 
       color: transparent;
-      -webkit-text-fill-color: transparent;
 
-      text-align: center;
-
-      text-shadow:
-        0 0 12px rgba(183, 255, 218, 0.8),
-        0 0 25px rgba(183, 255, 218, 0.6),
-        0 0 40px rgba(183, 255, 218, 0.4);
-
-      animation: glow 2s infinite alternate;
     }
 
 
 
-    /* HERO */
+    .hero h2 {
 
-    .hero {
-      text-align: center;
-      padding: 90px 20px;
+      font-size: 32px;
+
+      color: #333;
+
     }
 
-    .hero h1 {
-      font-size: 65px;
-      color: #7b2cbf;
-      text-shadow: 0 0 15px #ff9ff3;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ff9ff3;
-      }
-
-      to {
-        text-shadow: 0 0 25px #c77dff;
-      }
-    }
 
 
     .hero p {
-      margin-top: 20px;
 
-      font-size: 34px;
-
-      font-style: italic;
-      font-weight: bold;
-
-      color: white;
-
-      text-shadow:
-        0 0 10px black,
-        0 0 20px black;
-    }
-
-
-    .typing {
-      margin-top: 20px;
-      font-size: 24px;
-      font-style: italic;
-      font-weight: bold;
-      color: #d8ffe7;
-
-      text-shadow:
-        0 0 10px black,
-        0 0 20px black;
-
-      animation: blink 1s infinite;
-    }
-
-
-    @keyframes blink {
-      50% {
-        opacity: 0.5;
-      }
-    }
-
-    /* BUTTON */
-
-    .btn {
-      margin-top: 30px;
-      padding: 15px 35px;
-      border: none;
-      border-radius: 40px;
-      background: linear-gradient(to right, #ff4da6, #7b2cbf);
-      color: white;
       font-size: 18px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+      line-height: 1.7;
+
+      color: #555;
+
     }
 
-    .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px #c77dff;
+
+
+    .hero-buttons {
+
+      display: flex;
+
+      gap: 20px;
+
+      margin-top: 30px;
+
     }
 
-    /* CARDS */
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
+
+    .primary-btn,
+    .secondary-btn {
+
+      padding: 14px 28px;
+
+      border-radius: 30px;
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+      transition: .3s;
+
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 25px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transition: 0.4s;
+
+
+    .primary-btn {
+
+      background: #7b2cbf;
+
+      color: white;
+
     }
 
-    .card:hover {
-      transform: translateY(-10px);
+
+
+    .primary-btn:hover {
+
+      transform: translateY(-5px);
+
     }
 
-    .card h2 {
+
+
+    .secondary-btn {
+
+      border: 2px solid #7b2cbf;
+
       color: #7b2cbf;
-      margin-bottom: 12px;
+
     }
+
+
+
+    .secondary-btn:hover {
+
+      background: #7b2cbf;
+
+      color: white;
+
+    }
+
+
+
+    .hero-image img {
+
+      width: 430px;
+
+      animation: float 3s infinite ease-in-out;
+
+    }
+
+
+
+    @keyframes float {
+
+      50% {
+
+        transform: translateY(-15px);
+
+      }
+
+    }
+
+
+
 
     /* STATS */
 
-    .stats {
+
+    .hero-stats {
+
       display: flex;
-      justify-content: center;
+
+      gap: 30px;
+
+      margin-top: 40px;
+
+    }
+
+
+
+    .hero-stats h3 {
+
+      font-size: 30px;
+
+      color: #7b2cbf;
+
+      margin: 0;
+
+    }
+
+
+
+
+    /* FEATURES */
+
+
+    .features {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
       gap: 25px;
-      flex-wrap: wrap;
-      margin-top: 50px;
+
+      padding: 40px 8%;
+
     }
 
-    .stat-box {
+
+
+    .feature-card {
+
       background: white;
-      padding: 25px;
-      border-radius: 25px;
-      width: 220px;
+
+      padding: 30px;
+
+      border-radius: 20px;
+
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+      transition: .3s;
+
     }
 
-    .stat-box h2 {
-      color: #7b2cbf;
+
+
+    .feature-card:hover {
+
+      transform: translateY(-10px);
+
+    }
+
+
+
+    .icon {
+
       font-size: 40px;
+
     }
 
-   /* GALLERY */
 
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    max-width:1800px;
-    margin:auto;
-    padding:20px;
-}
 
-.gallery img{
-    width:100%;
-    height:auto;
-    object-fit:cover;
-    border-radius:25px;
-    cursor:pointer;
-    transition:.4s;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
+    .feature-card h3 {
 
-.gallery img:hover{
-    transform:scale(1.03);
-}
-
-.pin-card img{
-    width:100%;
-    display:block;
-    border-radius:18px;
-}
-
-/* VIDEO GALLERY */
-
-.video-gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
-    max-width:1000px;
-    margin:40px auto;
-    padding:20px;
-}
-
-.video-gallery video{
-    width:100%;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
-
-/* POPUP */
-
-.popup{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.9);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
-
-.popup img{
-    width:auto;
-    height:75vh;
-    max-width:70vw;
-    object-fit:contain;
-    border-radius:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero p{
-        font-size:22px;
-    }
-
-    .logo{
-        font-size:60px;
-    }
-
-    .gallery{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .video-gallery{
-        grid-template-columns:1fr;
-    }
-}
-
-    /* QUOTE */
-
-    .quote {
-      margin-top: 70px;
-      text-align: center;
-      font-size: 28px;
       color: #7b2cbf;
-      font-style: italic;
+
     }
 
-    /* FOOTER */
 
-    .footer {
-      margin-top: 70px;
-      padding: 25px;
-      text-align: center;
-      background: white;
-      font-size: 18px;
-      color: #666;
-    }
+
+
 
     /* MOBILE */
 
-@media (max-width:768px){
 
- 
+    @media(max-width:900px) {
 
-.video-gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    max-width:900px;
-    margin:40px auto;
-    padding:10px;
-}
 
-.video-gallery video{
-    width:100%;
-    height:320px;
-    object-fit:cover;
-    border-radius:15px;
-}
-}
+      .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+      }
+
+
+      .hero h1 {
+
+        font-size: 45px;
+
+      }
+
+
+      .hero-image img {
+
+        width: 300px;
+
+      }
+
+
+
+      .hero-buttons {
+
+        justify-content: center;
+
+      }
+
+
+      .hero-stats {
+
+        justify-content: center;
+
+      }
+
+
+
+      .features {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+
+    }
+
+
+
+    @media(max-width:500px) {
+
+
+      .features {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .hero h1 {
+
+        font-size: 38px;
+
+      }
+
+
+    }
+
+    /* Floating Icons */
+
+    .float-icon {
+
+      position: absolute;
+
+      width: 70px;
+
+      height: 70px;
+
+      border-radius: 20px;
+
+      background: #ffffff;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 32px;
+
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .10);
+
+      animation: floatCard 4s ease-in-out infinite;
+
+    }
+
+    .icon-python {
+
+      top: 30px;
+
+      left: -30px;
+
+    }
+
+    .icon-html {
+
+      bottom: 60px;
+
+      left: 20px;
+
+    }
+
+    .icon-css {
+
+      top: 40px;
+
+      right: -30px;
+
+    }
+
+    .icon-js {
+
+      bottom: 40px;
+
+      right: 10px;
+
+    }
+
+    /* Animations */
+
+    @keyframes floatImage {
+
+      0%,
+      100% {
+
+        transform: translateY(0);
+
+      }
+
+      50% {
+
+        transform: translateY(-18px);
+
+      }
+
+    }
+
+    @keyframes floatCard {
+
+      0%,
+      100% {
+
+        transform: translateY(0);
+
+      }
+
+      50% {
+
+        transform: translateY(-12px);
+
+      }
+
+    }
+
+    /* Responsive */
+
+    @media(max-width:991px) {
+
+      .hero {
+
+        padding: 90px 0;
+
+      }
+
+      .hero-container {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+      }
+
+      .hero p {
+
+        margin: auto;
+
+      }
+
+      .hero-buttons {
+
+        justify-content: center;
+
+      }
+
+      .hero h1 {
+
+        font-size: 48px;
+
+      }
+
+      .hero-image {
+
+        margin-top: 40px;
+
+      }
+
+    }
+
+    /* ==========================================================
+   STATS SECTION
+========================================================== */
+
+    .stats {
+
+      margin-top: -60px;
+      position: relative;
+      z-index: 5;
+
+    }
+
+    .stats-grid {
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+
+    }
+
+    .stat-card {
+
+      background: #fff;
+      border-radius: 25px;
+      padding: 35px 25px;
+      text-align: center;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+    }
+
+    .stat-card:hover {
+
+      transform: translateY(-10px);
+
+      box-shadow: 0 25px 50px rgba(123, 44, 191, .20);
+
+    }
+
+    .stat-card h2 {
+
+      font-size: 42px;
+      color: #7b2cbf;
+      margin-bottom: 12px;
+
+    }
+
+    .stat-card p {
+
+      color: #666;
+      font-size: 17px;
+
+    }
+
+    /* ==========================================================
+   CATEGORY SECTION
+========================================================== */
+
+    .categories {
+
+      padding: 100px 0;
+
+    }
+
+    .category-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+      gap: 30px;
+
+    }
+
+    .category-card {
+
+      background: #fff;
+
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+    }
+
+    .category-card:hover {
+
+      transform: translateY(-12px);
+
+      box-shadow: 0 25px 55px rgba(123, 44, 191, .20);
+
+    }
+
+    .category-card {
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .category-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+    }
+
+    .category-content {
+
+      padding: 25px;
+
+    }
+
+    .category-content h3 {
+
+      color: #7b2cbf;
+
+      margin-bottom: 15px;
+
+      font-size: 24px;
+
+    }
+
+    .category-content p {
+
+      color: #666;
+
+      margin-bottom: 20px;
+
+    }
+
+    .category-btn {
+
+      display: inline-block;
+
+      padding: 12px 24px;
+
+      border-radius: 40px;
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      font-weight: 600;
+
+      transition: .3s;
+
+    }
+
+    .category-btn:hover {
+
+      background: #ff4da6;
+
+    }
+
+    /* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+    @media(max-width:992px) {
+
+      .stats-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+
+    }
+
+    @media(max-width:600px) {
+
+      .stats-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+    /* ==========================================================
+   FEATURED TUTORIALS
+========================================================== */
+
+    .featured {
+
+      padding: 100px 0;
+
+    }
+
+    .tutorial-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 30px;
+
+    }
+
+    .tutorial-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3/2;
+      height: auto;
+      max-height: none;
+      object-fit: unset;
+    }
+
+    .tutorial-card:hover {
+
+      transform: translateY(-12px);
+
+      box-shadow: 0 30px 60px rgba(123, 44, 191, .18);
+
+    }
+
+    .tutorial-content {
+
+      padding: 28px;
+
+    }
+
+    .tutorial-content h3 {
+
+      color: #6d28d9;
+
+      margin-bottom: 15px;
+
+    }
+
+    .tutorial-content p {
+
+      color: #666;
+
+      margin-bottom: 20px;
+
+    }
+
+    .read-btn {
+
+      display: inline-block;
+
+      padding: 12px 24px;
+
+      border-radius: 40px;
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      font-weight: 600;
+
+    }
+
+    .read-btn:hover {
+
+      background: #ff4da6;
+
+    }
+
+    /* ==========================================================
+   PROJECTS
+========================================================== */
+
+    .projects {
+
+      padding: 100px 0;
+
+      background: #faf7ff;
+
+    }
+
+    .project-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+      gap: 30px;
+
+    }
+
+    .project-card {
+
+      background: #fff;
+
+      padding: 35px;
+
+      border-radius: 25px;
+
+      text-align: center;
+
+      transition: .35s;
+
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+    }
+
+    .project-card:hover {
+
+      transform: translateY(-12px);
+
+    }
+
+    .project-icon {
+
+      font-size: 55px;
+
+      margin-bottom: 20px;
+
+    }
+
+    .project-card h3 {
+
+      color: #6d28d9;
+
+      margin-bottom: 15px;
+
+    }
+
+    /* ==========================================================
+   FOOTER
+========================================================== */
+
+    footer {
+
+      background: #1d1633;
+
+      color: white;
+
+      padding: 70px 20px;
+
+      text-align: center;
+
+    }
+
+    footer h2 {
+
+      color: white;
+
+      margin-bottom: 15px;
+
+    }
+
+    footer p {
+
+      color: #d6d6d6;
+
+      max-width: 700px;
+
+      margin: auto auto 30px;
+
+    }
+
+    .footer-social {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+
+      margin-bottom: 35px;
+
+    }
+
+    .footer-social a {
+
+      width: 55px;
+
+      height: 55px;
+
+      background: #7b2cbf;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: #fff;
+
+      font-size: 24px;
+
+      transition: .3s;
+
+    }
+
+    .footer-social a:hover {
+
+      background: #ff4da6;
+
+      transform: translateY(-6px);
+
+    }
+
+    .copyright {
+
+      border-top: 1px solid rgba(255, 255, 255, .15);
+
+      padding-top: 25px;
+
+      color: #bbb;
+
+      font-size: 15px;
+
+    }
+
+    /* ==========================================================
+   BACK TO TOP
+========================================================== */
+
+    .top-btn {
+
+      position: fixed;
+
+      right: 25px;
+
+      bottom: 25px;
+
+      width: 55px;
+
+      height: 55px;
+
+      border-radius: 50%;
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 24px;
+
+      box-shadow: 0 10px 30px rgba(123, 44, 191, .35);
+
+      transition: .3s;
+
+    }
+
+    .top-btn:hover {
+
+      background: #ff4da6;
+
+      transform: translateY(-5px);
+
+    }
+
+    /* ==========================
+FEATURED TUTORIALS
+========================== */
+
+    .featured {
+
+      padding: 100px 0;
+
+    }
+
+    .tutorial-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+
+      gap: 35px;
+
+    }
+
+    .tutorial-card {
+
+      background: #fff;
+
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+    }
+
+    .tutorial-card:hover {
+
+      transform: translateY(-12px);
+
+      box-shadow: 0 25px 60px rgba(123, 44, 191, .18);
+
+    }
+
+    .tutorial-card img {
+
+      width: 100%;
+
+      height: 230px;
+
+      object-fit: cover;
+
+    }
+
+    .tutorial-content {
+
+      padding: 28px;
+
+    }
+
+    .tutorial-content h3 {
+
+      margin: 15px 0;
+
+      color: #6d28d9;
+
+    }
+
+    .tag {
+
+      display: inline-block;
+
+      padding: 6px 15px;
+
+      border-radius: 30px;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      margin-bottom: 10px;
+
+    }
+
+    .beginner {
+
+      background: #e8fff3;
+
+      color: #18a558;
+
+    }
+
+    .html {
+
+      background: #fff3e8;
+
+      color: #ff6600;
+
+    }
+
+    .css {
+
+      background: #eef3ff;
+
+      color: #2962ff;
+
+    }
+
+    .tutorial-meta {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      margin: 20px 0;
+
+      font-weight: 600;
+
+      color: #666;
+
+    }
+
+    /* ==========================
+PROJECTS
+========================== */
+
+    .projects,
+    .about,
+    .newsletter {
+
+      padding: 100px 0;
+
+    }
+
+    .project-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 30px;
+
+    }
+
+    .project-card {
+
+      background: #fff;
+
+      padding: 35px;
+
+      border-radius: 25px;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+      transition: .3s;
+
+    }
+
+    .project-card:hover {
+
+      transform: translateY(-10px);
+
+    }
+
+    .about {
+
+      background: #f8f5ff;
+
+      text-align: center;
+
+    }
+
+    .newsletter {
+
+      text-align: center;
+
+    }
+
+    .newsletter input {
+
+      width: 320px;
+
+      max-width: 90%;
+
+      padding: 15px;
+
+      border-radius: 50px;
+
+      border: 2px solid #ddd;
+
+      margin: 20px 10px;
+
+    }
+
+    .newsletter button {
+
+      padding: 15px 35px;
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      border: none;
+
+      border-radius: 50px;
+
+      cursor: pointer;
+
+      font-weight: 600;
+
+    }
+
+    footer {
+
+      background: #1d1438;
+
+      color: #fff;
+
+      padding: 70px 20px;
+
+      text-align: center;
+
+    }
+
+    .footer-links {
+
+      margin: 25px 0;
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 25px;
+
+      flex-wrap: wrap;
+
+    }
+
+    .footer-links a {
+
+      color: #fff;
+
+    }
+
+    .back-top {
+
+      position: fixed;
+
+      bottom: 25px;
+
+      right: 25px;
+
+      width: 55px;
+
+      height: 55px;
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      font-size: 22px;
+
+      text-decoration: none;
+
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+
+      transition: .3s;
+
+    }
+
+    .back-top:hover {
+
+      transform: scale(1.1);
+
+    }
+
+    /* ==========================
+LATEST ARTICLES
+========================== */
+
+    .latest-articles {
+
+      padding: 100px 0;
+
+    }
+
+    .articles-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 35px;
+
+    }
+
+    .article-card {
+
+      background: #fff;
+
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+    }
+
+    .article-card:hover {
+
+      transform: translateY(-10px);
+
+      box-shadow: 0 20px 50px rgba(123, 44, 191, .18);
+
+    }
+
+    .article-card img {
+
+      width: 100%;
+
+      height: 220px;
+
+      object-fit: cover;
+
+    }
+
+    .article-content {
+
+      padding: 25px;
+
+    }
+
+    .article-content h3 {
+
+      margin: 15px 0;
+
+      color: #6d28d9;
+
+      font-size: 24px;
+
+    }
+
+    .article-content p {
+
+      color: #666;
+
+      margin-bottom: 20px;
+
+    }
+
+    .article-tag {
+
+      display: inline-block;
+
+      padding: 6px 15px;
+
+      border-radius: 30px;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      color: #fff;
+
+    }
+
+    .python {
+
+      background: #3776ab;
+
+    }
+
+    .html {
+
+      background: #ff6b00;
+
+    }
+
+    .css {
+
+      background: #2962ff;
+
+    }
+
+    .article-meta {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      margin: 20px 0;
+
+      font-size: 14px;
+
+      color: #777;
+
+    }
+
+    .read-more {
+
+      display: inline-block;
+
+      padding: 12px 22px;
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      border-radius: 30px;
+
+      font-weight: 600;
+
+      transition: .3s;
+
+    }
+
+    .read-more:hover {
+
+      background: #5a189a;
+
+      transform: translateX(5px);
+
+    }
+
+    /* ==========================
+CODING ROADMAP
+========================== */
+
+    .roadmap {
+
+      padding: 100px 0;
+
+      background: #faf7ff;
+
+    }
+
+    .roadmap-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 30px;
+
+      margin-top: 50px;
+
+    }
+
+    .roadmap-card {
+
+      background: #fff;
+
+      padding: 35px;
+
+      border-radius: 25px;
+
+      text-align: center;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+      border-top: 5px solid #7b2cbf;
+
+    }
+
+    .roadmap-card:hover {
+
+      transform: translateY(-10px);
+
+      box-shadow: 0 20px 50px rgba(123, 44, 191, .18);
+
+    }
+
+    .roadmap-icon {
+
+      width: 80px;
+
+      height: 80px;
+
+      margin: auto;
+
+      margin-bottom: 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      font-size: 38px;
+
+      background: linear-gradient(135deg, #7b2cbf, #a855f7);
+
+      color: #fff;
+
+    }
+
+    .roadmap-card h3 {
+
+      margin-bottom: 15px;
+
+      color: #6d28d9;
+
+    }
+
+    .roadmap-card p {
+
+      color: #666;
+
+      line-height: 1.7;
+
+    }
+
+    /* ==========================
+TESTIMONIALS
+========================== */
+
+    .testimonials {
+
+      padding: 100px 0;
+
+      background: linear-gradient(135deg, #faf5ff, #eef6ff);
+
+    }
+
+    .trust-box {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+      gap: 25px;
+
+      margin: 45px 0;
+
+    }
+
+    .trust-item {
+
+      background: #fff;
+
+      padding: 30px;
+
+      border-radius: 20px;
+
+      text-align: center;
+
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+    }
+
+    .trust-item h3 {
+
+      font-size: 34px;
+
+      color: #7b2cbf;
+
+      margin-bottom: 10px;
+
+    }
+
+    .testimonial-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 30px;
+
+    }
+
+    .testimonial-card {
+
+      background: #fff;
+
+      padding: 35px;
+
+      border-radius: 25px;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+    }
+
+    .testimonial-card:hover {
+
+      transform: translateY(-10px);
+
+      box-shadow: 0 20px 50px rgba(123, 44, 191, .18);
+
+    }
+
+    .stars {
+
+      font-size: 22px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .testimonial-card p {
+
+      font-style: italic;
+
+      color: #555;
+
+      margin-bottom: 20px;
+
+    }
+
+    .testimonial-card h4 {
+
+      color: #7b2cbf;
+
+    }
+
+    /* ==========================
+SEARCH SECTION
+========================== */
+
+    .explore-section {
+
+      padding: 100px 0;
+
+      background: #fff;
+
+    }
+
+    .search-box {
+
+      display: flex;
+
+      max-width: 700px;
+
+      margin: 40px auto;
+
+      background: #fff;
+
+      border-radius: 60px;
+
+      overflow: hidden;
+
+      box-shadow: 0 12px 35px rgba(0, 0, 0, .10);
+
+    }
+
+    .search-box input {
+
+      flex: 1;
+
+      padding: 18px 25px;
+
+      border: none;
+
+      outline: none;
+
+      font-size: 17px;
+
+    }
+
+    .search-box button {
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      border: none;
+
+      padding: 0 35px;
+
+      cursor: pointer;
+
+      font-weight: 600;
+
+      transition: .3s;
+
+    }
+
+    .search-box button:hover {
+
+      background: #5a189a;
+
+    }
+
+    .category-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+      gap: 25px;
+
+      margin: 60px 0;
+
+    }
+
+    .category-card {
+
+      background: #fff;
+
+      padding: 30px;
+
+      border-radius: 22px;
+
+      text-align: center;
+
+      font-size: 22px;
+
+      font-weight: 600;
+
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+    }
+
+    .category-card:hover {
+
+      background: #7b2cbf;
+
+      color: #fff;
+
+      transform: translateY(-8px);
+
+    }
+
+    .quick-links {
+
+      background: #f8f5ff;
+
+      padding: 40px;
+
+      border-radius: 25px;
+
+    }
+
+    .quick-links h3 {
+
+      margin-bottom: 25px;
+
+      color: #7b2cbf;
+
+    }
+
+    .quick-links ul {
+
+      list-style: none;
+
+      padding: 0;
+
+    }
+
+    .quick-links li {
+
+      margin: 15px 0;
+
+    }
+
+    .quick-links a {
+
+      font-size: 18px;
+
+      color: #555;
+
+      transition: .3s;
+
+    }
+
+    .quick-links a:hover {
+
+      color: #7b2cbf;
+
+      padding-left: 10px;
+
+    }
+
+    /* ==========================
+PINTEREST SECTION
+========================== */
+
+    .pinterest-section {
+
+      padding: 100px 0;
+
+      background: linear-gradient(135deg, #fff7fc, #f4f7ff);
+
+    }
+
+    .counter-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 25px;
+
+      margin: 50px 0;
+
+    }
+
+    .counter-card {
+
+      background: #fff;
+
+      padding: 35px;
+
+      text-align: center;
+
+      border-radius: 25px;
+
+      box-shadow: 0 12px 35px rgba(0, 0, 0, .08);
+
+      transition: .35s;
+
+    }
+
+    .counter-card:hover {
+
+      transform: translateY(-8px);
+
+    }
+
+    .counter-card h2 {
+
+      font-size: 42px;
+
+      color: #7b2cbf;
+
+      margin-bottom: 10px;
+
+    }
+
+    .counter-card p {
+
+      font-size: 18px;
+
+      font-weight: 600;
+
+    }
+
+    .pins-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+      gap: 25px;
+
+      margin-top: 60px;
+
+    }
+
+    .pins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .pin-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .pins-grid img:hover {
+
+      transform: scale(1.05);
+
+      box-shadow: 0 20px 45px rgba(123, 44, 191, .18);
+
+    }
+
+    .gallery-btn {
+
+      text-align: center;
+
+      margin-top: 50px;
+
+    }
   </style>
-</head>
+  </header>
 
 <body>
 
-  
+  <!-- ==========================================================
+     HEADER
+========================================================== -->
 
-  <!-- NAVBAR -->
+  <header>
 
-  <nav>
-    <button onclick="showPage('home')">🏠 Home</button>
-    <button onclick="showPage('pins')">📌 Pinterest Pins</button>
-    <button onclick="showPage('articles')">📚 Articles</button>
-  </nav>
+    <div class="navbar">
 
-  <!-- HOME PAGE -->
+      <a href="index.html" class="logo">
+        Roshni <span>Code Charm</span>
+      </a>
 
-  <div id="home" class="page active">
+      <nav class="nav-links">
 
-    <section class="hero">
+        <a href="index.html">Home</a>
 
-      <h1 class="logo">
-        <div class="logo">
-         <img src="logo.png" class="main-logo">
-          
+        <a href="#categories">Tutorials</a>
 
-        </div>
-      </h1>
+        <a href="#projects">Projects</a>
 
-      <p>
-        Python tips, coding inspiration & aesthetic content 💻🌸
-      </p>
+        <a href="#about">About</a>
 
-      <div class="typing">
-        ✨ Python • Coding • Creativity • Design ✨
+        <a href="#contact">Contact</a>
+
+      </nav>
+
+      <div class="nav-buttons">
+
+        <a href="https://github.com/roshni945" class="nav-btn" target="_blank">
+          GitHub
+        </a>
+
+        <a href="https://in.pinterest.com/codeewithroshni_08/" class="nav-btn" target="_blank">
+          Pinterest
+        </a>
+
       </div>
 
-      <button class="btn" onclick="showPage('pins')">
-        View My Pins and Videos 🚀
-      </button>
+    </div>
 
-    </section>
+  </header>
 
-    <!-- CARDS -->
+  <!-- =========================================
+<!-- HERO SECTION START -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="hero-badge">
+        💻 Learn Coding Easily
+      </span>
+
+      <h1>
+        Learn Code, <br>
+        <span>Build Dreams</span>
+      </h1>
+
+      <h2>
+        Begin Your Coding Journey 🚀
+      </h2>
+
+      <p>
+        Learn HTML, CSS, JavaScript & Python with
+        beginner-friendly tutorials, practice code,
+        free notes and real-world projects.
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a href="#courses" class="primary-btn">
+          Start Learning Now
+        </a>
+
+        <a href="#tutorials" class="secondary-btn">
+          ▶ Watch Tutorials
+        </a>
+
+      </div>
+
+
+      <div class="hero-stats">
+
+        <div>
+          <h3>70+</h3>
+          <p>Coding Tutorials</p>
+        </div>
+
+        <div>
+          <h3>100+</h3>
+          <p>Practice Codes</p>
+        </div>
+
+        <div>
+          <h3>50+</h3>
+          <p>Free Notes</p>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="hero-image">
+
+      <img src="images/coding-girl.png" alt="Coding Girl Learning Programming">
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+
+    <div class="feature-card">
+
+      <div class="icon">
+        📚
+      </div>
+
+      <h3>
+        Easy Tutorials
+      </h3>
+
+      <p>
+        Simple explanations for beginners.
+      </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+      <div class="icon">
+        💻
+      </div>
+
+      <h3>
+        Practice Code
+      </h3>
+
+      <p>
+        Improve skills with examples.
+      </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+      <div class="icon">
+        📝
+      </div>
+
+      <h3>
+        Free Notes
+      </h3>
+
+      <p>
+        Complete coding notes anytime.
+      </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+      <div class="icon">
+        🚀
+      </div>
+
+      <h3>
+        Build Projects
+      </h3>
+
+      <p>
+        Create real-world projects.
+      </p>
+
+    </div>
+
+
+  </section>
+
+  <!-- HERO SECTION END -->
+
+  <!-- ==========================================================
+     STATS SECTION
+========================================================== -->
+
+  <section class="stats">
 
     <div class="container">
 
-      <div class="card">
-        <h2>🐍 Python Tips</h2>
-        <p>
-          Simple, beginner-friendly Python tips, coding tricks & creative mini projects to make learning fun 💻✨
+      <div class="stats-grid">
 
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>📌 Pinterest Ideas</h2>
-        <p>
-          Discover aesthetic Pinterest inspiration, trendy creative ideas & beautiful digital content for everyday
-          creativity ✨🌸
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>💻 Coding Journey</h2>
-        <p>
-          From simple HTML pages to creative web designs — exploring coding step by step with passion and creativity
-          🚀💖
-
-          Beautiful websites and fun coding experiences.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>🌸 About Me</h2>
-        <p>
-          Hi, I am Roshni 💖
-          A creative girl who loves coding, aesthetic web design, Pinterest inspiration & digital creativity ✨
-
-          I enjoy turning simple ideas into beautiful websites using HTML, CSS & JavaScript 💻🌸
-
-          Welcome to my little coding world — where creativity meets technology 🚀
-        </p>
-      </div>
-
-    </div>
-
-    <!-- STATS -->
-
-    <div class="stats">
-
-      <div class="stat-box">
-        <h2>70+</h2>
-        <p>Pinterest Pins</p>
-      </div>
-
-      <div class="stat-box">
-        <h2>70+</h2>
-        <p>Coding Ideas</p>
-      </div>
-
-      <div class="stat-box">
-        <h2>13K+</h2>
-        <p>Creative Views</p>
-      </div>
-
-    </div>
-
-    <div class="quote">
-      “Code + Creativity = Magic ✨”
-    </div>
-
-  </div>
-
-  <!-- ARTICLES PAGE -->
-
-<div id="articles" class="page">
-
-  <h1 style="text-align:center; color:#7b2cbf;">
-    📚 Coding Articles
-  </h1>
-
-  <div class="container">
-
-    <div class="card">
-      <h2>🐍 Python Variables</h2>
-      <p>
-        Learn what Python variables are with simple examples for beginners.
-      </p>
-      <button class="btn">Read Article</button>
-    </div>
-
-    <div class="card">
-      <h2>🌐 HTML Basics</h2>
-      <p>
-        Learn the basic HTML tags every beginner should know.
-      </p>
-      <button class="btn">Read Article</button>
-    </div>
-
-    <div class="card">
-      <h2>🎨 CSS Basics</h2>
-      <p>
-        Learn how CSS makes websites beautiful and responsive.
-      </p>
-      <button class="btn">Read Article</button>
-    </div>
-
-  </div>
-
-</div>
-
-  <!-- PINS PAGE -->
-
-  <div id="pins" class="page">
-
-    <h1 class="title">
-      📌 My Pinterest Pins
-    </h1>
-
-    <div class="gallery">
-
-      <div class="pin-card">
-        <img src="pin1.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin2.jpg" onclick="openImg(this.src)">
-        
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin3.jpg" onclick="openImg(this.src)">
-       
-      </div>
-
-      <div class="pin-card">
-        <img src="pin4.jpg" onclick="openImg(this.src)">
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin5.jpg" onclick="openImg(this.src)">
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin6.jpg" onclick="openImg(this.src)">
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin7.jpg" onclick="openImg(this.src)">
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin8.jpg" onclick="openImg(this.src)">
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin9.jpg" onclick="openImg(this.src)">
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin10.jpg" onclick="openImg(this.src)"> 
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin11.jpg" onclick="openImg(this.src)">  
-      </div>
-      
-      <div class="pin-card">
-        <img src="pin12.jpg" onclick="openImg(this.src)">  
-      </div>
-
-      <div class="pin-card">
-        <img src="pin13.jpg" onclick="openImg(this.src)">
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin14.jpg" onclick="openImg(this.src)">
-        
-        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin15.jpg" onclick="openImg(this.src)">        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin16.jpg" onclick="openImg(this.src)">        
-      </div>
-
-      <div class="pin-card">
-        <img src="pin17.jpg" onclick="openImg(this.src)">       
-      </div>
-
-      <div class="pin-card">
-        <img src="pin18.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin19.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin20.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin21.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin22.jpg" onclick="openImg(this.src)">
-      </div>
-
-
-      <div class="pin-card">
-        <img src="pin23.jpg" onclick="openImg(this.src)">
-      </div>
-
-
-      <div class="pin-card">
-        <img src="pin24.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin25.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin26.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin27.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin28.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin29.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin30.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin31.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin32.jpg" onclick="openImg(this.src)">
+        <div class="stat-card">
+          <h2>115K+</h2>
+          <p>Monthly Views</p>
         </div>
-     
-     <div class="pin-card">
-        <img src="pin33.jpg" onclick="openImg(this.src)">
+
+        <div class="stat-card">
+          <h2>100+</h2>
+          <p>Coding Tutorials</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>100+</h2>
+          <p>Projects</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>24×7</h2>
+          <p>Free Learning</p>
+        </div>
+
       </div>
-
-       <div class="pin-card">
-        <img src="pin34.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin35.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin36.jpg" onclick="openImg(this.src)">
-      </div>
-
-       <div class="pin-card">
-        <img src="pin37.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin38.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin39.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin40.jpg" onclick="openImg(this.src)">
-      </div>
-
-      <div class="pin-card">
-        <img src="pin41.jpg" onclick="openImg(this.src)">
-      </div>
-
-
-      <div class="pin-card">
-        <img src="pin42.jpg" onclick="openImg(this.src)">
-      </div>
-      
-    </div>
-    
-    <!-- gallery close -->
-
-    <!-- VIDEO SECTION -->
-
-    <h1 class="title">
-      🎬 My Videos
-    </h1>
-
-    <div class="video-gallery">
-
-      <video controls>
-        <source src="video1.mp4" type="video/mp4">
-      </video>
-
-      <video controls>
-        <source src="video2.mp4" type="video/mp4">
-      </video>
 
     </div>
 
+  </section>
 
+  <!-- ==========================================================
+     CATEGORIES SECTION
+========================================================== -->
 
-    <!-- FOOTER -->
+  <section class="categories" id="categories">
 
-    <div class="footer">
-      Made with 💜 by Roshni Code Charm
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Explore Tutorials</span>
+
+        <h2>Learn Programming Languages</h2>
+
+        <p>
+          Start your coding journey with beginner-friendly tutorials,
+          notes, projects and interview questions.
+        </p>
+
+      </div>
+
+      <div class="category-grid">
+
+        <!-- Python -->
+
+        <div class="category-card">
+
+          <img src="images/python.jpg" alt="Python">
+
+          <div class="category-content">
+
+            <h3>🐍 Python</h3>
+
+            <p>
+              Learn Python from beginner to advanced with examples,
+              projects, interview questions and quizzes.
+            </p>
+
+            <a href="python-tutorial.html" class="category-btn">
+              python tutorial →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- HTML -->
+
+        <div class="category-card">
+
+          <img src="images/html.png" alt="HTML">
+
+          <div class="category-content">
+
+            <h3>🌐 HTML</h3>
+
+            <p>
+              Build beautiful web pages using HTML with easy examples
+              and practical exercises.
+            </p>
+
+            <a href="html-basics.html" class="category-btn">
+              Learn HTML →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- CSS -->
+
+        <div class="category-card">
+
+          <img src="images/css.jpg" alt="CSS">
+
+          <div class="category-content">
+
+            <h3>🎨 CSS</h3>
+
+            <p>
+              Create attractive websites using CSS animations,
+              flexbox, grid and responsive layouts.
+            </p>
+
+            <a href="css-basics.html" class="category-btn">
+              Learn CSS →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- JavaScript -->
+
+        <div class="category-card">
+
+          <img src="images/javascript.jpg" alt="JavaScript">
+
+          <div class="category-content">
+
+            <h3>⚡ JavaScript</h3>
+
+            <p>
+              Learn JavaScript with DOM, events,
+              projects and interview preparation.
+            </p>
+
+            <a href="javascript-introduction.html" class="category-btn">
+              Learn JavaScript →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- SQL -->
+
+        <div class="category-card">
+
+          <img src="images/sql.jpg" alt="SQL">
+
+          <div class="category-content">
+
+            <h3>🗄 SQL</h3>
+
+            <p>
+              Master SQL queries, databases,
+              joins, functions and real-world examples.
+            </p>
+
+            <a href="sql-introduction.html" class="category-btn">
+              Learn SQL →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- AI Tools -->
+
+        <div class="category-card">
+
+          <img src="images/ai-tools.jpg" alt="AI Tools">
+
+          <div class="category-content">
+
+            <h3>🤖 AI Tools</h3>
+
+            <p>
+              Discover the best AI tools for coding,
+              productivity, designing and content creation.
+            </p>
+
+            <a href="ai-tools.html" class="category-btn">
+              Explore AI →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-    
-    </div> <!-- PINS PAGE CLOSE -->
 
-    <!-- POPUP -->
+  </section>
 
-    <div id="popup" class="popup" onclick="closeImg()">
-      <img id="popupImg">
+  <!-- ==========================================================
+     FEATURED TUTORIALS
+========================================================== -->
+
+  <section class="featured">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Most Popular</span>
+
+        <h2>Featured Tutorials</h2>
+
+        <p>
+          Start learning with our most popular beginner-friendly coding tutorials.
+        </p>
+
+      </div>
+
+      <div class="tutorial-grid">
+
+        <!-- Card 1 -->
+
+        <div class="tutorial-card">
+
+          <img src="images/python-variable.jpg" alt="Python Variable">
+
+          <div class="tutorial-content">
+
+            <span class="tag beginner">Beginner</span>
+
+            <h3>Python Variables</h3>
+
+            <p>
+              Learn variables, syntax, examples, interview questions and quizzes.
+            </p>
+
+            <div class="tutorial-meta">
+
+              <span>⏱ 8 Min</span>
+
+              <span>⭐ Popular</span>
+
+            </div>
+
+            <a href="python-variables.html" class="read-btn">
+              Read Tutorial →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="tutorial-card">
+
+          <img src="images/html-basic.jpg" alt="HTML">
+
+          <div class="tutorial-content">
+
+            <span class="tag html">HTML</span>
+
+            <h3>HTML Basics</h3>
+
+            <p>
+              Learn HTML tags, structure and build your first webpage.
+            </p>
+
+            <div class="tutorial-meta">
+
+              <span>⏱ 10 Min</span>
+
+              <span>🔥 New</span>
+
+            </div>
+
+            <a href="html.html" class="read-btn">
+              Read Tutorial →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="tutorial-card">
+
+          <img src="images/css-basic.jpg" alt="CSS">
+
+          <div class="tutorial-content">
+
+            <span class="tag css">CSS</span>
+
+            <h3>CSS Basics</h3>
+
+            <p>
+              Learn colors, fonts, flexbox, grid and responsive design.
+            </p>
+
+            <div class="tutorial-meta">
+
+              <span>⏱ 12 Min</span>
+
+              <span>💜 Trending</span>
+
+            </div>
+
+            <a href="css.html" class="read-btn">
+              Read Tutorial →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <script>
+  </section>
+
+  <!-- ==========================================================
+     PART 8 - LATEST ARTICLES
+========================================================== -->
+
+  <section class="latest-articles">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Latest Tutorials</span>
+
+        <h2>Explore New Articles</h2>
+
+        <p>
+          Learn programming with easy step-by-step tutorials.
+        </p>
+
+      </div>
+
+      <div class="articles-grid">
+
+        <!-- Card 1 -->
+
+        <div class="article-card">
+
+          <img src="images/python-variable.jpg" alt="Python Variables">
+
+          <div class="article-content">
+
+            <span class="article-tag python">Python</span>
+
+            <h3>Python Variables</h3>
+
+            <p>
+              Learn Python variables with examples and practice questions.
+            </p>
+
+            <div class="article-meta">
+
+              <span>📅 July 2026</span>
+
+              <span>⏱ 8 Min</span>
+
+            </div>
+
+            <a href="python-variables.html" class="read-more">
+              Read More →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="article-card">
+
+          <img src="images/html-basic.jpg" alt="HTML">
+
+          <div class="article-content">
+
+            <span class="article-tag html">HTML</span>
+
+            <h3>HTML Basics</h3>
+
+            <p>
+              Build your first webpage using HTML.
+            </p>
+
+            <div class="article-meta">
+
+              <span>📅 July 2026</span>
+
+              <span>⏱ 10 Min</span>
+
+            </div>
+
+            <a href="html.html" class="read-more">
+              Read More →
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="article-card">
+
+          <img src="images/css-basic.jpg" alt="CSS">
+
+          <div class="article-content">
+
+            <span class="article-tag css">CSS</span>
+
+            <h3>CSS Basics</h3>
+
+            <p>
+              Learn colors, flexbox, grid and responsive design.
+            </p>
+
+            <div class="article-meta">
+
+              <span>📅 July 2026</span>
+
+              <span>⏱ 12 Min</span>
+
+            </div>
+
+            <a href="css.html" class="read-more">
+              Read More →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+     PART 9 - CODING ROADMAP
+========================================================== -->
+
+  <section class="roadmap" id="roadmap">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Learning Path</span>
+
+        <h2>Complete Coding Roadmap</h2>
+
+        <p>
+          Follow this roadmap to become a web developer step by step.
+        </p>
+
+      </div>
+
+      <div class="roadmap-grid">
+
+        <div class="roadmap-card">
+          <div class="roadmap-icon">🌐</div>
+          <h3>HTML</h3>
+          <p>Learn page structure, headings, forms, tables and semantic tags.</p>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="roadmap-icon">🎨</div>
+          <h3>CSS</h3>
+          <p>Master colors, layouts, Flexbox, Grid and responsive design.</p>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="roadmap-icon">⚡</div>
+          <h3>JavaScript</h3>
+          <p>Add interactivity, DOM manipulation and dynamic websites.</p>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="roadmap-icon">🐍</div>
+          <h3>Python</h3>
+          <p>Learn programming, automation and backend development.</p>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="roadmap-icon">🗄️</div>
+          <h3>SQL</h3>
+          <p>Store, retrieve and manage data using databases.</p>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="roadmap-icon">🚀</div>
+          <h3>Projects</h3>
+          <p>Build real-world projects and strengthen your portfolio.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+     PART 10 - TESTIMONIALS
+========================================================== -->
+
+  <section class="testimonials" id="reviews">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Student Reviews</span>
+
+        <h2>Loved by Beginners</h2>
+
+        <p>
+          Thousands of learners are improving their coding skills with
+          Roshni Code Charm.
+        </p>
+
+      </div>
+
+      <div class="trust-box">
+
+        <div class="trust-item">
+          <h3>10K+</h3>
+          <p>Monthly Readers</p>
+        </div>
+
+        <div class="trust-item">
+          <h3>100+</h3>
+          <p>Free Tutorials</p>
+        </div>
+
+        <div class="trust-item">
+          <h3>4.9 ★</h3>
+          <p>Average Rating</p>
+        </div>
+
+      </div>
+
+      <div class="testimonial-grid">
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>
+            "One of the easiest websites to learn programming.
+            Everything is explained clearly."
+          </p>
+          <h4>— Student</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>
+            "The notes and projects helped me understand HTML,
+            CSS and Python much faster."
+          </p>
+          <h4>— Beginner Learner</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>
+            "Beautiful design and beginner-friendly tutorials.
+            Highly recommended!"
+          </p>
+          <h4>— Coding Enthusiast</h4>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+     PART 11 - SEARCH & POPULAR CATEGORIES
+========================================================== -->
+
+  <section class="explore-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Explore Tutorials</span>
+
+        <h2>Find Your Next Coding Lesson</h2>
+
+        <p>
+          Search tutorials or choose a category to start learning.
+        </p>
+
+      </div>
+
+      <!-- Search Box -->
+
+      <div class="search-box">
+
+        <input type="text" placeholder="🔍 Search HTML, CSS, JavaScript, Python...">
+
+        <button>
+          Search
+        </button>
+
+      </div>
+
+      <!-- Categories -->
+
+      <div class="category-grid">
+
+        <a href="html.html" class="category-card">
+          🌐 HTML
+        </a>
+
+        <a href="css.html" class="category-card">
+          🎨 CSS
+        </a>
+
+        <a href="javascript.html" class="category-card">
+          ⚡ JavaScript
+        </a>
+
+        <a href="python.html" class="category-card">
+          🐍 Python
+        </a>
+
+        <a href="sql.html" class="category-card">
+          🗄 SQL
+        </a>
+
+        <a href="projects.html" class="category-card">
+          🚀 Projects
+        </a>
+
+      </div>
+
+      <!-- Quick Links -->
+
+      <div class="quick-links">
+
+        <h3>🔥 Popular Tutorials</h3>
+
+        <ul>
+
+          <li><a href="python-variables.html">Python Variables</a></li>
+
+          <li><a href="html.html">HTML Basics</a></li>
+
+          <li><a href="css.html">CSS Basics</a></li>
+
+          <li><a href="javascript.html">JavaScript Introduction</a></li>
+
+          <li><a href="sql.html">SQL for Beginners</a></li>
+
+          <li><a href="projects.html">Mini Projects</a></li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+     PART 12 - PINTEREST GALLERY + COUNTERS
+========================================================== -->
+
+  <section class="pinterest-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Pinterest Inspiration</span>
+
+        <h2>Latest Coding Pins</h2>
+
+        <p>
+          Explore coding ideas, tutorials and creative designs from
+          Roshni Code Charm.
+        </p>
+
+      </div>
+
+      <!-- Animated Counters -->
+
+      <div class="counter-grid">
+
+        <div class="counter-card">
+          <h2 class="counter" data-target="120">0</h2>
+          <p>📌 Coding Pins</p>
+        </div>
+
+        <div class="counter-card">
+          <h2 class="counter" data-target="50000">0</h2>
+          <p>👀 Monthly Views</p>
+        </div>
 
 
-      function showPage(page) {
-        document.querySelectorAll('.page').forEach(p => {
-          p.classList.remove('active');
-        });
+        <div class="counter-card">
+          <h2 class="counter" data-target="100">0</h2>
+          <p>💻 Tutorials</p>
+        </div>
 
-        document.getElementById(page).classList.add('active');
-        window.scrollTo(0, 0);
+      </div>
+
+      <!-- Pinterest Gallery -->
+
+      <div class="pins-grid">
+
+        <img src="images/pin1.jpg" alt="Python Pin">
+
+        <img src="images/pin2.jpg" alt="HTML Pin">
+
+        <img src="images/pin3.jpg" alt="CSS Pin">
+
+        <img src="images/pin4.jpg" alt="JavaScript Pin">
+
+        <img src="images/pin5.jpg" alt="Coding Pin">
+
+        <img src="images/pin6.jpg" alt="Programming Pin">
+
+        <img src="images/pin7.jpg" alt="Syntax pin">
+
+        <img src="images/pin8.jpg" alt="Website Design Pin">
+
+        <img src="images/pin9.jpg" alt="Web development Pin">
+
+        <img src="images/pin10.jpg" alt="Web basic Knowledge Pin">
+
+        <img src="images/pin11.jpg" alt="What is Digital Marketing Pin">
+
+        <img src="images/pin12.jpg" alt="Top Pin">
+
+        <img src="images/pin13.jpg" alt="Best Free Course Pin">
+
+        <img src="images/pin14.jpg" alt="Seo For Begineers Pin">
+
+        <img src="images/pin15.jpg" alt="Social Media Pin">
+
+        <img src="images/pin16.jpg" alt="How to build First Portfolio Pin">
+
+        <img src="images/pin17.jpg" alt="How to get first Client Job Pin">
+
+        <img src="images/pin18.jpg" alt="Portfolio Pin">
+
+        <img src="images/pin19.jpg" alt=" Top AI Website Pin">
+
+        <img src="images/pin20.jpg" alt=" Internet Web Pin">
+
+        <img src="images/pin21.jpg" alt="How to become a Digital Marketing Pin">
+
+        <img src="images/pin22.jpg" alt="3 Mini Project Pin">
+
+        <img src="images/pin23.jpg" alt="3 Stunning Website Pin">
+
+        <img src="images/pin24.jpg" alt="4 UI Clone Project Pin">
+
+        <img src="images/pin25.jpg" alt="7 Free AI Tools Pin">
+
+        <img src="images/pin26.jpg" alt="7 Days Digital Marketing Pin">
+
+
+
+
+
+      </div>
+
+      <div class="gallery-btn">
+
+        <a href="https://in.pinterest.com/codeewithroshni_08/" target="_blank" class="btn-primary">
+
+          📌 Visit My Pinterest
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+     LATEST PROJECTS
+========================================================== -->
+
+  <section class="projects" id="projects">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Build & Practice</span>
+        <h2>Latest Web Projects</h2>
+        <p>Practice coding by building real-world projects.</p>
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>🧮 Calculator</h3>
+          <p>HTML + CSS + JavaScript Calculator Project.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>⏰ Digital Clock</h3>
+          <p>Create a live digital clock using JavaScript.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>✅ To-Do App</h3>
+          <p>Store tasks with Local Storage.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+ABOUT
+========================================================== -->
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <h2>💜 About Roshni Code Charm</h2>
+
+      <p>
+
+        Welcome to <strong>Roshni Code Charm</strong>.
+
+        Here you'll find beginner-friendly tutorials on HTML, CSS,
+        JavaScript, Python, SQL, coding notes, interview questions,
+        projects and free learning resources.
+
+        My goal is to make coding simple, practical and enjoyable
+        for every student.
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+NEWSLETTER
+========================================================== -->
+
+  <section class="newsletter">
+
+    <div class="container">
+
+      <h2>📩 Join Our Coding Community</h2>
+
+      <p>
+
+        Get free coding tutorials and project ideas directly in your inbox.
+
+      </p>
+
+      <input type="email" placeholder="Enter your email">
+
+      <button>Subscribe</button>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================
+FOOTER
+========================================================== -->
+
+  <footer id="contact">
+
+    <div class="container">
+
+      <h2>Roshni Code Charm 💜</h2>
+
+      <p>
+
+        Learn • Build • Grow
+
+      </p>
+
+      <div class="footer-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="#categories">Tutorials</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="https://github.com/roshni945">GitHub</a>
+
+        <a href="https://in.pinterest.com/codeewithroshni_08/">Pinterest</a>
+
+      </div>
+
+      <p class="copyright">
+
+        © 2026 Roshni Code Charm.
+        All Rights Reserved.
+
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- Back to Top -->
+
+  <a href="#" class="back-top">⬆</a>
+
+  </div>
+  <script>
+
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+
+      const update = () => {
+
+        const target = +counter.getAttribute("data-target");
+
+        const count = +counter.innerText;
+
+        const speed = 150;
+
+        const inc = target / speed;
+
+        if (count < target) {
+
+          counter.innerText = Math.ceil(count + inc);
+
+          setTimeout(update, 15);
+
+        } else {
+
+          counter.innerText = target.toLocaleString() + "+";
+
+        }
+
       }
 
-      function openImg(src) {
-        document.getElementById("popup").style.display = "flex";
-        document.getElementById("popupImg").src = src;
-      }
+      update();
 
-      function closeImg() {
-        document.getElementById("popup").style.display = "none";
-      }
-      function openVideo(src) {
-        document.getElementById("videoPopup").style.display = "flex";
-        document.getElementById("popupVideo").src = src;
-      }
-      function closeVideo() {
-        document.getElementById("videoPopup").style.display = "none";
-      }
-    </script>
+    });
 
+  </script>
 </body>
 
 </html>

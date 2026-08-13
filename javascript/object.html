@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =======================================
+                BASIC META TAGS
+    ======================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =======================================
+                PAGE TITLE
+    ======================================== -->
+
+    <title>
+        JavaScript Objects | Roshni Code Charm
+    </title>
+
+    <!-- =======================================
+                CSS FILE
+    ======================================== -->
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <!-- =======================================
+                LESSON PAGE
+    ======================================== -->
+
+    <section class="lesson-page">
+
+        <div class="lesson-content">
+
+            <!-- =======================================
+                        TOP BADGE
+            ======================================== -->
+
+            <span class="lesson-badge">
+
+                🚀 JavaScript Core Concepts
+
+            </span>
+
+            <!-- =======================================
+                        PAGE TITLE
+            ======================================== -->
+
+            <h1>
+
+                JavaScript Objects
+
+            </h1>
+
+            <p class="intro-text">
+
+                Learn how JavaScript Objects help you
+                organize and manage real-world data using
+                key-value pairs.
+
+            </p>
+
+            <!-- =======================================
+                    COURSE PROGRESS
+            ======================================== -->
+
+            <div class="progress-card">
+
+                <div class="progress-top">
+
+                    <span>
+
+                        📚 JavaScript Course
+
+                    </span>
+
+                    <span class="progress-badge">
+
+                        45% Complete
+
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+                <p class="progress-text">
+
+                    🚀 You're doing great! Keep learning
+                    JavaScript every day.
+
+                </p>
+
+            </div>
+
+            <!-- =======================================
+                    QUICK CONCEPT
+            ======================================== -->
+
+            <div class="quick-card">
+
+                <h3>
+
+                    💡 Quick Concept
+
+                </h3>
+
+                <p>
+
+                    A JavaScript Object stores data in
+                    <strong>key-value pairs</strong>.
+
+                    <br><br>
+
+                    Example:
+
+                    <br>
+
+                    <strong>
+                        name → "Roshni"
+                    </strong>
+
+                </p>
+
+            </div>
+
+            <!-- =======================================
+                    WHAT IS AN OBJECT?
+            ======================================== -->
+
+            <h2>
+
+                📌 What is a JavaScript Object?
+
+            </h2>
+
+            <p>
+
+                A JavaScript Object is a collection of related
+                information stored as <strong>key-value pairs</strong>.
+
+                Objects help us organize data in a structured way.
+                Instead of creating many separate variables,
+                we can store everything inside one object.
+
+            </p>
+
+
+
+            <!-- =======================================
+                    OBJECT STRUCTURE
+            ======================================== -->
+
+            <div class="info-card">
+
+                <h3>
+
+                    🧩 Object Structure
+
+                </h3>
+
+                <pre>
+
+Property   :   Value
+
+name       :   "Roshni"
+
+age        :   20
+
+course     :   "BCA"
+
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    OBJECT SYNTAX
+            ======================================== -->
+
+            <h2>
+
+                📝 Object Syntax
+
+            </h2>
+
+            <p>
+
+                Objects are created using curly braces
+                <strong>{ }</strong>.
+
+                Each property has a name (key) and a value.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+let student = {
+
+    name: "Roshni",
+
+    age: 20,
+
+    course: "BCA"
+
+};
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    FIRST EXAMPLE
+            ======================================== -->
+
+            <h2>
+
+                💻 Example Program
+
+            </h2>
+
+            <div class="code-box">
+
+                <pre>
+let student = {
+
+    name: "Roshni",
+
+    age: 20,
+
+    course: "BCA"
+
+};
+
+console.log(student);
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    OUTPUT
+            ======================================== -->
+
+            <h2>
+
+                👀 Output
+
+            </h2>
+
+            <div class="output-box">
+
+                <pre>
+{
+  name: "Roshni",
+  age: 20,
+  course: "BCA"
+}
+</pre>
+
+            </div>
+
+            <!-- =======================================
+                    ACCESS OBJECT PROPERTIES
+            ======================================== -->
+
+            <h2>
+
+                🔍 Accessing Object Properties
+
+            </h2>
+
+            <p>
+
+                We can access object properties using
+                <strong>Dot Notation</strong> or
+                <strong>Bracket Notation</strong>.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+let student = {
+
+    name: "Roshni",
+
+    age: 20,
+
+    course: "BCA"
+
+};
+
+console.log(student.name);
+
+console.log(student["course"]);
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+Roshni
+
+BCA
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    ADD NEW PROPERTY
+            ======================================== -->
+
+            <h2>
+
+                ➕ Adding a New Property
+
+            </h2>
+
+            <p>
+
+                New properties can be added at any time.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+student.city = "Mumbai";
+
+console.log(student);
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+{
+  name: "Roshni",
+  age: 20,
+  course: "BCA",
+  city: "Mumbai"
+}
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    DELETE PROPERTY
+            ======================================== -->
+
+            <h2>
+
+                🗑️ Deleting a Property
+
+            </h2>
+
+            <p>
+
+                Use the <strong>delete</strong> keyword
+                to remove a property from an object.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+delete student.age;
+
+console.log(student);
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    OBJECT METHODS
+            ======================================== -->
+
+            <h2>
+
+                ⚙️ Object Methods
+
+            </h2>
+
+            <p>
+
+                An object can also contain functions.
+                These functions are called
+                <strong>Object Methods</strong>.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+let person = {
+
+    name: "Roshni",
+
+    greet: function(){
+
+        return "Hello " + this.name;
+
+    }
+
+};
+
+console.log(person.greet());
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+Hello Roshni
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    IMPORTANT TOPICS
+            ======================================== -->
+
+            <h2>
+
+                ✨ Important Object Topics
+
+            </h2>
+
+            <div class="topic-grid">
+
+                <div>
+
+                    📦 Object Properties
+
+                </div>
+
+                <div>
+
+                    ⚙️ Object Methods
+
+                </div>
+
+                <div>
+
+                    🔗 Nested Objects
+
+                </div>
+
+                <div>
+
+                    🚀 Object Destructuring
+
+                </div>
+
+                <div>
+
+                    🔑 Object.keys()
+
+                </div>
+
+                <div>
+
+                    📄 Object.values()
+
+                </div>
+
+            </div>
+
+            <!-- =======================================
+                    PRO TIP
+            ======================================== -->
+
+            <div class="tip-box">
+
+                <h3>
+                    💡 Pro Tip
+                </h3>
+
+                <p>
+
+                    Objects are widely used in real-world
+                    applications such as user profiles,
+                    shopping carts, products, employee records,
+                    banking systems and APIs.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    COMMON MISTAKE
+            ======================================== -->
+
+            <div class="mistake-box">
+
+                <h3>
+                    ⚠ Common Mistake
+                </h3>
+
+                <p>
+
+                    Don't forget to separate object properties
+                    using commas <strong>(,)</strong>.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    PRACTICE CHALLENGE
+            ======================================== -->
+
+            <h2>
+
+                📝 Practice Challenge
+
+            </h2>
+
+            <p>
+
+                Create an object named
+                <strong>book</strong> with the following
+                properties:
+
+            </p>
+
+            <ul>
+
+                <li>📖 title</li>
+
+                <li>✍ author</li>
+
+                <li>💰 price</li>
+
+                <li>⭐ rating</li>
+
+            </ul>
+
+            <p>
+
+                Display the object using
+                <strong>console.log()</strong>.
+
+            </p>
+
+
+
+            <!-- =======================================
+                    TRY IT YOURSELF
+            ======================================== -->
+
+            <div class="try-box">
+
+                <div class="try-header">
+
+                    <h3>
+
+                        💻 Try It Yourself
+
+                    </h3>
+
+                    <span class="live-badge">
+
+                        LIVE
+
+                    </span>
+
+                </div>
+
+                <p>
+
+                    Copy the code from this lesson and run it
+                    in your browser's Developer Console or
+                    Visual Studio Code.
+
+                </p>
+
+                <a href="https://onecompiler.com/javascript" target="_blank" class="try-btn">
+
+                    ▶ Try This Code
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    LESSON SUMMARY
+            ======================================== -->
+
+            <div class="summary-box">
+
+                <h2>
+
+                    📚 Lesson Summary
+
+                </h2>
+
+                <ul>
+
+                    <li>
+                        ✅ Objects store data in key-value pairs.
+                    </li>
+
+                    <li>
+                        ✅ Properties contain values.
+                    </li>
+
+                    <li>
+                        ✅ Methods are functions inside objects.
+                    </li>
+
+                    <li>
+                        ✅ Dot notation and bracket notation are
+                        used to access properties.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    QUICK QUIZ
+            ======================================== -->
+
+            <div class="quiz-box">
+
+                <h2>
+
+                    🧠 Quick Quiz
+
+                </h2>
+
+                <p>
+
+                    Which syntax correctly accesses the
+                    <strong>name</strong> property?
+
+                </p>
+
+                <div class="quiz-option">
+
+                    A. student(name)
+
+                </div>
+
+                <div class="quiz-option">
+
+                    B. student->name
+
+                </div>
+
+                <div class="quiz-option correct">
+
+                    ✅ C. student.name
+
+                </div>
+
+                <div class="quiz-option">
+
+                    D. student:name
+
+                </div>
+
+            </div>
+
+            <!-- =======================================
+                    LESSON COMPLETED
+            ======================================== -->
+
+            <div class="completed-card">
+
+                <div class="completed-icon">
+
+                    🎉
+
+                </div>
+
+                <h2>
+
+                    Lesson Completed!
+
+                </h2>
+
+                <p>
+
+                    Congratulations! 🎊
+
+                    You have successfully completed the
+                    <strong>JavaScript Objects</strong> lesson.
+
+                    Continue to the next lesson to improve your
+                    JavaScript skills.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    RELATED LESSONS
+            ======================================== -->
+
+            <div class="related-lessons">
+
+                <h2>
+
+                    📚 Continue Learning
+
+                </h2>
+
+                <div class="related-grid">
+
+                    <a href="arrays.html">
+
+                        📦 JavaScript Arrays
+
+                    </a>
+
+                    <a href="loops.html">
+
+                        🔁 JavaScript Loops
+
+                    </a>
+
+                    <a href="functions.html">
+
+                        ⚙ JavaScript Functions
+
+                    </a>
+
+                    <a href="dom.html">
+
+                        🌐 JavaScript DOM
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    LESSON NAVIGATION
+            ======================================== -->
+
+            <div class="lesson-buttons">
+
+                <a href="arrays.html">
+
+                    ⬅ Previous Lesson
+
+                </a>
+
+                <a href="loops.html">
+
+                    Next Lesson ➜
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

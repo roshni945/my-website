@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SQL Full Tutorial for Beginners | Roshni Code Charm</title>
+
+    <meta name="description"
+        content="Complete SQL Tutorial for Beginners. Learn SQL step by step with easy examples, database concepts, queries, joins, practice questions and projects.">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background:
+                linear-gradient(135deg,
+                    #faf7ff,
+                    #f5fff8);
+
+            color: #333;
+
+            line-height: 1.8;
+        }
+
+
+        .container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 25px;
+        }
+
+
+        /* =================================
+           HERO
+        ================================= */
+
+        .hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(135deg,
+                    #ffffff,
+                    #f3e8ff,
+                    #e9fff2);
+
+            padding: 65px 35px;
+
+            border-radius: 28px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 35px rgba(70, 30, 100, 0.10);
+
+            margin: 35px 0;
+        }
+
+
+        .hero::before {
+
+            content: "🌿";
+
+            position: absolute;
+
+            left: 35px;
+
+            top: 25px;
+
+            font-size: 45px;
+
+            opacity: .7;
+        }
+
+
+        .hero::after {
+
+            content: "✨";
+
+            position: absolute;
+
+            right: 40px;
+
+            bottom: 25px;
+
+            font-size: 38px;
+
+            opacity: .7;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            padding: 7px 18px;
+
+            border-radius: 30px;
+
+            background: #e8fff2;
+
+            color: #218c58;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 {
+
+            font-size: 48px;
+
+            color: #7b2cbf;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero h1 span {
+
+            color: #24945d;
+        }
+
+
+        .subtitle {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #666;
+
+            font-size: 18px;
+        }
+
+
+        .hero-icons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin: 25px 0;
+        }
+
+
+        .hero-icons span {
+
+            background: white;
+
+            padding: 9px 16px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, .06);
+
+            font-size: 14px;
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 13px 30px;
+
+            background: #7b2cbf;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .btn:hover {
+
+            background: #24945d;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =================================
+           SECTION
+        ================================= */
+
+        .section-title {
+
+            text-align: center;
+
+            margin: 55px 0 25px;
+        }
+
+
+        .section-title span {
+
+            color: #24945d;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        .section-title h2 {
+
+            color: #7b2cbf;
+
+            font-size: 32px;
+
+            margin: 5px 0;
+        }
+
+
+        .section-title p {
+
+            color: #666;
+        }
+
+
+        /* =================================
+           TABLE OF CONTENTS
+        ================================= */
+
+        .toc {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin: 35px 0;
+
+            border-left: 7px solid #7b2cbf;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .07);
+        }
+
+
+        .toc h2 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 18px;
+        }
+
+
+        .toc-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 12px;
+
+            list-style: none;
+        }
+
+
+        .toc-grid li {
+
+            background: #f7fff9;
+
+            padding: 10px 14px;
+
+            border-radius: 12px;
+
+            color: #555;
+
+            transition: .3s;
+        }
+
+
+        .toc-grid li:hover {
+
+            background: #f3e8ff;
+
+            transform: translateX(5px);
+        }
+
+
+        /* =================================
+           INTRO CARDS
+        ================================= */
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 22px;
+
+            margin-top: 30px;
+        }
+
+
+        .card {
+
+            background: white;
+
+            padding: 27px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .07);
+
+            transition: .3s;
+
+            border-top: 4px solid #24945d;
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 30px rgba(0, 0, 0, .10);
+        }
+
+
+        .card-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .card h3 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 8px;
+        }
+
+
+        .card p {
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        /* =================================
+           TIPS
+        ================================= */
+
+        .tip-box {
+
+            background: #e9fff2;
+
+            padding: 25px;
+
+            border-left: 6px solid #24945d;
+
+            border-radius: 17px;
+
+            margin: 30px 0;
+        }
+
+
+        .tip-box h2 {
+
+            color: #218c58;
+
+            margin-bottom: 8px;
+        }
+
+
+        .mistake-box {
+
+            background: #fff3f3;
+
+            padding: 25px;
+
+            border-left: 6px solid #ff5c5c;
+
+            border-radius: 17px;
+
+            margin: 30px 0;
+        }
+
+
+        .mistake-box h2 {
+
+            color: #e74c3c;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =================================
+           ROADMAP
+        ================================= */
+
+        .roadmap {
+
+            background: white;
+
+            padding: 32px;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .07);
+
+            margin: 35px 0;
+        }
+
+
+        .roadmap h2 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 20px;
+        }
+
+
+        .roadmap-list {
+
+            list-style: none;
+
+            counter-reset: roadmap;
+        }
+
+
+        .roadmap-list li {
+
+            counter-increment: roadmap;
+
+            margin: 13px 0;
+
+            padding: 12px 15px 12px 48px;
+
+            background: #f7fff9;
+
+            border-radius: 12px;
+
+            position: relative;
+        }
+
+
+        .roadmap-list li::before {
+
+            content: counter(roadmap);
+
+            position: absolute;
+
+            left: 12px;
+
+            top: 9px;
+
+            width: 28px;
+
+            height: 28px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #7b2cbf;
+
+            color: white;
+
+            border-radius: 50%;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        /* =================================
+           SQL CODE
+        ================================= */
+
+        .code-card {
+
+            background: #18151f;
+
+            color: #f8f8f8;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            margin: 25px 0;
+
+            overflow-x: auto;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, .12);
+        }
+
+
+        .code-title {
+
+            color: #9be7bd;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+
+        pre {
+
+            font-family: Consolas, monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =================================
+           TOPIC CARDS
+        ================================= */
+
+        .topic-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .07);
+
+            transition: .3s;
+        }
+
+
+        .topic-card:hover {
+
+            transform: translateY(-6px);
+        }
+
+
+        .topic-card h3 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 10px;
+        }
+
+
+        .topic-card p {
+
+            color: #666;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .topic-tag {
+
+            display: inline-block;
+
+            padding: 5px 11px;
+
+            background: #e8fff2;
+
+            color: #218c58;
+
+            border-radius: 15px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        /* =================================
+           PROJECT
+        ================================= */
+
+        .project-box {
+
+            background:
+                linear-gradient(135deg,
+                    #f3e8ff,
+                    #e9fff2);
+
+            padding: 35px;
+
+            border-radius: 24px;
+
+            margin: 35px 0;
+
+            text-align: center;
+        }
+
+
+        .project-box h2 {
+
+            color: #7b2cbf;
+
+            margin-bottom: 10px;
+        }
+
+
+        .project-features {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .project-features span {
+
+            background: white;
+
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+        }
+
+
+        /* =================================
+           INTERVIEW
+        ================================= */
+
+        .interview-box {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .07);
+        }
+
+
+        .interview-box ol {
+
+            padding-left: 25px;
+        }
+
+
+        .interview-box li {
+
+            margin: 10px 0;
+        }
+
+
+        /* =================================
+           FOOTER
+        ================================= */
+
+        footer {
+
+            text-align: center;
+
+            margin-top: 60px;
+
+            padding: 35px;
+
+            color: #777;
+
+            background: white;
+
+            border-top: 1px solid #eee;
+        }
+
+
+        footer strong {
+
+            color: #7b2cbf;
+        }
+
+
+        /* =================================
+           RESPONSIVE
+        ================================= */
+
+        @media(max-width: 768px) {
+
+            .hero {
+
+                padding: 45px 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 34px;
+            }
+
+
+            .subtitle {
+
+                font-size: 16px;
+            }
+
+
+            .section-title h2 {
+
+                font-size: 27px;
+            }
+
+
+            .container {
+
+                padding: 18px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- =================================
+         HERO
+    ================================= -->
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                🌿 DATABASE & PROGRAMMING
+            </div>
+
+
+            <h1>
+                🗄️ Complete
+                <span>SQL Tutorial</span>
+            </h1>
+
+
+            <p class="subtitle">
+
+                Learn SQL from Beginner to Advanced with
+                simple explanations, practical examples,
+                database concepts and hands-on practice.
+
+            </p>
+
+
+            <div class="hero-icons">
+
+                <span>🗄️ Databases</span>
+
+                <span>💻 SQL Queries</span>
+
+                <span>🌱 Beginner Friendly</span>
+
+                <span>🎯 Practice</span>
+
+            </div>
+
+
+            <a href="#tutorials" class="btn">
+                Start Learning 🚀
+            </a>
+
+        </section>
+
+
+
+        <!-- =================================
+         INTRODUCTION
+    ================================= -->
+
+        <div class="section-title">
+
+            <span>🌿 START HERE</span>
+
+            <h2>
+                What Will You Learn?
+            </h2>
+
+            <p>
+                Build your SQL knowledge step by step.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🗄️
+                </div>
+
+                <h3>
+                    Database Basics
+                </h3>
+
+                <p>
+                    Understand databases, tables, rows,
+                    columns, DBMS and how data is organized.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💻
+                </div>
+
+                <h3>
+                    SQL Queries
+                </h3>
+
+                <p>
+                    Learn SELECT, INSERT, UPDATE, DELETE,
+                    filtering, sorting and more.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🔗
+                </div>
+
+                <h3>
+                    SQL Joins
+                </h3>
+
+                <p>
+                    Learn how multiple tables can be
+                    connected using different types of joins.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Practice & Projects
+                </h3>
+
+                <p>
+                    Practice SQL queries and build a
+                    small database project.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+         TABLE OF CONTENTS
+    ================================= -->
+
+        <div class="toc" id="tutorials">
+
+            <h2>
+                📚 SQL Table of Contents
+            </h2>
+
+
+            <ul class="toc-grid">
+
+                <li>🌱 1. What is SQL?</li>
+
+                <li>🗄️ 2. Database & DBMS</li>
+
+                <li>💻 3. SQL Syntax</li>
+
+                <li>📊 4. Data Types</li>
+
+                <li>🏗️ 5. CREATE DATABASE</li>
+
+                <li>📋 6. CREATE TABLE</li>
+
+                <li>➕ 7. INSERT INTO</li>
+
+                <li>🔍 8. SELECT</li>
+
+                <li>✏️ 9. UPDATE</li>
+
+                <li>🗑️ 10. DELETE</li>
+
+                <li>🎯 11. WHERE</li>
+
+                <li>🔀 12. ORDER BY</li>
+
+                <li>🔎 13. LIKE</li>
+
+                <li>📌 14. GROUP BY</li>
+
+                <li>🔢 15. SQL Functions</li>
+
+                <li>🔑 16. Keys & Constraints</li>
+
+                <li>🔗 17. SQL Joins</li>
+
+                <li>🧩 18. Subqueries</li>
+
+                <li>👁️ 19. Views</li>
+
+                <li>⚡ 20. Indexes</li>
+
+                <li>🧠 21. Advanced SQL</li>
+
+                <li>🎯 22. Practice Questions</li>
+
+                <li>🚀 23. Mini Project</li>
+
+                <li>💼 24. Interview Questions</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- =================================
+         QUICK TIP
+    ================================= -->
+
+        <div class="tip-box">
+
+            <h2>
+                💡 SQL Quick Tip
+            </h2>
+
+            <p>
+
+                SQL is used to communicate with databases.
+                Start by understanding tables, rows and columns
+                before moving to advanced queries.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================
+         COMMON MISTAKES
+    ================================= -->
+
+        <div class="mistake-box">
+
+            <h2>
+                ⚠️ Common SQL Mistakes
+            </h2>
+
+            <ul>
+
+                <li>
+                    Forgetting the semicolon at the end of a query.
+                </li>
+
+                <li>
+                    Using incorrect column names.
+                </li>
+
+                <li>
+                    Forgetting quotes around text values.
+                </li>
+
+                <li>
+                    Using UPDATE or DELETE without a WHERE condition.
+                </li>
+
+                <li>
+                    Not checking the table structure before writing queries.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- =================================
+         ROADMAP
+    ================================= -->
+
+        <div class="roadmap">
+
+            <h2>
+                🗺️ SQL Learning Roadmap
+            </h2>
+
+
+            <ol class="roadmap-list">
+
+                <li>
+                    Learn Database Fundamentals
+                </li>
+
+                <li>
+                    Understand Tables, Rows & Columns
+                </li>
+
+                <li>
+                    Learn Basic SQL Syntax
+                </li>
+
+                <li>
+                    Practice SELECT Queries
+                </li>
+
+                <li>
+                    Learn INSERT, UPDATE & DELETE
+                </li>
+
+                <li>
+                    Master WHERE & Filtering
+                </li>
+
+                <li>
+                    Learn Functions & GROUP BY
+                </li>
+
+                <li>
+                    Understand Keys & Constraints
+                </li>
+
+                <li>
+                    Master SQL Joins
+                </li>
+
+                <li>
+                    Learn Subqueries & Views
+                </li>
+
+                <li>
+                    Practice Real SQL Problems
+                </li>
+
+                <li>
+                    Build a Database Project
+                </li>
+
+            </ol>
+
+        </div>
+
+
+
+        <!-- =================================
+         SQL EXAMPLE
+    ================================= -->
+
+        <div class="section-title">
+
+            <span>💻 FIRST QUERY</span>
+
+            <h2>
+                Your First SQL Example
+            </h2>
+
+            <p>
+                Start with a simple table and SELECT query.
+            </p>
+
+        </div>
+
+
+        <div class="code-card">
+
+            <div class="code-title">
+                🌱 Example SQL Code
+            </div>
+
+
+            <pre>
+CREATE TABLE Students (
+    id INT,
+    name VARCHAR(50),
+    course VARCHAR(50)
+);
+
+INSERT INTO Students
+VALUES
+(1, 'Riya', 'BCA'),
+(2, 'Aarav', 'BCA');
+
+SELECT * FROM Students;
+</pre>
+
+        </div>
+
+
+
+        <!-- =================================
+         TOPICS
+    ================================= -->
+
+        <div class="section-title">
+
+            <span>📖 LEARN STEP BY STEP</span>
+
+            <h2>
+                SQL Topics
+            </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="topic-card">
+
+                <h3>
+                    🌱 SQL Basics
+                </h3>
+
+                <p>
+                    Learn what SQL is, why it is used
+                    and how SQL works with databases.
+                </p>
+
+                <span class="topic-tag">
+                    Beginner
+                </span>
+
+            </div>
+
+
+            <div class="topic-card">
+
+                <h3>
+                    📋 SELECT Statement
+                </h3>
+
+                <p>
+                    Retrieve data from tables using
+                    SELECT queries.
+                </p>
+
+                <span class="topic-tag">
+                    Beginner
+                </span>
+
+            </div>
+
+
+            <div class="topic-card">
+
+                <h3>
+                    🎯 WHERE Clause
+                </h3>
+
+                <p>
+                    Filter records and retrieve only
+                    the data you need.
+                </p>
+
+                <span class="topic-tag">
+                    Beginner
+                </span>
+
+            </div>
+
+
+            <div class="topic-card">
+
+                <h3>
+                    🔗 SQL Joins
+                </h3>
+
+                <p>
+                    Combine information from multiple
+                    database tables.
+                </p>
+
+                <span class="topic-tag">
+                    Intermediate
+                </span>
+
+            </div>
+
+
+            <div class="topic-card">
+
+                <h3>
+                    🔑 Keys & Constraints
+                </h3>
+
+                <p>
+                    Understand primary keys, foreign keys
+                    and database constraints.
+                </p>
+
+                <span class="topic-tag">
+                    Intermediate
+                </span>
+
+            </div>
+
+
+            <div class="topic-card">
+
+                <h3>
+                    🧠 Advanced SQL
+                </h3>
+
+                <p>
+                    Explore subqueries, views, indexes,
+                    CASE and other advanced concepts.
+                </p>
+
+                <span class="topic-tag">
+                    Advanced
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+         MINI PROJECT
+    ================================= -->
+
+        <div class="project-box">
+
+            <h2>
+                🚀 SQL Mini Project
+            </h2>
+
+
+            <p>
+
+                Build a simple Student Database using
+                SQL and practice creating tables,
+                inserting records and retrieving data.
+
+            </p>
+
+
+            <div class="project-features">
+
+                <span>🗄️ Student Table</span>
+
+                <span>👩‍🎓 Student Records</span>
+
+                <span>📚 Courses</span>
+
+                <span>🔍 Search Data</span>
+
+                <span>📊 SQL Queries</span>
+
+            </div>
+
+
+            <a href="#" class="btn">
+                Project Coming Soon 🚀
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================
+         INTERVIEW
+    ================================= -->
+
+        <div class="section-title">
+
+            <span>💼 CAREER PREP</span>
+
+            <h2>
+                SQL Interview Questions
+            </h2>
+
+            <p>
+                Prepare for beginner-level SQL interviews.
+            </p>
+
+        </div>
+
+
+        <div class="interview-box">
+
+            <ol>
+
+                <li>
+                    What is SQL?
+                </li>
+
+                <li>
+                    What is a database?
+                </li>
+
+                <li>
+                    What is the difference between SQL and MySQL?
+                </li>
+
+                <li>
+                    What is a primary key?
+                </li>
+
+                <li>
+                    What is a foreign key?
+                </li>
+
+                <li>
+                    What is the difference between DELETE and DROP?
+                </li>
+
+                <li>
+                    What is a JOIN?
+                </li>
+
+                <li>
+                    What is the difference between WHERE and HAVING?
+                </li>
+
+                <li>
+                    What is GROUP BY?
+                </li>
+
+                <li>
+                    What is a database constraint?
+                </li>
+
+            </ol>
+
+        </div>
+
+
+
+        <!-- =================================
+         FINAL MESSAGE
+    ================================= -->
+
+        <div class="tip-box" style="margin-top:40px;">
+
+            <h2>
+                🌿 Keep Practicing!
+            </h2>
+
+            <p>
+
+                SQL becomes easier when you write queries
+                yourself. Practice small queries regularly,
+                understand the result, and gradually move
+                toward real database projects. 💜💻
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================
+     FOOTER
+================================= -->
+
+    <footer>
+
+        <strong>
+            Roshni Code Charm
+        </strong>
+
+        <br>
+
+        Learn • Code • Create • Grow 🌿💜
+
+        <br><br>
+
+        © 2026 Roshni Code Charm • Happy Coding 💻
+
+    </footer>
+
+
+</body>
+
+</html>

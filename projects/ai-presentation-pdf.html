@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Presentation & PDF Tools | Roshni Code Charm</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/ai-tools-style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+     NAVBAR
+======================================== -->
+
+    <header class="navbar">
+
+        <div class="container">
+
+            <a href="../index.html" class="logo">
+                <span>&lt;/&gt;</span>
+                Roshni Code Charm
+            </a>
+
+
+            <nav>
+
+                <a href="../index.html">Home</a>
+
+                <a href="../index.html#about">About</a>
+
+                <a href="../index.html#tutorials">Tutorials</a>
+
+                <a href="../index.html#projects">Projects</a>
+
+                <a href="../index.html#roadmap">Roadmap</a>
+
+                <a href="../index.html#contact">Contact</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ========================================
+     HERO
+======================================== -->
+
+    <section class="ai-tool-hero">
+
+        <div class="container">
+
+            <div class="ai-tool-badge">
+                ✨ AI LEARNING TOOLS
+            </div>
+
+
+            <h1>
+                Create Presentations &
+                <span>Summarize PDFs</span>
+            </h1>
+
+
+            <p>
+                Use simple AI-powered tools to organize ideas,
+                create presentation content and understand
+                long study documents faster.
+            </p>
+
+
+            <div class="hero-features">
+
+                <div>🎨 Presentation Ideas</div>
+
+                <div>📑 Slide Content</div>
+
+                <div>📄 PDF Summary</div>
+
+                <div>🎓 Student Friendly</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+     PRESENTATION MAKER
+======================================== -->
+
+    <section class="note-maker-section">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>🎨 PRESENTATION MAKER</span>
+
+                <h2>
+                    Create Your Presentation
+                </h2>
+
+                <p>
+                    Enter a topic and generate a simple
+                    presentation structure for your study or project.
+                </p>
+
+            </div>
+
+
+
+            <div class="note-maker-grid">
+
+
+                <!-- INPUT CARD -->
+
+                <div class="note-input-card">
+
+                    <div class="card-icon">
+                        🎨
+                    </div>
+
+
+                    <h3>
+                        Your Presentation Topic
+                    </h3>
+
+
+                    <p>
+                        Enter your topic and choose the number
+                        of slides you need.
+                    </p>
+
+
+                    <input type="text" id="presentationTopic"
+                        placeholder="Example: Artificial Intelligence for Students">
+
+
+                    <label>
+                        Number of Slides
+                    </label>
+
+
+                    <select id="slideCount">
+
+                        <option value="5">
+                            5 Slides
+                        </option>
+
+                        <option value="7">
+                            7 Slides
+                        </option>
+
+                        <option value="10">
+                            10 Slides
+                        </option>
+
+                    </select>
+
+
+                    <div class="note-actions">
+
+                        <button class="primary-btn" id="generatePresentation">
+
+                            ✨ Generate Presentation
+
+                        </button>
+
+
+                        <button class="secondary-btn" id="clearPresentation">
+
+                            🗑️ Clear
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- OUTPUT CARD -->
+
+                <div class="generated-notes-card">
+
+                    <div class="card-icon">
+                        📊
+                    </div>
+
+
+                    <h3>
+                        Your Presentation
+                    </h3>
+
+
+                    <p>
+                        Your generated slide structure will
+                        appear here.
+                    </p>
+
+
+                    <div class="notes-output" id="presentationOutput">
+
+                        <div class="empty-notes">
+
+                            <div class="empty-icon">
+                                💡
+                            </div>
+
+                            <h4>
+                                Ready to Create?
+                            </h4>
+
+                            <p>
+                                Enter a topic and click
+                                <strong>
+                                    Generate Presentation
+                                </strong>.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="copy-btn" id="copyPresentation">
+
+                        📋 Copy Presentation
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+     PDF SUMMARIZER
+======================================== -->
+
+    <section class="study-tools-section">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>📄 PDF SUMMARIZER</span>
+
+                <h2>
+                    Understand Your PDF Faster
+                </h2>
+
+                <p>
+                    Upload a study PDF and extract its text
+                    for a quick, easy-to-read summary.
+                </p>
+
+            </div>
+
+
+
+            <div class="note-maker-grid">
+
+
+                <!-- PDF UPLOAD -->
+
+                <div class="note-input-card">
+
+                    <div class="card-icon">
+                        📄
+                    </div>
+
+
+                    <h3>
+                        Upload Your PDF
+                    </h3>
+
+
+                    <p>
+                        Choose a PDF containing your notes,
+                        chapter or study material.
+                    </p>
+
+
+                    <label class="pdf-upload-box">
+
+                        <span class="upload-icon">
+                            📤
+                        </span>
+
+                        <strong>
+                            Choose PDF File
+                        </strong>
+
+                        <small>
+                            PDF files only
+                        </small>
+
+                        <input type="file" id="pdfFile" accept=".pdf,application/pdf">
+
+                    </label>
+
+
+                    <div id="pdfFileName" class="file-name">
+                    </div>
+
+
+                    <div class="note-actions">
+
+                        <button class="primary-btn" id="summarizePdf">
+
+                            📚 Summarize PDF
+
+                        </button>
+
+
+                        <button class="secondary-btn" id="clearPdf">
+
+                            🗑️ Clear
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SUMMARY -->
+
+                <div class="generated-notes-card">
+
+                    <div class="card-icon">
+                        🧠
+                    </div>
+
+
+                    <h3>
+                        PDF Summary
+                    </h3>
+
+
+                    <p>
+                        Your easy-to-read summary will appear here.
+                    </p>
+
+
+                    <div class="notes-output" id="pdfOutput">
+
+                        <div class="empty-notes">
+
+                            <div class="empty-icon">
+                                📖
+                            </div>
+
+                            <h4>
+                                No PDF Selected
+                            </h4>
+
+                            <p>
+                                Upload your study PDF to get started.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="copy-btn" id="copySummary">
+
+                        📋 Copy Summary
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+     STUDENT TIPS
+======================================== -->
+
+    <section class="note-tips-section">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>💡 STUDY SMART</span>
+
+                <h2>
+                    Tips for Better Results
+                </h2>
+
+            </div>
+
+
+            <div class="tips-grid">
+
+
+                <div class="tip-card">
+
+                    <span>01</span>
+
+                    <h3>
+                        🎯 Use a Clear Topic
+                    </h3>
+
+                    <p>
+                        Give your presentation a specific
+                        topic instead of a very broad subject.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card">
+
+                    <span>02</span>
+
+                    <h3>
+                        📝 Review AI Content
+                    </h3>
+
+                    <p>
+                        Always check generated information
+                        before using it in assignments.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card">
+
+                    <span>03</span>
+
+                    <h3>
+                        📚 Use Study PDFs
+                    </h3>
+
+                    <p>
+                        Upload your notes or chapters to
+                        quickly identify important ideas.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card">
+
+                    <span>04</span>
+
+                    <h3>
+                        🧠 Learn, Don't Just Copy
+                    </h3>
+
+                    <p>
+                        Use AI as a learning assistant and
+                        understand the topic yourself.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+     FOOTER
+======================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <h3>
+                Roshni Code Charm
+            </h3>
+
+            <p>
+                Learn • Code • Create • Grow
+            </p>
+
+            <p class="copyright">
+                © 2026 Roshni Code Charm. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script type="module" src="../js/ai-presentation-pdf.js"></script>
+
+</body>
+
+</html>

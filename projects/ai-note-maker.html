@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Note Maker | Roshni Code Charm</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- AI Tools CSS -->
+    <link rel="stylesheet" href="../css/ai-tools-style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+                     HEADER
+================================================== -->
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="../index.html" class="logo">
+
+                <span class="logo-icon">
+                    &lt;/&gt;
+                </span>
+
+                <span>Roshni Code Charm</span>
+
+            </a>
+
+
+            <nav class="nav">
+
+                <a href="../index.html">Home</a>
+
+                <a href="../index.html#about">About</a>
+
+                <a href="../index.html#tutorials">Tutorials</a>
+
+                <a href="../index.html#projects">Projects</a>
+
+                <a href="../index.html#roadmap">Roadmap</a>
+
+                <a href="../index.html#contact">Contact</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+                    HERO SECTION
+================================================== -->
+
+    <section class="ai-tool-hero">
+
+        <div class="container">
+
+            <div class="ai-tool-badge">
+                📝 AI NOTE MAKER
+            </div>
+
+
+            <h1>
+                Turn Information Into
+                <span>Smart Study Notes</span>
+            </h1>
+
+
+            <p>
+                Create simple, organized, and easy-to-understand
+                study notes with the help of AI-inspired tools.
+            </p>
+
+
+            <div class="hero-features">
+
+                <div>
+                    ✨ Quick Summaries
+                </div>
+
+                <div>
+                    📌 Key Points
+                </div>
+
+                <div>
+                    🧠 Practice Questions
+                </div>
+
+                <div>
+                    📚 Study Notes
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+                NOTE MAKER SECTION
+================================================== -->
+
+    <section class="note-maker-section">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>CREATE NOTES</span>
+
+                <h2>Make Your Study Notes</h2>
+
+                <p>
+                    Paste your topic, lesson, or study material below
+                    and organize it into useful notes.
+                </p>
+
+            </div>
+
+
+
+            <div class="note-maker-grid">
+
+
+                <!-- LEFT SIDE -->
+
+                <div class="note-input-card">
+
+                    <div class="card-icon">
+                        📝
+                    </div>
+
+
+                    <h3>
+                        Your Study Material
+                    </h3>
+
+
+                    <p>
+                        Enter a topic or paste your study material.
+                    </p>
+
+
+                    <textarea id="noteInput" rows="12"
+                        placeholder="Example: Explain HTML, CSS and JavaScript for beginners..."></textarea>
+
+
+                    <div class="note-actions">
+
+                        <button id="generateNotes" class="primary-btn" type="button">
+                            ✨ Generate Notes
+                        </button>
+
+
+                        <button id="clearNotes" class="secondary-btn" type="button">
+                            🗑️ Clear
+                        </button>
+
+                    </div>
+
+
+                    <div class="character-count">
+
+                        Characters:
+                        <span id="characterCount">0</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="generated-notes-card">
+
+                    <div class="card-icon">
+                        📚
+                    </div>
+
+
+                    <h3>
+                        Your Notes
+                    </h3>
+
+
+                    <p>
+                        Your organized study content will appear here.
+                    </p>
+
+
+                    <div id="notesOutput" class="notes-output">
+
+                        <div class="empty-notes">
+
+                            <div class="empty-icon">
+                                ✨
+                            </div>
+
+                            <h4>
+                                Ready to Create Notes?
+                            </h4>
+
+                            <p>
+                                Enter your study material and click
+                                <strong>Generate Notes</strong>.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button id="copyNotes" class="copy-btn" type="button">
+                        📋 Copy Notes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+                  STUDY TOOLS
+================================================== -->
+
+    <section class="study-tools-section">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>SMART STUDY</span>
+
+                <h2>Useful Note-Making Tools</h2>
+
+                <p>
+                    Use different formats to make your study material
+                    easier to understand and revise.
+                </p>
+
+            </div>
+
+
+
+            <div class="study-tools-grid">
+
+
+                <!-- SUMMARY -->
+
+                <div class="study-tool-card">
+
+                    <div class="tool-icon">
+                        📖
+                    </div>
+
+                    <h3>
+                        Quick Summary
+                    </h3>
+
+                    <p>
+                        Convert long information into short,
+                        easy-to-revise points.
+                    </p>
+
+                    <button class="tool-btn" data-tool="summary" type="button">
+                        Create Summary →
+                    </button>
+
+                </div>
+
+
+
+                <!-- KEY POINTS -->
+
+                <div class="study-tool-card">
+
+                    <div class="tool-icon">
+                        📌
+                    </div>
+
+                    <h3>
+                        Key Points
+                    </h3>
+
+                    <p>
+                        Find the most important ideas from
+                        your study material.
+                    </p>
+
+                    <button class="tool-btn" data-tool="keypoints" type="button">
+                        Find Key Points →
+                    </button>
+
+                </div>
+
+
+
+                <!-- IMPORTANT QUESTIONS -->
+
+                <div class="study-tool-card">
+
+                    <div class="tool-icon">
+                        ❓
+                    </div>
+
+                    <h3>
+                        Important Questions
+                    </h3>
+
+                    <p>
+                        Turn your topic into useful questions
+                        for practice and revision.
+                    </p>
+
+                    <button class="tool-btn" data-tool="questions" type="button">
+                        Create Questions →
+                    </button>
+
+                </div>
+
+
+
+                <!-- SHORT NOTES -->
+
+                <div class="study-tool-card">
+
+                    <div class="tool-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Short Notes
+                    </h3>
+
+                    <p>
+                        Create quick revision notes that are
+                        easy to read before exams.
+                    </p>
+
+                    <button class="tool-btn" data-tool="shortnotes" type="button">
+                        Make Short Notes →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+                    NOTE TIPS
+================================================== -->
+
+    <section class="note-tips-section">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>STUDY TIPS</span>
+
+                <h2>How to Make Better Notes</h2>
+
+            </div>
+
+
+
+            <div class="tips-grid">
+
+
+                <div class="tip-card">
+
+                    <span>01</span>
+
+                    <h3>
+                        Keep It Simple
+                    </h3>
+
+                    <p>
+                        Use short sentences and simple words
+                        whenever possible.
+                    </p>
+
+                </div>
+
+
+
+                <div class="tip-card">
+
+                    <span>02</span>
+
+                    <h3>
+                        Highlight Important Ideas
+                    </h3>
+
+                    <p>
+                        Focus on definitions, formulas,
+                        examples, and important concepts.
+                    </p>
+
+                </div>
+
+
+
+                <div class="tip-card">
+
+                    <span>03</span>
+
+                    <h3>
+                        Use Headings
+                    </h3>
+
+                    <p>
+                        Divide large topics into smaller sections
+                        to make revision easier.
+                    </p>
+
+                </div>
+
+
+
+                <div class="tip-card">
+
+                    <span>04</span>
+
+                    <h3>
+                        Revise Regularly
+                    </h3>
+
+                    <p>
+                        Review your notes regularly instead of
+                        waiting until the last moment.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+                    QUICK QUIZ
+================================================== -->
+
+    <section class="note-quiz-section">
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>QUICK QUIZ</span>
+
+                <h2>Test Your Note-Making Knowledge</h2>
+
+                <p>
+                    Answer these questions and check your understanding.
+                </p>
+
+            </div>
+
+
+
+            <div class="note-quiz">
+
+
+                <!-- QUESTION 1 -->
+
+                <div class="note-quiz-question">
+
+                    <h3>
+                        1. What should good study notes contain?
+                    </h3>
+
+
+                    <button class="note-quiz-option" data-correct="false" type="button">
+                        Random information
+                    </button>
+
+
+                    <button class="note-quiz-option" data-correct="true" type="button">
+                        Important and organized information
+                    </button>
+
+
+                    <button class="note-quiz-option" data-correct="false" type="button">
+                        Only pictures
+                    </button>
+
+                </div>
+
+
+
+                <!-- QUESTION 2 -->
+
+                <div class="note-quiz-question">
+
+                    <h3>
+                        2. Why are headings useful in notes?
+                    </h3>
+
+
+                    <button class="note-quiz-option" data-correct="true" type="button">
+                        They organize information
+                    </button>
+
+
+                    <button class="note-quiz-option" data-correct="false" type="button">
+                        They make notes longer
+                    </button>
+
+
+                    <button class="note-quiz-option" data-correct="false" type="button">
+                        They remove important information
+                    </button>
+
+                </div>
+
+
+
+                <!-- QUESTION 3 -->
+
+                <div class="note-quiz-question">
+
+                    <h3>
+                        3. What is useful for quick revision?
+                    </h3>
+
+
+                    <button class="note-quiz-option" data-correct="false" type="button">
+                        Very long paragraphs
+                    </button>
+
+
+                    <button class="note-quiz-option" data-correct="true" type="button">
+                        Short and clear notes
+                    </button>
+
+
+                    <button class="note-quiz-option" data-correct="false" type="button">
+                        Unorganized information
+                    </button>
+
+                </div>
+
+
+
+                <button id="checkNoteQuiz" class="primary-btn" type="button">
+                    🎯 Check My Score
+                </button>
+
+
+                <div id="noteQuizResult" class="quiz-result"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+                    FOOTER
+================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <h3>
+                Roshni Code Charm
+            </h3>
+
+            <p>
+                Learn • Code • Create • Grow
+            </p>
+
+            <p class="copyright">
+                © 2026 Roshni Code Charm. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==================================================
+                    JAVASCRIPT
+================================================== -->
+
+    <script src="../js/ai-note-maker.js"></script>
+
+
+</body>
+
+</html>

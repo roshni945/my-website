@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =======================================
+                BASIC META TAGS
+    ======================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =======================================
+                PAGE TITLE
+    ======================================== -->
+
+    <title>
+
+        JavaScript Variables | Roshni Code Charm
+
+    </title>
+
+    <!-- =======================================
+                SEO
+    ======================================== -->
+
+    <meta name="description"
+        content="Learn JavaScript Variables (var, let and const) with easy examples, syntax, rules and best practices.">
+
+    <meta name="keywords" content="JavaScript Variables, var, let, const, JavaScript Tutorial">
+
+    <meta name="author" content="Roshni Code Charm">
+
+    <!-- =======================================
+                GOOGLE FONTS
+    ======================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =======================================
+                CSS
+    ======================================== -->
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <!-- =======================================
+                LESSON PAGE
+    ======================================== -->
+
+    <section class="lesson-page">
+
+        <div class="lesson-content">
+
+            <!-- =======================================
+                    TOP BADGE
+            ======================================== -->
+
+            <span class="lesson-badge">
+
+                🚀 JavaScript Core Concepts
+
+            </span>
+
+            <!-- =======================================
+                    PAGE TITLE
+            ======================================== -->
+
+            <h1>
+
+                JavaScript Variables
+
+            </h1>
+
+            <p class="intro-text">
+
+                Learn how to create, store and manage data
+                using <strong>var</strong>,
+                <strong>let</strong> and
+                <strong>const</strong> in JavaScript.
+
+            </p>
+
+            <!-- =======================================
+                    COURSE PROGRESS
+            ======================================== -->
+
+            <div class="progress-card">
+
+                <div class="progress-top">
+
+                    <span>
+
+                        📚 JavaScript Course
+
+                    </span>
+
+                    <span class="progress-badge">
+
+                        15% Complete
+
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+                <p class="progress-text">
+
+                    🚀 Great start! You're learning one of the
+                    most important JavaScript concepts.
+
+                </p>
+
+            </div>
+
+            <!-- =======================================
+                    QUICK CONCEPT
+            ======================================== -->
+
+            <div class="quick-card">
+
+                <h3>
+
+                    💡 Quick Concept
+
+                </h3>
+
+                <p>
+
+                    A <strong>Variable</strong> is a container
+                    used to store data.
+
+                    <br><br>
+
+                    Example:
+
+                    <br>
+
+                    <strong>
+
+                        let name = "Roshni";
+
+                    </strong>
+
+                </p>
+
+            </div>
+
+            <!-- =======================================
+                    TABLE OF CONTENTS
+            ======================================== -->
+
+            <div class="toc">
+
+                <h3>
+
+                    📚 Table of Contents
+
+                </h3>
+
+                <ul>
+
+                    <li>What are Variables?</li>
+
+                    <li>var Keyword</li>
+
+                    <li>let Keyword</li>
+
+                    <li>const Keyword</li>
+
+                    <li>Variable Naming Rules</li>
+
+                    <li>Examples</li>
+
+                    <li>Best Practices</li>
+
+                    <li>Summary & Quiz</li>
+
+                </ul>
+
+            </div>
+
+            <!-- =======================================
+                    WHAT ARE VARIABLES?
+            ======================================== -->
+
+            <h2>
+
+                📌 What are JavaScript Variables?
+
+            </h2>
+
+            <p>
+
+                Variables are containers used to store data in
+                JavaScript. They allow us to save information
+                such as text, numbers, boolean values, arrays,
+                objects and much more.
+
+            </p>
+
+            <p>
+
+                Instead of writing the same value again and again,
+                we store it in a variable and reuse it whenever
+                needed.
+
+            </p>
+
+
+
+            <!-- =======================================
+                    VARIABLE EXAMPLE
+            ======================================== -->
+
+            <div class="info-card">
+
+                <h3>
+
+                    💡 Variable Example
+
+                </h3>
+
+                <pre>
+
+name  →  "Roshni"
+
+age   →  20
+
+city  →  "Mumbai"
+
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    VAR KEYWORD
+            ======================================== -->
+
+            <h2>
+
+                🟣 var Keyword
+
+            </h2>
+
+            <p>
+
+                The <strong>var</strong> keyword was used in older
+                versions of JavaScript.
+
+                Today, it is mostly replaced by
+                <strong>let</strong> and
+                <strong>const</strong> because they provide
+                better control over variables.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+var student = "Roshni";
+
+console.log(student);
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+Roshni
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    LET KEYWORD
+            ======================================== -->
+
+            <h2>
+
+                🔵 let Keyword
+
+            </h2>
+
+            <p>
+
+                The <strong>let</strong> keyword is used for
+                variables whose values may change later in
+                the program.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+let age = 18;
+
+age = 19;
+
+console.log(age);
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+19
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    CONST KEYWORD
+            ======================================== -->
+
+            <h2>
+
+                🟢 const Keyword
+
+            </h2>
+
+            <p>
+
+                Use <strong>const</strong> when the value
+                should remain constant.
+
+                Once assigned, it cannot be reassigned.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+const country = "India";
+
+console.log(country);
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+India
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    QUICK COMPARISON
+            ======================================== -->
+
+            <h2>
+
+                ⚡ var vs let vs const
+
+            </h2>
+
+            <div class="topic-grid">
+
+                <div>
+
+                    🟣 var
+
+                    <br><br>
+
+                    Old JavaScript
+
+                </div>
+
+                <div>
+
+                    🔵 let
+
+                    <br><br>
+
+                    Value can change
+
+                </div>
+
+                <div>
+
+                    🟢 const
+
+                    <br><br>
+
+                    Value cannot be reassigned
+
+                </div>
+
+            </div>
+
+            <!-- =======================================
+                    VARIABLE NAMING RULES
+            ======================================== -->
+
+            <h2>
+
+                📌 Variable Naming Rules
+
+            </h2>
+
+            <p>
+
+                Follow these rules while naming variables in
+                JavaScript.
+
+            </p>
+
+            <ul>
+
+                <li>✅ Start with a letter, underscore (_) or dollar sign ($).</li>
+
+                <li>✅ Variable names are case-sensitive.</li>
+
+                <li>✅ Use meaningful names.</li>
+
+                <li>❌ Do not start with numbers.</li>
+
+                <li>❌ Do not use JavaScript reserved keywords.</li>
+
+            </ul>
+
+
+
+            <!-- =======================================
+                    VALID & INVALID VARIABLES
+            ======================================== -->
+
+            <h2>
+
+                ✔ Valid and ❌ Invalid Variable Names
+
+            </h2>
+
+            <div class="topic-grid">
+
+                <div>
+
+                    ✅ userName
+
+                </div>
+
+                <div>
+
+                    ✅ totalMarks
+
+                </div>
+
+                <div>
+
+                    ✅ _student
+
+                </div>
+
+                <div>
+
+                    ❌ 123name
+
+                </div>
+
+                <div>
+
+                    ❌ let
+
+                </div>
+
+                <div>
+
+                    ❌ user-name
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    GLOBAL & LOCAL VARIABLES
+            ======================================== -->
+
+            <h2>
+
+                🌍 Global vs Local Variables
+
+            </h2>
+
+            <p>
+
+                A <strong>Global Variable</strong> can be
+                accessed from anywhere in the program.
+
+            </p>
+
+            <p>
+
+                A <strong>Local Variable</strong> is only
+                available inside the block or function where
+                it is created.
+
+            </p>
+
+
+
+            <div class="code-box">
+
+                <pre>
+let language = "JavaScript";
+
+function showLanguage(){
+
+    let level = "Beginner";
+
+    console.log(language);
+
+    console.log(level);
+
+}
+
+showLanguage();
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+JavaScript
+
+Beginner
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    REAL-LIFE EXAMPLE
+            ======================================== -->
+
+            <h2>
+
+                💻 Real-Life Example
+
+            </h2>
+
+            <div class="code-box">
+
+                <pre>
+let studentName = "Roshni";
+
+let marks = 95;
+
+const city = "Mumbai";
+
+console.log(studentName);
+
+console.log(marks);
+
+console.log(city);
+</pre>
+
+            </div>
+
+
+
+            <div class="output-box">
+
+                <pre>
+Roshni
+
+95
+
+Mumbai
+</pre>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    BEST PRACTICES
+            ======================================== -->
+
+            <h2>
+
+                ⭐ Best Practices
+
+            </h2>
+
+            <div class="tip-box">
+
+                <ul>
+
+                    <li>✅ Use <strong>const</strong> by default.</li>
+
+                    <li>✅ Use <strong>let</strong> if the value changes.</li>
+
+                    <li>❌ Avoid using <strong>var</strong> in modern JavaScript.</li>
+
+                    <li>✅ Choose meaningful variable names.</li>
+
+                    <li>✅ Keep variable names short and readable.</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    COMMON MISTAKES
+            ======================================== -->
+
+            <div class="mistake-box">
+
+                <h3>
+
+                    ⚠ Common Mistakes
+
+                </h3>
+
+                <ul>
+
+                    <li>Using <strong>var</strong> everywhere.</li>
+
+                    <li>Trying to reassign a <strong>const</strong> variable.</li>
+
+                    <li>Using unclear variable names like x, y or z.</li>
+
+                    <li>Creating unnecessary global variables.</li>
+
+                </ul>
+
+            </div>
+
+            <!-- =======================================
+                    PRACTICE CHALLENGE
+            ======================================== -->
+
+            <h2>
+
+                📝 Practice Challenge
+
+            </h2>
+
+            <p>
+
+                Create the following variables:
+
+            </p>
+
+            <ul>
+
+                <li>👤 studentName</li>
+
+                <li>🎂 age</li>
+
+                <li>🏙 city</li>
+
+                <li>📚 course</li>
+
+            </ul>
+
+            <p>
+
+                Display all values using
+                <strong>console.log()</strong>.
+
+            </p>
+
+
+
+            <!-- =======================================
+                    TRY IT YOURSELF
+            ======================================== -->
+
+            <div class="try-box">
+
+                <div class="try-header">
+
+                    <h3>
+
+                        💻 Try It Yourself
+
+                    </h3>
+
+                    <span class="live-badge">
+
+                        LIVE
+
+                    </span>
+
+                </div>
+
+                <p>
+
+                    Copy the code from this lesson and run it
+                    in your browser's Developer Console or
+                    Visual Studio Code.
+
+                </p>
+
+                <a href="https://onecompiler.com/javascript" target="_blank" class="try-btn">
+
+                    ▶ Try This Code
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    LESSON SUMMARY
+            ======================================== -->
+
+            <div class="summary-box">
+
+                <h2>
+
+                    📚 Lesson Summary
+
+                </h2>
+
+                <ul>
+
+                    <li>✅ Variables store data.</li>
+
+                    <li>✅ var is the old way of declaring variables.</li>
+
+                    <li>✅ let is used for values that can change.</li>
+
+                    <li>✅ const is used for values that should not change.</li>
+
+                    <li>✅ Always use meaningful variable names.</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    QUICK QUIZ
+            ======================================== -->
+
+            <div class="quiz-box">
+
+                <h2>
+
+                    🧠 Quick Quiz
+
+                </h2>
+
+                <p>
+
+                    Which keyword should you use for a value
+                    that should never be reassigned?
+
+                </p>
+
+                <div class="quiz-option">
+
+                    A. var
+
+                </div>
+
+                <div class="quiz-option">
+
+                    B. let
+
+                </div>
+
+                <div class="quiz-option correct">
+
+                    ✅ C. const
+
+                </div>
+
+                <div class="quiz-option">
+
+                    D. function
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    LESSON COMPLETED
+            ======================================== -->
+
+            <div class="completed-card">
+
+                <div class="completed-icon">
+
+                    🎉
+
+                </div>
+
+                <h2>
+
+                    Lesson Completed!
+
+                </h2>
+
+                <p>
+
+                    Congratulations!
+
+                    You have successfully completed the
+                    <strong>JavaScript Variables</strong> lesson.
+
+                    Continue to the next lesson and keep
+                    improving your JavaScript skills.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    RELATED LESSONS
+            ======================================== -->
+
+            <div class="related-lessons">
+
+                <h2>
+
+                    📚 Continue Learning
+
+                </h2>
+
+                <div class="related-grid">
+
+                    <a href="data-types.html">
+
+                        📊 Data Types
+
+                    </a>
+
+                    <a href="operators.html">
+
+                        ➕ Operators
+
+                    </a>
+
+                    <a href="output.html">
+
+                        🖥 JavaScript Output
+
+                    </a>
+
+                    <a href="functions.html">
+
+                        ⚙ Functions
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =======================================
+                    LESSON NAVIGATION
+            ======================================== -->
+
+            <div class="lesson-buttons">
+
+                <a href="introduction.html">
+
+                    ⬅ Previous Lesson
+
+                </a>
+
+                <a href="data-types.html">
+
+                    Next Lesson ➜
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

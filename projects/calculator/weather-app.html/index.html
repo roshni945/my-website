@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Premium Weather Dashboard | Roshni Code Charm</title>
+
+    <meta name="description" content="Premium Weather Dashboard using HTML, CSS, JavaScript and OpenWeather API">
+
+    <link rel="stylesheet" href="weather.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <div class="bg-circle circle1"></div>
+    <div class="bg-circle circle2"></div>
+    <div class="bg-circle circle3"></div>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <header>
+
+            <div class="logo">
+
+                🌦 Roshni Code Charm
+
+            </div>
+
+            <nav>
+
+                <a href="#">Home</a>
+
+                <a href="#forecast">Forecast</a>
+
+                <a href="#about">About</a>
+
+            </nav>
+
+        </header>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-left">
+
+                <h1>
+
+                    Premium Weather Dashboard
+
+                </h1>
+
+                <p>
+
+                    Search any city and get live weather updates,
+                    today's highlights,
+                    and 5-day forecast instantly.
+
+                </p>
+
+                <div class="search-box">
+
+                    <input type="text" id="cityInput" placeholder="Search city...">
+
+                    <button id="searchBtn">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+                </div>
+
+                <div id="loading">
+
+                    Loading...
+
+                </div>
+
+                <div id="error"></div>
+
+            </div>
+
+            <div class="hero-right">
+
+                <img id="weatherIcon" src="https://openweathermap.org/img/wn/01d@4x.png" alt="Weather">
+
+            </div>
+
+        </section>
+
+        <!-- CURRENT WEATHER -->
+
+        <section class="weather-card">
+
+            <h2 id="cityName">
+
+                Mumbai
+
+            </h2>
+
+            <h1 id="temperature">
+
+                30°C
+
+            </h1>
+
+            <p id="description">
+
+                Clear Sky
+
+            </p>
+
+        </section>
+
+        <!-- TODAY'S HIGHLIGHTS -->
+
+        <section class="highlights">
+
+            <h2>
+
+                Today's Highlights
+
+            </h2>
+
+            <div class="highlight-grid">
+
+                <div class="card">
+
+                    <i class="fa-solid fa-temperature-half"></i>
+
+                    <h3>
+
+                        Feels Like
+
+                    </h3>
+
+                    <h2 id="feelsLike">
+
+                        --°C
+
+                    </h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                    <h3>
+
+                        Humidity
+
+                    </h3>
+
+                    <h2 id="humidity">
+
+                        --%
+
+                    </h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-wind"></i>
+
+                    <h3>
+
+                        Wind
+
+                    </h3>
+
+                    <h2 id="wind">
+
+                        -- km/h
+
+                    </h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-gauge-high"></i>
+
+                    <h3>
+
+                        Pressure
+
+                    </h3>
+
+                    <h2 id="pressure">
+
+                        -- hPa
+
+                    </h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    <h3>
+
+                        Visibility
+
+                    </h3>
+
+                    <h2 id="visibility">
+
+                        -- km
+
+                    </h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-sun"></i>
+
+                    <h3>
+
+                        Sunrise
+
+                    </h3>
+
+                    <h2 id="sunrise">
+
+                        --:--
+
+                    </h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                    <h3>
+
+                        Sunset
+
+                    </h3>
+
+                    <h2 id="sunset">
+
+                        --:--
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                    5 DAY FORECAST
+        ========================================== -->
+
+        <section id="forecast" class="forecast-section">
+
+            <h2>
+
+                5-Day Forecast
+
+            </h2>
+
+            <div id="forecastContainer" class="forecast-grid">
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                  EXTRA WEATHER INFO
+        ========================================== -->
+
+        <section class="extra-weather">
+
+            <div class="extra-card">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>
+
+                    Current Location
+
+                </h3>
+
+                <button id="locationBtn">
+
+                    Use My Location
+
+                </button>
+
+            </div>
+
+            <div class="extra-card">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h3>
+
+                    Last Updated
+
+                </h3>
+
+                <p id="lastUpdated">
+
+                    --:--
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                    ABOUT PROJECT
+        ========================================== -->
+
+        <section id="about" class="about-section">
+
+            <div class="about-card">
+
+                <h2>
+
+                    💜 About This Project
+
+                </h2>
+
+                <p>
+
+                    Premium Weather Dashboard is built using
+
+                    <strong>HTML</strong>,
+
+                    <strong>CSS</strong>,
+
+                    <strong>JavaScript</strong>
+
+                    and
+
+                    <strong>OpenWeather API</strong>.
+
+                </p>
+
+                <p>
+
+                    This project provides
+
+                    live weather,
+
+                    today's highlights,
+
+                    current location,
+
+                    and a 5-day forecast
+
+                    in a modern Glassmorphism UI.
+
+                </p>
+
+                <div class="tech-stack">
+
+                    <span>HTML5</span>
+
+                    <span>CSS3</span>
+
+                    <span>JavaScript</span>
+
+                    <span>OpenWeather API</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                    FOOTER
+        ========================================== -->
+
+        <footer>
+
+            <div class="footer-content">
+
+                <h2>
+
+                    🌦 Roshni Code Charm
+
+                </h2>
+
+                <p>
+
+                    Premium Weather Dashboard
+
+                </p>
+
+                <div class="social-icons">
+
+                    <a href="#">
+
+                        <i class="fab fa-github"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fab fa-instagram"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fab fa-linkedin"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fab fa-pinterest"></i>
+
+                    </a>
+
+                </div>
+
+                <p class="copyright">
+
+                    © 2026
+
+                    Roshni Code Charm
+
+                    | All Rights Reserved
+
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

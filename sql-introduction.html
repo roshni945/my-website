@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================
+         BASIC META TAGS
+    ========================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- =========================
+         PAGE TITLE
+    ========================== -->
+
+    <title>
+        SQL Tutorial for Beginners | Roshni Code Charm
+    </title>
+
+    <!-- =========================
+         SEO META TAGS
+    ========================== -->
+
+    <meta name="description"
+        content="Learn SQL from beginner to advanced with easy examples, database concepts, SELECT, INSERT, UPDATE, DELETE, JOINS, interview questions, quizzes and practice exercises.">
+
+    <meta name="keywords"
+        content="SQL Tutorial, Learn SQL, SQL for Beginners, Database Tutorial, SQL SELECT, SQL INSERT, SQL UPDATE, SQL DELETE, SQL Joins, Roshni Code Charm">
+
+    <meta name="author" content="Roshni Code Charm">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="language" content="English">
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="SQL Tutorial for Beginners | Roshni Code Charm">
+
+    <meta property="og:description"
+        content="Master SQL with beginner-friendly explanations, examples, projects and interview questions.">
+
+    <meta property="og:image" content="images/sql-banner.jpg">
+
+    <meta property="og:url" content="https://yourwebsite.com/sql-introduction.html">
+
+    <!-- =========================
+         TWITTER CARD
+    ========================== -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="SQL Tutorial for Beginners">
+
+    <meta name="twitter:description" content="Complete SQL Tutorial with Examples and Practice Questions">
+
+    <!-- =========================
+         CANONICAL
+    ========================== -->
+
+    <link rel="canonical" href="https://yourwebsite.com/sql-introduction.html">
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =========================
+         FAVICON
+    ========================== -->
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- =========================
+         CSS FILE
+    ========================== -->
+
+    <link rel="stylesheet" href="css/sql-style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <!-- =========================
+SQL HERO SECTION
+========================= -->
+
+        <section class="hero">
+
+
+            <div class="hero-badge">
+
+                🗄 SQL Tutorial • Beginner Friendly
+
+            </div>
+
+
+            <img src="images/sql.png" alt="SQL Database Illustration" style="
+         width:180px;
+         margin:20px auto;
+         filter:drop-shadow(0 15px 20px rgba(0,0,0,.15));
+         ">
+
+
+            <h1>
+                SQL Tutorial for Beginners
+            </h1>
+
+
+            <p>
+                Learn SQL from scratch with simple explanations,
+                real database examples, queries, projects,
+                practice questions and interview preparation.
+            </p>
+
+
+
+            <div class="hero-info">
+
+
+                <span>
+                    📚 Beginner Level
+                </span>
+
+
+                <span>
+                    ⏱ 12 Min Read
+                </span>
+
+
+                <span>
+                    💻 Query Examples
+                </span>
+
+
+                <span>
+                    ⭐ Updated 2026
+                </span>
+
+
+            </div>
+
+
+
+            <a href="#intro" class="btn-primary">
+
+                🚀 Start Learning SQL
+
+            </a>
+
+
+        </section>
+
+
+    </div>
+
+    <!-- =========================
+SQL TUTORIAL LAYOUT
+========================= -->
+
+
+    <div class="tutorial-layout">
+
+
+        <!-- =========================
+LEFT SIDEBAR
+========================= -->
+
+        <aside class="sidebar">
+
+            <h2>📚 SQL Contents</h2>
+
+
+            <a href="#intro">
+                📘 Introduction
+            </a>
+
+
+            <a href="#database">
+                🗄 Database Concepts
+            </a>
+
+
+            <a href="#syntax">
+                📝 SQL Syntax
+            </a>
+
+
+            <a href="#select">
+                🔍 SELECT Statement
+            </a>
+
+
+            <a href="#insert">
+                ➕ INSERT Statement
+            </a>
+
+
+            <a href="#update">
+                ✏️ UPDATE Statement
+            </a>
+
+
+            <a href="#delete">
+                ❌ DELETE Statement
+            </a>
+
+
+            <a href="#joins">
+                🔗 SQL Joins
+            </a>
+
+
+            <a href="#practice">
+                📝 Practice Questions
+            </a>
+
+
+            <a href="#quiz">
+                🧠 Mini Quiz
+            </a>
+
+
+            <a href="#interview">
+                💼 Interview Questions
+            </a>
+
+
+            <a href="#faq">
+                ❓ FAQs
+            </a>
+
+
+            <a href="#summary">
+                📚 Summary
+            </a>
+
+
+        </aside>
+
+
+
+
+
+        <!-- =========================
+MAIN CONTENT
+========================= -->
+
+
+        <main class="content">
+
+
+
+            <section id="intro">
+
+
+                <h2>
+                    📘 What is SQL?
+                </h2>
+
+
+                <p>
+
+                    SQL (Structured Query Language) is a programming language
+                    used to store, manage, and manipulate data inside databases.
+
+                </p>
+
+
+                <p>
+
+                    Using SQL, we can create databases, insert data,
+                    update records, delete information and retrieve data
+                    using powerful queries.
+
+                </p>
+
+
+                <div class="card">
+
+                    <h3>
+                        💡 Real World Example
+                    </h3>
+
+                    <p>
+
+                        When you use Instagram, Amazon or banking apps,
+                        millions of records are stored inside databases.
+                        SQL helps these applications manage that data.
+
+                    </p>
+
+                </div>
+
+
+                <div class="tip-box">
+
+                    <strong>
+                        ✨ Quick Tip:
+                    </strong>
+
+                    SQL is one of the most important skills for
+                    Web Developers, Data Analysts and Software Engineers.
+
+                </div>
+
+
+
+            </section>
+
+
+
+            <section id="database">
+
+
+                <h2>
+                    🗄 Database Concepts
+                </h2>
+
+
+                <p>
+
+                    A database is an organized collection of information
+                    that can be easily accessed and managed.
+
+                </p>
+
+
+                <ul>
+
+                    <li>Database stores data</li>
+
+                    <li>Tables organize information</li>
+
+                    <li>Rows represent records</li>
+
+                    <li>Columns represent attributes</li>
+
+                </ul>
+
+
+            </section>
+
+            <!-- =========================
+SQL SYNTAX SECTION
+========================= -->
+
+            <section id="syntax">
+
+                <h2>
+                    📝 SQL Syntax
+                </h2>
+
+
+                <p>
+                    SQL commands follow a simple structure.
+                    Most SQL statements start with a keyword
+                    and work with database tables.
+                </p>
+
+
+                <div class="card">
+
+                    <h3>
+                        Basic SQL Syntax
+                    </h3>
+
+
+                    <pre><code>
+SELECT column_name
+FROM table_name;
+</code></pre>
+
+
+                </div>
+
+
+                <div class="tip-box">
+
+                    <strong>
+                        💡 Remember:
+                    </strong>
+
+                    SQL keywords are not case-sensitive,
+                    but writing them in uppercase improves readability.
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+SELECT SECTION
+========================= -->
+
+
+            <section id="select">
+
+
+                <h2>
+                    🔍 SELECT Statement
+                </h2>
+
+
+                <p>
+                    The SELECT statement is used to retrieve data
+                    from a database table.
+                </p>
+
+
+                <div class="card">
+
+
+                    <h3>
+                        Example:
+                    </h3>
+
+
+                    <pre><code>
+SELECT *
+FROM students;
+</code></pre>
+
+
+                    <p>
+                        This query displays all records from the students table.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+INSERT SECTION
+========================= -->
+
+
+            <section id="insert">
+
+
+                <h2>
+                    ➕ INSERT Statement
+                </h2>
+
+
+                <p>
+                    INSERT command is used to add new records
+                    into a database table.
+                </p>
+
+
+                <div class="card">
+
+
+                    <h3>
+                        Example:
+                    </h3>
+
+
+                    <pre><code>
+INSERT INTO students
+(name, age, course)
+VALUES
+('Riya', 20, 'BCA');
+</code></pre>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+UPDATE SECTION
+========================= -->
+
+
+            <section id="update">
+
+
+                <h2>
+                    ✏️ UPDATE Statement
+                </h2>
+
+
+                <p>
+                    UPDATE is used to modify existing data
+                    inside a table.
+                </p>
+
+
+                <div class="card">
+
+
+                    <h3>
+                        Example:
+                    </h3>
+
+
+                    <pre><code>
+UPDATE students
+SET age = 21
+WHERE name = 'Riya';
+</code></pre>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+DELETE SECTION
+========================= -->
+
+
+            <section id="delete">
+
+
+                <h2>
+                    ❌ DELETE Statement
+                </h2>
+
+
+                <p>
+                    DELETE removes records from a table.
+                </p>
+
+
+                <div class="card">
+
+
+                    <h3>
+                        Example:
+                    </h3>
+
+
+                    <pre><code>
+DELETE FROM students
+WHERE name='Riya';
+</code></pre>
+
+
+                </div>
+
+
+                <div class="warning-box">
+
+                    <strong>
+                        ⚠️ Warning:
+                    </strong>
+
+                    Always use WHERE condition with DELETE,
+                    otherwise all records may be removed.
+
+                </div>
+
+
+            </section>
+
+            <!-- =========================
+SQL JOINS SECTION
+========================= -->
+
+
+            <section id="joins">
+
+
+                <h2>
+                    🔗 SQL Joins
+                </h2>
+
+
+                <p>
+                    SQL Joins are used to combine data from two or more tables
+                    based on a related column.
+                </p>
+
+
+
+                <div class="card">
+
+
+                    <h3>
+                        1. INNER JOIN
+                    </h3>
+
+
+                    <p>
+                        Returns only matching records from both tables.
+                    </p>
+
+
+                    <pre><code>
+SELECT students.name, courses.course_name
+FROM students
+INNER JOIN courses
+ON students.course_id = courses.id;
+</code></pre>
+
+
+                </div>
+
+
+
+
+                <div class="card">
+
+
+                    <h3>
+                        2. LEFT JOIN
+                    </h3>
+
+
+                    <p>
+                        Returns all records from the left table and matching
+                        records from the right table.
+                    </p>
+
+
+                    <pre><code>
+SELECT *
+FROM students
+LEFT JOIN courses
+ON students.course_id = courses.id;
+</code></pre>
+
+
+                </div>
+
+
+
+
+
+                <div class="card">
+
+
+                    <h3>
+                        3. RIGHT JOIN
+                    </h3>
+
+
+                    <p>
+                        Returns all records from the right table and matching
+                        records from the left table.
+                    </p>
+
+
+                    <pre><code>
+SELECT *
+FROM students
+RIGHT JOIN courses
+ON students.course_id = courses.id;
+</code></pre>
+
+
+                </div>
+
+
+
+
+                <div class="tip-box">
+
+                    <strong>
+                        💡 SQL Tip:
+                    </strong>
+
+                    Learn SELECT, WHERE and JOIN properly.
+                    These are the most commonly used SQL concepts
+                    in real projects.
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+SQL PROJECTS SECTION
+========================= -->
+
+
+            <section id="projects">
+
+
+                <h2>
+                    🚀 SQL Practice Projects
+                </h2>
+
+
+
+                <div class="card">
+
+
+                    <h3>
+                        📚 Student Management Database
+                    </h3>
+
+
+                    <p>
+                        Create a database to store student details,
+                        courses, marks and attendance records.
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div class="card">
+
+
+                    <h3>
+                        🛒 E-Commerce Database
+                    </h3>
+
+
+                    <p>
+                        Manage products, customers, orders and payments
+                        using SQL tables.
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div class="card">
+
+
+                    <h3>
+                        🏦 Banking System Database
+                    </h3>
+
+
+                    <p>
+                        Store customer accounts, transactions and
+                        banking records.
+                    </p>
+
+
+                </div>
+
+
+
+            </section>
+            <!-- =========================
+PRACTICE QUESTIONS
+========================= -->
+
+
+            <section id="practice">
+
+                <h2>
+                    📝 SQL Practice Questions
+                </h2>
+
+
+                <div class="card">
+
+                    <ol>
+
+                        <li>What is SQL and why is it used?</li>
+
+                        <li>What is the difference between Database and Table?</li>
+
+                        <li>Write a query to display all records from a table.</li>
+
+                        <li>How do you insert new data into a table?</li>
+
+                        <li>How can you update existing records in SQL?</li>
+
+                        <li>What is the use of WHERE clause?</li>
+
+                        <li>Explain Primary Key with an example.</li>
+
+                        <li>What is the difference between DELETE and DROP?</li>
+
+                        <li>What are SQL Joins?</li>
+
+                        <li>Write a query to find students whose age is greater than 18.</li>
+
+                    </ol>
+
+                </div>
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+MINI QUIZ
+========================= -->
+
+
+            <section id="quiz">
+
+                <h2>
+                    🧠 SQL Mini Quiz
+                </h2>
+
+
+                <div class="card">
+
+
+                    <p><b>1. SQL stands for?</b></p>
+
+                    <p>
+                        A) Simple Query Language<br>
+                        B) Structured Query Language ✅<br>
+                        C) Standard Question Language
+                    </p>
+
+
+
+                    <p><b>2. Which command is used to get data?</b></p>
+
+                    <p>
+                        A) SELECT ✅<br>
+                        B) INSERT<br>
+                        C) UPDATE
+                    </p>
+
+
+
+                    <p><b>3. Which command adds new records?</b></p>
+
+                    <p>
+                        A) DELETE<br>
+                        B) INSERT ✅<br>
+                        C) DROP
+                    </p>
+
+
+
+                    <p><b>4. Which keyword filters records?</b></p>
+
+                    <p>
+                        A) WHERE ✅<br>
+                        B) FROM<br>
+                        C) INTO
+                    </p>
+
+
+
+                    <p><b>5. Which key uniquely identifies a record?</b></p>
+
+                    <p>
+                        A) Foreign Key<br>
+                        B) Primary Key ✅<br>
+                        C) Normal Key
+                    </p>
+
+
+
+                    <p><b>6. Which command modifies data?</b></p>
+
+                    <p>
+                        A) UPDATE ✅<br>
+                        B) CREATE<br>
+                        C) SELECT
+                    </p>
+
+
+
+                    <p><b>7. JOIN is used to?</b></p>
+
+                    <p>
+                        A) Delete table<br>
+                        B) Combine tables ✅<br>
+                        C) Create database
+                    </p>
+
+
+
+                    <p><b>8. Which command removes records?</b></p>
+
+                    <p>
+                        A) DELETE ✅<br>
+                        B) ADD<br>
+                        C) SHOW
+                    </p>
+
+
+
+                    <p><b>9. SQL database contains?</b></p>
+
+                    <p>
+                        A) Tables ✅<br>
+                        B) Images only<br>
+                        C) Videos only
+                    </p>
+
+
+
+                    <p><b>10. MySQL is a?</b></p>
+
+                    <p>
+                        A) Database Management System ✅<br>
+                        B) Browser<br>
+                        C) Programming Language
+                    </p>
+
+
+                </div>
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+INTERVIEW QUESTIONS
+========================= -->
+
+
+            <section id="interview">
+
+
+                <h2>
+                    💼 SQL Interview Questions
+                </h2>
+
+
+                <div class="card">
+
+                    <ol>
+
+                        <li>What is SQL?</li>
+
+                        <li>Explain different types of SQL commands.</li>
+
+                        <li>What is Primary Key?</li>
+
+                        <li>What is Foreign Key?</li>
+
+                        <li>Difference between DELETE, DROP and TRUNCATE?</li>
+
+                        <li>What are SQL Joins?</li>
+
+                        <li>Explain Normalization.</li>
+
+                        <li>What is the difference between WHERE and HAVING?</li>
+
+                        <li>What are Aggregate Functions?</li>
+
+                        <li>Difference between SQL and MySQL?</li>
+
+                    </ol>
+
+                </div>
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+FAQ SECTION
+========================= -->
+
+
+            <section id="faq">
+
+
+                <h2>
+                    ❓ SQL FAQs
+                </h2>
+
+
+                <div class="card">
+
+
+                    <h3>
+                        1. Is SQL easy for beginners?
+                    </h3>
+
+                    <p>
+                        Yes, SQL is beginner-friendly and easy to learn.
+                    </p>
+
+
+
+                    <h3>
+                        2. Is SQL a programming language?
+                    </h3>
+
+                    <p>
+                        SQL is a database query language used to communicate with databases.
+                    </p>
+
+
+
+                    <h3>
+                        3. Which database uses SQL?
+                    </h3>
+
+                    <p>
+                        MySQL, PostgreSQL, Oracle and SQL Server use SQL.
+                    </p>
+
+
+
+                    <h3>
+                        4. How long does it take to learn SQL?
+                    </h3>
+
+                    <p>
+                        Basic SQL can be learned within a few weeks with practice.
+                    </p>
+
+
+
+                    <h3>
+                        5. Is SQL useful for BCA students?
+                    </h3>
+
+                    <p>
+                        Yes, SQL is an important subject and skill for BCA students.
+                    </p>
+
+
+
+                    <h3>
+                        6. What is a table in SQL?</h3>
+
+                    <p>
+                        A table stores data in rows and columns.
+                    </p>
+
+
+
+                    <h3>
+                        7. What is a query?</h3>
+
+                    <p>
+                        A query is a request to retrieve or modify data.
+                    </p>
+
+
+
+                    <h3>
+                        8. What is MySQL?</h3>
+
+                    <p>
+                        MySQL is a popular relational database management system.
+                    </p>
+
+
+
+                    <h3>
+                        9. Can SQL be used with websites?</h3>
+
+                    <p>
+                        Yes, websites use SQL to store user and application data.
+                    </p>
+
+
+
+                    <h3>
+                        10. What should I learn after SQL?</h3>
+
+                    <p>
+                        You can learn Database Design, Python with SQL, Data Analytics or Backend Development.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+            <!-- =========================
+SUMMARY SECTION
+========================= -->
+
+            <section id="summary">
+
+                <h2>
+                    📚 SQL Tutorial Summary
+                </h2>
+
+
+                <div class="card">
+
+                    <p>
+                        SQL is a powerful language used to communicate with databases.
+                        In this tutorial, we learned SQL basics, database concepts,
+                        queries, commands, joins and real-world applications.
+                    </p>
+
+
+                    <ul>
+
+                        <li>SQL is used to manage database information.</li>
+
+                        <li>SELECT retrieves data from tables.</li>
+
+                        <li>INSERT adds new records.</li>
+
+                        <li>UPDATE modifies existing data.</li>
+
+                        <li>DELETE removes unwanted records.</li>
+
+                        <li>JOINS combine data from multiple tables.</li>
+
+                    </ul>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+RELATED ARTICLES
+========================= -->
+
+            <section>
+
+
+                <h2>
+                    📖 Related Articles
+                </h2>
+
+
+                <div class="card">
+
+
+                    <ul>
+
+                        <li>
+                            <a href="python-variables.html">
+                                🐍 Python Variables for Beginners
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="html-basics.html">
+                                🌐 HTML Basics for Beginners
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="css-basics.html">
+                                🎨 CSS Basics Tutorial
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="javascript-tutorial.html">
+                                ⚡ JavaScript tutorial
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- =========================
+PREVIOUS NEXT NAVIGATION
+========================= -->
+
+
+            <div class="navigation">
+
+
+                <a href="javascript-tutorial.html" class="btn-primary">
+
+                    ⬅ Previous Tutorial
+
+                </a>
+
+
+
+                <a href="python-variables.html" class="btn-primary">
+
+                    Next Tutorial ➡
+
+                </a>
+
+
+            </div>
+        </main>
+
+        <!-- =========================
+FOOTER
+========================= -->
+
+        <footer class="footer">
+
+            <h2>
+                🌸 Roshni Code Charm
+            </h2>
+
+            <p>
+                Learn Coding | Web Development | Python | SQL | AI Tools
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="python-variables.html">
+                    Python
+                </a>
+
+                <a href="html-basics.html">
+                    HTML
+                </a>
+
+                <a href="javascript-introduction.html">
+                    JavaScript
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+
+                © 2026 Roshni Code Charm. All Rights Reserved.
+
+            </p>
+
+        </footer>
+
+
+    </div>
+
+</body>
+
+</html>
