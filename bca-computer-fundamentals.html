@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Computer Fundamentals | Roshni Code Charm</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           🌱 RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f7faf8;
+            color: #292633;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           🌿 OPENING ANIMATION
+        ========================================= */
+
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg,
+                    #f1e8ff,
+                    #e9fff1);
+
+            animation: introHide 1s ease 2.5s forwards;
+
+            pointer-events: none;
+        }
+
+        .intro-content {
+            text-align: center;
+            animation: introContent 1s ease;
+        }
+
+        .intro-emoji {
+            font-size: 75px;
+
+            animation: plantMove 1.5s ease-in-out infinite;
+        }
+
+        .intro-content h1 {
+            margin-top: 15px;
+
+            color: #7226a3;
+
+            font-size: 32px;
+        }
+
+        .intro-content p {
+            color: #5f7467;
+            font-size: 14px;
+        }
+
+
+        @keyframes plantMove {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(3deg);
+            }
+        }
+
+
+        @keyframes introContent {
+
+            from {
+                opacity: 0;
+                transform: scale(.85) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+
+        @keyframes introHide {
+
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* =========================================
+           🌿 HEADER
+        ========================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #e8e5eb;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 15px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+
+            color: #7426a5;
+
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            text-decoration: none;
+
+            background: #eee4fb;
+
+            color: #6f2998;
+
+            padding: 8px 16px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: #7426a5;
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           🌱 MAIN CONTAINER
+        ========================================= */
+
+        .container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 35px 20px 70px;
+        }
+
+
+        /* =========================================
+           💻 HERO
+        ========================================= */
+
+        .hero {
+            text-align: center;
+
+            padding: 55px 25px;
+
+            border-radius: 28px;
+
+            background: linear-gradient(135deg,
+                    #f2eaff,
+                    #e9fff1);
+
+            border: 1px solid #e2d8e9;
+
+            margin-bottom: 30px;
+
+            animation: heroAppear .8s ease both;
+        }
+
+        @keyframes heroAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            background: white;
+
+            color: #7626a6;
+
+            padding: 7px 16px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+
+            color: #6f249e;
+
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #5e6761;
+        }
+
+
+        /* =========================================
+           📚 CONTENT CARDS
+        ========================================= */
+
+        .content-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #ebe7ee;
+
+            box-shadow:
+                0 8px 25px rgba(50, 40, 60, .06);
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+        .content-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-card:hover {
+            box-shadow:
+                0 15px 35px rgba(60, 40, 80, .10);
+        }
+
+        .content-card h2 {
+            color: #7426a5;
+
+            margin-bottom: 15px;
+
+            font-size: 25px;
+        }
+
+        .content-card h3 {
+            color: #548160;
+
+            margin-top: 20px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           📖 TABLE OF CONTENTS
+        ========================================= */
+
+        .toc {
+            border-left: 6px solid #72a77c;
+        }
+
+        .toc-list {
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+        .toc-list a {
+            display: block;
+
+            text-decoration: none;
+
+            color: #555;
+
+            background: #f6faf7;
+
+            padding: 11px 14px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+        .toc-list a:hover {
+            background: #eee5ff;
+
+            color: #7426a5;
+
+            transform: translateX(6px);
+        }
+
+
+        /* =========================================
+           💻 COMPUTER WORKING FLOW
+        ========================================= */
+
+        .computer-flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+        .flow-box {
+            padding: 14px 20px;
+
+            background: #f0e7ff;
+
+            color: #6d269d;
+
+            border-radius: 14px;
+
+            font-weight: 600;
+
+            animation: flowPulse 3s ease-in-out infinite;
+        }
+
+        .flow-box:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        .flow-box:nth-child(5) {
+            animation-delay: .6s;
+        }
+
+        .flow-arrow {
+            color: #67a676;
+
+            font-size: 22px;
+
+            animation: arrowMove 1s infinite;
+        }
+
+        @keyframes flowPulse {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes arrowMove {
+
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+
+        /* =========================================
+           🧩 GRID
+        ========================================= */
+
+        .topic-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+        .topic-box {
+            padding: 20px;
+
+            background: #f4faf6;
+
+            border: 1px solid #dceee1;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+        .topic-box:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 10px 25px rgba(60, 120, 80, .10);
+        }
+
+        .topic-box h3 {
+            margin-top: 0;
+
+            color: #579265;
+        }
+
+
+        /* =========================================
+           📝 LIST
+        ========================================= */
+
+        .notes-list {
+            padding-left: 22px;
+        }
+
+        .notes-list li {
+            margin: 6px 0;
+
+            transition: .2s;
+        }
+
+        .notes-list li:hover {
+            transform: translateX(5px);
+
+            color: #7426a5;
+        }
+
+
+        /* =========================================
+           💡 INFO BOX
+        ========================================= */
+
+        .info-box {
+            background: #effaf2;
+
+            border-left: 5px solid #70aa7b;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            margin: 18px 0;
+        }
+
+        .info-box strong {
+            color: #4d895b;
+        }
+
+
+        /* =========================================
+           📊 TABLE
+        ========================================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 550px;
+        }
+
+        th {
+            background: #7426a5;
+
+            color: white;
+
+            padding: 12px;
+
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:nth-child(even) {
+            background: #faf8ff;
+        }
+
+
+        /* =========================================
+           🎯 REVISION
+        ========================================= */
+
+        .revision-card {
+            background: linear-gradient(135deg,
+                    #fff1fa,
+                    #f0eaff);
+
+            border: 2px dashed #c8a2e6;
+        }
+
+
+        /* =========================================
+           🌱 FOOTER
+        ========================================= */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #251a30;
+
+            color: #ddd;
+        }
+
+        footer strong {
+            color: #d7a8f4;
+        }
+
+
+        /* =========================================
+           📱 MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 13px 16px;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            .toc-list,
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .computer-flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         🌱 OPENING ANIMATION
+    ========================================= -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <!-- अभी image की जगह emoji -->
+            <div class="intro-emoji">
+                🪴
+            </div>
+
+            <h1>
+                💻 Computer Fundamentals
+            </h1>
+
+            <p>
+                Let's start your BCA learning journey 🌱
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         🌿 HEADER
+    ========================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                💜 Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main class="container">
+
+
+        <!-- =========================================
+             💻 HERO
+        ========================================= -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • COMPUTER FUNDAMENTALS
+            </span>
+
+            <h1>
+                💻 Computer Fundamentals
+            </h1>
+
+            <p>
+                Complete beginner-friendly notes covering
+                computer basics, hardware, software,
+                operating systems, memory, internet and networking.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================================
+             📚 CONTENTS
+        ========================================= -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 What You'll Learn
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#computer-basics">
+                        💻 Computer Basics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#hardware-software">
+                        🧩 Hardware & Software
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#input-output">
+                        ⌨️ Input & Output Devices
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#operating-system">
+                        ⚙️ Operating Systems
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#number-system">
+                        🔢 Number Systems
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#memory">
+                        🧠 Computer Memory
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#internet">
+                        🌐 Internet Basics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#networking">
+                        🔗 Networking Basics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#revision">
+                        📝 Quick Revision
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =========================================
+             1️⃣ COMPUTER BASICS
+        ========================================= -->
+
+        <section class="content-card" id="computer-basics">
+
+            <h2>
+                💻 1. Computer Basics
+            </h2>
+
+            <p>
+                A computer is an electronic programmable device
+                that accepts data, processes it according to
+                instructions, stores it and produces useful information.
+            </p>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Simple Definition
+                </strong>
+
+                <p>
+                    A computer takes input, processes the data,
+                    stores information and produces output.
+                </p>
+
+            </div>
+
+
+            <h3>
+                🔄 Basic Working of Computer
+            </h3>
+
+            <div class="computer-flow">
+
+                <div class="flow-box">
+                    ⌨️ Input
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ⚙️ Processing
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    💾 Storage
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🖥️ Output
+                </div>
+
+            </div>
+
+
+            <h3>
+                ✨ Characteristics of Computer
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>⚡ High speed</li>
+
+                <li>🎯 Accuracy</li>
+
+                <li>💾 Large storage capacity</li>
+
+                <li>🔄 Automation</li>
+
+                <li>📋 Consistency</li>
+
+                <li>🧩 Versatility</li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =========================================
+             2️⃣ HARDWARE & SOFTWARE
+        ========================================= -->
+
+        <section class="content-card" id="hardware-software">
+
+            <h2>
+                🧩 2. Hardware & Software
+            </h2>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔧 Hardware
+                    </h3>
+
+                    <p>
+                        Hardware refers to the physical
+                        components of a computer that can
+                        be seen and touched.
+                    </p>
+
+                    <ul class="notes-list">
+
+                        <li>🖥️ Monitor</li>
+
+                        <li>⌨️ Keyboard</li>
+
+                        <li>🖱️ Mouse</li>
+
+                        <li>🧠 CPU</li>
+
+                        <li>🖨️ Printer</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        💿 Software
+                    </h3>
+
+                    <p>
+                        Software is a collection of programs
+                        and instructions that tells the computer
+                        what to do.
+                    </p>
+
+                    <ul class="notes-list">
+
+                        <li>🪟 Windows</li>
+
+                        <li>🌐 Web Browser</li>
+
+                        <li>📝 Word Processor</li>
+
+                        <li>📊 Spreadsheet</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                📊 Hardware vs Software
+            </h3>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <tr>
+
+                        <th>
+                            🔧 Hardware
+                        </th>
+
+                        <th>
+                            💿 Software
+                        </th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            Physical components
+                        </td>
+
+                        <td>
+                            Programs and instructions
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            Can be touched
+                        </td>
+
+                        <td>
+                            Cannot be physically touched
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            Keyboard
+                        </td>
+
+                        <td>
+                            Web Browser
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             3️⃣ INPUT OUTPUT
+        ========================================= -->
+
+        <section class="content-card" id="input-output">
+
+            <h2>
+                ⌨️ 3. Input & Output Devices
+            </h2>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        ⌨️ Input Devices
+                    </h3>
+
+                    <p>
+                        Devices used to enter data and
+                        instructions into a computer.
+                    </p>
+
+                    <ul class="notes-list">
+
+                        <li>⌨️ Keyboard</li>
+
+                        <li>🖱️ Mouse</li>
+
+                        <li>📄 Scanner</li>
+
+                        <li>🎙️ Microphone</li>
+
+                        <li>📷 Webcam</li>
+
+                        <li>📱 Touchscreen</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🖥️ Output Devices
+                    </h3>
+
+                    <p>
+                        Devices that present the processed
+                        information to the user.
+                    </p>
+
+                    <ul class="notes-list">
+
+                        <li>🖥️ Monitor</li>
+
+                        <li>🖨️ Printer</li>
+
+                        <li>🔊 Speaker</li>
+
+                        <li>📽️ Projector</li>
+
+                        <li>🎧 Headphones</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             4️⃣ OPERATING SYSTEM
+        ========================================= -->
+
+        <section class="content-card" id="operating-system">
+
+            <h2>
+                ⚙️ 4. Operating Systems
+            </h2>
+
+            <p>
+                An Operating System (OS) is system software
+                that manages computer hardware and provides
+                services for application programs.
+            </p>
+
+
+            <h3>
+                🛠️ Functions of Operating System
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>🧠 Memory management</li>
+
+                <li>📁 File management</li>
+
+                <li>⚙️ Process management</li>
+
+                <li>🔐 Security management</li>
+
+                <li>🖥️ User interface</li>
+
+                <li>🔌 Device management</li>
+
+            </ul>
+
+
+            <h3>
+                💻 Examples
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🪟 Windows
+                </div>
+
+                <div class="topic-box">
+                    🐧 Linux
+                </div>
+
+                <div class="topic-box">
+                    🍎 macOS
+                </div>
+
+                <div class="topic-box">
+                    📱 Android
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             5️⃣ NUMBER SYSTEM
+        ========================================= -->
+
+        <section class="content-card" id="number-system">
+
+            <h2>
+                🔢 5. Number Systems
+            </h2>
+
+            <p>
+                A number system is a method of representing
+                numbers using a specific set of digits and a base.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>🔟 Decimal</h3>
+
+                    <p>
+                        Base 10
+                    </p>
+
+                    <p>
+                        Digits: 0–9
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>💻 Binary</h3>
+
+                    <p>
+                        Base 2
+                    </p>
+
+                    <p>
+                        Digits: 0 and 1
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🧮 Octal</h3>
+
+                    <p>
+                        Base 8
+                    </p>
+
+                    <p>
+                        Digits: 0–7
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🔤 Hexadecimal</h3>
+
+                    <p>
+                        Base 16
+                    </p>
+
+                    <p>
+                        Digits: 0–9 and A–F
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             6️⃣ MEMORY
+        ========================================= -->
+
+        <section class="content-card" id="memory">
+
+            <h2>
+                🧠 6. Computer Memory
+            </h2>
+
+            <p>
+                Computer memory is used to store data,
+                instructions and information required
+                by the computer.
+            </p>
+
+
+            <h3>
+                ⚡ Primary Memory
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    <strong>RAM:</strong>
+                    Temporary working memory.
+                </li>
+
+                <li>
+                    <strong>ROM:</strong>
+                    Non-volatile memory used to store
+                    important instructions.
+                </li>
+
+                <li>
+                    <strong>Cache:</strong>
+                    Very fast memory located close to
+                    or associated with the processor.
+                </li>
+
+            </ul>
+
+
+            <h3>
+                💾 Secondary Storage
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>💽 Hard Disk</li>
+
+                <li>⚡ SSD</li>
+
+                <li>🔌 USB Drive</li>
+
+                <li>💳 Memory Card</li>
+
+                <li>💿 Optical Disc</li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =========================================
+             7️⃣ INTERNET
+        ========================================= -->
+
+        <section class="content-card" id="internet">
+
+            <h2>
+                🌐 7. Internet Basics
+            </h2>
+
+            <p>
+                The Internet is a global network of
+                interconnected computers and devices
+                that communicate and exchange information.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>🌐 Website</h3>
+
+                    <p>
+                        A collection of related web pages
+                        available on the Web.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🔗 URL</h3>
+
+                    <p>
+                        The address used to locate a
+                        resource on the Web.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🌎 Browser</h3>
+
+                    <p>
+                        Software used to access and
+                        view websites.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🔍 Search Engine</h3>
+
+                    <p>
+                        A service that helps users
+                        find information online.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             8️⃣ NETWORKING
+        ========================================= -->
+
+        <section class="content-card" id="networking">
+
+            <h2>
+                🔗 8. Networking Basics
+            </h2>
+
+            <p>
+                A computer network is a group of connected
+                devices that can communicate and share
+                data and resources.
+            </p>
+
+
+            <h3>
+                🌍 Types of Networks
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>📱 PAN</h3>
+
+                    <p>
+                        Personal Area Network
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🏠 LAN</h3>
+
+                    <p>
+                        Local Area Network
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🏙️ MAN</h3>
+
+                    <p>
+                        Metropolitan Area Network
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>🌍 WAN</h3>
+
+                    <p>
+                        Wide Area Network
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                🔌 Networking Devices
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>📡 Router</li>
+
+                <li>🔀 Switch</li>
+
+                <li>🌐 Modem</li>
+
+                <li>🔁 Hub</li>
+
+                <li>📶 Access Point</li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =========================================
+             📝 QUICK REVISION
+        ========================================= -->
+
+        <section class="content-card revision-card" id="revision">
+
+            <h2>
+                📝 Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    💻 Computer accepts input, processes
+                    data and produces output.
+                </li>
+
+                <li>
+                    🔧 Hardware consists of physical components.
+                </li>
+
+                <li>
+                    💿 Software consists of programs and instructions.
+                </li>
+
+                <li>
+                    ⌨️ Input devices enter data.
+                </li>
+
+                <li>
+                    🖥️ Output devices display results.
+                </li>
+
+                <li>
+                    ⚙️ Operating System manages computer resources.
+                </li>
+
+                <li>
+                    🔢 Binary number system uses 0 and 1.
+                </li>
+
+                <li>
+                    🧠 RAM is temporary working memory.
+                </li>
+
+                <li>
+                    🌐 Internet connects computers and devices globally.
+                </li>
+
+                <li>
+                    🔗 Networking allows devices to communicate
+                    and share resources.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =========================================
+             🎯 EXAM CHECKLIST
+        ========================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 Exam Checklist
+            </h2>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    ✅ Computer Basics
+                </div>
+
+                <div class="topic-box">
+                    ✅ Hardware & Software
+                </div>
+
+                <div class="topic-box">
+                    ✅ Input & Output Devices
+                </div>
+
+                <div class="topic-box">
+                    ✅ Operating Systems
+                </div>
+
+                <div class="topic-box">
+                    ✅ Number Systems
+                </div>
+
+                <div class="topic-box">
+                    ✅ Computer Memory
+                </div>
+
+                <div class="topic-box">
+                    ✅ Internet Basics
+                </div>
+
+                <div class="topic-box">
+                    ✅ Networking Basics
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         🌱 FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <p>
+            💜 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Grow 🌱
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =========================================
+           ✨ SCROLL REVEAL
+        ========================================= */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+
+        /* =========================================
+           📚 TOC SMOOTH SCROLL
+        ========================================= */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener("click", function (event) {
+
+                    const target =
+                        document.querySelector(
+                            this.getAttribute("href")
+                        );
+
+                    if (target) {
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
+
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>

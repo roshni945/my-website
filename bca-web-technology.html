@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Web Technology | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           🌐 RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4fcfb;
+            color: #334b4a;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           🌐 WEB TECHNOLOGY INTRO ANIMATION
+        ========================================= */
+
+        .intro-screen {
+
+            position: fixed;
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 18% 20%,
+                    #bdefff 0%,
+                    transparent 25%),
+                radial-gradient(circle at 82% 78%,
+                    #c9f5d5 0%,
+                    transparent 28%),
+                linear-gradient(135deg,
+                    #effcff,
+                    #e9fff1,
+                    #ffffff);
+
+            animation:
+                webIntroHide .8s ease 3s forwards;
+
+            pointer-events: none;
+        }
+
+
+        .intro-content {
+
+            position: relative;
+
+            z-index: 5;
+
+            text-align: center;
+
+            animation:
+                webContentAppear 1s ease forwards;
+        }
+
+
+        .web-main-emoji {
+
+            font-size: 78px;
+
+            display: inline-block;
+
+            animation:
+                webGlobe 2.2s ease-in-out infinite,
+                webPulse 2.5s ease-in-out infinite;
+        }
+
+
+        /* =========================================
+           ✨ FLOATING EMOJIS
+        ========================================= */
+
+        .web-floating {
+
+            position: absolute;
+
+            font-size: 32px;
+
+            user-select: none;
+        }
+
+
+        .web-emoji-1 {
+
+            top: -90px;
+            left: -115px;
+
+            animation:
+                webFloat1 3s ease-in-out infinite;
+        }
+
+
+        .web-emoji-2 {
+
+            top: -75px;
+            right: -115px;
+
+            animation:
+                webFloat2 2.7s ease-in-out infinite;
+        }
+
+
+        .web-emoji-3 {
+
+            bottom: -80px;
+            left: -105px;
+
+            animation:
+                webFloat3 3.1s ease-in-out infinite;
+        }
+
+
+        .web-emoji-4 {
+
+            bottom: -75px;
+            right: -105px;
+
+            animation:
+                webFloat4 2.6s ease-in-out infinite;
+        }
+
+
+        /* =========================================
+           🌐 INTRO TEXT
+        ========================================= */
+
+        .intro-content h1 {
+
+            margin-top: 15px;
+
+            font-size: 31px;
+
+            font-weight: 700;
+
+            color: #168b8b;
+
+            animation:
+                webTitle 1s ease .35s both;
+        }
+
+
+        .intro-content p {
+
+            margin-top: 7px;
+
+            font-size: 14px;
+
+            color: #557b78;
+
+            animation:
+                webSubtitle 1s ease .65s both;
+        }
+
+
+        /* =========================================
+           🎬 INTRO ANIMATIONS
+        ========================================= */
+
+        @keyframes webContentAppear {
+
+            0% {
+                opacity: 0;
+                transform: scale(.65) translateY(25px);
+            }
+
+            70% {
+                opacity: 1;
+                transform: scale(1.07) translateY(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @keyframes webGlobe {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-16px) rotate(5deg);
+            }
+        }
+
+
+        @keyframes webPulse {
+
+            0%,
+            100% {
+                scale: 1;
+            }
+
+            50% {
+                scale: 1.08;
+            }
+        }
+
+
+        @keyframes webFloat1 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translate(-22px, -27px) rotate(18deg);
+            }
+        }
+
+
+        @keyframes webFloat2 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(5deg);
+            }
+
+            50% {
+                transform:
+                    translate(22px, -20px) rotate(-12deg);
+            }
+        }
+
+
+        @keyframes webFloat3 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(-5deg);
+            }
+
+            50% {
+                transform:
+                    translate(-18px, 22px) rotate(12deg);
+            }
+        }
+
+
+        @keyframes webFloat4 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(5deg);
+            }
+
+            50% {
+                transform:
+                    translate(20px, 20px) rotate(-15deg);
+            }
+        }
+
+
+        @keyframes webTitle {
+
+            0% {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes webSubtitle {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes webIntroHide {
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* =========================================
+           🧭 HEADER
+        ========================================= */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, .94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid #d8eeee;
+        }
+
+
+        .navbar {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 15px 22px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+
+            text-decoration: none;
+
+            color: #168b8b;
+
+            font-size: 18px;
+
+            font-weight: 700;
+        }
+
+
+        .back-btn {
+
+            text-decoration: none;
+
+            background: #e3f8f5;
+
+            color: #167b7b;
+
+            padding: 8px 17px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .back-btn:hover {
+
+            background: #168b8b;
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================================
+           📦 MAIN CONTAINER
+        ========================================= */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                35px 20px 70px;
+        }
+
+
+        /* =========================================
+           🌐 HERO
+        ========================================= */
+
+        .hero {
+
+            text-align: center;
+
+            padding: 55px 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(135deg,
+                    #dff8ff,
+                    #e3faed,
+                    #ffffff);
+
+            border:
+                1px solid #cceae7;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            background: white;
+
+            color: #168b8b;
+
+            padding:
+                7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(50, 150, 150, .08);
+        }
+
+
+        .hero h1 {
+
+            color: #168b8b;
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .hero p {
+
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #617b79;
+        }
+
+
+        /* =========================================
+           📚 CONTENT CARDS
+        ========================================= */
+
+        .content-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid #dcefed;
+
+            box-shadow:
+                0 8px 25px rgba(40, 120, 120, .06);
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .content-card.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .content-card:hover {
+
+            box-shadow:
+                0 15px 35px rgba(40, 140, 130, .11);
+        }
+
+
+        .content-card h2 {
+
+            color: #168b8b;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .content-card h3 {
+
+            color: #279a73;
+
+            margin-top: 20px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           📑 TABLE OF CONTENTS
+        ========================================= */
+
+        .toc {
+
+            border-left:
+                6px solid #55bca4;
+        }
+
+
+        .toc-list {
+
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .toc-list a {
+
+            display: block;
+
+            text-decoration: none;
+
+            color: #55706d;
+
+            background: #effbf8;
+
+            padding:
+                11px 14px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+
+        .toc-list a:hover {
+
+            background: #dff7f0;
+
+            color: #168b8b;
+
+            transform:
+                translateX(6px);
+        }
+
+
+        /* =========================================
+           🔄 DIAGRAM FLOW
+        ========================================= */
+
+        .flow {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+
+        .flow-box {
+
+            padding:
+                14px 20px;
+
+            background:
+                linear-gradient(135deg,
+                    #e3f8ff,
+                    #e5faef);
+
+            color: #168b8b;
+
+            border:
+                1px solid #c8e8e5;
+
+            border-radius: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .flow-box:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 8px 20px rgba(40, 140, 130, .13);
+        }
+
+
+        .flow-arrow {
+
+            color: #38a98c;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================================
+           🧩 TOPIC GRID
+        ========================================= */
+
+        .topic-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+
+        .topic-box {
+
+            padding: 20px;
+
+            background:
+                linear-gradient(135deg,
+                    #f1fbff,
+                    #f0fff7);
+
+            border:
+                1px solid #d7ece8;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+
+        .topic-box:hover {
+
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 10px 25px rgba(50, 130, 120, .10);
+        }
+
+
+        .topic-box h3 {
+
+            margin-top: 0;
+
+            color: #168b8b;
+        }
+
+
+        /* =========================================
+           💡 INFO BOX
+        ========================================= */
+
+        .info-box {
+
+            background:
+                linear-gradient(135deg,
+                    #e9faff,
+                    #eafaf1);
+
+            border-left:
+                5px solid #40ae91;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            margin: 18px 0;
+        }
+
+
+        .info-box strong {
+
+            color: #168b8b;
+        }
+
+
+        /* =========================================
+           💻 CODE BOX
+        ========================================= */
+
+        .code-title {
+
+            display: inline-block;
+
+            background: #dff7f1;
+
+            color: #167b7b;
+
+            padding:
+                5px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-top: 10px;
+        }
+
+
+        .code-box {
+
+            background:
+                #202d32;
+
+            color:
+                #e8f8f5;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            overflow-x: auto;
+
+            margin-top: 12px;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            border:
+                1px solid #33454b;
+        }
+
+
+        /* =========================================
+           🌐 WEB TECHNOLOGY DIAGRAM
+        ========================================= */
+
+        .web-diagram {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin: 25px 0;
+        }
+
+
+        .web-box {
+
+            text-align: center;
+
+            padding: 22px 14px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(145deg,
+                    #e1f8ff,
+                    #e6faf0);
+
+            border:
+                1px solid #cce9e4;
+
+            transition: .3s;
+        }
+
+
+        .web-box:hover {
+
+            transform:
+                translateY(-7px) rotate(1deg);
+
+            box-shadow:
+                0 12px 25px rgba(40, 140, 130, .12);
+        }
+
+
+        .web-icon {
+
+            font-size: 34px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .web-box strong {
+
+            color: #168b8b;
+        }
+
+
+        /* =========================================
+           📱 RESPONSIVE DESIGN DIAGRAM
+        ========================================= */
+
+        .device-diagram {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: end;
+
+            gap: 20px;
+
+            margin: 30px 0;
+
+            flex-wrap: wrap;
+        }
+
+
+        .device {
+
+            background: #edfafa;
+
+            border:
+                2px solid #65bca9;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: #168b8b;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .device:hover {
+
+            transform:
+                translateY(-7px);
+        }
+
+
+        .desktop {
+
+            width: 220px;
+
+            height: 135px;
+
+            border-radius: 10px;
+        }
+
+
+        .tablet {
+
+            width: 145px;
+
+            height: 105px;
+
+            border-radius: 12px;
+        }
+
+
+        .mobile {
+
+            width: 72px;
+
+            height: 120px;
+
+            border-radius: 13px;
+        }
+
+
+        /* =========================================
+           📝 NOTES LIST
+        ========================================= */
+
+        .notes-list {
+
+            padding-left: 22px;
+        }
+
+
+        .notes-list li {
+
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+
+        .notes-list li:hover {
+
+            color: #168b8b;
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* =========================================
+           📝 REVISION CARD
+        ========================================= */
+
+        .revision-card {
+
+            background:
+                linear-gradient(135deg,
+                    #e5faff,
+                    #e7faef);
+
+            border:
+                2px dashed #61b9a3;
+        }
+
+
+        /* =========================================
+           🎯 CHECKLIST
+        ========================================= */
+
+        .check-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .check-item {
+
+            padding: 15px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(135deg,
+                    #edfaff,
+                    #effcf5);
+
+            border-radius: 13px;
+
+            color: #247f72;
+
+            font-weight: 600;
+
+            border:
+                1px solid #d4ebe5;
+
+            transition: .3s;
+        }
+
+
+        .check-item:hover {
+
+            transform:
+                translateY(-4px);
+
+            background:
+                #e0f8ef;
+        }
+
+
+        /* =========================================
+           🌊 FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #203c3b;
+
+            color: #d9ece9;
+        }
+
+
+        footer strong {
+
+            color: #8de1ca;
+        }
+
+
+        /* =========================================
+           📱 RESPONSIVE
+        ========================================= */
+
+        @media(max-width: 800px) {
+
+            .web-diagram {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .check-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+
+                padding:
+                    13px 16px;
+            }
+
+
+            .logo {
+
+                font-size: 15px;
+            }
+
+
+            .back-btn {
+
+                padding:
+                    7px 12px;
+            }
+
+
+            .hero {
+
+                padding:
+                    40px 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+            }
+
+
+            .content-card {
+
+                padding: 22px;
+            }
+
+
+            .toc-list,
+            .topic-grid,
+            .web-diagram {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .check-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .flow {
+
+                flex-direction: column;
+            }
+
+
+            .flow-arrow {
+
+                transform:
+                    rotate(90deg);
+            }
+
+
+            .device-diagram {
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+
+            .desktop {
+
+                width: 200px;
+
+                height: 125px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         🌐 WEB TECHNOLOGY INTRO
+    ========================================= -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <span class="web-floating web-emoji-1">
+                🌐
+            </span>
+
+            <span class="web-floating web-emoji-2">
+                💻
+            </span>
+
+            <span class="web-floating web-emoji-3">
+                🌱
+            </span>
+
+            <span class="web-floating web-emoji-4">
+                ⚡
+            </span>
+
+            <div class="web-main-emoji">
+                🌐
+            </div>
+
+            <h1>
+                Web Technology
+            </h1>
+
+            <p>
+                🌐 HTML • CSS • JavaScript • DOM 💻
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         🧭 HEADER
+    ========================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                🌐 Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =========================================
+             🌐 HERO
+        ========================================= -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • WEB TECHNOLOGY
+            </span>
+
+            <h1>
+                🌐 Web Technology
+            </h1>
+
+            <p>
+                Learn HTML, CSS, JavaScript, Forms,
+                Responsive Web Design, DOM, Events
+                and Basic Web Applications step by step.
+            </p>
+
+        </section>
+
+
+        <!-- =========================================
+             📚 TABLE OF CONTENTS
+        ========================================= -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 Web Technology Topics
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#introduction">
+                        🌐 1. Introduction to Web Technology
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#html">
+                        🧱 2. HTML
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#css">
+                        🎨 3. CSS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#javascript">
+                        ⚡ 4. JavaScript
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#forms">
+                        📝 5. Forms
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#responsive">
+                        📱 6. Responsive Web Design
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#dom">
+                        🌳 7. DOM
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#events">
+                        🖱️ 8. Events
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#applications">
+                        💻 9. Basic Web Applications
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#revision">
+                        📝 10. Quick Revision
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             1. INTRODUCTION
+        ========================================= -->
+
+        <section class="content-card" id="introduction">
+
+            <h2>
+                🌐 1. Introduction to Web Technology
+            </h2>
+
+            <p>
+                Web Technology refers to the tools, languages
+                and techniques used to create and run websites
+                and web applications.
+            </p>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Simple Meaning:
+                </strong>
+
+                <p>
+                    Web technology helps us create webpages,
+                    add designs, make webpages interactive
+                    and connect them with servers and databases.
+                </p>
+
+            </div>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🧱 HTML
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    🎨 CSS
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    ⚡ JavaScript
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🌐 Website
+                </div>
+
+            </div>
+
+            <h3>
+                ⭐ Main Technologies
+            </h3>
+
+            <div class="web-diagram">
+
+                <div class="web-box">
+
+                    <div class="web-icon">
+                        🧱
+                    </div>
+
+                    <strong>
+                        HTML
+                    </strong>
+
+                    <p>
+                        Structure
+                    </p>
+
+                </div>
+
+
+                <div class="web-box">
+
+                    <div class="web-icon">
+                        🎨
+                    </div>
+
+                    <strong>
+                        CSS
+                    </strong>
+
+                    <p>
+                        Styling
+                    </p>
+
+                </div>
+
+
+                <div class="web-box">
+
+                    <div class="web-icon">
+                        ⚡
+                    </div>
+
+                    <strong>
+                        JavaScript
+                    </strong>
+
+                    <p>
+                        Behaviour
+                    </p>
+
+                </div>
+
+
+                <div class="web-box">
+
+                    <div class="web-icon">
+                        🌐
+                    </div>
+
+                    <strong>
+                        Browser
+                    </strong>
+
+                    <p>
+                        Display
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             2. HTML
+        ========================================= -->
+
+        <section class="content-card" id="html">
+
+            <h2>
+                🧱 2. HTML
+            </h2>
+
+            <p>
+                HTML stands for
+                <b>HyperText Markup Language</b>.
+                It is used to create the structure of webpages.
+            </p>
+
+            <h3>
+                📌 Common HTML Elements
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🏷️ Headings — h1 to h6
+                </div>
+
+                <div class="topic-box">
+                    📝 Paragraph — p
+                </div>
+
+                <div class="topic-box">
+                    🔗 Links — a
+                </div>
+
+                <div class="topic-box">
+                    🖼️ Images — img
+                </div>
+
+                <div class="topic-box">
+                    📋 Lists — ul, ol, li
+                </div>
+
+                <div class="topic-box">
+                    📦 Div — div
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Basic HTML
+            </span>
+
+            <div class="code-box">
+                &lt;!DOCTYPE html&gt;
+
+                &lt;html&gt;
+
+                &lt;head&gt;
+                &lt;title&gt;My Website&lt;/title&gt;
+                &lt;/head&gt;
+
+                &lt;body&gt;
+
+                &lt;h1&gt;Hello World&lt;/h1&gt;
+
+                &lt;p&gt;
+                Welcome to my website.
+                &lt;/p&gt;
+
+                &lt;/body&gt;
+
+                &lt;/html&gt;
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    ⭐ Remember:
+                </strong>
+
+                <p>
+                    HTML provides the basic structure of a webpage.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             3. CSS
+        ========================================= -->
+
+        <section class="content-card" id="css">
+
+            <h2>
+                🎨 3. CSS
+            </h2>
+
+            <p>
+                CSS stands for
+                <b>Cascading Style Sheets</b>.
+                It is used to style and design webpages.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🧱 HTML
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🎨 CSS
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ✨ Beautiful Webpage
+                </div>
+
+            </div>
+
+            <h3>
+                🎨 CSS Can Control
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    🎨 Colors
+                </li>
+
+                <li>
+                    🔤 Fonts
+                </li>
+
+                <li>
+                    📏 Width and Height
+                </li>
+
+                <li>
+                    📦 Margin and Padding
+                </li>
+
+                <li>
+                    🧩 Layout
+                </li>
+
+                <li>
+                    ✨ Animations
+                </li>
+
+            </ul>
+
+            <span class="code-title">
+                💻 CSS Example
+            </span>
+
+            <div class="code-box">
+                body {
+                background: #f4fcfb;
+                font-family: Arial;
+                }
+
+                h1 {
+                color: teal;
+                text-align: center;
+                }
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             4. JAVASCRIPT
+        ========================================= -->
+
+        <section class="content-card" id="javascript">
+
+            <h2>
+                ⚡ 4. JavaScript
+            </h2>
+
+            <p>
+                JavaScript is a programming language used
+                to add interactivity and dynamic behaviour
+                to webpages.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🧱 HTML
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    🎨 CSS
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    ⚡ JavaScript
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🚀 Interactive Website
+                </div>
+
+            </div>
+
+            <h3>
+                ⚡ JavaScript Uses
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🖱️ Handle clicks
+                </div>
+
+                <div class="topic-box">
+                    📝 Validate forms
+                </div>
+
+                <div class="topic-box">
+                    🎭 Change HTML
+                </div>
+
+                <div class="topic-box">
+                    🎨 Change CSS
+                </div>
+
+                <div class="topic-box">
+                    📊 Work with data
+                </div>
+
+                <div class="topic-box">
+                    🚀 Build web applications
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 JavaScript Example
+            </span>
+
+            <div class="code-box">
+                &lt;button onclick="showMessage()"&gt;
+                Click Me
+                &lt;/button&gt;
+
+                &lt;script&gt;
+
+                function showMessage() {
+
+                alert("Hello from JavaScript!");
+
+                }
+
+                &lt;/script&gt;
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             5. FORMS
+        ========================================= -->
+
+        <section class="content-card" id="forms">
+
+            <h2>
+                📝 5. HTML Forms
+            </h2>
+
+            <p>
+                Forms are used to collect information from
+                users.
+            </p>
+
+            <h3>
+                📋 Common Form Elements
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    👤 Text Input
+                </div>
+
+                <div class="topic-box">
+                    📧 Email
+                </div>
+
+                <div class="topic-box">
+                    🔑 Password
+                </div>
+
+                <div class="topic-box">
+                    🔘 Radio Button
+                </div>
+
+                <div class="topic-box">
+                    ☑️ Checkbox
+                </div>
+
+                <div class="topic-box">
+                    🚀 Submit Button
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Form Example
+            </span>
+
+            <div class="code-box">
+                &lt;form&gt;
+
+                &lt;label&gt;Name:&lt;/label&gt;
+
+                &lt;input
+                type="text"
+                name="name"
+                &gt;
+
+                &lt;br&gt;&lt;br&gt;
+
+                &lt;label&gt;Email:&lt;/label&gt;
+
+                &lt;input
+                type="email"
+                name="email"
+                &gt;
+
+                &lt;br&gt;&lt;br&gt;
+
+                &lt;button type="submit"&gt;
+                Submit
+                &lt;/button&gt;
+
+                &lt;/form&gt;
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             6. RESPONSIVE WEB DESIGN
+        ========================================= -->
+
+        <section class="content-card" id="responsive">
+
+            <h2>
+                📱 6. Responsive Web Design
+            </h2>
+
+            <p>
+                Responsive Web Design means creating websites
+                that work properly on different screen sizes
+                such as computers, tablets and mobile phones.
+            </p>
+
+            <div class="device-diagram">
+
+                <div class="device desktop">
+                    🖥️ Desktop
+                </div>
+
+                <div class="device tablet">
+                    📱 Tablet
+                </div>
+
+                <div class="device mobile">
+                    📱 Mobile
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Goal:
+                </strong>
+
+                <p>
+                    The webpage should automatically adapt
+                    its layout to the user's screen.
+                </p>
+
+            </div>
+
+            <span class="code-title">
+                💻 Media Query
+            </span>
+
+            <div class="code-box">
+                @media (max-width: 600px) {
+
+                body {
+                font-size: 14px;
+                }
+
+                .container {
+                padding: 15px;
+                }
+
+                }
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             7. DOM
+        ========================================= -->
+
+        <section class="content-card" id="dom">
+
+            <h2>
+                🌳 7. DOM
+            </h2>
+
+            <p>
+                DOM stands for
+                <b>Document Object Model</b>.
+                It represents an HTML document as a tree of objects.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    📄 Document
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🌳 DOM Tree
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🧩 HTML Elements
+                </div>
+
+            </div>
+
+            <h3>
+                🌳 Simple DOM Structure
+            </h3>
+
+            <div class="topic-box">
+
+                <p>
+                    📄 Document
+                </p>
+
+                <p>
+                    └── 🧱 html
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── 🧠 head
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;└── 📦 body
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── h1
+                </p>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── p
+                </p>
+
+            </div>
+
+            <span class="code-title">
+                💻 DOM Example
+            </span>
+
+            <div class="code-box">
+                &lt;h1 id="title"&gt;
+                Hello
+                &lt;/h1&gt;
+
+                &lt;script&gt;
+
+                document.getElementById("title")
+                .textContent = "Welcome!";
+
+                &lt;/script&gt;
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             8. EVENTS
+        ========================================= -->
+
+        <section class="content-card" id="events">
+
+            <h2>
+                🖱️ 8. JavaScript Events
+            </h2>
+
+            <p>
+                Events are actions or occurrences that happen
+                in a webpage and can be handled using JavaScript.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🖱️ click
+                </div>
+
+                <div class="topic-box">
+                    ⌨️ keydown
+                </div>
+
+                <div class="topic-box">
+                    🖱️ mouseover
+                </div>
+
+                <div class="topic-box">
+                    📝 input
+                </div>
+
+                <div class="topic-box">
+                    📋 submit
+                </div>
+
+                <div class="topic-box">
+                    🌐 load
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Event Example
+            </span>
+
+            <div class="code-box">
+                const button =
+                document.getElementById("myButton");
+
+                button.addEventListener(
+                "click",
+                function() {
+
+                alert("Button clicked!");
+
+                }
+                );
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             9. BASIC WEB APPLICATIONS
+        ========================================= -->
+
+        <section class="content-card" id="applications">
+
+            <h2>
+                💻 9. Basic Web Applications
+            </h2>
+
+            <p>
+                A web application is an interactive application
+                that runs through a web browser.
+            </p>
+
+            <h3>
+                🚀 Beginner Web Application Ideas
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🧮 Calculator
+                </div>
+
+                <div class="topic-box">
+                    🌦️ Weather App
+                </div>
+
+                <div class="topic-box">
+                    📝 To-Do List
+                </div>
+
+                <div class="topic-box">
+                    🔐 Login Form
+                </div>
+
+                <div class="topic-box">
+                    🛒 E-Commerce Page
+                </div>
+
+                <div class="topic-box">
+                    📚 Quiz App
+                </div>
+
+            </div>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🧱 HTML
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    🎨 CSS
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    ⚡ JavaScript
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🚀 Web App
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             📝 QUICK REVISION
+        ========================================= -->
+
+        <section class="content-card revision-card" id="revision">
+
+            <h2>
+                📝 Web Technology Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    🌐 Web Technology → Tools used to create web pages and applications.
+                </li>
+
+                <li>
+                    🧱 HTML → Creates webpage structure.
+                </li>
+
+                <li>
+                    🎨 CSS → Styles webpages.
+                </li>
+
+                <li>
+                    ⚡ JavaScript → Adds interactivity.
+                </li>
+
+                <li>
+                    📝 Forms → Collect user information.
+                </li>
+
+                <li>
+                    📱 Responsive Design → Makes websites adapt to different screens.
+                </li>
+
+                <li>
+                    🌳 DOM → Represents HTML as a tree of objects.
+                </li>
+
+                <li>
+                    🖱️ Events → User or browser actions handled by JavaScript.
+                </li>
+
+                <li>
+                    💻 Web Applications → Interactive applications running in browsers.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             🎯 EXAM CHECKLIST
+        ========================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 BCA Web Technology Exam Checklist
+            </h2>
+
+            <p>
+                Make sure you understand these topics and
+                can write basic examples.
+            </p>
+
+            <div class="check-grid">
+
+                <div class="check-item">
+                    ✅ HTML
+                </div>
+
+                <div class="check-item">
+                    ✅ CSS
+                </div>
+
+                <div class="check-item">
+                    ✅ JavaScript
+                </div>
+
+                <div class="check-item">
+                    ✅ Forms
+                </div>
+
+                <div class="check-item">
+                    ✅ Responsive Design
+                </div>
+
+                <div class="check-item">
+                    ✅ DOM
+                </div>
+
+                <div class="check-item">
+                    ✅ Events
+                </div>
+
+                <div class="check-item">
+                    ✅ Web Applications
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+         🌊 FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <p>
+            🌐 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         ⚙️ JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =========================================
+           ✨ SCROLL REVEAL
+        ========================================= */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* =========================================
+           📚 SMOOTH TABLE OF CONTENTS
+        ========================================= */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+
+                                behavior: "smooth",
+
+                                block: "start"
+
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* =========================================
+           🌐 PAGE LOADED
+        ========================================= */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                document.body.classList.add(
+                    "page-loaded"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

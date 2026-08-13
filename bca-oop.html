@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Object-Oriented Programming | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+        /* =========================================
+           🌐 RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #fffaf3;
+            color: #443a32;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           ✨ INTRO ANIMATION
+        ========================================= */
+
+        .intro-screen {
+
+            position: fixed;
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                linear-gradient(135deg,
+                    #fff0d9,
+                    #fff8ee,
+                    #ffffff);
+
+            animation:
+                introHide 1s ease 2.6s forwards;
+
+            pointer-events: none;
+        }
+
+
+        .intro-content {
+            text-align: center;
+
+            animation:
+                introAppear 1s ease;
+        }
+
+
+        .intro-icon {
+
+            font-size: 70px;
+
+            animation:
+                oopFloat 1.5s ease-in-out infinite;
+        }
+
+
+        .intro-content h1 {
+
+            margin-top: 12px;
+
+            color: #c87832;
+
+            font-size: 30px;
+        }
+
+
+        .intro-content p {
+
+            color: #8c7968;
+
+            font-size: 14px;
+        }
+
+
+        @keyframes introAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(.7) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+
+        @keyframes oopFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(4deg);
+            }
+        }
+
+
+        @keyframes introHide {
+
+            from {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* =========================================
+           🧭 HEADER
+        ========================================= */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .95);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid #f0dfcc;
+        }
+
+
+        .navbar {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 15px 22px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+
+            text-decoration: none;
+
+            color: #bd6c2c;
+
+            font-size: 18px;
+
+            font-weight: 700;
+        }
+
+
+        .back-btn {
+
+            text-decoration: none;
+
+            background: #fff0dc;
+
+            color: #b86628;
+
+            padding: 8px 17px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .back-btn:hover {
+
+            background: #c87832;
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           📦 CONTAINER
+        ========================================= */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 35px 20px 70px;
+        }
+
+
+        /* =========================================
+           🧡 HERO
+        ========================================= */
+
+        .hero {
+
+            text-align: center;
+
+            padding: 55px 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(135deg,
+                    #ffebcf,
+                    #fff5e8,
+                    #ffffff);
+
+            border: 1px solid #f1dcc2;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            background: white;
+
+            color: #b86c2e;
+
+            padding: 7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(180, 100, 40, .08);
+        }
+
+
+        .hero h1 {
+
+            color: #bd6c2c;
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .hero p {
+
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #7d6e60;
+        }
+
+
+        /* =========================================
+           📚 CONTENT CARDS
+        ========================================= */
+
+        .content-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid #f0e0cf;
+
+            box-shadow:
+                0 8px 25px rgba(120, 80, 40, .06);
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .content-card.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        .content-card:hover {
+
+            box-shadow:
+                0 15px 35px rgba(150, 90, 40, .11);
+        }
+
+
+        .content-card h2 {
+
+            color: #bd6c2c;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .content-card h3 {
+
+            color: #d28748;
+
+            margin-top: 20px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           📑 TABLE OF CONTENTS
+        ========================================= */
+
+        .toc {
+
+            border-left:
+                6px solid #e39b5c;
+        }
+
+
+        .toc-list {
+
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .toc-list a {
+
+            display: block;
+
+            text-decoration: none;
+
+            color: #685b4e;
+
+            background: #fff7ed;
+
+            padding: 11px 14px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+
+        .toc-list a:hover {
+
+            background: #ffecd8;
+
+            color: #bd6c2c;
+
+            transform:
+                translateX(6px);
+        }
+
+
+        /* =========================================
+           🔄 DIAGRAM / FLOW
+        ========================================= */
+
+        .flow {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+
+        .flow-box {
+
+            padding: 14px 20px;
+
+            background: #fff0dd;
+
+            color: #b86628;
+
+            border:
+                1px solid #f0d5b6;
+
+            border-radius: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .flow-box:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 8px 20px rgba(190, 110, 40, .13);
+        }
+
+
+        .flow-arrow {
+
+            color: #d58b4c;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================================
+           🧩 TOPIC GRID
+        ========================================= */
+
+        .topic-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+
+        .topic-box {
+
+            padding: 20px;
+
+            background: #fffaf4;
+
+            border:
+                1px solid #f1e1d0;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+
+        .topic-box:hover {
+
+            transform:
+                translateY(-6px);
+
+            background: #fff2e3;
+
+            box-shadow:
+                0 10px 25px rgba(160, 90, 40, .10);
+        }
+
+
+        .topic-box h3 {
+
+            margin-top: 0;
+
+            color: #bd6c2c;
+        }
+
+
+        /* =========================================
+           💡 INFO BOX
+        ========================================= */
+
+        .info-box {
+
+            background: #fff3e2;
+
+            border-left:
+                5px solid #e09a59;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            margin: 18px 0;
+        }
+
+
+        .info-box strong {
+
+            color: #b86628;
+        }
+
+
+        /* =========================================
+           💻 CODE BOX
+        ========================================= */
+
+        .code-box {
+
+            background: #282522;
+
+            color: #fcefe2;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            overflow-x: auto;
+
+            margin-top: 15px;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            border:
+                1px solid #443c35;
+        }
+
+
+        .code-title {
+
+            display: inline-block;
+
+            background: #ffecd8;
+
+            color: #a85d23;
+
+            padding: 5px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================================
+           📝 NOTES
+        ========================================= */
+
+        .notes-list {
+
+            padding-left: 22px;
+        }
+
+
+        .notes-list li {
+
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+
+        .notes-list li:hover {
+
+            color: #bd6c2c;
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* =========================================
+           🧠 OOP DIAGRAM
+        ========================================= */
+
+        .oop-diagram {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin: 25px 0;
+        }
+
+
+        .oop-box {
+
+            text-align: center;
+
+            padding: 22px 15px;
+
+            background:
+                linear-gradient(145deg,
+                    #fff0dd,
+                    #fffaf5);
+
+            border:
+                1px solid #efd7bc;
+
+            border-radius: 18px;
+
+            transition: .3s;
+        }
+
+
+        .oop-box:hover {
+
+            transform:
+                translateY(-7px) scale(1.02);
+
+            box-shadow:
+                0 12px 25px rgba(180, 100, 40, .12);
+        }
+
+
+        .oop-icon {
+
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .oop-box strong {
+
+            color: #b86628;
+        }
+
+
+        /* =========================================
+           🧱 CLASS OBJECT DIAGRAM
+        ========================================= */
+
+        .class-diagram {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin: 25px 0;
+        }
+
+
+        .class-card {
+
+            min-width: 180px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            background: #fff8ef;
+
+            border:
+                2px solid #e8c9a9;
+
+            border-radius: 16px;
+        }
+
+
+        .class-card h4 {
+
+            color: #b86628;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           📝 REVISION
+        ========================================= */
+
+        .revision-card {
+
+            background:
+                linear-gradient(135deg,
+                    #fff0dc,
+                    #fffaf4);
+
+            border:
+                2px dashed #e1a66d;
+        }
+
+
+        /* =========================================
+           🎯 CHECKLIST
+        ========================================= */
+
+        .check-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .check-item {
+
+            padding: 15px;
+
+            text-align: center;
+
+            background: #fff7ed;
+
+            border-radius: 13px;
+
+            color: #a96530;
+
+            font-weight: 600;
+
+            border:
+                1px solid #f0dfcc;
+
+            transition: .3s;
+        }
+
+
+        .check-item:hover {
+
+            transform:
+                translateY(-4px);
+
+            background: #ffedd9;
+        }
+
+
+        /* =========================================
+           🌊 FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #40342b;
+
+            color: #eadfd5;
+        }
+
+
+        footer strong {
+
+            color: #ffc993;
+        }
+
+
+        /* =========================================
+           📱 RESPONSIVE
+        ========================================= */
+
+        @media(max-width:700px) {
+
+            .navbar {
+
+                padding:
+                    13px 16px;
+            }
+
+
+            .logo {
+
+                font-size: 15px;
+            }
+
+
+            .back-btn {
+
+                padding:
+                    7px 12px;
+            }
+
+
+            .hero {
+
+                padding:
+                    40px 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+            }
+
+
+            .content-card {
+
+                padding: 22px;
+            }
+
+
+            .toc-list,
+            .topic-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .oop-diagram {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .check-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .flow {
+
+                flex-direction: column;
+            }
+
+
+            .flow-arrow {
+
+                transform:
+                    rotate(90deg);
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         🧡 INTRO ANIMATION
+    ========================================= -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <div class="intro-icon">
+                🧩💻
+            </div>
+
+            <h1>
+                Object-Oriented Programming
+            </h1>
+
+            <p>
+                Learn OOP concepts step by step 🚀
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         🧭 HEADER
+    ========================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                💻 Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =========================================
+             HERO
+        ========================================= -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • OBJECT-ORIENTED PROGRAMMING
+            </span>
+
+            <h1>
+                🧩 Object-Oriented Programming
+            </h1>
+
+            <p>
+                Learn Classes, Objects, Encapsulation,
+                Inheritance, Polymorphism, Abstraction,
+                Constructors and Exception Handling
+                with simple examples.
+            </p>
+
+        </section>
+
+
+        <!-- =========================================
+             TABLE OF CONTENTS
+        ========================================= -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 OOP Topics
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#introduction">
+                        🧩 1. OOP Introduction
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#class-object">
+                        🏗️ 2. Classes & Objects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#encapsulation">
+                        🔒 3. Encapsulation
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#inheritance">
+                        🧬 4. Inheritance
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#polymorphism">
+                        🔄 5. Polymorphism
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#abstraction">
+                        🎯 6. Abstraction
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#constructors">
+                        🏗️ 7. Constructors
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#exception">
+                        ⚠️ 8. Exception Handling
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#revision">
+                        📝 9. Quick Revision
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             1. INTRODUCTION
+        ========================================= -->
+
+        <section class="content-card" id="introduction">
+
+            <h2>
+                🧩 1. OOP Introduction
+            </h2>
+
+            <p>
+                Object-Oriented Programming (OOP) is a programming
+                approach in which programs are designed around
+                <b>objects</b> and <b>classes</b>.
+            </p>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Simple Meaning
+                </strong>
+
+                <p>
+                    OOP allows us to represent real-world
+                    entities such as students, cars, employees
+                    and bank accounts using objects.
+                </p>
+
+            </div>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🌍 Real World
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🧩 Class
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📦 Object
+                </div>
+
+            </div>
+
+            <h3>
+                ⭐ Main OOP Concepts
+            </h3>
+
+            <div class="oop-diagram">
+
+                <div class="oop-box">
+
+                    <div class="oop-icon">
+                        🔒
+                    </div>
+
+                    <strong>
+                        Encapsulation
+                    </strong>
+
+                </div>
+
+
+                <div class="oop-box">
+
+                    <div class="oop-icon">
+                        🧬
+                    </div>
+
+                    <strong>
+                        Inheritance
+                    </strong>
+
+                </div>
+
+
+                <div class="oop-box">
+
+                    <div class="oop-icon">
+                        🔄
+                    </div>
+
+                    <strong>
+                        Polymorphism
+                    </strong>
+
+                </div>
+
+
+                <div class="oop-box">
+
+                    <div class="oop-icon">
+                        🎯
+                    </div>
+
+                    <strong>
+                        Abstraction
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             2. CLASS & OBJECT
+        ========================================= -->
+
+        <section class="content-card" id="class-object">
+
+            <h2>
+                🏗️ 2. Classes & Objects
+            </h2>
+
+            <h3>
+                🏗️ What is a Class?
+            </h3>
+
+            <p>
+                A class is a blueprint or template used to
+                create objects.
+            </p>
+
+            <h3>
+                📦 What is an Object?
+            </h3>
+
+            <p>
+                An object is an instance of a class.
+            </p>
+
+            <div class="class-diagram">
+
+                <div class="class-card">
+
+                    <h4>
+                        🏗️ CLASS
+                    </h4>
+
+                    <p>
+                        Student
+                    </p>
+
+                    <p>
+                        Name
+                        <br>
+                        Roll No
+                        <br>
+                        Course
+                    </p>
+
+                </div>
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+                <div class="class-card">
+
+                    <h4>
+                        📦 OBJECT
+                    </h4>
+
+                    <p>
+                        student1
+                    </p>
+
+                    <p>
+                        Roshni
+                        <br>
+                        101
+                        <br>
+                        BCA
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Python Example
+            </span>
+
+            <div class="code-box">
+                class Student:
+
+                def display(self):
+                print("Student Details")
+
+
+                student1 = Student()
+
+                student1.display()
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             3. ENCAPSULATION
+        ========================================= -->
+
+        <section class="content-card" id="encapsulation">
+
+            <h2>
+                🔒 3. Encapsulation
+            </h2>
+
+            <p>
+                Encapsulation means combining data and methods
+                into a single unit and controlling access to
+                the data.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    📦 Data
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    ⚙️ Methods
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🔒 Encapsulated Class
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Example
+            </span>
+
+            <div class="code-box">
+                class BankAccount:
+
+                def __init__(self):
+                self.__balance = 0
+
+                def deposit(self, amount):
+                self.__balance += amount
+
+                def get_balance(self):
+                return self.__balance
+
+
+                account = BankAccount()
+
+                account.deposit(1000)
+
+                print(account.get_balance())
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    ⭐ Key Point:
+                </strong>
+
+                <p>
+                    Encapsulation helps protect data and
+                    control how it is accessed.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             4. INHERITANCE
+        ========================================= -->
+
+        <section class="content-card" id="inheritance">
+
+            <h2>
+                🧬 4. Inheritance
+            </h2>
+
+            <p>
+                Inheritance allows a new class to acquire
+                properties and methods from an existing class.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    👨 Parent Class
+                </div>
+
+                <span class="flow-arrow">
+                    ↓
+                </span>
+
+                <div class="flow-box">
+                    👩 Child Class
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Python Example
+            </span>
+
+            <div class="code-box">
+                class Animal:
+
+                def eat(self):
+                print("Eating")
+
+
+                class Dog(Animal):
+
+                def bark(self):
+                print("Barking")
+
+
+                dog = Dog()
+
+                dog.eat()
+                dog.bark()
+            </div>
+
+            <h3>
+                🧬 Types of Inheritance
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    1️⃣ Single Inheritance
+                </div>
+
+                <div class="topic-box">
+                    2️⃣ Multiple Inheritance
+                </div>
+
+                <div class="topic-box">
+                    3️⃣ Multilevel Inheritance
+                </div>
+
+                <div class="topic-box">
+                    4️⃣ Hierarchical Inheritance
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             5. POLYMORPHISM
+        ========================================= -->
+
+        <section class="content-card" id="polymorphism">
+
+            <h2>
+                🔄 5. Polymorphism
+            </h2>
+
+            <p>
+                Polymorphism means
+                <b>"many forms"</b>.
+                The same method or operation can behave
+                differently in different situations.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    ⚙️ Same Method
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🔄 Different Behaviour
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Example
+            </span>
+
+            <div class="code-box">
+                class Dog:
+
+                def sound(self):
+                print("Bark")
+
+
+                class Cat:
+
+                def sound(self):
+                print("Meow")
+
+
+                animals = [Dog(), Cat()]
+
+                for animal in animals:
+                animal.sound()
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Remember:
+                </strong>
+
+                <p>
+                    One interface or method name can represent
+                    different behaviours.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             6. ABSTRACTION
+        ========================================= -->
+
+        <section class="content-card" id="abstraction">
+
+            <h2>
+                🎯 6. Abstraction
+            </h2>
+
+            <p>
+                Abstraction means hiding unnecessary implementation
+                details and showing only the important features.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    ⚙️ Complex Implementation
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🎯 Hide Details
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    👤 Simple Interface
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    🌍 Real-Life Example:
+                </strong>
+
+                <p>
+                    When using an ATM, you interact with buttons
+                    and options without needing to know the internal
+                    banking system.
+                </p>
+
+            </div>
+
+            <span class="code-title">
+                💻 Basic Python Example
+            </span>
+
+            <div class="code-box">
+                from abc import ABC, abstractmethod
+
+
+                class Animal(ABC):
+
+                @abstractmethod
+                def sound(self):
+                pass
+
+
+                class Dog(Animal):
+
+                def sound(self):
+                print("Bark")
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             7. CONSTRUCTORS
+        ========================================= -->
+
+        <section class="content-card" id="constructors">
+
+            <h2>
+                🏗️ 7. Constructors
+            </h2>
+
+            <p>
+                A constructor is a special method that is
+                automatically called when an object is created.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🏗️ Class
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📦 Object Created
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ⚙️ __init__()
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Constructor Example
+            </span>
+
+            <div class="code-box">
+                class Student:
+
+                def __init__(self, name, age):
+                self.name = name
+                self.age = age
+
+
+                student1 = Student("Roshni", 20)
+
+                print(student1.name)
+                print(student1.age)
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    ⭐ Important:
+                </strong>
+
+                <p>
+                    In Python, <b>__init__()</b> is commonly used
+                    to initialize object attributes.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             8. EXCEPTION HANDLING
+        ========================================= -->
+
+        <section class="content-card" id="exception">
+
+            <h2>
+                ⚠️ 8. Exception Handling
+            </h2>
+
+            <p>
+                Exception handling is used to handle runtime
+                errors without abruptly stopping the program.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    ▶️ try
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ⚠️ Error?
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🛠️ except
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🧹 finally
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Example
+            </span>
+
+            <div class="code-box">
+                try:
+
+                number = int(input("Enter number: "))
+
+                print(10 / number)
+
+                except ZeroDivisionError:
+
+                print("Cannot divide by zero")
+
+                except ValueError:
+
+                print("Enter a valid number")
+
+                finally:
+
+                print("Program completed")
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             📝 QUICK REVISION
+        ========================================= -->
+
+        <section class="content-card revision-card" id="revision">
+
+            <h2>
+                📝 OOP Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    🧩 OOP → Object-Oriented Programming
+                </li>
+
+                <li>
+                    🏗️ Class → Blueprint for objects
+                </li>
+
+                <li>
+                    📦 Object → Instance of a class
+                </li>
+
+                <li>
+                    🔒 Encapsulation → Data + methods together
+                </li>
+
+                <li>
+                    🧬 Inheritance → Reusing properties and methods
+                </li>
+
+                <li>
+                    🔄 Polymorphism → Many forms
+                </li>
+
+                <li>
+                    🎯 Abstraction → Hiding implementation details
+                </li>
+
+                <li>
+                    🏗️ Constructor → Initializes an object
+                </li>
+
+                <li>
+                    ⚠️ Exception Handling → Handles runtime errors
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             🎯 EXAM CHECKLIST
+        ========================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 BCA OOP Exam Checklist
+            </h2>
+
+            <p>
+                Make sure you can explain these concepts
+                with definitions, diagrams and examples.
+            </p>
+
+            <div class="check-grid">
+
+                <div class="check-item">
+                    ✅ OOP Basics
+                </div>
+
+                <div class="check-item">
+                    ✅ Classes
+                </div>
+
+                <div class="check-item">
+                    ✅ Objects
+                </div>
+
+                <div class="check-item">
+                    ✅ Encapsulation
+                </div>
+
+                <div class="check-item">
+                    ✅ Inheritance
+                </div>
+
+                <div class="check-item">
+                    ✅ Polymorphism
+                </div>
+
+                <div class="check-item">
+                    ✅ Abstraction
+                </div>
+
+                <div class="check-item">
+                    ✅ Constructors
+                </div>
+
+                <div class="check-item">
+                    ✅ Exception Handling
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         🌊 FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <p>
+            🧩 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         ⚙️ JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =========================================
+           ✨ SCROLL REVEAL
+        ========================================= */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* =========================================
+           📚 SMOOTH TOC SCROLL
+        ========================================= */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+
+                                behavior: "smooth",
+
+                                block: "start"
+
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>

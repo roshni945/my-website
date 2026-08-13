@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BCA Algorithms | Roshni Code Charm</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =====================================================
+   ⚡ ALGORITHMS PAGE
+   DIFFERENT DESIGN FROM DATA STRUCTURES
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:#f8fafc;
+    color:#334155;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   🚀 INTRO ANIMATION
+===================================================== */
+
+.intro-screen{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffd6c2,
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 80% 75%,
+            #c9d8ff,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #172554,
+            #243b64,
+            #172554
+        );
+
+    animation:introExit .8s ease 3.8s forwards;
+
+    pointer-events:none;
+}
+
+
+.intro-center{
+    position:relative;
+    text-align:center;
+    color:white;
+
+    animation:introZoom 1s ease forwards;
+}
+
+
+.intro-brain{
+    font-size:80px;
+    display:block;
+
+    animation:
+        brainMove 2s ease-in-out infinite;
+}
+
+
+.intro-center h1{
+    margin-top:10px;
+
+    font-size:34px;
+
+    letter-spacing:.5px;
+}
+
+
+.intro-center p{
+    color:#ffd6c2;
+
+    font-size:14px;
+}
+
+
+.intro-emoji{
+    position:absolute;
+    font-size:31px;
+}
+
+
+.e1{
+    top:-90px;
+    left:-120px;
+
+    animation:
+        orbitOne 3s ease-in-out infinite;
+}
+
+
+.e2{
+    top:-70px;
+    right:-120px;
+
+    animation:
+        orbitTwo 2.7s ease-in-out infinite;
+}
+
+
+.e3{
+    bottom:-80px;
+    left:-100px;
+
+    animation:
+        orbitThree 3.2s ease-in-out infinite;
+}
+
+
+.e4{
+    bottom:-80px;
+    right:-105px;
+
+    animation:
+        orbitFour 2.9s ease-in-out infinite;
+}
+
+
+@keyframes introZoom{
+
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+
+@keyframes brainMove{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50%{
+        transform:
+            translateY(-16px)
+            rotate(4deg);
+    }
+}
+
+
+@keyframes orbitOne{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(-22px,-20px)
+                   rotate(-15deg);
+    }
+}
+
+
+@keyframes orbitTwo{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(23px,-18px)
+                   rotate(15deg);
+    }
+}
+
+
+@keyframes orbitThree{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(-20px,20px)
+                   rotate(12deg);
+    }
+}
+
+
+@keyframes orbitFour{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(20px,21px)
+                   rotate(-12deg);
+    }
+}
+
+
+@keyframes introExit{
+
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+
+/* =====================================================
+   🧭 HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:
+        rgba(255,255,255,.94);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:
+        1px solid #e2e8f0;
+}
+
+
+.navbar{
+    max-width:1150px;
+    margin:auto;
+
+    padding:14px 22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+.logo{
+    text-decoration:none;
+
+    color:#172554;
+
+    font-weight:800;
+    font-size:18px;
+}
+
+
+.back-btn{
+    text-decoration:none;
+
+    color:white;
+
+    background:#f97352;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-size:13px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+
+.back-btn:hover{
+    background:#172554;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   📦 CONTAINER
+===================================================== */
+
+.container{
+    max-width:1120px;
+    margin:auto;
+
+    padding:
+        35px 20px 70px;
+}
+
+
+/* =====================================================
+   ⚡ HERO
+===================================================== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    min-height:390px;
+
+    display:flex;
+    align-items:center;
+
+    margin-bottom:28px;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            125deg,
+            #172554 0%,
+            #243b64 55%,
+            #334e7e 100%
+        );
+
+    box-shadow:
+        0 18px 45px
+        rgba(23,37,84,.18);
+}
+
+
+.hero-content{
+    position:relative;
+    z-index:4;
+
+    max-width:610px;
+}
+
+
+.hero-badge{
+    display:inline-block;
+
+    padding:7px 15px;
+
+    margin-bottom:15px;
+
+    border-radius:30px;
+
+    color:#172554;
+
+    background:#ffd6c2;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+
+.hero h1{
+    font-size:44px;
+    line-height:1.2;
+
+    margin-bottom:14px;
+}
+
+
+.hero p{
+    color:#dbeafe;
+
+    max-width:570px;
+}
+
+
+/* =====================================================
+   📊 ANIMATED ALGORITHM VISUAL
+===================================================== */
+
+.algorithm-visual{
+    position:absolute;
+
+    right:35px;
+    top:50%;
+
+    width:400px;
+    height:280px;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.visual-box{
+    position:absolute;
+
+    padding:13px 17px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.1);
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    backdrop-filter:blur(8px);
+
+    color:white;
+
+    font-size:13px;
+    font-weight:600;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.15);
+
+    animation:
+        visualFloat 3s ease-in-out infinite;
+}
+
+
+.v1{
+    top:15px;
+    left:35px;
+}
+
+
+.v2{
+    top:100px;
+    right:30px;
+
+    animation-delay:.5s;
+}
+
+
+.v3{
+    bottom:20px;
+    left:85px;
+
+    animation-delay:1s;
+}
+
+
+.v4{
+    top:135px;
+    left:5px;
+
+    animation-delay:1.5s;
+}
+
+
+.visual-line{
+    position:absolute;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff9d7d,
+            transparent
+        );
+
+    transform-origin:left center;
+
+    animation:
+        linePulse 2s linear infinite;
+}
+
+
+.line1{
+    width:150px;
+
+    top:75px;
+    left:110px;
+
+    transform:
+        rotate(20deg);
+}
+
+
+.line2{
+    width:140px;
+
+    top:160px;
+    left:100px;
+
+    transform:
+        rotate(-12deg);
+}
+
+
+.line3{
+    width:125px;
+
+    top:190px;
+    left:210px;
+
+    transform:
+        rotate(35deg);
+}
+
+
+.visual-gear{
+    position:absolute;
+
+    color:#ffb49c;
+
+    font-size:42px;
+
+    animation:
+        gearSpin 6s linear infinite;
+}
+
+
+.g1{
+    right:80px;
+    bottom:25px;
+}
+
+
+.g2{
+    right:180px;
+    top:40px;
+
+    font-size:27px;
+
+    animation-duration:4s;
+}
+
+
+@keyframes visualFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+
+@keyframes linePulse{
+
+    0%{
+        opacity:.25;
+        transform-origin:left;
+        scale:.8;
+    }
+
+    50%{
+        opacity:1;
+        scale:1;
+    }
+
+    100%{
+        opacity:.25;
+        scale:.8;
+    }
+}
+
+
+@keyframes gearSpin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   📚 CONTENT CARD
+===================================================== */
+
+.content-card{
+    background:white;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    margin-bottom:23px;
+
+    box-shadow:
+        0 8px 28px
+        rgba(15,23,42,.045);
+
+    opacity:0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        .7s ease;
+}
+
+
+.content-card.show{
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+
+.content-card h2{
+    color:#172554;
+
+    font-size:25px;
+
+    margin-bottom:13px;
+}
+
+
+.content-card h3{
+    color:#334e7e;
+
+    margin-top:18px;
+    margin-bottom:8px;
+}
+
+
+/* =====================================================
+   🧭 ALGORITHM ROAD
+===================================================== */
+
+.algorithm-road{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:0;
+
+    margin:25px 0;
+
+    overflow:hidden;
+}
+
+
+.road-step{
+
+    position:relative;
+
+    min-width:150px;
+
+    padding:16px 14px;
+
+    text-align:center;
+
+    color:white;
+
+    background:#172554;
+
+    font-size:13px;
+    font-weight:600;
+
+    clip-path:
+        polygon(
+            0 0,
+            88% 0,
+            100% 50%,
+            88% 100%,
+            0 100%,
+            12% 50%
+        );
+
+    animation:
+        stepGlow 2.5s ease-in-out infinite;
+}
+
+
+.road-step:nth-child(2){
+    animation-delay:.3s;
+
+    background:#334e7e;
+}
+
+
+.road-step:nth-child(3){
+    animation-delay:.6s;
+
+    background:#f97352;
+}
+
+
+.road-step:nth-child(4){
+    animation-delay:.9s;
+
+    background:#172554;
+}
+
+
+.road-step:nth-child(5){
+    animation-delay:1.2s;
+
+    background:#334e7e;
+}
+
+
+@keyframes stepGlow{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:
+            translateY(-7px);
+    }
+}
+
+
+/* =====================================================
+   🔎 SEARCHING VISUAL
+===================================================== */
+
+.search-animation{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:9px;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    background:#f8fafc;
+
+    border-radius:18px;
+}
+
+
+.search-item{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#dbeafe;
+
+    color:#172554;
+
+    font-weight:700;
+
+    animation:
+        searchPulse 2.8s infinite;
+}
+
+
+.search-item:nth-child(1){
+    animation-delay:0s;
+}
+
+
+.search-item:nth-child(2){
+    animation-delay:.25s;
+}
+
+
+.search-item:nth-child(3){
+    animation-delay:.5s;
+}
+
+
+.search-item:nth-child(4){
+    animation-delay:.75s;
+}
+
+
+.search-item:nth-child(5){
+    animation-delay:1s;
+}
+
+
+.search-item:nth-child(6){
+    animation-delay:1.25s;
+}
+
+
+.search-item.target{
+    background:#ffb49c;
+    color:#172554;
+}
+
+
+@keyframes searchPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    20%{
+        transform:scale(1);
+    }
+
+    30%{
+        transform:scale(1.18);
+        box-shadow:
+            0 0 0 5px
+            rgba(249,115,82,.12);
+    }
+
+    45%{
+        transform:scale(1);
+    }
+}
+
+
+/* =====================================================
+   📊 SORTING VISUAL
+===================================================== */
+
+.sort-animation{
+
+    height:190px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc,
+            #eef2ff
+        );
+}
+
+
+.sort-bar{
+
+    width:32px;
+
+    border-radius:
+        8px 8px 2px 2px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f97352,
+            #172554
+        );
+
+    animation:
+        sorting 3s ease-in-out infinite;
+}
+
+
+.b1{
+    height:55px;
+    animation-delay:0s;
+}
+
+
+.b2{
+    height:120px;
+    animation-delay:.25s;
+}
+
+
+.b3{
+    height:80px;
+    animation-delay:.5s;
+}
+
+
+.b4{
+    height:145px;
+    animation-delay:.75s;
+}
+
+
+.b5{
+    height:100px;
+    animation-delay:1s;
+}
+
+
+.b6{
+    height:165px;
+    animation-delay:1.25s;
+}
+
+
+@keyframes sorting{
+
+    0%,100%{
+        transform:
+            translateY(0);
+    }
+
+    45%{
+        transform:
+            translateY(-10px);
+    }
+
+    70%{
+        transform:
+            scaleY(.85);
+    }
+}
+
+
+/* =====================================================
+   🧩 TOPIC GRID
+===================================================== */
+
+.topic-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:18px;
+}
+
+
+.topic-box{
+
+    padding:21px;
+
+    border-radius:17px;
+
+    background:#f8fafc;
+
+    border:
+        1px solid #e2e8f0;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.topic-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:#fff0eb;
+
+    right:-25px;
+    bottom:-25px;
+}
+
+
+.topic-box:hover{
+
+    transform:
+        translateY(-6px);
+
+    border-color:#ffb49c;
+
+    box-shadow:
+        0 12px 25px
+        rgba(23,37,84,.07);
+}
+
+
+.topic-box h3{
+
+    margin-top:0;
+
+    color:#172554;
+
+    position:relative;
+    z-index:2;
+}
+
+
+.topic-box p{
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* =====================================================
+   ⏱️ COMPLEXITY
+===================================================== */
+
+.complexity-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:13px;
+
+    margin-top:20px;
+}
+
+
+.complexity-card{
+
+    text-align:center;
+
+    padding:18px 10px;
+
+    border-radius:16px;
+
+    background:#f8fafc;
+
+    border:
+        1px solid #e2e8f0;
+
+    transition:.3s;
+}
+
+
+.complexity-card:hover{
+
+    transform:
+        translateY(-7px);
+
+    background:#fff7f4;
+
+    border-color:#ffb49c;
+}
+
+
+.big-o{
+
+    font-size:27px;
+
+    font-weight:800;
+
+    color:#f97352;
+
+    margin:5px;
+}
+
+
+/* =====================================================
+   💻 CODE
+===================================================== */
+
+.code-label{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    background:#fff0eb;
+
+    color:#c94e32;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+.code-box{
+
+    margin-top:9px;
+
+    padding:20px;
+
+    overflow-x:auto;
+
+    border-radius:15px;
+
+    background:#111827;
+
+    color:#e5e7eb;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   💡 INFO
+===================================================== */
+
+.info-box{
+
+    padding:18px;
+
+    margin-top:18px;
+
+    border-left:
+        5px solid #f97352;
+
+    border-radius:14px;
+
+    background:#fff7f4;
+}
+
+
+.info-box strong{
+    color:#c94e32;
+}
+
+
+/* =====================================================
+   📝 NOTES
+===================================================== */
+
+.notes-list{
+    padding-left:22px;
+}
+
+
+.notes-list li{
+
+    margin:7px 0;
+
+    transition:.2s;
+}
+
+
+.notes-list li:hover{
+
+    color:#f97352;
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =====================================================
+   📋 TABLE
+===================================================== */
+
+.table-wrapper{
+    overflow-x:auto;
+    margin-top:18px;
+}
+
+
+.data-table{
+
+    width:100%;
+
+    min-width:680px;
+
+    border-collapse:collapse;
+}
+
+
+.data-table th{
+
+    padding:12px;
+
+    text-align:left;
+
+    color:white;
+
+    background:#172554;
+}
+
+
+.data-table td{
+
+    padding:11px 12px;
+
+    border-bottom:
+        1px solid #e2e8f0;
+
+    background:#fff;
+}
+
+
+.data-table tr:hover td{
+
+    background:#fff7f4;
+}
+
+
+/* =====================================================
+   📝 REVISION
+===================================================== */
+
+.revision{
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7f4,
+            #f1f5ff
+        );
+
+    border:
+        2px dashed #f0a38e;
+}
+
+
+/* =====================================================
+   🎯 CHECKLIST
+===================================================== */
+
+.check-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+
+.check{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    border:
+        1px solid #e2e8f0;
+
+    color:#172554;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+
+.check:hover{
+
+    transform:
+        translateY(-5px);
+
+    background:#fff0eb;
+
+    border-color:#ffb49c;
+}
+
+
+/* =====================================================
+   🌊 FOOTER
+===================================================== */
+
+footer{
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    background:#172554;
+
+    color:#cbd5e1;
+}
+
+
+footer strong{
+    color:#ffb49c;
+}
+
+
+/* =====================================================
+   📱 RESPONSIVE
+===================================================== */
+
+@media(max-width:950px){
+
+    .algorithm-visual{
+        opacity:.25;
+        right:-60px;
+    }
+
+    .complexity-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .hero{
+
+        min-height:430px;
+
+        padding:35px 23px;
+
+        align-items:flex-start;
+    }
+
+
+    .hero h1{
+        font-size:32px;
+    }
+
+
+    .algorithm-visual{
+
+        width:330px;
+        right:-100px;
+        top:auto;
+        bottom:-20px;
+
+        transform:
+            scale(.75);
+    }
+
+
+    .topic-grid,
+    .complexity-grid{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .algorithm-road{
+
+        flex-direction:column;
+
+        gap:5px;
+    }
+
+
+    .road-step{
+
+        width:90%;
+
+        clip-path:none;
+
+        border-radius:12px;
+    }
+
+
+    .search-animation{
+
+        gap:5px;
+        padding:18px;
+    }
+
+
+    .search-item{
+
+        width:37px;
+        height:37px;
+    }
+
+
+    .sort-animation{
+
+        gap:5px;
+    }
+
+
+    .sort-bar{
+
+        width:25px;
+    }
+
+
+    .check-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:400px){
+
+    .check-grid{
+        grid-template-columns:1fr;
+    }
+
+    .search-item{
+        width:32px;
+        height:32px;
+        font-size:12px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     🚀 INTRO
+===================================================== -->
+
+<div class="intro-screen">
+
+    <div class="intro-center">
+
+        <span class="intro-emoji e1">⚡</span>
+        <span class="intro-emoji e2">🔍</span>
+        <span class="intro-emoji e3">📊</span>
+        <span class="intro-emoji e4">⚙️</span>
+
+        <span class="intro-brain">
+            🧠
+        </span>
+
+        <h1>
+            Algorithms
+        </h1>
+
+        <p>
+            Think ⚡ Solve 🧩 Optimize 📈
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     🧭 HEADER
+===================================================== -->
+
+<header>
+
+<nav class="navbar">
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+        🧠 Roshni Code Charm
+    </a>
+
+
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Back
+    </a>
+
+</nav>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     ⚡ HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            🎓 BCA • ALGORITHMS • FULL NOTES
+        </span>
+
+        <h1>
+            ⚡ Algorithms
+        </h1>
+
+        <p>
+            Understand how problems are solved step-by-step,
+            how algorithms are analyzed, and how searching,
+            sorting and recursion work.
+        </p>
+
+    </div>
+
+
+    <div class="algorithm-visual">
+
+        <div class="visual-box v1">
+            🧩 Problem
+        </div>
+
+        <div class="visual-box v2">
+            ⚙️ Process
+        </div>
+
+        <div class="visual-box v3">
+            ✅ Result
+        </div>
+
+        <div class="visual-box v4">
+            🔍 Analyze
+        </div>
+
+
+        <div class="visual-line line1"></div>
+        <div class="visual-line line2"></div>
+        <div class="visual-line line3"></div>
+
+
+        <i class="fa-solid fa-gear visual-gear g1"></i>
+
+        <i class="fa-solid fa-gear visual-gear g2"></i>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     🧠 INTRODUCTION
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        🧠 1. Introduction to Algorithms
+    </h2>
+
+    <p>
+        An algorithm is a finite sequence of well-defined
+        steps used to solve a problem or perform a computation.
+    </p>
+
+
+    <div class="algorithm-road">
+
+        <div class="road-step">
+            📥 Input
+        </div>
+
+        <div class="road-step">
+            🧩 Understand
+        </div>
+
+        <div class="road-step">
+            ⚙️ Process
+        </div>
+
+        <div class="road-step">
+            🧪 Test
+        </div>
+
+        <div class="road-step">
+            📤 Output
+        </div>
+
+    </div>
+
+
+    <div class="info-box">
+
+        <strong>
+            💡 Remember:
+        </strong>
+
+        <p>
+            Algorithm = A clear step-by-step method
+            for solving a particular problem.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ⭐ CHARACTERISTICS
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        ⭐ 2. Characteristics of an Algorithm
+    </h2>
+
+
+    <div class="topic-grid">
+
+        <div class="topic-box">
+
+            <h3>📥 Input</h3>
+
+            <p>
+                Zero or more input values can be supplied.
+            </p>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>📤 Output</h3>
+
+            <p>
+                The algorithm should produce a useful result.
+            </p>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>🔍 Definiteness</h3>
+
+            <p>
+                Each step should be clear and unambiguous.
+            </p>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>🏁 Finiteness</h3>
+
+            <p>
+                The process should eventually terminate.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     🧩 DESIGN
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        🧩 3. Basic Algorithm Design
+    </h2>
+
+    <p>
+        Algorithm design involves creating an effective
+        sequence of operations to solve a problem.
+    </p>
+
+
+    <ul class="notes-list">
+
+        <li>🔎 Understand the problem.</li>
+
+        <li>📥 Identify inputs.</li>
+
+        <li>📤 Identify outputs.</li>
+
+        <li>🧩 Break the problem into smaller tasks.</li>
+
+        <li>✍️ Write an algorithm or pseudocode.</li>
+
+        <li>💻 Implement the solution.</li>
+
+        <li>🧪 Test the solution.</li>
+
+        <li>⚡ Improve efficiency if necessary.</li>
+
+    </ul>
+
+</section>
+
+
+<!-- =====================================================
+     📊 ANALYSIS
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        📊 4. Algorithm Analysis
+    </h2>
+
+    <p>
+        Algorithm analysis helps determine how efficiently
+        an algorithm uses computational resources.
+    </p>
+
+
+    <div class="topic-grid">
+
+        <div class="topic-box">
+
+            <h3>
+                ⏱️ Time Complexity
+            </h3>
+
+            <p>
+                Describes how the number of operations
+                grows as the input size increases.
+            </p>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>
+                💾 Space Complexity
+            </h3>
+
+            <p>
+                Describes how additional memory usage
+                grows with input size.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ⏱️ COMPLEXITY
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        ⏱️ 5. Time Complexity
+    </h2>
+
+    <p>
+        Time complexity describes the growth of an algorithm's
+        running time with respect to input size.
+    </p>
+
+
+    <div class="complexity-grid">
+
+        <div class="complexity-card">
+
+            <h3>🟢 Constant</h3>
+
+            <div class="big-o">
+                O(1)
+            </div>
+
+            <p>
+                Constant growth
+            </p>
+
+        </div>
+
+
+        <div class="complexity-card">
+
+            <h3>🔵 Logarithmic</h3>
+
+            <div class="big-o">
+                O(log n)
+            </div>
+
+            <p>
+                Slow growth
+            </p>
+
+        </div>
+
+
+        <div class="complexity-card">
+
+            <h3>🟠 Linear</h3>
+
+            <div class="big-o">
+                O(n)
+            </div>
+
+            <p>
+                Proportional growth
+            </p>
+
+        </div>
+
+
+        <div class="complexity-card">
+
+            <h3>🔴 Quadratic</h3>
+
+            <div class="big-o">
+                O(n²)
+            </div>
+
+            <p>
+                Faster growth
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     🔎 SEARCHING
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        🔎 6. Searching Algorithms
+    </h2>
+
+    <p>
+        Searching algorithms locate a target element
+        within a collection of data.
+    </p>
+
+
+    <div class="topic-grid">
+
+        <div class="topic-box">
+
+            <h3>
+                🔍 Linear Search
+            </h3>
+
+            <p>
+                Checks elements sequentially until the target
+                is found or the collection ends.
+            </p>
+
+            <strong>
+                ⏱️ Worst case: O(n)
+            </strong>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>
+                ⚡ Binary Search
+            </h3>
+
+            <p>
+                Repeatedly divides a sorted search range
+                into two parts.
+            </p>
+
+            <strong>
+                ⏱️ Worst case: O(log n)
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- 🔍 ANIMATED SEARCH -->
+
+    <div class="search-animation">
+
+        <div class="search-item">
+            4
+        </div>
+
+        <div class="search-item">
+            8
+        </div>
+
+        <div class="search-item">
+            12
+        </div>
+
+        <div class="search-item target">
+            🎯
+        </div>
+
+        <div class="search-item">
+            19
+        </div>
+
+        <div class="search-item">
+            25
+        </div>
+
+    </div>
+
+
+    <span class="code-label">
+        💻 Linear Search
+    </span>
+
+
+    <div class="code-box">
+
+for(int i = 0; i < n; i++)
+{
+    if(arr[i] == key)
+    {
+        printf("Element Found");
+        break;
+    }
+}
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     🔄 SORTING
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        🔄 7. Sorting Algorithms
+    </h2>
+
+    <p>
+        Sorting means arranging data elements into a
+        particular order, such as ascending or descending.
+    </p>
+
+
+    <div class="topic-grid">
+
+        <div class="topic-box">
+
+            <h3>
+                🫧 Bubble Sort
+            </h3>
+
+            <p>
+                Compares adjacent elements and swaps
+                them when they are in the wrong order.
+            </p>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>
+                🃏 Insertion Sort
+            </h3>
+
+            <p>
+                Inserts elements into their appropriate
+                position in the sorted part.
+            </p>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>
+                🎯 Selection Sort
+            </h3>
+
+            <p>
+                Selects the appropriate minimum or maximum
+                element and places it into position.
+            </p>
+
+        </div>
+
+
+        <div class="topic-box">
+
+            <h3>
+                ⚡ Quick Sort
+            </h3>
+
+            <p>
+                Uses partitioning around a pivot
+                to divide the problem.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- 📊 ANIMATED SORT -->
+
+    <div class="sort-animation">
+
+        <div class="sort-bar b1"></div>
+        <div class="sort-bar b2"></div>
+        <div class="sort-bar b3"></div>
+        <div class="sort-bar b4"></div>
+        <div class="sort-bar b5"></div>
+        <div class="sort-bar b6"></div>
+
+    </div>
+
+
+    <span class="code-label">
+        💻 Bubble Sort
+    </span>
+
+
+    <div class="code-box">
+
+for(int i = 0; i < n - 1; i++)
+{
+    for(int j = 0; j < n - i - 1; j++)
+    {
+        if(arr[j] > arr[j + 1])
+        {
+            int temp = arr[j];
+
+            arr[j] = arr[j + 1];
+
+            arr[j + 1] = temp;
+        }
+    }
+}
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ♻️ RECURSION
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        ♻️ 8. Recursion
+    </h2>
+
+    <p>
+        Recursion is a technique in which a function
+        calls itself to solve a smaller version of a problem.
+    </p>
+
+
+    <div class="algorithm-road">
+
+        <div class="road-step">
+            🧩 Problem
+        </div>
+
+        <div class="road-step">
+            🔽 Smaller
+        </div>
+
+        <div class="road-step">
+            ♻️ Recursive Call
+        </div>
+
+        <div class="road-step">
+            🛑 Base Case
+        </div>
+
+    </div>
+
+
+    <div class="info-box">
+
+        <strong>
+            ⚠️ Important:
+        </strong>
+
+        <p>
+            A recursive solution needs a suitable base case
+            to stop the recursive calls.
+        </p>
+
+    </div>
+
+
+    <span class="code-label">
+        💻 Factorial Example
+    </span>
+
+
+    <div class="code-box">
+
+int factorial(int n)
+{
+    if(n == 0)
+        return 1;
+
+    return n * factorial(n - 1);
+}
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     🧠 ALGORITHM DESIGN
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        🧠 9. Basic Algorithmic Problem Solving
+    </h2>
+
+
+    <ul class="notes-list">
+
+        <li>
+            🔎 Understand the problem.
+        </li>
+
+        <li>
+            📥 Identify the input.
+        </li>
+
+        <li>
+            📤 Identify the expected output.
+        </li>
+
+        <li>
+            🧩 Divide the problem into smaller parts.
+        </li>
+
+        <li>
+            ✍️ Create pseudocode or an algorithm.
+        </li>
+
+        <li>
+            💻 Write the program.
+        </li>
+
+        <li>
+            🧪 Test with different inputs.
+        </li>
+
+        <li>
+            ⚡ Analyze and improve the solution.
+        </li>
+
+    </ul>
+
+
+    <div class="info-box">
+
+        <strong>
+            🚀 Problem-Solving Formula:
+        </strong>
+
+        <p>
+            Problem → Plan → Algorithm → Code → Test → Improve
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     📋 COMPARISON
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        📋 10. Important Algorithm Comparison
+    </h2>
+
+
+    <div class="table-wrapper">
+
+        <table class="data-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Algorithm
+                    </th>
+
+                    <th>
+                        Category
+                    </th>
+
+                    <th>
+                        Common Complexity
+                    </th>
+
+                    <th>
+                        Key Idea
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        Linear Search
+                    </td>
+
+                    <td>
+                        🔎 Searching
+                    </td>
+
+                    <td>
+                        O(n) worst case
+                    </td>
+
+                    <td>
+                        Sequential checking
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Binary Search
+                    </td>
+
+                    <td>
+                        🔎 Searching
+                    </td>
+
+                    <td>
+                        O(log n) worst case
+                    </td>
+
+                    <td>
+                        Divide search range
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Bubble Sort
+                    </td>
+
+                    <td>
+                        🔄 Sorting
+                    </td>
+
+                    <td>
+                        O(n²) worst case
+                    </td>
+
+                    <td>
+                        Adjacent swapping
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Insertion Sort
+                    </td>
+
+                    <td>
+                        🔄 Sorting
+                    </td>
+
+                    <td>
+                        O(n²) worst case
+                    </td>
+
+                    <td>
+                        Insert into sorted part
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Selection Sort
+                    </td>
+
+                    <td>
+                        🔄 Sorting
+                    </td>
+
+                    <td>
+                        O(n²) worst case
+                    </td>
+
+                    <td>
+                        Select minimum/maximum
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Quick Sort
+                    </td>
+
+                    <td>
+                        🔄 Sorting
+                    </td>
+
+                    <td>
+                        O(n²) worst case
+                    </td>
+
+                    <td>
+                        Partition around pivot
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     📝 REVISION
+===================================================== -->
+
+<section class="content-card revision">
+
+    <h2>
+        📝 Quick Revision
+    </h2>
+
+
+    <ul class="notes-list">
+
+        <li>
+            🧠 Algorithm → Step-by-step problem-solving method.
+        </li>
+
+        <li>
+            ⭐ Characteristics → Input, Output, Definiteness, Finiteness.
+        </li>
+
+        <li>
+            ⏱️ Time Complexity → Running-time growth.
+        </li>
+
+        <li>
+            💾 Space Complexity → Additional memory growth.
+        </li>
+
+        <li>
+            🔎 Linear Search → Sequential search.
+        </li>
+
+        <li>
+            ⚡ Binary Search → Search by repeatedly dividing a sorted range.
+        </li>
+
+        <li>
+            🔄 Sorting → Arranging data.
+        </li>
+
+        <li>
+            ♻️ Recursion → Function calling itself.
+        </li>
+
+        <li>
+            📈 Big-O → Asymptotic growth notation.
+        </li>
+
+    </ul>
+
+</section>
+
+
+<!-- =====================================================
+     🎯 CHECKLIST
+===================================================== -->
+
+<section class="content-card">
+
+    <h2>
+        🎯 BCA Algorithms Checklist
+    </h2>
+
+
+    <div class="check-grid">
+
+        <div class="check">
+            ⚡ Algorithm Basics
+        </div>
+
+        <div class="check">
+            ⭐ Characteristics
+        </div>
+
+        <div class="check">
+            📊 Analysis
+        </div>
+
+        <div class="check">
+            ⏱️ Complexity
+        </div>
+
+        <div class="check">
+            🔎 Searching
+        </div>
+
+        <div class="check">
+            🔄 Sorting
+        </div>
+
+        <div class="check">
+            ♻️ Recursion
+        </div>
+
+        <div class="check">
+            🧠 Problem Solving
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     🌊 FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        🧠 <strong>Roshni Code Charm</strong>
+    </p>
+
+    <p>
+        Learn • Code • Practice • Grow 🚀
+    </p>
+
+    <p>
+        © 2026 Roshni Code Charm
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   ✨ SCROLL REVEAL
+===================================================== */
+
+const cards =
+document.querySelectorAll(".content-card");
+
+
+const observer =
+new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+cards.forEach(function(card){
+
+    observer.observe(card);
+
+});
+
+
+/* =====================================================
+   ⚡ SORTING EXTRA MOTION
+===================================================== */
+
+const bars =
+document.querySelectorAll(".sort-bar");
+
+
+setInterval(function(){
+
+    bars.forEach(function(bar){
+
+        const randomHeight =
+            Math.floor(
+                Math.random() * 90
+            ) + 55;
+
+        bar.style.height =
+            randomHeight + "px";
+
+    });
+
+},2200);
+
+</script>
+
+
+</body>
+</html>

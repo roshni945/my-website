@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Python | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           🌐 RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f5fff9;
+            color: #263b35;
+            line-height: 1.7;
+        }
+
+
+
+        /* =========================================
+   🐍 PYTHON INTRO ANIMATION
+========================================= */
+
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 15% 25%, #b8f0ff 0%, transparent 24%),
+                radial-gradient(circle at 85% 75%, #b9d7ff 0%, transparent 27%),
+                linear-gradient(135deg, #eefaff, #dceeff, #f7fcff);
+
+            animation: pythonIntroHide 0.8s ease 3s forwards;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================
+   🐍 MAIN CONTENT
+========================================= */
+
+        .intro-content {
+            position: relative;
+            z-index: 5;
+
+            text-align: center;
+
+            animation:
+                pythonContentAppear 1.1s ease forwards;
+        }
+
+
+        /* =========================================
+   🐍 MAIN PYTHON EMOJI
+========================================= */
+
+        .python-main-emoji {
+
+            font-size: 82px;
+
+            display: inline-block;
+
+            animation:
+                pythonBounce 1.8s ease-in-out infinite,
+                pythonRotate 3s ease-in-out infinite;
+        }
+
+
+        /* =========================================
+   ✨ FLOATING EMOJIS
+========================================= */
+
+        .python-floating {
+
+            position: absolute;
+
+            font-size: 32px;
+
+            user-select: none;
+        }
+
+
+        /* 🐍 Snake */
+
+        .python-emoji-1 {
+
+            top: -85px;
+            left: -115px;
+
+            animation:
+                pythonFloat1 2.8s ease-in-out infinite;
+        }
+
+
+        /* 💻 Computer */
+
+        .python-emoji-2 {
+
+            top: -70px;
+            right: -115px;
+
+            animation:
+                pythonFloat2 3.1s ease-in-out infinite;
+        }
+
+
+        /* ⚙️ Coding */
+
+        .python-emoji-3 {
+
+            bottom: -75px;
+            left: -100px;
+
+            animation:
+                pythonFloat3 2.6s ease-in-out infinite;
+        }
+
+
+        /* 🚀 Learning */
+
+        .python-emoji-4 {
+
+            bottom: -75px;
+            right: -105px;
+
+            animation:
+                pythonFloat4 3.2s ease-in-out infinite;
+        }
+
+
+        /* =========================================
+   🐍 PYTHON TITLE
+========================================= */
+
+        .intro-content h1 {
+
+            margin-top: 14px;
+
+            font-size: 31px;
+
+            font-weight: 700;
+
+            color: #1769aa;
+
+            animation:
+                pythonTitle 1s ease .35s both;
+        }
+
+
+        .intro-content p {
+
+            margin-top: 6px;
+
+            font-size: 14px;
+
+            color: #52758d;
+
+            animation:
+                pythonSubtitle 1s ease .65s both;
+        }
+
+
+        /* =========================================
+   🎬 ANIMATIONS
+========================================= */
+
+        @keyframes pythonContentAppear {
+
+            0% {
+                opacity: 0;
+                transform: scale(.65);
+            }
+
+            70% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @keyframes pythonBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-17px);
+            }
+        }
+
+
+        @keyframes pythonRotate {
+
+            0%,
+            100% {
+                rotate: -4deg;
+            }
+
+            50% {
+                rotate: 5deg;
+            }
+        }
+
+
+        @keyframes pythonFloat1 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(-8deg);
+            }
+
+            50% {
+                transform:
+                    translate(-22px, -25px) rotate(14deg);
+            }
+        }
+
+
+        @keyframes pythonFloat2 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(5deg);
+            }
+
+            50% {
+                transform:
+                    translate(20px, -22px) rotate(-10deg);
+            }
+        }
+
+
+        @keyframes pythonFloat3 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(5deg);
+            }
+
+            50% {
+                transform:
+                    translate(-18px, 20px) rotate(-10deg);
+            }
+        }
+
+
+        @keyframes pythonFloat4 {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(-5deg);
+            }
+
+            50% {
+                transform:
+                    translate(20px, 18px) rotate(12deg);
+            }
+        }
+
+
+        @keyframes pythonTitle {
+
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes pythonSubtitle {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes pythonIntroHide {
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* =========================================
+           🧭 HEADER
+        ========================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .95);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #dceee5;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 15px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            text-decoration: none;
+
+            color: #167a55;
+
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            text-decoration: none;
+
+            background: #dff6eb;
+
+            color: #167653;
+
+            padding: 8px 17px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: #167a55;
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           📦 CONTAINER
+        ========================================= */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 35px 20px 70px;
+        }
+
+
+        /* =========================================
+           🐍 HERO
+        ========================================= */
+
+        .hero {
+            text-align: center;
+
+            padding: 55px 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 28px;
+
+            background: linear-gradient(135deg,
+                    #dcf8eb,
+                    #f0fff7,
+                    #ffffff);
+
+            border: 1px solid #ccebdc;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            background: white;
+
+            color: #167a55;
+
+            padding: 7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+            box-shadow: 0 5px 15px rgba(30, 120, 80, .08);
+        }
+
+        .hero h1 {
+            color: #167a55;
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+
+            color: #637a70;
+        }
+
+
+        /* =========================================
+           📚 CONTENT CARDS
+        ========================================= */
+
+        .content-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #deeee6;
+
+            box-shadow:
+                0 8px 25px rgba(40, 110, 80, .06);
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+        .content-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-card:hover {
+            box-shadow:
+                0 15px 35px rgba(40, 110, 80, .11);
+        }
+
+        .content-card h2 {
+            color: #167a55;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .content-card h3 {
+            color: #288967;
+
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           📑 TABLE OF CONTENTS
+        ========================================= */
+
+        .toc {
+            border-left: 6px solid #59b88b;
+        }
+
+        .toc-list {
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+        .toc-list a {
+            display: block;
+
+            text-decoration: none;
+
+            color: #506960;
+
+            background: #effaf5;
+
+            padding: 11px 14px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+        .toc-list a:hover {
+            background: #ddf5e9;
+
+            color: #167a55;
+
+            transform: translateX(6px);
+        }
+
+
+        /* =========================================
+           🔄 FLOW DIAGRAM
+        ========================================= */
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+        .flow-box {
+            padding: 14px 20px;
+
+            background: #e3f8ed;
+
+            color: #167653;
+
+            border: 1px solid #c9ead9;
+
+            border-radius: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .flow-box:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 8px 20px rgba(30, 120, 80, .13);
+        }
+
+        .flow-arrow {
+            color: #43a875;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================================
+           🧩 TOPIC GRID
+        ========================================= */
+
+        .topic-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+        .topic-box {
+            padding: 20px;
+
+            background: #f4fcf8;
+
+            border: 1px solid #dceee5;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+        .topic-box:hover {
+            transform: translateY(-6px);
+
+            background: #eaf8f1;
+
+            box-shadow:
+                0 10px 25px rgba(40, 120, 80, .10);
+        }
+
+        .topic-box h3 {
+            margin-top: 0;
+
+            color: #167a55;
+        }
+
+
+        /* =========================================
+           💡 INFO BOX
+        ========================================= */
+
+        .info-box {
+            background: #e9f9f1;
+
+            border-left: 5px solid #58b888;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            margin: 18px 0;
+        }
+
+        .info-box strong {
+            color: #167a55;
+        }
+
+
+        /* =========================================
+           🐍 PYTHON CODE BOX
+        ========================================= */
+
+        .code-box {
+            background: #182722;
+
+            color: #d9f9e8;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            overflow-x: auto;
+
+            margin-top: 15px;
+
+            font-family: Consolas, "Courier New", monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            border: 1px solid #30483e;
+        }
+
+        .code-title {
+            display: inline-block;
+
+            background: #dff7e9;
+
+            color: #176e4e;
+
+            padding: 5px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================================
+           📝 LIST
+        ========================================= */
+
+        .notes-list {
+            padding-left: 22px;
+        }
+
+        .notes-list li {
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+        .notes-list li:hover {
+            color: #167a55;
+
+            transform: translateX(5px);
+        }
+
+
+        /* =========================================
+           🎯 REVISION
+        ========================================= */
+
+        .revision-card {
+            background: linear-gradient(135deg,
+                    #e8f9f0,
+                    #f8fffb);
+
+            border: 2px dashed #72c59c;
+        }
+
+
+        /* =========================================
+           🧠 EXAM CHECKLIST
+        ========================================= */
+
+        .check-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .check-item {
+            padding: 15px;
+
+            text-align: center;
+
+            background: #effaf5;
+
+            border-radius: 13px;
+
+            color: #287b5b;
+
+            font-weight: 600;
+
+            border: 1px solid #d8ece1;
+
+            transition: .3s;
+        }
+
+        .check-item:hover {
+            transform: translateY(-4px);
+
+            background: #e2f6eb;
+        }
+
+
+        /* =========================================
+           🌊 FOOTER
+        ========================================= */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #203d32;
+
+            color: #d7e8df;
+        }
+
+        footer strong {
+            color: #9be0bb;
+        }
+
+
+        /* =========================================
+           📱 MOBILE
+        ========================================= */
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                padding: 13px 16px;
+            }
+
+            .logo {
+                font-size: 15px;
+            }
+
+            .back-btn {
+                padding: 7px 12px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            .toc-list,
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .check-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+     🐍 PYTHON INTRO ANIMATION
+========================================= -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <!-- ✨ Floating Emojis -->
+
+            <span class="python-floating python-emoji-1">
+                🐍
+            </span>
+
+            <span class="python-floating python-emoji-2">
+                💻
+            </span>
+
+            <span class="python-floating python-emoji-3">
+                ⚙️
+            </span>
+
+            <span class="python-floating python-emoji-4">
+                🚀
+            </span>
+
+
+            <!-- 🐍 Main Emoji -->
+
+            <div class="python-main-emoji">
+                🐍
+            </div>
+
+
+            <h1>
+                Python Programming
+            </h1>
+
+            <p>
+                🐍 Code • Practice • Create ✨
+            </p>
+
+        </div>
+
+    </div>
+    <!-- =========================================
+         🧭 HEADER
+    ========================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                🐍 Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =========================================
+             HERO
+        ========================================= -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • PYTHON PROGRAMMING
+            </span>
+
+            <h1>
+                🐍 Python Programming
+            </h1>
+
+            <p>
+                Learn Python from the basics with simple
+                explanations, examples, diagrams,
+                important concepts and exam-friendly notes.
+            </p>
+
+        </section>
+
+
+        <!-- =========================================
+             TABLE OF CONTENTS
+        ========================================= -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 Python Topics
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#basics">
+                        🐍 1. Python Basics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#variables">
+                        📦 2. Variables
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#datatypes">
+                        🔢 3. Data Types
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#operators">
+                        ➕ 4. Operators
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#conditions">
+                        🔀 5. Conditions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#loops">
+                        🔁 6. Loops
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#functions">
+                        ⚙️ 7. Functions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#lists">
+                        📋 8. Lists
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#tuples">
+                        🔗 9. Tuples
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#dictionaries">
+                        📖 10. Dictionaries
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sets">
+                        🎯 11. Sets
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#files">
+                        📁 12. File Handling
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#oop">
+                        🧩 13. Basic OOP
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             1. PYTHON BASICS
+        ========================================= -->
+
+        <section class="content-card" id="basics">
+
+            <h2>
+                🐍 1. Python Basics
+            </h2>
+
+            <p>
+                Python is a high-level, interpreted and
+                general-purpose programming language.
+                It is known for its simple and readable syntax.
+            </p>
+
+            <h3>
+                ⭐ First Python Program
+            </h3>
+
+            <div class="code-box">
+                print("Hello, World!")
+            </div>
+
+            <h3>
+                🚀 How Python Code Works
+            </h3>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    👨‍💻 Write Code
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🐍 Python Interpreter
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📤 Output
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Why learn Python?</strong>
+
+                <p>
+                    Python is beginner-friendly and is used in
+                    web development, automation, data analysis,
+                    AI, machine learning and many other areas.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             2. VARIABLES
+        ========================================= -->
+
+        <section class="content-card" id="variables">
+
+            <h2>
+                📦 2. Variables
+            </h2>
+
+            <p>
+                A variable is a name used to store a value.
+                Python automatically determines the type of
+                the value.
+            </p>
+
+            <div class="code-box">
+                name = "Roshni"
+                age = 20
+                marks = 85.5
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    👤 <b>name</b>
+                    <br>
+                    Stores text
+                </div>
+
+                <div class="topic-box">
+                    🔢 <b>age</b>
+                    <br>
+                    Stores integer
+                </div>
+
+                <div class="topic-box">
+                    📊 <b>marks</b>
+                    <br>
+                    Stores decimal value
+                </div>
+
+                <div class="topic-box">
+                    💡 <b>Python</b>
+                    <br>
+                    No separate declaration needed
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             3. DATA TYPES
+        ========================================= -->
+
+        <section class="content-card" id="datatypes">
+
+            <h2>
+                🔢 3. Data Types
+            </h2>
+
+            <p>
+                Data types define the kind of value stored
+                in a variable.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔢 <b>int</b>
+                    <br>
+                    Whole numbers
+                </div>
+
+                <div class="topic-box">
+                    💧 <b>float</b>
+                    <br>
+                    Decimal numbers
+                </div>
+
+                <div class="topic-box">
+                    🔤 <b>str</b>
+                    <br>
+                    Text
+                </div>
+
+                <div class="topic-box">
+                    ✅ <b>bool</b>
+                    <br>
+                    True / False
+                </div>
+
+                <div class="topic-box">
+                    📋 <b>list</b>
+                    <br>
+                    Ordered collection
+                </div>
+
+                <div class="topic-box">
+                    🔗 <b>tuple</b>
+                    <br>
+                    Ordered immutable collection
+                </div>
+
+                <div class="topic-box">
+                    📖 <b>dict</b>
+                    <br>
+                    Key-value collection
+                </div>
+
+                <div class="topic-box">
+                    🎯 <b>set</b>
+                    <br>
+                    Unique unordered values
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Check Data Type
+            </span>
+
+            <div class="code-box">
+                age = 20
+
+                print(type(age))
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             4. OPERATORS
+        ========================================= -->
+
+        <section class="content-card" id="operators">
+
+            <h2>
+                ➕ 4. Operators
+            </h2>
+
+            <p>
+                Operators are symbols used to perform
+                operations on values.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        ➕ Arithmetic
+                    </h3>
+
+                    <p>
+                        + &nbsp; - &nbsp; * &nbsp; / &nbsp;
+                        % &nbsp; ** &nbsp; //
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔍 Comparison
+                    </h3>
+
+                    <p>
+                        == &nbsp; != &nbsp; &gt; &nbsp;
+                        &lt; &nbsp; &gt;= &nbsp; &lt;=
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        🧠 Logical
+                    </h3>
+
+                    <p>
+                        and &nbsp; or &nbsp; not
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        📝 Assignment
+                    </h3>
+
+                    <p>
+                        = &nbsp; += &nbsp; -= &nbsp; *=
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="code-box">
+                a = 10
+                b = 5
+
+                print(a + b)
+                print(a * b)
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             5. CONDITIONS
+        ========================================= -->
+
+        <section class="content-card" id="conditions">
+
+            <h2>
+                🔀 5. Conditions
+            </h2>
+
+            <p>
+                Conditional statements allow a program to
+                make decisions.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    ▶️ Start
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🔍 Condition
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ✅ True / ❌ False
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 if-else Example
+            </span>
+
+            <div class="code-box">
+                age = 18
+
+                if age >= 18:
+                print("Eligible")
+                else:
+                print("Not Eligible")
+            </div>
+
+            <h3>
+                🧩 elif
+            </h3>
+
+            <div class="code-box">
+                marks = 75
+
+                if marks >= 90:
+                print("A")
+                elif marks >= 60:
+                print("B")
+                else:
+                print("C")
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             6. LOOPS
+        ========================================= -->
+
+        <section class="content-card" id="loops">
+
+            <h2>
+                🔁 6. Loops
+            </h2>
+
+            <p>
+                Loops are used to execute code repeatedly.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔁 for Loop
+                    </h3>
+
+                    <p>
+                        Used to iterate over a sequence.
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔄 while Loop
+                    </h3>
+
+                    <p>
+                        Repeats while a condition is true.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 for Loop
+            </span>
+
+            <div class="code-box">
+                for i in range(1, 6):
+                print(i)
+            </div>
+
+            <span class="code-title">
+                💻 while Loop
+            </span>
+
+            <div class="code-box">
+                i = 1
+
+                while i <= 5: print(i) i +=1 </div>
+
+        </section>
+
+
+        <!-- =========================================
+             7. FUNCTIONS
+        ========================================= -->
+
+        <section class="content-card" id="functions">
+
+            <h2>
+                ⚙️ 7. Functions
+            </h2>
+
+            <p>
+                A function is a reusable block of code
+                designed to perform a specific task.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    📥 Input
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ⚙️ Function
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📤 Output
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Function Example
+            </span>
+
+            <div class="code-box">
+                def add(a, b):
+                return a + b
+
+                result = add(10, 20)
+
+                print(result)
+            </div>
+
+            <h3>
+                ✨ Advantages
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    ♻️ Code reusability
+                </li>
+
+                <li>
+                    🧹 Reduces repetition
+                </li>
+
+                <li>
+                    📖 Improves readability
+                </li>
+
+                <li>
+                    🛠️ Easier maintenance
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             8. LISTS
+        ========================================= -->
+
+        <section class="content-card" id="lists">
+
+            <h2>
+                📋 8. Lists
+            </h2>
+
+            <p>
+                A list is an ordered and mutable collection
+                of elements.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    [0] Apple
+                </div>
+
+                <div class="flow-box">
+                    [1] Mango
+                </div>
+
+                <div class="flow-box">
+                    [2] Banana
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 List Example
+            </span>
+
+            <div class="code-box">
+                fruits = ["Apple", "Mango", "Banana"]
+
+                print(fruits[0])
+
+                fruits.append("Orange")
+
+                print(fruits)
+            </div>
+
+            <h3>
+                🧰 Common List Methods
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    ➕ append()
+                </div>
+
+                <div class="topic-box">
+                    ❌ remove()
+                </div>
+
+                <div class="topic-box">
+                    🔢 sort()
+                </div>
+
+                <div class="topic-box">
+                    🧹 clear()
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             9. TUPLES
+        ========================================= -->
+
+        <section class="content-card" id="tuples">
+
+            <h2>
+                🔗 9. Tuples
+            </h2>
+
+            <p>
+                A tuple is an ordered collection that cannot
+                normally be changed after creation.
+            </p>
+
+            <div class="code-box">
+                numbers = (10, 20, 30, 40)
+
+                print(numbers[0])
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Remember:</strong>
+
+                <p>
+                    Lists are generally mutable, while tuples
+                    are generally immutable.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             10. DICTIONARIES
+        ========================================= -->
+
+        <section class="content-card" id="dictionaries">
+
+            <h2>
+                📖 10. Dictionaries
+            </h2>
+
+            <p>
+                A dictionary stores data in
+                <b>key : value</b> pairs.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🔑 name
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    👤 Roshni
+                </div>
+
+                <div class="flow-box">
+                    🔑 age
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🔢 20
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Dictionary Example
+            </span>
+
+            <div class="code-box">
+                student = {
+                "name": "Roshni",
+                "age": 20,
+                "course": "BCA"
+                }
+
+                print(student["name"])
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             11. SETS
+        ========================================= -->
+
+        <section class="content-card" id="sets">
+
+            <h2>
+                🎯 11. Sets
+            </h2>
+
+            <p>
+                A set is an unordered collection of unique
+                elements.
+            </p>
+
+            <div class="code-box">
+                numbers = {10, 20, 30, 20}
+
+                print(numbers)
+            </div>
+
+            <div class="info-box">
+
+                <strong>⭐ Key Point:</strong>
+
+                <p>
+                    Sets automatically remove duplicate values.
+                </p>
+
+            </div>
+
+            <h3>
+                🧰 Common Set Methods
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    ➕ add()
+                </div>
+
+                <div class="topic-box">
+                    ❌ remove()
+                </div>
+
+                <div class="topic-box">
+                    🔗 union()
+                </div>
+
+                <div class="topic-box">
+                    🔍 intersection()
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             12. FILE HANDLING
+        ========================================= -->
+
+        <section class="content-card" id="files">
+
+            <h2>
+                📁 12. File Handling
+            </h2>
+
+            <p>
+                File handling allows Python programs to read
+                and write data stored in files.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    💻 Python Program
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📂 File
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    💾 Data
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                ✍️ Write to a File
+            </span>
+
+            <div class="code-box">
+                file = open("data.txt", "w")
+
+                file.write("Hello Python")
+
+                file.close()
+            </div>
+
+            <span class="code-title">
+                📖 Read from a File
+            </span>
+
+            <div class="code-box">
+                file = open("data.txt", "r")
+
+                data = file.read()
+
+                print(data)
+
+                file.close()
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Common Modes:</strong>
+
+                <p>
+                    <b>r</b> → Read
+                    <br>
+                    <b>w</b> → Write
+                    <br>
+                    <b>a</b> → Append
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             13. BASIC OOP
+        ========================================= -->
+
+        <section class="content-card" id="oop">
+
+            <h2>
+                🧩 13. Basic OOP
+            </h2>
+
+            <p>
+                Object-Oriented Programming organizes programs
+                using classes and objects.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🏗️ Class
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📦 Object
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ⚙️ Methods
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Basic Class Example
+            </span>
+
+            <div class="code-box">
+                class Student:
+
+                def __init__(self, name):
+                self.name = name
+
+                def display(self):
+                print(self.name)
+
+
+                student1 = Student("Roshni")
+
+                student1.display()
+            </div>
+
+            <h3>
+                🧠 Important OOP Concepts
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🏗️ Class
+                </div>
+
+                <div class="topic-box">
+                    📦 Object
+                </div>
+
+                <div class="topic-box">
+                    🔒 Encapsulation
+                </div>
+
+                <div class="topic-box">
+                    🧬 Inheritance
+                </div>
+
+                <div class="topic-box">
+                    🔄 Polymorphism
+                </div>
+
+                <div class="topic-box">
+                    🎯 Abstraction
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             📝 QUICK REVISION
+        ========================================= -->
+
+        <section class="content-card revision-card">
+
+            <h2>
+                📝 Python Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    🐍 Python → High-level programming language
+                </li>
+
+                <li>
+                    📦 Variable → Stores a value
+                </li>
+
+                <li>
+                    🔢 Data Type → Defines the kind of data
+                </li>
+
+                <li>
+                    ➕ Operator → Performs operations
+                </li>
+
+                <li>
+                    🔀 Condition → Decision making
+                </li>
+
+                <li>
+                    🔁 Loop → Repeated execution
+                </li>
+
+                <li>
+                    ⚙️ Function → Reusable block of code
+                </li>
+
+                <li>
+                    📋 List → Ordered mutable collection
+                </li>
+
+                <li>
+                    🔗 Tuple → Ordered immutable collection
+                </li>
+
+                <li>
+                    📖 Dictionary → Key-value collection
+                </li>
+
+                <li>
+                    🎯 Set → Collection of unique values
+                </li>
+
+                <li>
+                    📁 File Handling → Read/write files
+                </li>
+
+                <li>
+                    🧩 OOP → Classes and objects
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             🎯 EXAM CHECKLIST
+        ========================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 BCA Python Exam Checklist
+            </h2>
+
+            <p>
+                Before your exam, revise these important
+                Python topics:
+            </p>
+
+            <div class="check-grid">
+
+                <div class="check-item">
+                    ✅ Python Basics
+                </div>
+
+                <div class="check-item">
+                    ✅ Variables
+                </div>
+
+                <div class="check-item">
+                    ✅ Data Types
+                </div>
+
+                <div class="check-item">
+                    ✅ Operators
+                </div>
+
+                <div class="check-item">
+                    ✅ Conditions
+                </div>
+
+                <div class="check-item">
+                    ✅ Loops
+                </div>
+
+                <div class="check-item">
+                    ✅ Functions
+                </div>
+
+                <div class="check-item">
+                    ✅ Lists
+                </div>
+
+                <div class="check-item">
+                    ✅ Tuples
+                </div>
+
+                <div class="check-item">
+                    ✅ Dictionaries
+                </div>
+
+                <div class="check-item">
+                    ✅ Sets
+                </div>
+
+                <div class="check-item">
+                    ✅ File Handling
+                </div>
+
+                <div class="check-item">
+                    ✅ Basic OOP
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         🌊 FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <p>
+            🐍 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         ⚙️ JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =========================================
+           ✨ SCROLL REVEAL
+        ========================================= */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* =========================================
+           📚 SMOOTH TOPIC NAVIGATION
+        ========================================= */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>

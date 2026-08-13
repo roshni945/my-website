@@ -1,0 +1,2358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Software Engineering | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =====================================================
+   🛠️ BCA SOFTWARE ENGINEERING
+===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f7faf8;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+   🚀 INTRO SCREEN
+===================================================== */
+
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(circle at 15% 20%, #d9f7e8, transparent 25%),
+                radial-gradient(circle at 85% 80%, #eadcff, transparent 28%),
+                linear-gradient(135deg, #24133f, #49316b, #263b36);
+
+            animation: introHide .8s ease 4s forwards;
+
+            pointer-events: none;
+        }
+
+        .intro-content {
+            text-align: center;
+            color: white;
+            position: relative;
+
+            animation: introAppear 1s ease;
+        }
+
+        .intro-icon {
+            font-size: 82px;
+            display: block;
+
+            animation:
+                toolFloat 2s ease-in-out infinite,
+                toolRotate 4s ease-in-out infinite;
+        }
+
+        .intro-content h1 {
+            font-size: 34px;
+            margin-top: 10px;
+        }
+
+        .intro-content p {
+            color: #d9f7e8;
+            font-size: 14px;
+        }
+
+        .intro-emoji {
+            position: absolute;
+            font-size: 32px;
+        }
+
+        .ie1 {
+            left: -120px;
+            top: -60px;
+            animation: emojiOne 3s ease-in-out infinite;
+        }
+
+        .ie2 {
+            right: -120px;
+            top: -70px;
+            animation: emojiTwo 2.8s ease-in-out infinite;
+        }
+
+        .ie3 {
+            left: -100px;
+            bottom: -70px;
+            animation: emojiThree 3.2s ease-in-out infinite;
+        }
+
+        .ie4 {
+            right: -105px;
+            bottom: -65px;
+            animation: emojiFour 2.7s ease-in-out infinite;
+        }
+
+        @keyframes introAppear {
+            from {
+                opacity: 0;
+                transform: scale(.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes introHide {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes toolFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes toolRotate {
+
+            0%,
+            100% {
+                rotate: -5deg;
+            }
+
+            50% {
+                rotate: 5deg;
+            }
+        }
+
+        @keyframes emojiOne {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0);
+            }
+
+            50% {
+                transform: translate(-20px, -20px) rotate(-15deg);
+            }
+        }
+
+        @keyframes emojiTwo {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(22px, -17px) rotate(15deg);
+            }
+        }
+
+        @keyframes emojiThree {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-20px, 18px) rotate(12deg);
+            }
+        }
+
+        @keyframes emojiFour {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(20px, 18px) rotate(-12deg);
+            }
+        }
+
+
+        /* =====================================================
+   🧭 HEADER
+===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .94);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 14px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #3c235c;
+
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+
+            color: white;
+
+            background: #7954a8;
+
+            padding: 8px 18px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: #356052;
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+   📦 CONTAINER
+===================================================== */
+
+        .container {
+            max-width: 1120px;
+            margin: auto;
+
+            padding: 35px 20px 70px;
+        }
+
+
+        /* =====================================================
+   🛠️ HERO
+===================================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 420px;
+
+            padding: 50px;
+
+            display: flex;
+            align-items: center;
+
+            border-radius: 32px;
+
+            color: white;
+
+            background:
+                linear-gradient(135deg,
+                    #3c235c,
+                    #61468b 52%,
+                    #356052);
+
+            box-shadow:
+                0 20px 50px rgba(60, 35, 92, .18);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 7px 15px;
+
+            border-radius: 30px;
+
+            margin-bottom: 15px;
+
+            background: #d9f7e8;
+
+            color: #356052;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: 43px;
+            line-height: 1.2;
+
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            color: #e8e1f2;
+        }
+
+
+        /* =====================================================
+   🔄 SDLC CIRCULAR ANIMATION
+===================================================== */
+
+        .sdlc-visual {
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            right: 35px;
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        .sdlc-ring {
+            position: absolute;
+
+            inset: 25px;
+
+            border:
+                2px dashed rgba(217, 247, 232, .6);
+
+            border-radius: 50%;
+
+            animation: ringRotate 14s linear infinite;
+        }
+
+        .sdlc-center {
+            position: absolute;
+
+            width: 115px;
+            height: 115px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #d9f7e8;
+
+            color: #356052;
+
+            font-size: 30px;
+
+            box-shadow:
+                0 0 0 10px rgba(217, 247, 232, .1);
+        }
+
+        .sdlc-center span {
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .sdlc-node {
+            position: absolute;
+
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, .13);
+
+            border:
+                1px solid rgba(255, 255, 255, .25);
+
+            backdrop-filter: blur(8px);
+
+            font-size: 25px;
+
+            animation: nodePulse 2.5s ease-in-out infinite;
+        }
+
+        .sdlc-node small {
+            font-size: 8px;
+            margin-top: 3px;
+        }
+
+        .n1 {
+            top: 0;
+            left: 140px;
+        }
+
+        .n2 {
+            top: 55px;
+            right: 5px;
+            animation-delay: .3s;
+        }
+
+        .n3 {
+            bottom: 55px;
+            right: 5px;
+            animation-delay: .6s;
+        }
+
+        .n4 {
+            bottom: 0;
+            left: 140px;
+            animation-delay: .9s;
+        }
+
+        .n5 {
+            bottom: 55px;
+            left: 5px;
+            animation-delay: 1.2s;
+        }
+
+        .n6 {
+            top: 55px;
+            left: 5px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes ringRotate {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes nodePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+
+        /* =====================================================
+   📚 CONTENT
+===================================================== */
+
+        .content-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            margin-bottom: 23px;
+
+            box-shadow:
+                0 8px 28px rgba(15, 23, 42, .045);
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: .7s ease;
+        }
+
+        .content-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-card h2 {
+            color: #3c235c;
+
+            font-size: 25px;
+
+            margin-bottom: 13px;
+        }
+
+        .content-card h3 {
+            color: #356052;
+
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+
+        /* =====================================================
+   🔄 PROJECT PIPELINE
+===================================================== */
+
+        .pipeline {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+
+            margin-top: 22px;
+        }
+
+        .pipeline-step {
+            position: relative;
+
+            padding: 20px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(135deg,
+                    #f4effa,
+                    #e8f7ef);
+
+            border: 1px solid #ddd2ea;
+
+            transition: .35s;
+
+            overflow: hidden;
+        }
+
+        .pipeline-step::before {
+            content: "";
+
+            position: absolute;
+
+            width: 80px;
+            height: 80px;
+
+            border-radius: 50%;
+
+            background: #d9f7e8;
+
+            right: -30px;
+            bottom: -30px;
+        }
+
+        .pipeline-step:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 12px 25px rgba(60, 35, 92, .09);
+        }
+
+        .pipeline-icon {
+            font-size: 32px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .pipeline-step h3,
+        .pipeline-step p {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+   🧪 TESTING ANIMATION
+===================================================== */
+
+        .testing-box {
+            position: relative;
+
+            height: 180px;
+
+            margin-top: 20px;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            background: #f7faf8;
+
+            border: 1px solid #dcebe3;
+        }
+
+        .test-track {
+            position: absolute;
+
+            left: 30px;
+            right: 30px;
+            top: 50%;
+
+            height: 4px;
+
+            background: #d9f7e8;
+        }
+
+        .test-runner {
+            position: absolute;
+
+            top: calc(50% - 22px);
+            left: 30px;
+
+            font-size: 34px;
+
+            animation: testRun 4s linear infinite;
+        }
+
+        .test-check {
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 24px;
+
+            opacity: .45;
+        }
+
+        .tc1 {
+            left: 25%;
+        }
+
+        .tc2 {
+            left: 50%;
+        }
+
+        .tc3 {
+            left: 75%;
+        }
+
+        @keyframes testRun {
+            0% {
+                left: 30px;
+            }
+
+            30% {
+                left: 25%;
+            }
+
+            55% {
+                left: 50%;
+            }
+
+            80% {
+                left: 75%;
+            }
+
+            100% {
+                left: calc(100% - 70px);
+            }
+        }
+
+
+        /* =====================================================
+   🌱 AGILE
+===================================================== */
+
+        .agile-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 13px;
+
+            margin-top: 20px;
+        }
+
+        .agile-card {
+            padding: 20px 14px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background: #f4fbf7;
+
+            border: 1px solid #d9eee2;
+
+            transition: .35s;
+        }
+
+        .agile-card:hover {
+            transform:
+                translateY(-8px) rotate(-1deg);
+
+            background: #eee8f6;
+        }
+
+        .agile-card span {
+            display: block;
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+        .agile-card h3 {
+            margin: 0;
+
+            color: #3c235c;
+        }
+
+
+        /* =====================================================
+   🧩 TOPICS
+===================================================== */
+
+        .topic-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 18px;
+        }
+
+        .topic-box {
+            position: relative;
+
+            padding: 21px;
+
+            border-radius: 17px;
+
+            background: #f9fafb;
+
+            border: 1px solid #e2e8f0;
+
+            overflow: hidden;
+
+            transition: .35s;
+        }
+
+        .topic-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 70px;
+            height: 70px;
+
+            border-radius: 50%;
+
+            right: -25px;
+            bottom: -25px;
+
+            background: #eee8f6;
+        }
+
+        .topic-box:hover {
+            transform: translateY(-6px);
+
+            border-color: #bba7d1;
+        }
+
+        .topic-box h3,
+        .topic-box p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .topic-box h3 {
+            margin-top: 0;
+        }
+
+
+        /* =====================================================
+   📋 REQUIREMENTS
+===================================================== */
+
+        .requirement-flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 22px;
+        }
+
+        .req {
+            padding: 12px 18px;
+
+            border-radius: 30px;
+
+            background: #eee8f6;
+
+            color: #3c235c;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            animation: reqFloat 2.5s ease-in-out infinite;
+        }
+
+        .req:nth-child(2) {
+            animation-delay: .3s;
+        }
+
+        .req:nth-child(3) {
+            animation-delay: .6s;
+        }
+
+        .req:nth-child(4) {
+            animation-delay: .9s;
+        }
+
+        @keyframes reqFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+
+        /* =====================================================
+   💻 CODE
+===================================================== */
+
+        .code-label {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 5px 12px;
+
+            border-radius: 20px;
+
+            background: #e8f7ef;
+
+            color: #356052;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .code-box {
+            margin-top: 9px;
+
+            padding: 20px;
+
+            overflow-x: auto;
+
+            border-radius: 15px;
+
+            background: #161321;
+
+            color: #e9e5f0;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+   💡 INFO
+===================================================== */
+
+        .info-box {
+            padding: 18px;
+
+            margin-top: 18px;
+
+            border-left:
+                5px solid #7954a8;
+
+            border-radius: 14px;
+
+            background: #f5f0fa;
+        }
+
+        .info-box strong {
+            color: #5b3d7c;
+        }
+
+
+        /* =====================================================
+   📝 LIST
+===================================================== */
+
+        .notes-list {
+            padding-left: 22px;
+        }
+
+        .notes-list li {
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+        .notes-list li:hover {
+            color: #7954a8;
+
+            transform: translateX(5px);
+        }
+
+
+        /* =====================================================
+   📊 TABLE
+===================================================== */
+
+        .table-wrapper {
+            overflow-x: auto;
+
+            margin-top: 18px;
+        }
+
+        .data-table {
+            width: 100%;
+
+            min-width: 680px;
+
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            padding: 12px;
+
+            text-align: left;
+
+            color: white;
+
+            background: #3c235c;
+        }
+
+        .data-table td {
+            padding: 11px 12px;
+
+            border-bottom: 1px solid #e2e8f0;
+
+            background: white;
+        }
+
+        .data-table tr:hover td {
+            background: #f5faf7;
+        }
+
+
+        /* =====================================================
+   🎯 CHECKLIST
+===================================================== */
+
+        .check-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .check {
+            padding: 15px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            color: #3c235c;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .check:hover {
+            transform: translateY(-5px);
+
+            background: #eaf7ef;
+
+            border-color: #b8dcc7;
+        }
+
+
+        /* =====================================================
+   📝 REVISION
+===================================================== */
+
+        .revision {
+            background:
+                linear-gradient(135deg,
+                    #f5f0fa,
+                    #edf8f2);
+
+            border:
+                2px dashed #bba7d1;
+        }
+
+
+        /* =====================================================
+   🌊 FOOTER
+===================================================== */
+
+        footer {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: #24133f;
+
+            color: #d9d1e4;
+        }
+
+        footer strong {
+            color: #d9f7e8;
+        }
+
+
+        /* =====================================================
+   📱 RESPONSIVE
+===================================================== */
+
+        @media(max-width:900px) {
+
+            .sdlc-visual {
+                opacity: .25;
+                right: -80px;
+            }
+
+            .agile-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media(max-width:650px) {
+
+            .hero {
+                min-height: 460px;
+
+                padding: 35px 23px;
+
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .sdlc-visual {
+                width: 300px;
+                height: 300px;
+
+                right: -75px;
+                bottom: -25px;
+
+                top: auto;
+
+                transform: scale(.8);
+            }
+
+            .pipeline,
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agile-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .requirement-flow {
+                flex-direction: column;
+            }
+
+            .req {
+                width: 85%;
+                text-align: center;
+            }
+
+            .check-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media(max-width:400px) {
+
+            .check-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agile-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+     🚀 INTRO
+===================================================== -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <span class="intro-emoji ie1">🛠️</span>
+            <span class="intro-emoji ie2">📋</span>
+            <span class="intro-emoji ie3">🧪</span>
+            <span class="intro-emoji ie4">🚀</span>
+
+            <span class="intro-icon">
+                ⚙️
+            </span>
+
+            <h1>
+                Software Engineering
+            </h1>
+
+            <p>
+                Plan 📋 Build 🛠️ Test 🧪 Deliver 🚀
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     🧭 HEADER
+===================================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                🛠️ Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =====================================================
+     🛠️ HERO
+===================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    🎓 BCA • SOFTWARE ENGINEERING • FULL NOTES
+                </span>
+
+                <h1>
+                    🛠️ Software Engineering
+                </h1>
+
+                <p>
+                    Learn how software is planned, designed,
+                    developed, tested, delivered and maintained
+                    using systematic engineering principles.
+                </p>
+
+            </div>
+
+
+            <!-- 🔄 SDLC -->
+
+            <div class="sdlc-visual">
+
+                <div class="sdlc-ring"></div>
+
+                <div class="sdlc-center">
+                    ⚙️
+                    <span>SDLC</span>
+                </div>
+
+                <div class="sdlc-node n1">
+                    📋
+                    <small>Requirements</small>
+                </div>
+
+                <div class="sdlc-node n2">
+                    🎨
+                    <small>Design</small>
+                </div>
+
+                <div class="sdlc-node n3">
+                    💻
+                    <small>Development</small>
+                </div>
+
+                <div class="sdlc-node n4">
+                    🧪
+                    <small>Testing</small>
+                </div>
+
+                <div class="sdlc-node n5">
+                    🚀
+                    <small>Deployment</small>
+                </div>
+
+                <div class="sdlc-node n6">
+                    🔧
+                    <small>Maintenance</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     📘 1 INTRODUCTION
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🛠️ 1. Introduction to Software Engineering
+            </h2>
+
+            <p>
+                Software Engineering is the systematic approach
+                to designing, developing, testing, deploying and
+                maintaining software applications.
+            </p>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Simple Definition:
+                </strong>
+
+                <p>
+                    Software Engineering means applying engineering
+                    principles to build reliable and maintainable software.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     🔄 2 SDLC
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🔄 2. Software Development Life Cycle (SDLC)
+            </h2>
+
+            <p>
+                SDLC is a structured process used to develop
+                software from the initial idea to maintenance.
+            </p>
+
+
+            <div class="pipeline">
+
+                <div class="pipeline-step">
+
+                    <div class="pipeline-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        Requirement
+                    </h3>
+
+                    <p>
+                        Understand user needs.
+                    </p>
+
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <div class="pipeline-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        Design
+                    </h3>
+
+                    <p>
+                        Plan the software structure.
+                    </p>
+
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <div class="pipeline-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Development
+                    </h3>
+
+                    <p>
+                        Write and implement code.
+                    </p>
+
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <div class="pipeline-icon">
+                        🧪
+                    </div>
+
+                    <h3>
+                        Testing
+                    </h3>
+
+                    <p>
+                        Find and fix defects.
+                    </p>
+
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <div class="pipeline-icon">
+                        🚀
+                    </div>
+
+                    <h3>
+                        Deployment
+                    </h3>
+
+                    <p>
+                        Release software to users.
+                    </p>
+
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <div class="pipeline-icon">
+                        🔧
+                    </div>
+
+                    <h3>
+                        Maintenance
+                    </h3>
+
+                    <p>
+                        Update and improve software.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     📋 3 REQUIREMENT ANALYSIS
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                📋 3. Requirement Analysis
+            </h2>
+
+            <p>
+                Requirement analysis identifies what the users
+                and organization expect from the software.
+            </p>
+
+
+            <div class="requirement-flow">
+
+                <div class="req">
+                    👤 User Needs
+                </div>
+
+                <div class="req">
+                    🔍 Analysis
+                </div>
+
+                <div class="req">
+                    📝 Requirements
+                </div>
+
+                <div class="req">
+                    ✅ Specification
+                </div>
+
+            </div>
+
+
+            <ul class="notes-list">
+
+                <li>
+                    👥 Identify stakeholders.
+                </li>
+
+                <li>
+                    📝 Collect requirements.
+                </li>
+
+                <li>
+                    🔍 Analyze requirements.
+                </li>
+
+                <li>
+                    📄 Document requirements.
+                </li>
+
+                <li>
+                    ✅ Validate requirements.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     🎨 4 SOFTWARE DESIGN
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🎨 4. Software Design
+            </h2>
+
+            <p>
+                Software design describes the structure,
+                components, interfaces and behavior of a software system.
+            </p>
+
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🏗️ Architecture Design
+                    </h3>
+
+                    <p>
+                        Defines the overall structure and major
+                        components of the system.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🧩 Module Design
+                    </h3>
+
+                    <p>
+                        Breaks the system into smaller manageable modules.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🖥️ Interface Design
+                    </h3>
+
+                    <p>
+                        Defines how different components or users
+                        interact with the system.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🗄️ Data Design
+                    </h3>
+
+                    <p>
+                        Defines how data is organized and stored.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     💻 5 DEVELOPMENT
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                💻 5. Software Development
+            </h2>
+
+            <p>
+                During development, programmers convert the
+                software design into executable code.
+            </p>
+
+
+            <ul class="notes-list">
+
+                <li>
+                    🧩 Divide the system into modules.
+                </li>
+
+                <li>
+                    💻 Write source code.
+                </li>
+
+                <li>
+                    🔍 Perform code reviews.
+                </li>
+
+                <li>
+                    🧪 Test individual components.
+                </li>
+
+                <li>
+                    🔗 Integrate different modules.
+                </li>
+
+            </ul>
+
+
+            <span class="code-label">
+                💻 Simple Development Example
+            </span>
+
+
+            <div class="code-box">
+
+                function calculateTotal(price, quantity) {
+
+                return price * quantity;
+
+                }
+
+                console.log(
+                calculateTotal(500, 2)
+                );
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     🧪 6 TESTING
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🧪 6. Software Testing
+            </h2>
+
+            <p>
+                Software testing is performed to identify defects
+                and verify that the software behaves as expected.
+            </p>
+
+
+            <div class="testing-box">
+
+                <div class="test-track"></div>
+
+                <div class="test-check tc1">
+                    🔍
+                </div>
+
+                <div class="test-check tc2">
+                    🧪
+                </div>
+
+                <div class="test-check tc3">
+                    ✅
+                </div>
+
+                <div class="test-runner">
+                    🤖
+                </div>
+
+            </div>
+
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔹 Unit Testing
+                    </h3>
+
+                    <p>
+                        Tests individual units or components.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔹 Integration Testing
+                    </h3>
+
+                    <p>
+                        Tests interactions between integrated modules.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔹 System Testing
+                    </h3>
+
+                    <p>
+                        Tests the complete software system.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔹 Acceptance Testing
+                    </h3>
+
+                    <p>
+                        Checks whether the system meets user requirements.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     🚀 7 DEPLOYMENT
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🚀 7. Software Deployment
+            </h2>
+
+            <p>
+                Deployment is the process of making software
+                available for users.
+            </p>
+
+
+            <div class="requirement-flow">
+
+                <div class="req">
+                    💻 Build
+                </div>
+
+                <div class="req">
+                    🧪 Test
+                </div>
+
+                <div class="req">
+                    📦 Package
+                </div>
+
+                <div class="req">
+                    🚀 Release
+                </div>
+
+                <div class="req">
+                    👥 Users
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     🔧 8 MAINTENANCE
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🔧 8. Software Maintenance
+            </h2>
+
+            <p>
+                Software maintenance involves modifying and
+                improving software after deployment.
+            </p>
+
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🐞 Corrective Maintenance
+                    </h3>
+
+                    <p>
+                        Fixes errors and defects.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔄 Adaptive Maintenance
+                    </h3>
+
+                    <p>
+                        Adapts software to environmental changes.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ⚡ Perfective Maintenance
+                    </h3>
+
+                    <p>
+                        Improves performance and features.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🛡️ Preventive Maintenance
+                    </h3>
+
+                    <p>
+                        Helps prevent future problems.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     🌱 9 AGILE
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🌱 9. Agile Basics
+            </h2>
+
+            <p>
+                Agile is an iterative approach where software is
+                developed in smaller cycles and improved continuously.
+            </p>
+
+
+            <div class="agile-grid">
+
+                <div class="agile-card">
+
+                    <span>🔁</span>
+
+                    <h3>
+                        Iterative
+                    </h3>
+
+                    <p>
+                        Develop in repeated cycles.
+                    </p>
+
+                </div>
+
+
+                <div class="agile-card">
+
+                    <span>🤝</span>
+
+                    <h3>
+                        Collaboration
+                    </h3>
+
+                    <p>
+                        Teams work together.
+                    </p>
+
+                </div>
+
+
+                <div class="agile-card">
+
+                    <span>💬</span>
+
+                    <h3>
+                        Feedback
+                    </h3>
+
+                    <p>
+                        User feedback guides improvement.
+                    </p>
+
+                </div>
+
+
+                <div class="agile-card">
+
+                    <span>⚡</span>
+
+                    <h3>
+                        Adaptation
+                    </h3>
+
+                    <p>
+                        Respond to changing requirements.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     📊 10 PROJECT MANAGEMENT
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                📊 10. Project Management
+            </h2>
+
+            <p>
+                Software project management involves planning,
+                organizing and controlling resources to achieve
+                project objectives.
+            </p>
+
+
+            <ul class="notes-list">
+
+                <li>
+                    📋 Project Planning
+                </li>
+
+                <li>
+                    ⏰ Scheduling
+                </li>
+
+                <li>
+                    👥 Team Management
+                </li>
+
+                <li>
+                    💰 Cost Management
+                </li>
+
+                <li>
+                    ⚠️ Risk Management
+                </li>
+
+                <li>
+                    📈 Progress Monitoring
+                </li>
+
+                <li>
+                    ✅ Quality Management
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     📋 COMPARISON
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                📋 Software Engineering Quick Comparison
+            </h2>
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Topic
+                            </th>
+
+                            <th>
+                                Main Purpose
+                            </th>
+
+                            <th>
+                                Key Point
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                📋 Requirement Analysis
+                            </td>
+
+                            <td>
+                                Understand needs
+                            </td>
+
+                            <td>
+                                What should the system do?
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🎨 Design
+                            </td>
+
+                            <td>
+                                Plan structure
+                            </td>
+
+                            <td>
+                                How will the system work?
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                💻 Development
+                            </td>
+
+                            <td>
+                                Build software
+                            </td>
+
+                            <td>
+                                Convert design into code
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🧪 Testing
+                            </td>
+
+                            <td>
+                                Find defects
+                            </td>
+
+                            <td>
+                                Verify expected behavior
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                🔧 Maintenance
+                            </td>
+
+                            <td>
+                                Improve software
+                            </td>
+
+                            <td>
+                                Modify after release
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     📝 REVISION
+===================================================== -->
+
+        <section class="content-card revision">
+
+            <h2>
+                📝 Quick Revision
+            </h2>
+
+
+            <ul class="notes-list">
+
+                <li>
+                    🛠️ Software Engineering → Systematic software development.
+                </li>
+
+                <li>
+                    🔄 SDLC → Requirement → Design → Development → Testing → Deployment → Maintenance.
+                </li>
+
+                <li>
+                    📋 Requirement Analysis → Understand and document user needs.
+                </li>
+
+                <li>
+                    🎨 Design → Plan software structure and components.
+                </li>
+
+                <li>
+                    🧪 Testing → Find defects and verify software.
+                </li>
+
+                <li>
+                    🚀 Deployment → Make software available to users.
+                </li>
+
+                <li>
+                    🔧 Maintenance → Modify and improve software.
+                </li>
+
+                <li>
+                    🌱 Agile → Iterative and adaptive development.
+                </li>
+
+                <li>
+                    📊 Project Management → Plan and control project resources.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     🎯 CHECKLIST
+===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 BCA Software Engineering Checklist
+            </h2>
+
+
+            <div class="check-grid">
+
+                <div class="check">
+                    🛠️ Software Engineering
+                </div>
+
+                <div class="check">
+                    🔄 SDLC
+                </div>
+
+                <div class="check">
+                    📋 Requirements
+                </div>
+
+                <div class="check">
+                    🎨 Design
+                </div>
+
+                <div class="check">
+                    💻 Development
+                </div>
+
+                <div class="check">
+                    🧪 Testing
+                </div>
+
+                <div class="check">
+                    🚀 Deployment
+                </div>
+
+                <div class="check">
+                    🔧 Maintenance
+                </div>
+
+                <div class="check">
+                    🌱 Agile
+                </div>
+
+                <div class="check">
+                    📊 Project Management
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+     🌊 FOOTER
+===================================================== -->
+
+    <footer>
+
+        <p>
+            🛠️ <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Practice • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* =====================================================
+           ✨ SCROLL REVEAL
+        ===================================================== */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: .12
+                }
+
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* =====================================================
+           🔄 SDLC NODE EXTRA ANIMATION
+        ===================================================== */
+
+        const nodes =
+            document.querySelectorAll(".sdlc-node");
+
+        let activeNode = 0;
+
+
+        setInterval(function () {
+
+            nodes.forEach(function (node) {
+
+                node.style.boxShadow =
+                    "none";
+
+            });
+
+            if (nodes[activeNode]) {
+
+                nodes[activeNode].style.boxShadow =
+                    "0 0 25px rgba(217,247,232,.75)";
+
+            }
+
+            activeNode++;
+
+            if (activeNode >= nodes.length) {
+                activeNode = 0;
+            }
+
+        }, 1200);
+
+    </script>
+
+
+</body>
+
+</html>

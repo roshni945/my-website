@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA C Programming | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           🌐 RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f5faff;
+            color: #263746;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           💙 INTRO ANIMATION
+        ========================================= */
+
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg,
+                    #dff4ff,
+                    #eefaff,
+                    #ffffff);
+
+            animation: introHide 1s ease 2.6s forwards;
+            pointer-events: none;
+        }
+
+        .intro-content {
+            text-align: center;
+            animation: introAppear 1s ease;
+        }
+
+        .intro-icon {
+            font-size: 72px;
+            animation: codeFloat 1.5s ease-in-out infinite;
+        }
+
+        .intro-content h1 {
+            margin-top: 12px;
+            color: #1675a8;
+            font-size: 30px;
+        }
+
+        .intro-content p {
+            color: #66808e;
+            font-size: 14px;
+        }
+
+        @keyframes introAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(.75) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes codeFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes introHide {
+
+            from {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* =========================================
+           🧭 HEADER
+        ========================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .95);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #dcecf4;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 15px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            text-decoration: none;
+
+            color: #1675a8;
+
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            text-decoration: none;
+
+            background: #e0f4ff;
+
+            color: #176f99;
+
+            padding: 8px 17px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: #1675a8;
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           📦 CONTAINER
+        ========================================= */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 35px 20px 70px;
+        }
+
+
+        /* =========================================
+           💻 HERO
+        ========================================= */
+
+        .hero {
+            text-align: center;
+
+            padding: 55px 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 28px;
+
+            background: linear-gradient(135deg,
+                    #dff5ff,
+                    #f2fbff,
+                    #ffffff);
+
+            border: 1px solid #cfeaf6;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            background: white;
+
+            color: #1876a7;
+
+            padding: 7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+            box-shadow: 0 5px 15px rgba(40, 120, 160, .08);
+        }
+
+        .hero h1 {
+            color: #126d9d;
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+
+            color: #647b86;
+        }
+
+
+        /* =========================================
+           📚 CONTENT CARDS
+        ========================================= */
+
+        .content-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #dfedf4;
+
+            box-shadow:
+                0 8px 25px rgba(40, 100, 130, .06);
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+        .content-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-card:hover {
+            box-shadow:
+                0 15px 35px rgba(40, 100, 130, .11);
+        }
+
+        .content-card h2 {
+            color: #1675a8;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .content-card h3 {
+            color: #2885b4;
+
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           📑 TABLE OF CONTENTS
+        ========================================= */
+
+        .toc {
+            border-left: 6px solid #63b6db;
+        }
+
+        .toc-list {
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+        .toc-list a {
+            display: block;
+
+            text-decoration: none;
+
+            color: #50636d;
+
+            background: #f0f9fd;
+
+            padding: 11px 14px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+        .toc-list a:hover {
+            background: #dff3fc;
+
+            color: #1675a8;
+
+            transform: translateX(6px);
+        }
+
+
+        /* =========================================
+           🔄 FLOW DIAGRAM
+        ========================================= */
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+        .flow-box {
+            padding: 14px 20px;
+
+            background: #e4f6ff;
+
+            color: #16709d;
+
+            border: 1px solid #c6e8f5;
+
+            border-radius: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .flow-box:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 8px 20px rgba(30, 120, 160, .13);
+        }
+
+        .flow-arrow {
+            color: #4a9fc2;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================================
+           🧩 TOPIC GRID
+        ========================================= */
+
+        .topic-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+        .topic-box {
+            padding: 20px;
+
+            background: #f5fbfe;
+
+            border: 1px solid #dcecf3;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+        .topic-box:hover {
+            transform: translateY(-6px);
+
+            background: #eaf8fd;
+
+            box-shadow:
+                0 10px 25px rgba(40, 120, 160, .10);
+        }
+
+        .topic-box h3 {
+            margin-top: 0;
+
+            color: #1675a8;
+        }
+
+
+        /* =========================================
+           💡 INFO BOX
+        ========================================= */
+
+        .info-box {
+            background: #eaf8fd;
+
+            border-left: 5px solid #65b7d8;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            margin: 18px 0;
+        }
+
+        .info-box strong {
+            color: #1675a8;
+        }
+
+
+        /* =========================================
+           💻 C CODE BOX
+        ========================================= */
+
+        .code-box {
+            background: #17242c;
+
+            color: #d7f4ff;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            overflow-x: auto;
+
+            margin-top: 15px;
+
+            font-family: Consolas, "Courier New", monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            border: 1px solid #2c4552;
+        }
+
+        .code-title {
+            display: inline-block;
+
+            background: #dff4ff;
+
+            color: #176e98;
+
+            padding: 5px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================================
+           📝 LIST
+        ========================================= */
+
+        .notes-list {
+            padding-left: 22px;
+        }
+
+        .notes-list li {
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+        .notes-list li:hover {
+            color: #1675a8;
+
+            transform: translateX(5px);
+        }
+
+
+        /* =========================================
+           🎯 REVISION
+        ========================================= */
+
+        .revision-card {
+            background: linear-gradient(135deg,
+                    #e9f8ff,
+                    #f7fcff);
+
+            border: 2px dashed #7fc4df;
+        }
+
+
+        /* =========================================
+           🧠 EXAM CHECKLIST
+        ========================================= */
+
+        .check-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .check-item {
+            padding: 15px;
+
+            text-align: center;
+
+            background: #f0f9fd;
+
+            border-radius: 13px;
+
+            color: #276f8d;
+
+            font-weight: 600;
+
+            border: 1px solid #d8ebf2;
+
+            transition: .3s;
+        }
+
+        .check-item:hover {
+            transform: translateY(-4px);
+
+            background: #e3f5fc;
+        }
+
+
+        /* =========================================
+           🌊 FOOTER
+        ========================================= */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #1c3542;
+
+            color: #d7e6eb;
+        }
+
+        footer strong {
+            color: #9dd9ef;
+        }
+
+
+        /* =========================================
+           📱 MOBILE
+        ========================================= */
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                padding: 13px 16px;
+            }
+
+            .logo {
+                font-size: 15px;
+            }
+
+            .back-btn {
+                padding: 7px 12px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            .toc-list,
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .check-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         💙 OPENING ANIMATION
+    ========================================= -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <div class="intro-icon">
+                💻🔵
+            </div>
+
+            <h1>
+                C Programming
+            </h1>
+
+            <p>
+                Building your programming foundation 🚀
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         🧭 HEADER
+    ========================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                💙 Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =========================================
+             HERO
+        ========================================= -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • C PROGRAMMING
+            </span>
+
+            <h1>
+                💻 C Programming
+            </h1>
+
+            <p>
+                Learn C programming from the basics with
+                simple explanations, examples, diagrams,
+                important concepts and exam-friendly notes.
+            </p>
+
+        </section>
+
+
+        <!-- =========================================
+             TABLE OF CONTENTS
+        ========================================= -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 C Programming Topics
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#introduction">
+                        💻 1. Introduction to C
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#variables">
+                        📦 2. Variables & Data Types
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#operators">
+                        ➕ 3. Operators
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#ifelse">
+                        🔀 4. if-else
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#switch">
+                        🔘 5. switch
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#loops">
+                        🔁 6. Loops
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#functions">
+                        ⚙️ 7. Functions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#arrays">
+                        📊 8. Arrays
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#strings">
+                        🔤 9. Strings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#pointers">
+                        👉 10. Pointers
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#structures">
+                        🏗️ 11. Structures
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#files">
+                        📁 12. File Handling
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             1. INTRODUCTION
+        ========================================= -->
+
+        <section class="content-card" id="introduction">
+
+            <h2>
+                💻 1. Introduction to C
+            </h2>
+
+            <p>
+                C is a general-purpose, procedural programming
+                language. It is widely used for system programming,
+                embedded systems and application development.
+            </p>
+
+            <h3>
+                ⭐ Basic C Program
+            </h3>
+
+            <div class="code-box">
+                #include &lt;stdio.h&gt;
+
+                int main()
+                {
+                printf("Hello, World!");
+
+                return 0;
+                }
+            </div>
+
+            <h3>
+                🔍 Important Parts
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    📚 <b>#include &lt;stdio.h&gt;</b> →
+                    Includes the standard input/output header.
+                </li>
+
+                <li>
+                    🚀 <b>main()</b> →
+                    Starting point of the program.
+                </li>
+
+                <li>
+                    🖨️ <b>printf()</b> →
+                    Displays output.
+                </li>
+
+                <li>
+                    ✅ <b>return 0;</b> →
+                    Indicates successful program termination.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             2. VARIABLES & DATA TYPES
+        ========================================= -->
+
+        <section class="content-card" id="variables">
+
+            <h2>
+                📦 2. Variables & Data Types
+            </h2>
+
+            <p>
+                A variable is a named memory location used
+                to store data.
+            </p>
+
+            <div class="code-box">
+                int age = 20;
+                float marks = 85.5;
+                char grade = 'A';
+            </div>
+
+            <h3>
+                🔢 Common C Data Types
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔢 <b>int</b>
+                    <br>
+                    Integer values
+                </div>
+
+                <div class="topic-box">
+                    🔢 <b>float</b>
+                    <br>
+                    Decimal values
+                </div>
+
+                <div class="topic-box">
+                    🔢 <b>double</b>
+                    <br>
+                    More precise decimal values
+                </div>
+
+                <div class="topic-box">
+                    🔤 <b>char</b>
+                    <br>
+                    Single character
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Example:</strong>
+
+                <p>
+                    <b>int age = 20;</b> stores the integer
+                    value 20 in the variable named age.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             3. OPERATORS
+        ========================================= -->
+
+        <section class="content-card" id="operators">
+
+            <h2>
+                ➕ 3. Operators
+            </h2>
+
+            <p>
+                Operators are symbols used to perform
+                operations on values and variables.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        ➕ Arithmetic
+                    </h3>
+
+                    <p>
+                        + &nbsp; - &nbsp; * &nbsp; / &nbsp; %
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔍 Relational
+                    </h3>
+
+                    <p>
+                        &gt; &nbsp; &lt; &nbsp; == &nbsp;
+                        != &nbsp; &gt;= &nbsp; &lt;=
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        🧠 Logical
+                    </h3>
+
+                    <p>
+                        &amp;&amp; &nbsp; || &nbsp; !
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        📝 Assignment
+                    </h3>
+
+                    <p>
+                        = &nbsp; += &nbsp; -= &nbsp; *=
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Example
+            </span>
+
+            <div class="code-box">
+                int a = 10;
+                int b = 5;
+
+                int sum = a + b;
+                int product = a * b;
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             4. IF ELSE
+        ========================================= -->
+
+        <section class="content-card" id="ifelse">
+
+            <h2>
+                🔀 4. if-else
+            </h2>
+
+            <p>
+                The if-else statement is used to make
+                decisions based on a condition.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    ▶️ Start
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🔍 Condition
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ✅ True
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ❌ False
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Example
+            </span>
+
+            <div class="code-box">
+                #include &lt;stdio.h&gt;
+
+                int main()
+                {
+                int age = 18;
+
+                if(age &gt;= 18)
+                {
+                printf("Eligible");
+                }
+                else
+                {
+                printf("Not Eligible");
+                }
+
+                return 0;
+                }
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             5. SWITCH
+        ========================================= -->
+
+        <section class="content-card" id="switch">
+
+            <h2>
+                🔘 5. switch Statement
+            </h2>
+
+            <p>
+                The switch statement is used when one expression
+                needs to be compared with multiple possible values.
+            </p>
+
+            <div class="code-box">
+                switch(choice)
+                {
+                case 1:
+                printf("Option 1");
+                break;
+
+                case 2:
+                printf("Option 2");
+                break;
+
+                default:
+                printf("Invalid choice");
+                }
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Important:</strong>
+
+                <p>
+                    The <b>break</b> statement is commonly used
+                    to exit a case.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             6. LOOPS
+        ========================================= -->
+
+        <section class="content-card" id="loops">
+
+            <h2>
+                🔁 6. Loops
+            </h2>
+
+            <p>
+                Loops are used to execute a block of statements
+                repeatedly.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔁 for Loop
+                    </h3>
+
+                    <p>
+                        Useful when the number of repetitions
+                        is known.
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔄 while Loop
+                    </h3>
+
+                    <p>
+                        Checks the condition before execution.
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔁 do-while Loop
+                    </h3>
+
+                    <p>
+                        Executes the body at least once.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 for Loop Example
+            </span>
+
+            <div class="code-box">
+                for(int i = 1; i &lt;= 5; i++)
+                {
+                printf("%d\n", i);
+                }
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             7. FUNCTIONS
+        ========================================= -->
+
+        <section class="content-card" id="functions">
+
+            <h2>
+                ⚙️ 7. Functions
+            </h2>
+
+            <p>
+                A function is a block of code designed to
+                perform a particular task.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    📥 Input
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    ⚙️ Function
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📤 Return Value
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Function Example
+            </span>
+
+            <div class="code-box">
+                #include &lt;stdio.h&gt;
+
+                int add(int a, int b)
+                {
+                return a + b;
+                }
+
+                int main()
+                {
+                int result = add(10, 20);
+
+                printf("%d", result);
+
+                return 0;
+                }
+            </div>
+
+            <h3>
+                ✨ Advantages
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    ♻️ Code reusability
+                </li>
+
+                <li>
+                    🧹 Reduces repetition
+                </li>
+
+                <li>
+                    📖 Improves readability
+                </li>
+
+                <li>
+                    🛠️ Easier maintenance
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             8. ARRAYS
+        ========================================= -->
+
+        <section class="content-card" id="arrays">
+
+            <h2>
+                📊 8. Arrays
+            </h2>
+
+            <p>
+                An array stores multiple values of the same
+                data type in a contiguous collection.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    [0] 10
+                </div>
+
+                <div class="flow-box">
+                    [1] 20
+                </div>
+
+                <div class="flow-box">
+                    [2] 30
+                </div>
+
+                <div class="flow-box">
+                    [3] 40
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Array Example
+            </span>
+
+            <div class="code-box">
+                int marks[5] = {80, 75, 90, 85, 88};
+
+                printf("%d", marks[0]);
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Remember:</strong>
+
+                <p>
+                    C array indexing starts from <b>0</b>.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             9. STRINGS
+        ========================================= -->
+
+        <section class="content-card" id="strings">
+
+            <h2>
+                🔤 9. Strings
+            </h2>
+
+            <p>
+                In C, a string is a sequence of characters
+                stored in a character array and terminated
+                by the null character <b>\0</b>.
+            </p>
+
+            <span class="code-title">
+                💻 String Example
+            </span>
+
+            <div class="code-box">
+                char name[] = "Roshni";
+
+                printf("%s", name);
+            </div>
+
+            <h3>
+                🧰 Common String Functions
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔢 strlen()
+                    <br>
+                    Finds string length
+                </div>
+
+                <div class="topic-box">
+                    🔗 strcat()
+                    <br>
+                    Joins strings
+                </div>
+
+                <div class="topic-box">
+                    📋 strcpy()
+                    <br>
+                    Copies a string
+                </div>
+
+                <div class="topic-box">
+                    🔍 strcmp()
+                    <br>
+                    Compares strings
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             10. POINTERS
+        ========================================= -->
+
+        <section class="content-card" id="pointers">
+
+            <h2>
+                👉 10. Pointers
+            </h2>
+
+            <p>
+                A pointer is a variable that stores the memory
+                address of another variable.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    📦 Variable
+                    <br>
+                    value = 10
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📍 Address
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    👉 Pointer
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Pointer Example
+            </span>
+
+            <div class="code-box">
+                int number = 10;
+
+                int *ptr = &number;
+
+                printf("%d", *ptr);
+            </div>
+
+            <div class="info-box">
+
+                <strong>⭐ Important Symbols:</strong>
+
+                <p>
+                    <b>&amp;</b> → address-of operator
+                    <br>
+                    <b>*</b> → dereference operator
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             11. STRUCTURES
+        ========================================= -->
+
+        <section class="content-card" id="structures">
+
+            <h2>
+                🏗️ 11. Structures
+            </h2>
+
+            <p>
+                A structure is a user-defined data type that
+                allows different types of data to be grouped
+                together.
+            </p>
+
+            <span class="code-title">
+                💻 Structure Example
+            </span>
+
+            <div class="code-box">
+                struct Student
+                {
+                int rollNo;
+                char name[30];
+                float marks;
+                };
+
+                struct Student s1;
+            </div>
+
+            <h3>
+                🎓 Example Structure
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔢 Roll Number
+                </div>
+
+                <div class="topic-box">
+                    🔤 Student Name
+                </div>
+
+                <div class="topic-box">
+                    📊 Marks
+                </div>
+
+                <div class="topic-box">
+                    🎓 Course
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             12. FILE HANDLING
+        ========================================= -->
+
+        <section class="content-card" id="files">
+
+            <h2>
+                📁 12. File Handling
+            </h2>
+
+            <p>
+                File handling allows a C program to store and
+                retrieve data from files.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    💻 Program
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📂 File
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    💾 Stored Data
+                </div>
+
+            </div>
+
+            <h3>
+                🧰 Common File Functions
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    📂 fopen()
+                </div>
+
+                <div class="topic-box">
+                    🔒 fclose()
+                </div>
+
+                <div class="topic-box">
+                    ✍️ fprintf()
+                </div>
+
+                <div class="topic-box">
+                    📖 fscanf()
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Simple Example
+            </span>
+
+            <div class="code-box">
+                FILE *file;
+
+                file = fopen("data.txt", "w");
+
+                fprintf(file, "Hello C Programming");
+
+                fclose(file);
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             📝 QUICK REVISION
+        ========================================= -->
+
+        <section class="content-card revision-card">
+
+            <h2>
+                📝 C Programming Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    💻 C → General-purpose procedural language
+                </li>
+
+                <li>
+                    📦 Variable → Stores data
+                </li>
+
+                <li>
+                    🔢 Data Type → Defines type of data
+                </li>
+
+                <li>
+                    ➕ Operator → Performs operations
+                </li>
+
+                <li>
+                    🔀 if-else → Decision making
+                </li>
+
+                <li>
+                    🔘 switch → Multiple choices
+                </li>
+
+                <li>
+                    🔁 Loop → Repeated execution
+                </li>
+
+                <li>
+                    ⚙️ Function → Reusable block of code
+                </li>
+
+                <li>
+                    📊 Array → Collection of same-type elements
+                </li>
+
+                <li>
+                    🔤 String → Character sequence
+                </li>
+
+                <li>
+                    👉 Pointer → Stores an address
+                </li>
+
+                <li>
+                    🏗️ Structure → Groups different data types
+                </li>
+
+                <li>
+                    📁 File Handling → Read/write files
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+             🎯 EXAM CHECKLIST
+        ========================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 BCA C Programming Exam Checklist
+            </h2>
+
+            <p>
+                Before your exam, make sure you have revised
+                these important topics:
+            </p>
+
+            <div class="check-grid">
+
+                <div class="check-item">
+                    ✅ C Basics
+                </div>
+
+                <div class="check-item">
+                    ✅ Data Types
+                </div>
+
+                <div class="check-item">
+                    ✅ Operators
+                </div>
+
+                <div class="check-item">
+                    ✅ if-else
+                </div>
+
+                <div class="check-item">
+                    ✅ switch
+                </div>
+
+                <div class="check-item">
+                    ✅ Loops
+                </div>
+
+                <div class="check-item">
+                    ✅ Functions
+                </div>
+
+                <div class="check-item">
+                    ✅ Arrays
+                </div>
+
+                <div class="check-item">
+                    ✅ Strings
+                </div>
+
+                <div class="check-item">
+                    ✅ Pointers
+                </div>
+
+                <div class="check-item">
+                    ✅ Structures
+                </div>
+
+                <div class="check-item">
+                    ✅ File Handling
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         🌊 FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <p>
+            💙 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         ⚙️ JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =========================================
+           ✨ SCROLL REVEAL
+        ========================================= */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* =========================================
+           📚 SMOOTH TOPIC NAVIGATION
+        ========================================= */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Programming Fundamentals | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #fff8fc;
+            color: #302833;
+            line-height: 1.7;
+        }
+
+        /* ===============================
+           🌸 OPENING ANIMATION
+        =============================== */
+
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg,
+                    #ffeaf4,
+                    #fff5fa);
+
+            pointer-events: none;
+
+            animation: hideIntro 1s ease 2.5s forwards;
+        }
+
+        .intro-content {
+            text-align: center;
+            animation: introIn .9s ease;
+        }
+
+        .intro-icon {
+            font-size: 72px;
+            animation: floatIcon 1.5s ease-in-out infinite;
+        }
+
+        .intro-content h1 {
+            color: #bd4f7d;
+            margin-top: 12px;
+            font-size: 30px;
+        }
+
+        .intro-content p {
+            color: #876d79;
+            font-size: 14px;
+        }
+
+        @keyframes introIn {
+
+            from {
+                opacity: 0;
+                transform: scale(.8) translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes hideIntro {
+
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* ===============================
+           🌸 HEADER
+        =============================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .95);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #f0dce6;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 15px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            text-decoration: none;
+
+            color: #b84978;
+
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+
+            color: #a9406d;
+
+            background: #ffe5f0;
+
+            padding: 8px 16px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: #b84978;
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ===============================
+           🌸 CONTAINER
+        =============================== */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 35px 20px 70px;
+        }
+
+
+        /* ===============================
+           💻 HERO
+        =============================== */
+
+        .hero {
+            text-align: center;
+
+            padding: 55px 25px;
+
+            border-radius: 28px;
+
+            background: linear-gradient(135deg,
+                    #ffe8f2,
+                    #fff6fa);
+
+            border: 1px solid #f2d7e4;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            background: white;
+
+            color: #b44676;
+
+            padding: 7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #b34272;
+
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+
+            color: #75626a;
+        }
+
+
+        /* ===============================
+           📚 CONTENT CARD
+        =============================== */
+
+        .content-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #f0e3e9;
+
+            box-shadow:
+                0 8px 25px rgba(120, 60, 90, .06);
+
+            opacity: 0;
+            transform: translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+        .content-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-card:hover {
+            box-shadow:
+                0 15px 35px rgba(120, 60, 90, .10);
+        }
+
+        .content-card h2 {
+            color: #b34272;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .content-card h3 {
+            color: #bf6287;
+
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+
+        /* ===============================
+           📚 TOC
+        =============================== */
+
+        .toc {
+            border-left: 6px solid #e58bab;
+        }
+
+        .toc-list {
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+        .toc-list a {
+            display: block;
+
+            text-decoration: none;
+
+            color: #5f5358;
+
+            background: #fff5f9;
+
+            padding: 11px 14px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+        .toc-list a:hover {
+            background: #ffe3ef;
+
+            color: #ad3f70;
+
+            transform: translateX(6px);
+        }
+
+
+        /* ===============================
+           🔀 FLOW
+        =============================== */
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+        .flow-box {
+            padding: 14px 20px;
+
+            background: #ffe8f1;
+
+            color: #aa3d6d;
+
+            border-radius: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .flow-box:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 8px 20px rgba(190, 70, 120, .15);
+        }
+
+        .flow-arrow {
+            color: #d07899;
+            font-size: 22px;
+        }
+
+
+        /* ===============================
+           🧩 GRID
+        =============================== */
+
+        .topic-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+        .topic-box {
+            padding: 20px;
+
+            background: #fff7fa;
+
+            border: 1px solid #f2dce6;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+        .topic-box:hover {
+            transform: translateY(-6px);
+
+            background: #fff0f6;
+
+            box-shadow:
+                0 10px 25px rgba(170, 70, 110, .10);
+        }
+
+        .topic-box h3 {
+            margin-top: 0;
+
+            color: #b44676;
+        }
+
+
+        /* ===============================
+           📝 LIST
+        =============================== */
+
+        .notes-list {
+            padding-left: 22px;
+        }
+
+        .notes-list li {
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+        .notes-list li:hover {
+            color: #ad3f70;
+            transform: translateX(5px);
+        }
+
+
+        /* ===============================
+           💡 INFO BOX
+        =============================== */
+
+        .info-box {
+            background: #fff0f6;
+
+            border-left: 5px solid #df82a4;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            margin: 18px 0;
+        }
+
+        .info-box strong {
+            color: #ae416f;
+        }
+
+
+        /* ===============================
+           🔢 CODE BOX
+        =============================== */
+
+        .code-box {
+            background: #29222a;
+
+            color: #ffd9e8;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            overflow-x: auto;
+
+            margin-top: 15px;
+
+            font-family: Consolas, monospace;
+
+            font-size: 14px;
+        }
+
+
+        /* ===============================
+           📝 REVISION
+        =============================== */
+
+        .revision-card {
+            background: linear-gradient(135deg,
+                    #fff0f6,
+                    #fff8fb);
+
+            border: 2px dashed #e3a1b8;
+        }
+
+
+        /* ===============================
+           🌸 FOOTER
+        =============================== */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #30222b;
+
+            color: #ddd;
+        }
+
+        footer strong {
+            color: #f4b4cd;
+        }
+
+
+        /* ===============================
+           📱 MOBILE
+        =============================== */
+
+        @media(max-width:700px) {
+
+            .navbar {
+                padding: 13px 16px;
+            }
+
+            .logo {
+                font-size: 15px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            .toc-list,
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         🌸 OPENING
+    ========================================= -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <div class="intro-icon">
+                🌸💻
+            </div>
+
+            <h1>
+                Programming Fundamentals
+            </h1>
+
+            <p>
+                Let's build your programming foundation 🚀
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                💜 Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • PROGRAMMING FUNDAMENTALS
+            </span>
+
+            <h1>
+                👨‍💻 Programming Fundamentals
+            </h1>
+
+            <p>
+                Learn the basic concepts of programming,
+                algorithms, logic building and problem solving
+                in a simple and beginner-friendly way.
+            </p>
+
+        </section>
+
+
+        <!-- TABLE OF CONTENTS -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 Topics Covered
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#algorithms">
+                        🧠 Algorithms
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#flowcharts">
+                        🔀 Flowcharts
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#logic">
+                        💡 Programming Logic
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#variables">
+                        📦 Variables
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#datatypes">
+                        🔢 Data Types
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#operators">
+                        ➕ Operators
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#conditions">
+                        🔀 Conditional Statements
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#loops">
+                        🔁 Loops
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#functions">
+                        ⚙️ Functions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#arrays">
+                        📊 Arrays
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#strings">
+                        🔤 Strings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#problem-solving">
+                        🧩 Problem Solving
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 1 ALGORITHMS -->
+
+        <section class="content-card" id="algorithms">
+
+            <h2>
+                🧠 1. Algorithms
+            </h2>
+
+            <p>
+                An algorithm is a finite sequence of clear,
+                step-by-step instructions used to solve a problem
+                or perform a task.
+            </p>
+
+            <div class="info-box">
+
+                <strong>💡 Remember:</strong>
+
+                <p>
+                    A good algorithm should be clear,
+                    finite and effective.
+                </p>
+
+            </div>
+
+            <h3>
+                ✨ Characteristics
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>📌 Clearly defined steps</li>
+                <li>⏳ Must eventually terminate</li>
+                <li>🎯 Produces the required result</li>
+                <li>🧩 Easy to understand</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 2 FLOWCHART -->
+
+        <section class="content-card" id="flowcharts">
+
+            <h2>
+                🔀 2. Flowcharts
+            </h2>
+
+            <p>
+                A flowchart is a graphical representation
+                of an algorithm using standard symbols.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🟢 Start
+                </div>
+
+                <span class="flow-arrow">↓</span>
+
+                <div class="flow-box">
+                    📥 Input
+                </div>
+
+                <span class="flow-arrow">↓</span>
+
+                <div class="flow-box">
+                    ⚙️ Process
+                </div>
+
+                <span class="flow-arrow">↓</span>
+
+                <div class="flow-box">
+                    📤 Output
+                </div>
+
+                <span class="flow-arrow">↓</span>
+
+                <div class="flow-box">
+                    🔴 End
+                </div>
+
+            </div>
+
+            <h3>
+                🔷 Common Symbols
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>🟢 Oval → Start / End</li>
+
+                <li>▭ Rectangle → Process</li>
+
+                <li>◇ Diamond → Decision</li>
+
+                <li>▱ Parallelogram → Input / Output</li>
+
+                <li>➡️ Arrow → Flow direction</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 3 PROGRAMMING LOGIC -->
+
+        <section class="content-card" id="logic">
+
+            <h2>
+                💡 3. Programming Logic
+            </h2>
+
+            <p>
+                Programming logic means thinking about a problem
+                step by step and creating instructions that a
+                computer can execute.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔍 Understand the problem
+                </div>
+
+                <div class="topic-box">
+                    🧩 Break it into smaller parts
+                </div>
+
+                <div class="topic-box">
+                    🧠 Design the logic
+                </div>
+
+                <div class="topic-box">
+                    💻 Write the program
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4 VARIABLES -->
+
+        <section class="content-card" id="variables">
+
+            <h2>
+                📦 4. Variables
+            </h2>
+
+            <p>
+                A variable is a named location used to store
+                a value that may change during program execution.
+            </p>
+
+            <div class="code-box">
+                age = 20<br>
+                name = "Roshni"<br>
+                marks = 85
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Example:</strong>
+
+                <p>
+                    Here, <b>age</b>, <b>name</b> and <b>marks</b>
+                    are variables.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 5 DATA TYPES -->
+
+        <section class="content-card" id="datatypes">
+
+            <h2>
+                🔢 5. Data Types
+            </h2>
+
+            <p>
+                Data types define the type of value that
+                a variable can store.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔢 Integer
+                </div>
+
+                <div class="topic-box">
+                    🔢 Floating Point
+                </div>
+
+                <div class="topic-box">
+                    🔤 Character
+                </div>
+
+                <div class="topic-box">
+                    📝 String
+                </div>
+
+                <div class="topic-box">
+                    ✅ Boolean
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 6 OPERATORS -->
+
+        <section class="content-card" id="operators">
+
+            <h2>
+                ➕ 6. Operators
+            </h2>
+
+            <p>
+                Operators are symbols used to perform operations
+                on values and variables.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>➕ Arithmetic</h3>
+
+                    <p>
+                        + &nbsp; − &nbsp; × &nbsp; ÷ &nbsp; %
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>🔍 Relational</h3>
+
+                    <p>
+                        &gt; &nbsp; &lt; &nbsp; == &nbsp; !=
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>🧠 Logical</h3>
+
+                    <p>
+                        AND &nbsp; OR &nbsp; NOT
+                    </p>
+
+                </div>
+
+                <div class="topic-box">
+
+                    <h3>📝 Assignment</h3>
+
+                    <p>
+                        = &nbsp; += &nbsp; -=
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 7 CONDITIONS -->
+
+        <section class="content-card" id="conditions">
+
+            <h2>
+                🔀 7. Conditional Statements
+            </h2>
+
+            <p>
+                Conditional statements allow a program to
+                execute different instructions depending
+                on whether a condition is true or false.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔹 if
+                </div>
+
+                <div class="topic-box">
+                    🔹 if-else
+                </div>
+
+                <div class="topic-box">
+                    🔹 else-if
+                </div>
+
+                <div class="topic-box">
+                    🔹 switch
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 8 LOOPS -->
+
+        <section class="content-card" id="loops">
+
+            <h2>
+                🔁 8. Loops
+            </h2>
+
+            <p>
+                Loops are used to execute a block of code
+                repeatedly.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    ▶️ Start
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    🔍 Check Condition
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    ⚙️ Execute
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    🔁 Repeat
+                </div>
+
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    🔁 for loop
+                </div>
+
+                <div class="topic-box">
+                    🔄 while loop
+                </div>
+
+                <div class="topic-box">
+                    🔁 do-while loop
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 9 FUNCTIONS -->
+
+        <section class="content-card" id="functions">
+
+            <h2>
+                ⚙️ 9. Functions
+            </h2>
+
+            <p>
+                A function is a reusable block of code designed
+                to perform a specific task.
+            </p>
+
+            <div class="code-box">
+                function greet() {<br>
+                &nbsp;&nbsp;console.log("Hello");<br>
+                }
+            </div>
+
+            <h3>
+                ✨ Advantages
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>♻️ Code reusability</li>
+
+                <li>🧹 Reduces repetition</li>
+
+                <li>📖 Improves readability</li>
+
+                <li>🛠️ Easier maintenance</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 10 ARRAYS -->
+
+        <section class="content-card" id="arrays">
+
+            <h2>
+                📊 10. Arrays
+            </h2>
+
+            <p>
+                An array is a collection of elements stored
+                under one variable name, usually accessed
+                using an index.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    [0] 10
+                </div>
+
+                <div class="flow-box">
+                    [1] 20
+                </div>
+
+                <div class="flow-box">
+                    [2] 30
+                </div>
+
+                <div class="flow-box">
+                    [3] 40
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>💡 Important:</strong>
+
+                <p>
+                    In many programming languages, array indexing
+                    starts from 0.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 11 STRINGS -->
+
+        <section class="content-card" id="strings">
+
+            <h2>
+                🔤 11. Strings
+            </h2>
+
+            <p>
+                A string is a sequence of characters used
+                to represent text.
+            </p>
+
+            <div class="code-box">
+                name = "Roshni"<br>
+                message = "Hello World"
+            </div>
+
+            <h3>
+                ✨ Common String Operations
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>🔗 Concatenation</li>
+
+                <li>🔍 Searching</li>
+
+                <li>✂️ Slicing</li>
+
+                <li>📏 Finding length</li>
+
+                <li>🔄 Changing case</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 12 PROBLEM SOLVING -->
+
+        <section class="content-card" id="problem-solving">
+
+            <h2>
+                🧩 12. Basic Problem Solving
+            </h2>
+
+            <p>
+                Problem solving is the process of understanding
+                a problem, developing a solution and implementing
+                it using a programming language.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🔍 Problem
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    🧠 Logic
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    📝 Algorithm
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    🔀 Flowchart
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    💻 Code
+                </div>
+
+                <span class="flow-arrow">→</span>
+
+                <div class="flow-box">
+                    🧪 Test
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK REVISION -->
+
+        <section class="content-card revision-card">
+
+            <h2>
+                📝 Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    🧠 Algorithm → Step-by-step solution
+                </li>
+
+                <li>
+                    🔀 Flowchart → Graphical representation
+                    of an algorithm
+                </li>
+
+                <li>
+                    📦 Variable → Stores a value
+                </li>
+
+                <li>
+                    🔢 Data Type → Defines the kind of data
+                </li>
+
+                <li>
+                    ➕ Operator → Performs an operation
+                </li>
+
+                <li>
+                    🔀 Condition → Makes decisions
+                </li>
+
+                <li>
+                    🔁 Loop → Repeats instructions
+                </li>
+
+                <li>
+                    ⚙️ Function → Reusable block of code
+                </li>
+
+                <li>
+                    📊 Array → Collection of elements
+                </li>
+
+                <li>
+                    🔤 String → Sequence of characters
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- EXAM CHECKLIST -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 BCA Exam Checklist
+            </h2>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+                    ✅ Algorithms
+                </div>
+
+                <div class="topic-box">
+                    ✅ Flowcharts
+                </div>
+
+                <div class="topic-box">
+                    ✅ Programming Logic
+                </div>
+
+                <div class="topic-box">
+                    ✅ Variables
+                </div>
+
+                <div class="topic-box">
+                    ✅ Data Types
+                </div>
+
+                <div class="topic-box">
+                    ✅ Operators
+                </div>
+
+                <div class="topic-box">
+                    ✅ Conditions
+                </div>
+
+                <div class="topic-box">
+                    ✅ Loops
+                </div>
+
+                <div class="topic-box">
+                    ✅ Functions
+                </div>
+
+                <div class="topic-box">
+                    ✅ Arrays
+                </div>
+
+                <div class="topic-box">
+                    ✅ Strings
+                </div>
+
+                <div class="topic-box">
+                    ✅ Problem Solving
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            💜 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Grow 🌸
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* 🌸 Scroll Reveal */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* 📚 Smooth Scroll */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SQL Full Notes | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =====================================================
+           🗄️ SQL FULL NOTES
+           ROSHNI CODE CHARM
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f7f8fc;
+            color: #374151;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           🗄️ SQL INTRO SCREEN
+        ===================================================== */
+
+        .sql-intro {
+
+            position: fixed;
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 15% 20%,
+                    #d8ccff 0%,
+                    transparent 25%),
+                radial-gradient(circle at 85% 75%,
+                    #bce7ff 0%,
+                    transparent 28%),
+                linear-gradient(135deg,
+                    #f6f1ff,
+                    #eef9ff,
+                    #ffffff);
+
+            animation: sqlIntroHide 0.8s ease 3.2s forwards;
+
+            pointer-events: none;
+        }
+
+
+        .sql-intro-content {
+
+            position: relative;
+
+            text-align: center;
+
+            animation:
+                sqlIntroAppear 1s ease forwards;
+        }
+
+
+        /* Main SQL emoji */
+
+        .sql-main-icon {
+
+            font-size: 78px;
+
+            display: inline-block;
+
+            animation:
+                sqlDatabaseFloat 2.4s ease-in-out infinite;
+        }
+
+
+        /* Floating emojis */
+
+        .sql-float {
+
+            position: absolute;
+
+            font-size: 32px;
+        }
+
+
+        .sql-float-1 {
+
+            top: -90px;
+            left: -125px;
+
+            animation:
+                sqlFloatOne 2.8s ease-in-out infinite;
+        }
+
+
+        .sql-float-2 {
+
+            top: -80px;
+            right: -120px;
+
+            animation:
+                sqlFloatTwo 3s ease-in-out infinite;
+        }
+
+
+        .sql-float-3 {
+
+            bottom: -80px;
+            left: -115px;
+
+            animation:
+                sqlFloatThree 3.2s ease-in-out infinite;
+        }
+
+
+        .sql-float-4 {
+
+            bottom: -75px;
+            right: -110px;
+
+            animation:
+                sqlFloatFour 2.7s ease-in-out infinite;
+        }
+
+
+        .sql-intro-content h1 {
+
+            margin-top: 12px;
+
+            font-size: 32px;
+
+            color: #6251a7;
+
+            animation:
+                sqlTitleAppear 1s ease .35s both;
+        }
+
+
+        .sql-intro-content p {
+
+            margin-top: 5px;
+
+            font-size: 14px;
+
+            color: #667085;
+
+            animation:
+                sqlSubtitleAppear 1s ease .65s both;
+        }
+
+
+        /* =====================================================
+           🎬 SQL INTRO ANIMATIONS
+        ===================================================== */
+
+        @keyframes sqlIntroAppear {
+
+            0% {
+                opacity: 0;
+                transform: scale(.55) translateY(30px);
+            }
+
+            70% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @keyframes sqlDatabaseFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0) rotate(-4deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-18px) rotate(4deg);
+            }
+        }
+
+
+        @keyframes sqlFloatOne {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translate(-25px, -25px) rotate(-15deg);
+            }
+        }
+
+
+        @keyframes sqlFloatTwo {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(25px, -22px) rotate(15deg);
+            }
+        }
+
+
+        @keyframes sqlFloatThree {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(-20px, 22px) rotate(12deg);
+            }
+        }
+
+
+        @keyframes sqlFloatFour {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(20px, 22px) rotate(-12deg);
+            }
+        }
+
+
+        @keyframes sqlTitleAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes sqlSubtitleAppear {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes sqlIntroHide {
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* =====================================================
+           🧭 NAVBAR
+        ===================================================== */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, .95);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid #e5e7eb;
+        }
+
+
+        .navbar {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 14px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            text-decoration: none;
+
+            color: #6251a7;
+
+            font-size: 18px;
+
+            font-weight: 700;
+        }
+
+
+        .back-btn {
+
+            text-decoration: none;
+
+            background: #f0ecff;
+
+            color: #6251a7;
+
+            padding: 8px 17px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .back-btn:hover {
+
+            background: #6251a7;
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           📦 CONTAINER
+        ===================================================== */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                35px 20px 70px;
+        }
+
+
+        /* =====================================================
+           🗄️ HERO
+        ===================================================== */
+
+        .hero {
+
+            text-align: center;
+
+            padding: 55px 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(135deg,
+                    #eee8ff,
+                    #e7f7ff,
+                    #ffffff);
+
+            border:
+                1px solid #ddd6fe;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            background: white;
+
+            color: #6251a7;
+
+            padding:
+                7px 17px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(98, 81, 167, .08);
+        }
+
+
+        .hero h1 {
+
+            color: #6251a7;
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .hero p {
+
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #667085;
+        }
+
+
+        /* =====================================================
+           📚 CONTENT CARDS
+        ===================================================== */
+
+        .content-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid #e6e7eb;
+
+            box-shadow:
+                0 8px 25px rgba(30, 41, 59, .055);
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .content-card.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .content-card:hover {
+
+            box-shadow:
+                0 14px 32px rgba(30, 41, 59, .09);
+        }
+
+
+        .content-card h2 {
+
+            color: #6251a7;
+
+            font-size: 25px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .content-card h3 {
+
+            color: #3679a7;
+
+            margin-top: 20px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =====================================================
+           📑 TOC
+        ===================================================== */
+
+        .toc {
+
+            border-left:
+                6px solid #7c6bc4;
+        }
+
+
+        .toc-list {
+
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .toc-list a {
+
+            display: block;
+
+            text-decoration: none;
+
+            color: #586174;
+
+            background:
+                linear-gradient(135deg,
+                    #f5f2ff,
+                    #f0f9ff);
+
+            padding:
+                11px 14px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+
+        .toc-list a:hover {
+
+            color: #6251a7;
+
+            transform:
+                translateX(6px);
+
+            background:
+                #ece7ff;
+        }
+
+
+        /* =====================================================
+           🗃️ FLOW DIAGRAM
+        ===================================================== */
+
+        .flow {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+
+        .flow-box {
+
+            padding:
+                14px 20px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(135deg,
+                    #eee9ff,
+                    #e7f6ff);
+
+            color: #6251a7;
+
+            border:
+                1px solid #ddd6fe;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .flow-box:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 8px 20px rgba(98, 81, 167, .12);
+        }
+
+
+        .flow-arrow {
+
+            font-size: 22px;
+
+            color: #6688b0;
+        }
+
+
+        /* =====================================================
+           🔑 TOPIC GRID
+        ===================================================== */
+
+        .topic-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 18px;
+        }
+
+
+        .topic-box {
+
+            padding: 19px;
+
+            background:
+                linear-gradient(135deg,
+                    #f7f4ff,
+                    #f0f9ff);
+
+            border:
+                1px solid #e3e4f1;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+
+        .topic-box:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 24px rgba(60, 80, 130, .09);
+        }
+
+
+        .topic-box h3 {
+
+            margin-top: 0;
+
+            color: #6251a7;
+        }
+
+
+        /* =====================================================
+           💡 INFO BOX
+        ===================================================== */
+
+        .info-box {
+
+            background:
+                linear-gradient(135deg,
+                    #f1edff,
+                    #edf9ff);
+
+            border-left:
+                5px solid #7c6bc4;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            margin: 18px 0;
+        }
+
+
+        .info-box strong {
+
+            color: #6251a7;
+        }
+
+
+        /* =====================================================
+           💻 SQL CODE
+        ===================================================== */
+
+        .code-title {
+
+            display: inline-block;
+
+            background: #ece8ff;
+
+            color: #6251a7;
+
+            padding:
+                5px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-top: 10px;
+        }
+
+
+        .code-box {
+
+            position: relative;
+
+            background:
+                #20252b;
+
+            color:
+                #e8edf3;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            overflow-x: auto;
+
+            margin-top: 10px;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            border:
+                1px solid #303841;
+        }
+
+
+        .sql-keyword {
+            color: #c5a7ff;
+        }
+
+
+        .sql-string {
+            color: #9fe3b1;
+        }
+
+
+        .sql-comment {
+            color: #8e99a8;
+        }
+
+
+        /* =====================================================
+           🗂️ DATABASE DIAGRAM
+        ===================================================== */
+
+        .database-diagram {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin: 25px 0;
+        }
+
+
+        .database-box {
+
+            text-align: center;
+
+            padding: 24px 15px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(145deg,
+                    #eee8ff,
+                    #eaf7ff);
+
+            border:
+                1px solid #ddd9ef;
+
+            transition: .3s;
+        }
+
+
+        .database-box:hover {
+
+            transform:
+                translateY(-7px) rotate(1deg);
+
+            box-shadow:
+                0 12px 25px rgba(70, 70, 130, .11);
+        }
+
+
+        .database-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .database-box strong {
+
+            color: #6251a7;
+        }
+
+
+        /* =====================================================
+           📊 TABLE
+        ===================================================== */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+
+            margin-top: 18px;
+        }
+
+
+        .sql-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 550px;
+        }
+
+
+        .sql-table th {
+
+            background:
+                #6251a7;
+
+            color: white;
+
+            padding: 12px;
+
+            text-align: left;
+        }
+
+
+        .sql-table td {
+
+            padding: 11px 12px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+            background: #fafafa;
+        }
+
+
+        .sql-table tr:hover td {
+
+            background:
+                #f2efff;
+        }
+
+
+        /* =====================================================
+           🔐 KEY CARDS
+        ===================================================== */
+
+        .key-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+
+        .key-card {
+
+            padding: 20px;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(135deg,
+                    #f2eeff,
+                    #eef9ff);
+
+            border:
+                1px solid #dddff0;
+        }
+
+
+        .key-card h3 {
+
+            margin-top: 0;
+
+            color: #6251a7;
+        }
+
+
+        /* =====================================================
+           📝 NOTES LIST
+        ===================================================== */
+
+        .notes-list {
+
+            padding-left: 22px;
+        }
+
+
+        .notes-list li {
+
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+
+        .notes-list li:hover {
+
+            color: #6251a7;
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* =====================================================
+           📝 REVISION
+        ===================================================== */
+
+        .revision-card {
+
+            background:
+                linear-gradient(135deg,
+                    #f0ebff,
+                    #eaf8ff);
+
+            border:
+                2px dashed #8272c5;
+        }
+
+
+        /* =====================================================
+           🎯 CHECKLIST
+        ===================================================== */
+
+        .check-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .check-item {
+
+            padding: 15px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(135deg,
+                    #f2eeff,
+                    #eef9ff);
+
+            border-radius: 13px;
+
+            color: #6251a7;
+
+            font-weight: 600;
+
+            border:
+                1px solid #deddf0;
+
+            transition: .3s;
+        }
+
+
+        .check-item:hover {
+
+            transform:
+                translateY(-4px);
+
+            background:
+                #ebe6ff;
+        }
+
+
+        /* =====================================================
+           🌊 FOOTER
+        ===================================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background:
+                #29253d;
+
+            color:
+                #d9d8e8;
+        }
+
+
+        footer strong {
+
+            color:
+                #bdaeff;
+        }
+
+
+        /* =====================================================
+           📱 RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 800px) {
+
+            .database-diagram {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .check-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+
+                padding:
+                    13px 16px;
+            }
+
+
+            .logo {
+
+                font-size: 15px;
+            }
+
+
+            .hero {
+
+                padding:
+                    40px 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+            }
+
+
+            .content-card {
+
+                padding: 22px;
+            }
+
+
+            .toc-list,
+            .topic-grid,
+            .key-grid,
+            .database-diagram {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .check-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .flow {
+
+                flex-direction: column;
+            }
+
+
+            .flow-arrow {
+
+                transform:
+                    rotate(90deg);
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         🗄️ SQL INTRO ANIMATION
+    ===================================================== -->
+
+    <div class="sql-intro">
+
+        <div class="sql-intro-content">
+
+            <span class="sql-float sql-float-1">
+                🗃️
+            </span>
+
+            <span class="sql-float sql-float-2">
+                🔍
+            </span>
+
+            <span class="sql-float sql-float-3">
+                🔑
+            </span>
+
+            <span class="sql-float sql-float-4">
+                📊
+            </span>
+
+            <div class="sql-main-icon">
+                🗄️
+            </div>
+
+            <h1>
+                SQL Full Notes
+            </h1>
+
+            <p>
+                🗃️ DBMS • SQL • Queries • Database 💻
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         🧭 HEADER
+    ===================================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                🗄️ Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =====================================================
+             🗄️ HERO
+        ===================================================== -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • DATABASE MANAGEMENT • SQL
+            </span>
+
+            <h1>
+                🗄️ SQL Full Notes
+            </h1>
+
+            <p>
+                Learn DBMS basics, relational databases,
+                tables, keys, SQL commands, joins,
+                normalization and transactions step by step.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             📚 TABLE OF CONTENTS
+        ===================================================== -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 SQL Topics
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#dbms">
+                        🗄️ 1. DBMS Basics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#database">
+                        🗃️ 2. Database & Relational Database
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#tables">
+                        📊 3. Tables
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#keys">
+                        🔑 4. Keys
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sql">
+                        💻 5. SQL
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#select">
+                        🔍 6. SELECT
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#insert">
+                        ➕ 7. INSERT
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#update">
+                        ✏️ 8. UPDATE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#delete">
+                        🗑️ 9. DELETE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#joins">
+                        🔗 10. JOINs
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#aggregate">
+                        📊 11. Aggregate Functions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#normalization">
+                        🧹 12. Normalization
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#transactions">
+                        🔐 13. Transactions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#revision">
+                        📝 14. Quick Revision
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+             1. DBMS
+        ===================================================== -->
+
+        <section class="content-card" id="dbms">
+
+            <h2>
+                🗄️ 1. DBMS Basics
+            </h2>
+
+            <p>
+                DBMS stands for
+                <b>Database Management System</b>.
+                It is software used to create, store,
+                organize and manage data in databases.
+            </p>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Simple Meaning:
+                </strong>
+
+                <p>
+                    A DBMS helps users store and manage
+                    large amounts of data efficiently.
+                </p>
+
+            </div>
+
+            <div class="database-diagram">
+
+                <div class="database-box">
+
+                    <div class="database-icon">
+                        👤
+                    </div>
+
+                    <strong>
+                        User
+                    </strong>
+
+                    <p>
+                        Gives request
+                    </p>
+
+                </div>
+
+
+                <div class="database-box">
+
+                    <div class="database-icon">
+                        💻
+                    </div>
+
+                    <strong>
+                        DBMS
+                    </strong>
+
+                    <p>
+                        Processes request
+                    </p>
+
+                </div>
+
+
+                <div class="database-box">
+
+                    <div class="database-icon">
+                        🗄️
+                    </div>
+
+                    <strong>
+                        Database
+                    </strong>
+
+                    <p>
+                        Stores data
+                    </p>
+
+                </div>
+
+            </div>
+
+            <h3>
+                ⭐ Functions of DBMS
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    🗃️ Data storage
+                </li>
+
+                <li>
+                    🔍 Data retrieval
+                </li>
+
+                <li>
+                    🔐 Data security
+                </li>
+
+                <li>
+                    👥 Multi-user access
+                </li>
+
+                <li>
+                    💾 Backup and recovery
+                </li>
+
+                <li>
+                    🔄 Data management
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+             2. DATABASE
+        ===================================================== -->
+
+        <section class="content-card" id="database">
+
+            <h2>
+                🗃️ 2. Database & Relational Database
+            </h2>
+
+            <p>
+                A database is an organized collection of
+                related information that can be easily
+                accessed and managed.
+            </p>
+
+            <h3>
+                🔗 Relational Database
+            </h3>
+
+            <p>
+                A relational database stores data in tables
+                made up of rows and columns.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🗄️ Database
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📊 Tables
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    📝 Rows
+                </div>
+
+                <span class="flow-arrow">
+                    +
+                </span>
+
+                <div class="flow-box">
+                    📌 Columns
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             3. TABLES
+        ===================================================== -->
+
+        <section class="content-card" id="tables">
+
+            <h2>
+                📊 3. Tables
+            </h2>
+
+            <p>
+                A table stores data in rows and columns.
+            </p>
+
+            <div class="table-wrapper">
+
+                <table class="sql-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student_ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Course
+                            </th>
+
+                            <th>
+                                Marks
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                101
+                            </td>
+
+                            <td>
+                                Riya
+                            </td>
+
+                            <td>
+                                BCA
+                            </td>
+
+                            <td>
+                                85
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                102
+                            </td>
+
+                            <td>
+                                Aman
+                            </td>
+
+                            <td>
+                                BCA
+                            </td>
+
+                            <td>
+                                78
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                103
+                            </td>
+
+                            <td>
+                                Neha
+                            </td>
+
+                            <td>
+                                BCA
+                            </td>
+
+                            <td>
+                                91
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    📌 Remember:
+                </strong>
+
+                <p>
+                    Row = Record<br>
+                    Column = Field / Attribute
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             4. KEYS
+        ===================================================== -->
+
+        <section class="content-card" id="keys">
+
+            <h2>
+                🔑 4. Database Keys
+            </h2>
+
+            <p>
+                Keys are used to identify records and establish
+                relationships between tables.
+            </p>
+
+            <div class="key-grid">
+
+                <div class="key-card">
+
+                    <h3>
+                        🔐 Primary Key
+                    </h3>
+
+                    <p>
+                        Uniquely identifies each record
+                        in a table.
+                    </p>
+
+                </div>
+
+
+                <div class="key-card">
+
+                    <h3>
+                        🔗 Foreign Key
+                    </h3>
+
+                    <p>
+                        Creates a relationship between
+                        two tables.
+                    </p>
+
+                </div>
+
+
+                <div class="key-card">
+
+                    <h3>
+                        🔑 Candidate Key
+                    </h3>
+
+                    <p>
+                        A field that can potentially
+                        become a primary key.
+                    </p>
+
+                </div>
+
+
+                <div class="key-card">
+
+                    <h3>
+                        🧩 Composite Key
+                    </h3>
+
+                    <p>
+                        A key made using two or more
+                        columns.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             5. SQL
+        ===================================================== -->
+
+        <section class="content-card" id="sql">
+
+            <h2>
+                💻 5. SQL
+            </h2>
+
+            <p>
+                SQL stands for
+                <b>Structured Query Language</b>.
+                It is used to communicate with relational databases.
+            </p>
+
+            <h3>
+                📚 Major SQL Command Categories
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🏗️ DDL
+                    </h3>
+
+                    <p>
+                        CREATE, ALTER, DROP, TRUNCATE
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        📝 DML
+                    </h3>
+
+                    <p>
+                        INSERT, UPDATE, DELETE
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔍 DQL
+                    </h3>
+
+                    <p>
+                        SELECT
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔐 DCL
+                    </h3>
+
+                    <p>
+                        GRANT, REVOKE
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔄 TCL
+                    </h3>
+
+                    <p>
+                        COMMIT, ROLLBACK, SAVEPOINT
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             6. SELECT
+        ===================================================== -->
+
+        <section class="content-card" id="select">
+
+            <h2>
+                🔍 6. SELECT Command
+            </h2>
+
+            <p>
+                SELECT is used to retrieve data from a table.
+            </p>
+
+            <span class="code-title">
+                💻 Select All Columns
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">SELECT</span> *
+                <span class="sql-keyword">FROM</span> students;
+
+            </div>
+
+            <span class="code-title">
+                💻 Select Specific Columns
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">SELECT</span> name, marks
+                <span class="sql-keyword">FROM</span> students;
+
+            </div>
+
+            <span class="code-title">
+                🔎 WHERE Example
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">SELECT</span> *
+                <span class="sql-keyword">FROM</span> students
+                <span class="sql-keyword">WHERE</span> marks &gt; 80;
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             7. INSERT
+        ===================================================== -->
+
+        <section class="content-card" id="insert">
+
+            <h2>
+                ➕ 7. INSERT Command
+            </h2>
+
+            <p>
+                INSERT is used to add new records
+                into a table.
+            </p>
+
+            <span class="code-title">
+                💻 INSERT Example
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">INSERT INTO</span> students
+                (name, course, marks)
+                <span class="sql-keyword">VALUES</span>
+                (<span class="sql-string">'Riya'</span>,
+                <span class="sql-string">'BCA'</span>,
+                85);
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    📌 Remember:
+                </strong>
+
+                <p>
+                    INSERT adds a new record.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             8. UPDATE
+        ===================================================== -->
+
+        <section class="content-card" id="update">
+
+            <h2>
+                ✏️ 8. UPDATE Command
+            </h2>
+
+            <p>
+                UPDATE is used to modify existing records.
+            </p>
+
+            <span class="code-title">
+                💻 UPDATE Example
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">UPDATE</span> students
+
+                <span class="sql-keyword">SET</span> marks = 90
+
+                <span class="sql-keyword">WHERE</span> student_id = 101;
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    ⚠️ Important:
+                </strong>
+
+                <p>
+                    Always use a suitable WHERE condition
+                    when updating specific records.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             9. DELETE
+        ===================================================== -->
+
+        <section class="content-card" id="delete">
+
+            <h2>
+                🗑️ 9. DELETE Command
+            </h2>
+
+            <p>
+                DELETE is used to remove records from a table.
+            </p>
+
+            <span class="code-title">
+                💻 DELETE Example
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">DELETE FROM</span> students
+
+                <span class="sql-keyword">WHERE</span> student_id = 101;
+
+            </div>
+
+            <div class="info-box">
+
+                <strong>
+                    ⚠️ Important:
+                </strong>
+
+                <p>
+                    A DELETE statement without a WHERE
+                    condition can remove all records.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             10. JOINS
+        ===================================================== -->
+
+        <section class="content-card" id="joins">
+
+            <h2>
+                🔗 10. SQL JOINs
+            </h2>
+
+            <p>
+                JOINs are used to combine related data
+                from two or more tables.
+            </p>
+
+            <div class="database-diagram">
+
+                <div class="database-box">
+
+                    <div class="database-icon">
+                        👨‍🎓
+                    </div>
+
+                    <strong>
+                        Students
+                    </strong>
+
+                    <p>
+                        Student_ID
+                    </p>
+
+                </div>
+
+
+                <div class="database-box">
+
+                    <div class="database-icon">
+                        🔗
+                    </div>
+
+                    <strong>
+                        JOIN
+                    </strong>
+
+                    <p>
+                        Common column
+                    </p>
+
+                </div>
+
+
+                <div class="database-box">
+
+                    <div class="database-icon">
+                        📚
+                    </div>
+
+                    <strong>
+                        Courses
+                    </strong>
+
+                    <p>
+                        Course_ID
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔵 INNER JOIN
+                    </h3>
+
+                    <p>
+                        Returns matching records
+                        from both tables.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🟢 LEFT JOIN
+                    </h3>
+
+                    <p>
+                        Returns all records from
+                        the left table and matching
+                        records from the right.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🟣 RIGHT JOIN
+                    </h3>
+
+                    <p>
+                        Returns all records from
+                        the right table and matching
+                        records from the left.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🟠 FULL OUTER JOIN
+                    </h3>
+
+                    <p>
+                        Returns matching and
+                        non-matching records.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 INNER JOIN Example
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">SELECT</span>
+                students.name,
+                courses.course_name
+
+                <span class="sql-keyword">FROM</span> students
+
+                <span class="sql-keyword">INNER JOIN</span> courses
+
+                <span class="sql-keyword">ON</span>
+                students.course_id = courses.course_id;
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             11. AGGREGATE FUNCTIONS
+        ===================================================== -->
+
+        <section class="content-card" id="aggregate">
+
+            <h2>
+                📊 11. Aggregate Functions
+            </h2>
+
+            <p>
+                Aggregate functions perform calculations
+                on a group of records.
+            </p>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔢 COUNT()
+                    </h3>
+
+                    <p>
+                        Counts records.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ➕ SUM()
+                    </h3>
+
+                    <p>
+                        Calculates total.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        📈 AVG()
+                    </h3>
+
+                    <p>
+                        Calculates average.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ⬆️ MAX()
+                    </h3>
+
+                    <p>
+                        Finds maximum value.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ⬇️ MIN()
+                    </h3>
+
+                    <p>
+                        Finds minimum value.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Example
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">SELECT</span>
+                <span class="sql-keyword">AVG</span>(marks)
+
+                <span class="sql-keyword">FROM</span> students;
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             12. NORMALIZATION
+        ===================================================== -->
+
+        <section class="content-card" id="normalization">
+
+            <h2>
+                🧹 12. Normalization
+            </h2>
+
+            <p>
+                Normalization is the process of organizing
+                data to reduce redundancy and improve
+                data consistency.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    📊 Large Table
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🧹 Normalize
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-box">
+                    🗃️ Organized Tables
+                </div>
+
+            </div>
+
+            <h3>
+                📚 Normal Forms
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        1️⃣ 1NF
+                    </h3>
+
+                    <p>
+                        Removes repeating groups and
+                        keeps values atomic.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        2️⃣ 2NF
+                    </h3>
+
+                    <p>
+                        Meets 1NF and removes
+                        partial dependency.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        3️⃣ 3NF
+                    </h3>
+
+                    <p>
+                        Meets 2NF and removes
+                        transitive dependency.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             13. TRANSACTIONS
+        ===================================================== -->
+
+        <section class="content-card" id="transactions">
+
+            <h2>
+                🔐 13. Database Transactions
+            </h2>
+
+            <p>
+                A transaction is a sequence of database
+                operations treated as a single logical unit.
+            </p>
+
+            <h3>
+                🔐 ACID Properties
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🅰️ Atomicity
+                    </h3>
+
+                    <p>
+                        A transaction is completed
+                        fully or not at all.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🅲️ Consistency
+                    </h3>
+
+                    <p>
+                        Database remains in a
+                        valid state.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🅸️ Isolation
+                    </h3>
+
+                    <p>
+                        Transactions work independently
+                        from each other.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🅳️ Durability
+                    </h3>
+
+                    <p>
+                        Committed changes remain saved.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <span class="code-title">
+                💻 Transaction Example
+            </span>
+
+            <div class="code-box">
+
+                <span class="sql-keyword">START TRANSACTION</span>;
+
+                <span class="sql-keyword">UPDATE</span> accounts
+                <span class="sql-keyword">SET</span> balance = balance - 500
+                <span class="sql-keyword">WHERE</span> id = 1;
+
+                <span class="sql-keyword">COMMIT</span>;
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             📝 QUICK REVISION
+        ===================================================== -->
+
+        <section class="content-card revision-card" id="revision">
+
+            <h2>
+                📝 SQL Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    🗄️ DBMS → Manages databases.
+                </li>
+
+                <li>
+                    🗃️ Database → Organized collection of data.
+                </li>
+
+                <li>
+                    📊 Table → Stores data in rows and columns.
+                </li>
+
+                <li>
+                    🔑 Primary Key → Uniquely identifies a record.
+                </li>
+
+                <li>
+                    🔗 Foreign Key → Connects related tables.
+                </li>
+
+                <li>
+                    🔍 SELECT → Retrieves data.
+                </li>
+
+                <li>
+                    ➕ INSERT → Adds records.
+                </li>
+
+                <li>
+                    ✏️ UPDATE → Modifies records.
+                </li>
+
+                <li>
+                    🗑️ DELETE → Removes records.
+                </li>
+
+                <li>
+                    🔗 JOIN → Combines related tables.
+                </li>
+
+                <li>
+                    📊 Aggregate Functions → Perform calculations.
+                </li>
+
+                <li>
+                    🧹 Normalization → Reduces data redundancy.
+                </li>
+
+                <li>
+                    🔐 Transactions → Manage database operations safely.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+             🎯 EXAM CHECKLIST
+        ===================================================== -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 BCA SQL Exam Checklist
+            </h2>
+
+            <p>
+                Before your exam, make sure you can explain
+                these topics and write basic SQL queries.
+            </p>
+
+            <div class="check-grid">
+
+                <div class="check-item">
+                    ✅ DBMS
+                </div>
+
+                <div class="check-item">
+                    ✅ Database
+                </div>
+
+                <div class="check-item">
+                    ✅ Tables
+                </div>
+
+                <div class="check-item">
+                    ✅ Keys
+                </div>
+
+                <div class="check-item">
+                    ✅ SQL
+                </div>
+
+                <div class="check-item">
+                    ✅ SELECT
+                </div>
+
+                <div class="check-item">
+                    ✅ INSERT
+                </div>
+
+                <div class="check-item">
+                    ✅ UPDATE
+                </div>
+
+                <div class="check-item">
+                    ✅ DELETE
+                </div>
+
+                <div class="check-item">
+                    ✅ JOIN
+                </div>
+
+                <div class="check-item">
+                    ✅ Normalization
+                </div>
+
+                <div class="check-item">
+                    ✅ Transactions
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         🌊 FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <p>
+            🗄️ <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Practice • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         ⚙️ JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        /* =====================================================
+           ✨ SCROLL REVEAL
+        ===================================================== */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* =====================================================
+           📚 SMOOTH TOC SCROLL
+        ===================================================== */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+
+                                behavior: "smooth",
+
+                                block: "start"
+
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           🌐 PAGE LOADED
+        ===================================================== */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                document.body.classList.add(
+                    "page-loaded"
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

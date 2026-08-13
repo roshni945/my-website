@@ -1,0 +1,2499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Data Structures Full Notes | Roshni Code Charm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =====================================================
+   🧠 BCA DATA STRUCTURES
+   ROSHNI CODE CHARM
+===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f5f9ff;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+   🌊 INTRO ANIMATION
+===================================================== */
+
+        .intro-screen {
+
+            position: fixed;
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 15% 20%,
+                    #b8ddff,
+                    transparent 25%),
+                radial-gradient(circle at 85% 75%,
+                    #d8c5ff,
+                    transparent 28%),
+                linear-gradient(135deg,
+                    #eaf6ff,
+                    #f5efff,
+                    #ffffff);
+
+            animation:
+                introOut .8s ease 3.4s forwards;
+
+            pointer-events: none;
+        }
+
+
+        .intro-content {
+            position: relative;
+            text-align: center;
+
+            animation:
+                introIn 1s ease forwards;
+        }
+
+
+        .main-emoji {
+
+            font-size: 82px;
+
+            display: inline-block;
+
+            animation:
+                brainFloat 2.3s ease-in-out infinite;
+        }
+
+
+        .intro-title {
+
+            color: #356fa6;
+
+            font-size: 31px;
+
+            margin-top: 10px;
+
+            animation:
+                titleIn .8s ease .3s both;
+        }
+
+
+        .intro-subtitle {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            animation:
+                subtitleIn .8s ease .6s both;
+        }
+
+
+        /* Floating emojis */
+
+        .float {
+
+            position: absolute;
+
+            font-size: 30px;
+        }
+
+
+        .float.one {
+            top: -90px;
+            left: -125px;
+
+            animation:
+                floatOne 2.8s ease-in-out infinite;
+        }
+
+
+        .float.two {
+            top: -75px;
+            right: -120px;
+
+            animation:
+                floatTwo 3.1s ease-in-out infinite;
+        }
+
+
+        .float.three {
+            bottom: -80px;
+            left: -115px;
+
+            animation:
+                floatThree 2.7s ease-in-out infinite;
+        }
+
+
+        .float.four {
+            bottom: -75px;
+            right: -110px;
+
+            animation:
+                floatFour 3s ease-in-out infinite;
+        }
+
+
+        @keyframes introIn {
+
+            from {
+                opacity: 0;
+                transform: scale(.55) translateY(30px);
+            }
+
+            70% {
+                opacity: 1;
+                transform: scale(1.07);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+
+        @keyframes brainFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0) rotate(-4deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-18px) rotate(4deg);
+            }
+        }
+
+
+        @keyframes floatOne {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(-25px, -25px) rotate(-15deg);
+            }
+        }
+
+
+        @keyframes floatTwo {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(25px, -20px) rotate(14deg);
+            }
+        }
+
+
+        @keyframes floatThree {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(-22px, 22px) rotate(12deg);
+            }
+        }
+
+
+        @keyframes floatFour {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(22px, 20px) rotate(-12deg);
+            }
+        }
+
+
+        @keyframes titleIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes subtitleIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes introOut {
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+
+        /* =====================================================
+   🧭 NAVBAR
+===================================================== */
+
+        header {
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, .94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid #dbe7f3;
+        }
+
+
+        .navbar {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding:
+                14px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            text-decoration: none;
+
+            color: #356fa6;
+
+            font-weight: 700;
+
+            font-size: 18px;
+        }
+
+
+        .back-btn {
+
+            text-decoration: none;
+
+            color: #356fa6;
+
+            background: #e8f4ff;
+
+            padding:
+                8px 17px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .back-btn:hover {
+
+            background: #356fa6;
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+   📦 MAIN
+===================================================== */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                35px 20px 70px;
+        }
+
+
+        /* =====================================================
+   🧠 HERO
+===================================================== */
+
+        .hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            text-align: center;
+
+            padding:
+                55px 25px;
+
+            margin-bottom: 28px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(135deg,
+                    #dff2ff,
+                    #edf5ff,
+                    #eee7ff);
+
+            border:
+                1px solid #c9e3f8;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, .45);
+
+            top: -90px;
+            left: -50px;
+
+            animation:
+                circleMove 5s ease-in-out infinite;
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 140px;
+            height: 140px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(191, 219, 254, .28);
+
+            right: -40px;
+            bottom: -70px;
+
+            animation:
+                circleMove 4s ease-in-out infinite reverse;
+        }
+
+
+        @keyframes circleMove {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, 20px);
+            }
+        }
+
+
+        .hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            padding:
+                7px 17px;
+
+            border-radius: 30px;
+
+            background: white;
+
+            color: #356fa6;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(53, 111, 166, .08);
+        }
+
+
+        .hero h1 {
+
+            font-size: 42px;
+
+            color: #356fa6;
+
+            margin-bottom: 9px;
+        }
+
+
+        .hero p {
+
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #64748b;
+        }
+
+
+        /* =====================================================
+   📚 CONTENT CARDS
+===================================================== */
+
+        .content-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            margin-bottom: 24px;
+
+            border:
+                1px solid #e1eaf3;
+
+            box-shadow:
+                0 8px 25px rgba(30, 64, 95, .055);
+
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .content-card.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .content-card:hover {
+
+            box-shadow:
+                0 15px 32px rgba(30, 64, 95, .09);
+        }
+
+
+        .content-card h2 {
+
+            color: #356fa6;
+
+            font-size: 25px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .content-card h3 {
+
+            color: #527da4;
+
+            margin-top: 19px;
+
+            margin-bottom: 7px;
+        }
+
+
+        /* =====================================================
+   📑 TOC
+===================================================== */
+
+        .toc {
+
+            border-left:
+                6px solid #6299c7;
+        }
+
+
+        .toc-list {
+
+            list-style: none;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .toc-list a {
+
+            display: block;
+
+            text-decoration: none;
+
+            color: #526274;
+
+            padding:
+                11px 14px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(135deg,
+                    #eff8ff,
+                    #f5f0ff);
+
+            transition: .3s;
+        }
+
+
+        .toc-list a:hover {
+
+            transform:
+                translateX(6px);
+
+            color: #356fa6;
+
+            background: #e1f2ff;
+        }
+
+
+        /* =====================================================
+   🧩 TOPIC GRID
+===================================================== */
+
+        .topic-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 18px;
+        }
+
+
+        .topic-box {
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(135deg,
+                    #eef8ff,
+                    #f5f1ff);
+
+            border:
+                1px solid #dce8f2;
+
+            transition: .35s;
+        }
+
+
+        .topic-box:hover {
+
+            transform:
+                translateY(-7px) scale(1.01);
+
+            box-shadow:
+                0 12px 25px rgba(53, 111, 166, .11);
+        }
+
+
+        .topic-box h3 {
+
+            margin-top: 0;
+
+            color: #356fa6;
+        }
+
+
+        /* =====================================================
+   🌳 DATA STRUCTURE DIAGRAM
+===================================================== */
+
+        .structure-diagram {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+
+        .structure-node {
+
+            padding:
+                14px 20px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(135deg,
+                    #dff2ff,
+                    #eee7ff);
+
+            border:
+                1px solid #c9def0;
+
+            color: #356fa6;
+
+            font-weight: 600;
+
+            transition: .35s;
+
+            animation:
+                nodeFloat 3s ease-in-out infinite;
+        }
+
+
+        .structure-node:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .structure-node:nth-child(3) {
+            animation-delay: .4s;
+        }
+
+        .structure-node:nth-child(4) {
+            animation-delay: .6s;
+        }
+
+
+        .structure-node:hover {
+
+            transform:
+                translateY(-8px) rotate(2deg);
+
+            box-shadow:
+                0 10px 22px rgba(53, 111, 166, .12);
+        }
+
+
+        @keyframes nodeFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+
+        .diagram-arrow {
+
+            font-size: 21px;
+
+            color: #7596b4;
+        }
+
+
+        /* =====================================================
+   💻 CODE
+===================================================== */
+
+        .code-label {
+
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding:
+                5px 12px;
+
+            border-radius: 20px;
+
+            background: #eaf5ff;
+
+            color: #356fa6;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .code-box {
+
+            background: #202933;
+
+            color: #e8eef5;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            overflow-x: auto;
+
+            margin-top: 9px;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            border:
+                1px solid #303b47;
+        }
+
+
+        /* =====================================================
+   📊 TABLE
+===================================================== */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+
+            margin-top: 18px;
+        }
+
+
+        .data-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 600px;
+        }
+
+
+        .data-table th {
+
+            background: #356fa6;
+
+            color: white;
+
+            padding: 12px;
+
+            text-align: left;
+        }
+
+
+        .data-table td {
+
+            padding: 11px 12px;
+
+            border-bottom:
+                1px solid #e4e9ef;
+
+            background: #fafcff;
+        }
+
+
+        .data-table tr:hover td {
+
+            background: #edf7ff;
+        }
+
+
+        /* =====================================================
+   💡 INFO BOX
+===================================================== */
+
+        .info-box {
+
+            margin:
+                18px 0;
+
+            padding: 18px;
+
+            border-left:
+                5px solid #6299c7;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(135deg,
+                    #eef8ff,
+                    #f6f1ff);
+        }
+
+
+        .info-box strong {
+
+            color: #356fa6;
+        }
+
+
+        /* =====================================================
+   📝 LIST
+===================================================== */
+
+        .notes-list {
+
+            padding-left: 22px;
+        }
+
+
+        .notes-list li {
+
+            margin: 7px 0;
+
+            transition: .2s;
+        }
+
+
+        .notes-list li:hover {
+
+            color: #356fa6;
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* =====================================================
+   📝 REVISION
+===================================================== */
+
+        .revision {
+
+            background:
+                linear-gradient(135deg,
+                    #e8f5ff,
+                    #f0ebff);
+
+            border:
+                2px dashed #6d9bc1;
+        }
+
+
+        /* =====================================================
+   🎯 CHECKLIST
+===================================================== */
+
+        .check-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .check {
+
+            padding: 15px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(135deg,
+                    #eaf6ff,
+                    #f3efff);
+
+            color: #356fa6;
+
+            border:
+                1px solid #d9e5ef;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .check:hover {
+
+            transform:
+                translateY(-5px);
+
+            background: #dff2ff;
+        }
+
+
+        /* =====================================================
+   🌊 FOOTER
+===================================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #263b4c;
+
+            color: #dbe7f1;
+        }
+
+
+        footer strong {
+
+            color: #b9dcf7;
+        }
+
+
+        /* =====================================================
+   📱 RESPONSIVE
+===================================================== */
+
+        @media(max-width:800px) {
+
+            .check-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .topic-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width:600px) {
+
+            .hero {
+
+                padding:
+                    42px 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+            }
+
+
+            .content-card {
+
+                padding: 22px;
+            }
+
+
+            .toc-list,
+            .topic-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .check-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .structure-diagram {
+
+                flex-direction: column;
+            }
+
+
+            .diagram-arrow {
+
+                transform:
+                    rotate(90deg);
+            }
+
+
+            .main-emoji {
+
+                font-size: 65px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+     🧠 ANIMATED INTRO
+===================================================== -->
+
+    <div class="intro-screen">
+
+        <div class="intro-content">
+
+            <span class="float one">
+                🔗
+            </span>
+
+            <span class="float two">
+                🌳
+            </span>
+
+            <span class="float three">
+                🔎
+            </span>
+
+            <span class="float four">
+                🔄
+            </span>
+
+            <div class="main-emoji">
+                🧠
+            </div>
+
+            <h1 class="intro-title">
+                Data Structures
+            </h1>
+
+            <p class="intro-subtitle">
+                🧩 Organize • Store • Search • Sort 🚀
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     🧭 NAVBAR
+===================================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                🧠 Roshni Code Charm
+            </a>
+
+
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =====================================================
+     🧠 HERO
+===================================================== -->
+
+        <section class="hero">
+
+            <span class="hero-badge">
+                🎓 BCA • DATA STRUCTURES • NOTES
+            </span>
+
+            <h1>
+                🧠 Data Structures
+            </h1>
+
+            <p>
+                Learn how data is organized, stored,
+                accessed and processed using important
+                data structures and basic algorithms.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+     📚 TABLE OF CONTENTS
+===================================================== -->
+
+        <section class="content-card toc">
+
+            <h2>
+                📚 Topics Covered
+            </h2>
+
+            <ul class="toc-list">
+
+                <li>
+                    <a href="#intro">
+                        🧠 1. Introduction
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#array">
+                        📦 2. Arrays
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#linked">
+                        🔗 3. Linked Lists
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#stack">
+                        📚 4. Stack
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#queue">
+                        🚶 5. Queue
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#tree">
+                        🌳 6. Trees
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#graph">
+                        🕸️ 7. Graphs
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#searching">
+                        🔎 8. Searching
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sorting">
+                        🔄 9. Sorting
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#comparison">
+                        📊 10. Comparison
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#revision">
+                        📝 11. Quick Revision
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#checklist">
+                        🎯 12. Exam Checklist
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     1. INTRODUCTION
+===================================================== -->
+
+        <section class="content-card" id="intro">
+
+            <h2>
+                🧠 1. Introduction to Data Structures
+            </h2>
+
+            <p>
+                A data structure is a way of organizing
+                and storing data so that it can be accessed
+                and processed efficiently.
+            </p>
+
+            <div class="info-box">
+
+                <strong>
+                    💡 Simple Meaning:
+                </strong>
+
+                <p>
+                    Data Structure = A method of organizing data.
+                </p>
+
+            </div>
+
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    📥 Data
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    🧠 Organize
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    🗃️ Store
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    ⚡ Process
+                </div>
+
+            </div>
+
+
+            <h3>
+                📌 Types of Data Structures
+            </h3>
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        📦 Linear
+                    </h3>
+
+                    <p>
+                        Array, Linked List, Stack and Queue.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🌳 Non-Linear
+                    </h3>
+
+                    <p>
+                        Trees and Graphs.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     2. ARRAY
+===================================================== -->
+
+        <section class="content-card" id="array">
+
+            <h2>
+                📦 2. Arrays
+            </h2>
+
+            <p>
+                An array is a collection of elements
+                stored in contiguous memory locations.
+            </p>
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    [10]
+                </div>
+
+                <div class="structure-node">
+                    [20]
+                </div>
+
+                <div class="structure-node">
+                    [30]
+                </div>
+
+                <div class="structure-node">
+                    [40]
+                </div>
+
+            </div>
+
+
+            <h3>
+                ⭐ Advantages
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    ⚡ Fast access using index.
+                </li>
+
+                <li>
+                    📦 Simple structure.
+                </li>
+
+                <li>
+                    💾 Efficient for fixed-size data.
+                </li>
+
+            </ul>
+
+
+            <h3>
+                ⚠️ Limitation
+            </h3>
+
+            <p>
+                The size of a traditional array is generally fixed,
+                so inserting or deleting elements can require
+                shifting other elements.
+            </p>
+
+
+            <span class="code-label">
+                💻 Example
+            </span>
+
+            <div class="code-box">
+
+                int numbers[5] = {10, 20, 30, 40, 50};
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     3. LINKED LIST
+===================================================== -->
+
+        <section class="content-card" id="linked">
+
+            <h2>
+                🔗 3. Linked Lists
+            </h2>
+
+            <p>
+                A linked list consists of nodes where each node
+                contains data and a link to another node.
+            </p>
+
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    📦 10
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    📦 20
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    📦 30
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    NULL
+                </div>
+
+            </div>
+
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        ➕ Insertion
+                    </h3>
+
+                    <p>
+                        Nodes can be inserted without shifting
+                        all existing elements.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🗑️ Deletion
+                    </h3>
+
+                    <p>
+                        Nodes can be removed by changing links.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                📚 Types
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    🔗 Singly Linked List
+                </li>
+
+                <li>
+                    🔗 Doubly Linked List
+                </li>
+
+                <li>
+                    🔄 Circular Linked List
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     4. STACK
+===================================================== -->
+
+        <section class="content-card" id="stack">
+
+            <h2>
+                📚 4. Stack
+            </h2>
+
+            <p>
+                Stack follows the
+                <b>LIFO</b> principle:
+                <b>Last In, First Out.</b>
+            </p>
+
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    🟦 30
+                </div>
+
+                <div class="structure-node">
+                    🟦 20
+                </div>
+
+                <div class="structure-node">
+                    🟦 10
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    🍽️ Real-Life Example:
+                </strong>
+
+                <p>
+                    A stack of plates — the last plate placed
+                    on top is removed first.
+                </p>
+
+            </div>
+
+
+            <h3>
+                ⚙️ Main Operations
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    ➕ Push → Add an element.
+                </li>
+
+                <li>
+                    ➖ Pop → Remove the top element.
+                </li>
+
+                <li>
+                    👀 Peek → View the top element.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     5. QUEUE
+===================================================== -->
+
+        <section class="content-card" id="queue">
+
+            <h2>
+                🚶 5. Queue
+            </h2>
+
+            <p>
+                Queue follows the
+                <b>FIFO</b> principle:
+                <b>First In, First Out.</b>
+            </p>
+
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    👤 A
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    👤 B
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    👤 C
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    🛒 Real-Life Example:
+                </strong>
+
+                <p>
+                    People standing in a queue at a counter.
+                    The person who comes first is served first.
+                </p>
+
+            </div>
+
+
+            <h3>
+                ⚙️ Main Operations
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    ➕ Enqueue → Add an element.
+                </li>
+
+                <li>
+                    ➖ Dequeue → Remove an element.
+                </li>
+
+                <li>
+                    👀 Front → First element.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     6. TREE
+===================================================== -->
+
+        <section class="content-card" id="tree">
+
+            <h2>
+                🌳 6. Trees
+            </h2>
+
+            <p>
+                A tree is a non-linear data structure
+                that represents hierarchical relationships.
+            </p>
+
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    🌳 Root
+                </div>
+
+                <span class="diagram-arrow">
+                    ↓
+                </span>
+
+                <div class="structure-node">
+                    🌿 Child
+                </div>
+
+                <span class="diagram-arrow">
+                    ↓
+                </span>
+
+                <div class="structure-node">
+                    🍃 Leaf
+                </div>
+
+            </div>
+
+
+            <h3>
+                🌱 Important Terms
+            </h3>
+
+            <ul class="notes-list">
+
+                <li>
+                    🌳 Root
+                </li>
+
+                <li>
+                    🌿 Parent
+                </li>
+
+                <li>
+                    🍃 Child
+                </li>
+
+                <li>
+                    🌱 Leaf
+                </li>
+
+                <li>
+                    📏 Height
+                </li>
+
+                <li>
+                    🔢 Depth
+                </li>
+
+            </ul>
+
+
+            <h3>
+                🌲 Binary Tree
+            </h3>
+
+            <p>
+                A binary tree is a tree in which each node
+                can have at most two children.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+     7. GRAPH
+===================================================== -->
+
+        <section class="content-card" id="graph">
+
+            <h2>
+                🕸️ 7. Graphs
+            </h2>
+
+            <p>
+                A graph consists of vertices and edges
+                used to represent relationships between objects.
+            </p>
+
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    🔵 A
+                </div>
+
+                <span class="diagram-arrow">
+                    ↔
+                </span>
+
+                <div class="structure-node">
+                    🟢 B
+                </div>
+
+                <span class="diagram-arrow">
+                    ↔
+                </span>
+
+                <div class="structure-node">
+                    🟣 C
+                </div>
+
+            </div>
+
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔵 Vertex
+                    </h3>
+
+                    <p>
+                        Represents a node or object.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔗 Edge
+                    </h3>
+
+                    <p>
+                        Represents a connection between vertices.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ➡️ Directed Graph
+                    </h3>
+
+                    <p>
+                        Edges have a direction.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ↔️ Undirected Graph
+                    </h3>
+
+                    <p>
+                        Edges do not have a direction.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     8. SEARCHING
+===================================================== -->
+
+        <section class="content-card" id="searching">
+
+            <h2>
+                🔎 8. Searching
+            </h2>
+
+            <p>
+                Searching means finding a particular element
+                in a collection of data.
+            </p>
+
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔍 Linear Search
+                    </h3>
+
+                    <p>
+                        Checks elements one by one.
+                    </p>
+
+                    <p>
+                        ⏱️ Time Complexity:
+                        O(n)
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ⚡ Binary Search
+                    </h3>
+
+                    <p>
+                        Repeatedly divides a sorted search space
+                        into two parts.
+                    </p>
+
+                    <p>
+                        ⏱️ Time Complexity:
+                        O(log n)
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <span class="code-label">
+                💻 Linear Search
+            </span>
+
+            <div class="code-box">
+
+                for(int i = 0; i < n; i++) { if(arr[i]==key) { printf("Element Found"); } } </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     9. SORTING
+===================================================== -->
+
+        <section class="content-card" id="sorting">
+
+            <h2>
+                🔄 9. Sorting
+            </h2>
+
+            <p>
+                Sorting means arranging data in a particular order,
+                such as ascending or descending order.
+            </p>
+
+
+            <div class="structure-diagram">
+
+                <div class="structure-node">
+                    🔀 40
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    🔄 Sort
+                </div>
+
+                <span class="diagram-arrow">
+                    →
+                </span>
+
+                <div class="structure-node">
+                    📊 10 20 30 40
+                </div>
+
+            </div>
+
+
+            <div class="topic-grid">
+
+                <div class="topic-box">
+
+                    <h3>
+                        🫧 Bubble Sort
+                    </h3>
+
+                    <p>
+                        Repeatedly compares adjacent elements
+                        and swaps them when needed.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🃏 Insertion Sort
+                    </h3>
+
+                    <p>
+                        Builds the sorted portion one element
+                        at a time.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        🔀 Selection Sort
+                    </h3>
+
+                    <p>
+                        Selects the smallest element and
+                        places it in the correct position.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-box">
+
+                    <h3>
+                        ⚡ Quick Sort
+                    </h3>
+
+                    <p>
+                        Uses a pivot to divide the data
+                        into smaller parts.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     10. COMPARISON
+===================================================== -->
+
+        <section class="content-card" id="comparison">
+
+            <h2>
+                📊 10. Data Structure Comparison
+            </h2>
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Structure
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Main Principle
+                            </th>
+
+                            <th>
+                                Example
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Array
+                            </td>
+
+                            <td>
+                                Linear
+                            </td>
+
+                            <td>
+                                Index
+                            </td>
+
+                            <td>
+                                Marks list
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Linked List
+                            </td>
+
+                            <td>
+                                Linear
+                            </td>
+
+                            <td>
+                                Nodes & Links
+                            </td>
+
+                            <td>
+                                Playlist
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Stack
+                            </td>
+
+                            <td>
+                                Linear
+                            </td>
+
+                            <td>
+                                LIFO
+                            </td>
+
+                            <td>
+                                Plates
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Queue
+                            </td>
+
+                            <td>
+                                Linear
+                            </td>
+
+                            <td>
+                                FIFO
+                            </td>
+
+                            <td>
+                                Waiting line
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Tree
+                            </td>
+
+                            <td>
+                                Non-Linear
+                            </td>
+
+                            <td>
+                                Hierarchy
+                            </td>
+
+                            <td>
+                                Folder structure
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Graph
+                            </td>
+
+                            <td>
+                                Non-Linear
+                            </td>
+
+                            <td>
+                                Relationships
+                            </td>
+
+                            <td>
+                                Social network
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     11. QUICK REVISION
+===================================================== -->
+
+        <section class="content-card revision" id="revision">
+
+            <h2>
+                📝 Quick Revision
+            </h2>
+
+            <ul class="notes-list">
+
+                <li>
+                    🧠 Data Structure → Organizes data.
+                </li>
+
+                <li>
+                    📦 Array → Indexed collection.
+                </li>
+
+                <li>
+                    🔗 Linked List → Nodes connected by links.
+                </li>
+
+                <li>
+                    📚 Stack → LIFO.
+                </li>
+
+                <li>
+                    🚶 Queue → FIFO.
+                </li>
+
+                <li>
+                    🌳 Tree → Hierarchical structure.
+                </li>
+
+                <li>
+                    🕸️ Graph → Vertices and edges.
+                </li>
+
+                <li>
+                    🔎 Searching → Finding data.
+                </li>
+
+                <li>
+                    🔄 Sorting → Arranging data.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+     12. CHECKLIST
+===================================================== -->
+
+        <section class="content-card" id="checklist">
+
+            <h2>
+                🎯 BCA Exam Checklist
+            </h2>
+
+            <p>
+                Make sure you can explain these topics
+                and write basic programs for them.
+            </p>
+
+
+            <div class="check-grid">
+
+                <div class="check">
+                    ✅ Arrays
+                </div>
+
+                <div class="check">
+                    ✅ Linked List
+                </div>
+
+                <div class="check">
+                    ✅ Stack
+                </div>
+
+                <div class="check">
+                    ✅ Queue
+                </div>
+
+                <div class="check">
+                    ✅ Trees
+                </div>
+
+                <div class="check">
+                    ✅ Graphs
+                </div>
+
+                <div class="check">
+                    ✅ Searching
+                </div>
+
+                <div class="check">
+                    ✅ Sorting
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+     🌊 FOOTER
+===================================================== -->
+
+    <footer>
+
+        <p>
+            🧠 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Practice • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* =====================================================
+           ✨ SCROLL REVEAL
+        ===================================================== */
+
+        const cards =
+            document.querySelectorAll(".content-card");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: .12
+                }
+
+            );
+
+
+        cards.forEach(function (card) {
+
+            observer.observe(card);
+
+        });
+
+
+        /* =====================================================
+           📚 SMOOTH TOC
+        ===================================================== */
+
+        document
+            .querySelectorAll(".toc-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+
+                                behavior: "smooth",
+
+                                block: "start"
+
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           🌐 PAGE LOADED
+        ===================================================== */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                document.body.classList.add(
+                    "page-loaded"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
