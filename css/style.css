@@ -3904,6 +3904,2877 @@ body.dark-mode textarea::placeholder {
 
 }
 
+/* =====================================================
+   🔐 BCA COMPUTER NETWORKS CARD
+===================================================== */
+
+.network-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #ffffff;
+    border: 1px solid #d9e8ee;
+    box-shadow: 0 10px 30px rgba(20, 70, 90, .08);
+    transition: .4s ease;
+}
+
+.network-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 18px 40px rgba(20, 70, 90, .15);
+}
+
+.network-card .bca-card-image {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+            #dff7f5,
+            #b9dce8);
+}
+
+.network-card .bca-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: .5s ease;
+}
+
+.network-card:hover .bca-card-image img {
+    transform: scale(1.06);
+}
+
+.network-card .bca-number {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #174b5a;
+    color: white;
+
+    font-weight: 800;
+    font-size: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .18);
+}
+
+.network-floating {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .88);
+
+    backdrop-filter: blur(5px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .12);
+
+    font-size: 21px;
+}
+
+.n-emoji-1 {
+    top: 20px;
+    right: 20px;
+    animation: networkFloat1 3s ease-in-out infinite;
+}
+
+.n-emoji-2 {
+    bottom: 18px;
+    left: 20px;
+    animation: networkFloat2 3.5s ease-in-out infinite;
+}
+
+.n-emoji-3 {
+    bottom: 18px;
+    right: 20px;
+    animation: networkFloat3 3s ease-in-out infinite;
+}
+
+@keyframes networkFloat1 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(8deg);
+    }
+}
+
+@keyframes networkFloat2 {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(9px) translateY(-5px);
+    }
+}
+
+@keyframes networkFloat3 {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.network-card .bca-card-content {
+    padding: 22px;
+}
+
+.network-card .bca-category {
+    display: inline-block;
+
+    padding: 5px 11px;
+
+    border-radius: 20px;
+
+    background: #e1f4f1;
+    color: #174b5a;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.network-card h3 {
+    margin: 11px 0 8px;
+
+    color: #174b5a;
+
+    font-size: 22px;
+}
+
+.network-card p {
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+.network-card .bca-card-btn {
+    display: inline-block;
+
+    padding: 9px 17px;
+
+    border-radius: 25px;
+
+    background: #174b5a;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.network-card .bca-card-btn:hover {
+    background: #2c7585;
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   🔒 BCA CYBER SECURITY CARD
+   Clean • Modern • Soft Purple Theme
+========================================================= */
+
+/* ---------- CARD ---------- */
+
+.bca-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #eadcf2;
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 25px rgba(91, 45, 120, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    cursor: pointer;
+}
+
+.bca-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 40px rgba(91, 45, 120, 0.16);
+}
+
+
+/* ---------- IMAGE AREA ---------- */
+
+.bca-card-image {
+    position: relative;
+
+    width: 100%;
+    height: 230px;
+
+    overflow: hidden;
+
+    background: #eee5f4;
+}
+
+.bca-card-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.bca-card:hover .bca-card-image img {
+    transform: scale(1.06);
+}
+
+
+/* ---------- NUMBER BADGE ---------- */
+
+.bca-card .bca-number {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(135deg,
+            #6d3b91,
+            #a84ca9);
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 18px rgba(88, 43, 112, 0.22);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   🔒 ANIMATED SECURITY EMOJIS
+========================================================= */
+
+.cyber-emoji {
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    box-shadow:
+        0 6px 18px rgba(65, 35, 80, 0.16);
+
+    font-size: 20px;
+
+    z-index: 6;
+
+    animation:
+        cyberFloat 2.8s ease-in-out infinite;
+}
+
+.cyber-emoji-1 {
+    top: 18px;
+    right: 18px;
+}
+
+.cyber-emoji-2 {
+    left: 18px;
+    bottom: 18px;
+
+    animation-delay: 0.6s;
+}
+
+.cyber-emoji-3 {
+    right: 18px;
+    bottom: 18px;
+
+    animation-delay: 1.2s;
+}
+
+
+@keyframes cyberFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px) rotate(6deg);
+    }
+}
+
+
+/* =========================================================
+   📝 CARD CONTENT
+========================================================= */
+
+.bca-card-content {
+    padding: 24px 22px 25px;
+
+    background: #ffffff;
+
+    color: #4a4050;
+}
+
+
+/* ---------- CATEGORY ---------- */
+
+.bca-card-content .bca-category {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 11px;
+
+    margin-bottom: 12px;
+
+    border-radius: 20px;
+
+    background: #f1e8f7;
+
+    color: #70409a;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* ---------- TITLE ---------- */
+
+.bca-card-content h3 {
+    margin: 0 0 10px;
+
+    color: #42244f;
+
+    font-size: 21px;
+    line-height: 1.3;
+
+    font-weight: 800;
+}
+
+
+/* ---------- DESCRIPTION ---------- */
+
+.bca-card-content p {
+    margin: 0 0 17px;
+
+    color: #6b6270;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   🏷️ TAGS
+========================================================= */
+
+.bca-card-content .bca-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.bca-card-content .bca-tags span {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: #f3ecf8;
+
+    color: #68418b;
+
+    border: 1px solid #e8daf0;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.bca-card-content .bca-tags span:hover {
+    background: #e9d9f1;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   📖 EXPLORE BUTTON
+========================================================= */
+
+.bca-card-content .bca-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(135deg,
+            #67388b,
+            #a449a5);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    box-shadow:
+        0 7px 17px rgba(103, 56, 139, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.bca-card-content .bca-card-btn:hover {
+    color: #ffffff;
+
+    background:
+        linear-gradient(135deg,
+            #4f286d,
+            #843b87);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 22px rgba(103, 56, 139, 0.25);
+}
+
+
+/* =========================================================
+   ✨ SMALL HOVER GLOW
+========================================================= */
+
+.bca-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: -70px;
+    bottom: -70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(168, 76, 169, 0.12),
+            transparent 70%);
+
+    pointer-events: none;
+
+    transition: transform 0.4s ease;
+}
+
+.bca-card:hover::after {
+    transform: scale(1.5);
+}
+
+
+/* =========================================================
+   📱 TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .bca-card-image {
+        height: 210px;
+    }
+
+    .bca-card-content {
+        padding: 21px;
+    }
+
+}
+
+
+/* =========================================================
+   📱 MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .bca-card {
+        border-radius: 20px;
+    }
+
+    .bca-card-image {
+        height: 200px;
+    }
+
+    .bca-card-content {
+        padding: 20px 18px 22px;
+    }
+
+    .bca-card-content h3 {
+        font-size: 19px;
+    }
+
+    .bca-card-content p {
+        font-size: 12.5px;
+        line-height: 1.65;
+    }
+
+    .cyber-emoji {
+        width: 37px;
+        height: 37px;
+
+        font-size: 18px;
+    }
+
+    .bca-card .bca-number {
+        width: 39px;
+        height: 39px;
+
+        font-size: 15px;
+
+        border-radius: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   📱 SMALL PHONE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .bca-card-image {
+        height: 180px;
+    }
+
+    .bca-card-content h3 {
+        font-size: 18px;
+    }
+
+    .bca-card-content .bca-tags span {
+        font-size: 10px;
+
+        padding: 6px 9px;
+    }
+
+    .bca-card-content .bca-card-btn {
+        padding: 9px 15px;
+
+        font-size: 11px;
+    }
+
+}
+
+/* =========================================================
+   🚀 BCA 13 — MODERN TECHNOLOGY
+   Soft Mint + Teal + Light Blue
+   Separate CSS — Does NOT affect other BCA cards
+========================================================= */
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.modern-tech-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #d8eceb;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 108, 105, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.modern-tech-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 40px rgba(31, 108, 105, 0.15);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.modern-tech-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 230px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            #dff5f2,
+            #e5f3fa);
+}
+
+
+.modern-tech-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.55s ease;
+}
+
+
+.modern-tech-card:hover .modern-tech-image img {
+
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   NUMBER 13
+========================================================= */
+
+.modern-tech-number {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(135deg,
+            #318b87,
+            #5bb8bd);
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 18px rgba(36, 112, 110, 0.22);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   ANIMATED EMOJIS
+========================================================= */
+
+.modern-tech-emoji {
+
+    position: absolute;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 6px 18px rgba(30, 90, 90, 0.15);
+
+    font-size: 20px;
+
+    z-index: 6;
+
+    animation:
+        modernTechFloat 2.8s ease-in-out infinite;
+}
+
+
+.modern-emoji-1 {
+
+    top: 18px;
+
+    right: 18px;
+}
+
+
+.modern-emoji-2 {
+
+    left: 18px;
+
+    bottom: 18px;
+
+    animation-delay: 0.6s;
+}
+
+
+.modern-emoji-3 {
+
+    right: 18px;
+
+    bottom: 18px;
+
+    animation-delay: 1.2s;
+}
+
+
+@keyframes modernTechFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0) rotate(0deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px) rotate(6deg);
+    }
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.modern-tech-content {
+
+    padding: 24px 22px 25px;
+
+    color: #405657;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.modern-tech-category {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 11px;
+
+    margin-bottom: 12px;
+
+    border-radius: 20px;
+
+    background: #e6f5f3;
+
+    color: #26736f;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.modern-tech-content h3 {
+
+    margin: 0 0 10px;
+
+    color: #185b5a;
+
+    font-size: 21px;
+
+    line-height: 1.3;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.modern-tech-content p {
+
+    margin: 0 0 17px;
+
+    color: #647677;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.modern-tech-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+
+.modern-tech-tags span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: #eaf6f5;
+
+    color: #327774;
+
+    border: 1px solid #d7ebe9;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.modern-tech-tags span:hover {
+
+    background: #dcefed;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.modern-tech-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(135deg,
+            #267875,
+            #4eaaa9);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 7px 17px rgba(38, 120, 117, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.modern-tech-btn:hover {
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(135deg,
+            #1d5f5d,
+            #398f8d);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 22px rgba(38, 120, 117, 0.25);
+}
+
+
+/* =========================================================
+   SOFT DECORATION
+========================================================= */
+
+.modern-tech-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+
+    height: 140px;
+
+    right: -75px;
+
+    bottom: -75px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(78, 170, 169, 0.12),
+            transparent 70%);
+
+    pointer-events: none;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.modern-tech-card:hover::after {
+
+    transform: scale(1.5);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .modern-tech-image {
+
+        height: 210px;
+    }
+
+    .modern-tech-content {
+
+        padding: 21px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .modern-tech-card {
+
+        border-radius: 20px;
+    }
+
+    .modern-tech-image {
+
+        height: 200px;
+    }
+
+    .modern-tech-content {
+
+        padding: 20px 18px 22px;
+    }
+
+    .modern-tech-content h3 {
+
+        font-size: 19px;
+    }
+
+    .modern-tech-content p {
+
+        font-size: 12.5px;
+
+        line-height: 1.65;
+    }
+
+    .modern-tech-emoji {
+
+        width: 37px;
+
+        height: 37px;
+
+        font-size: 18px;
+    }
+
+    .modern-tech-number {
+
+        width: 39px;
+
+        height: 39px;
+
+        font-size: 15px;
+
+        border-radius: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .modern-tech-image {
+
+        height: 180px;
+    }
+
+    .modern-tech-content h3 {
+
+        font-size: 18px;
+    }
+
+    .modern-tech-tags span {
+
+        font-size: 10px;
+
+        padding: 6px 9px;
+    }
+
+    .modern-tech-btn {
+
+        padding: 9px 15px;
+
+        font-size: 11px;
+    }
+}
+
+/* =========================================================
+   📊 BCA 14 — DATA & BUSINESS TOOLS
+   Soft Peach + Lavender + Warm Yellow
+========================================================= */
+
+.data-business-card {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #eadfe5;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 25px rgba(104, 76, 91, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.data-business-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 40px rgba(104, 76, 91, 0.15);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.data-business-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 230px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            #fff0df,
+            #eee5fa);
+}
+
+
+.data-business-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.55s ease;
+}
+
+
+.data-business-card:hover .data-business-image img {
+
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.data-business-number {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(135deg,
+            #d47755,
+            #a779c8);
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 18px rgba(130, 86, 112, 0.20);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   ANIMATED EMOJIS
+========================================================= */
+
+.data-business-emoji {
+
+    position: absolute;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    box-shadow:
+        0 6px 18px rgba(104, 76, 91, 0.15);
+
+    font-size: 20px;
+
+    z-index: 6;
+
+    animation:
+        dataFloat 2.8s ease-in-out infinite;
+}
+
+
+.data-emoji-1 {
+
+    top: 18px;
+
+    right: 18px;
+}
+
+
+.data-emoji-2 {
+
+    left: 18px;
+
+    bottom: 18px;
+
+    animation-delay: .6s;
+}
+
+
+.data-emoji-3 {
+
+    right: 18px;
+
+    bottom: 18px;
+
+    animation-delay: 1.2s;
+}
+
+
+@keyframes dataFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0) rotate(0deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px) rotate(6deg);
+    }
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.data-business-content {
+
+    padding: 24px 22px 25px;
+
+    color: #514c51;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.data-business-category {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 11px;
+
+    margin-bottom: 12px;
+
+    border-radius: 20px;
+
+    background: #f8eee8;
+
+    color: #a46148;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.data-business-content h3 {
+
+    margin: 0 0 10px;
+
+    color: #5c4663;
+
+    font-size: 21px;
+
+    line-height: 1.3;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.data-business-content p {
+
+    margin: 0 0 17px;
+
+    color: #756d72;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.data-business-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+
+.data-business-tags span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(135deg,
+            #fff3e7,
+            #f2ebfa);
+
+    color: #db61c8;
+
+    border: 1px solid #eadfea;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.data-business-tags span:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(111, 79, 103, 0.10);
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.data-business-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(135deg,
+            #d47755,
+            #9b75bd);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 7px 17px rgba(139, 87, 104, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.data-business-btn:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 22px rgba(139, 87, 104, 0.25);
+}
+
+
+/* =========================================================
+   SOFT DECORATION
+========================================================= */
+
+.data-business-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    right: -80px;
+
+    bottom: -80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(164, 121, 190, 0.12),
+            transparent 70%);
+
+    pointer-events: none;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.data-business-card:hover::after {
+
+    transform: scale(1.5);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .data-business-image {
+
+        height: 210px;
+    }
+
+    .data-business-content {
+
+        padding: 21px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .data-business-card {
+
+        border-radius: 20px;
+    }
+
+    .data-business-image {
+
+        height: 200px;
+    }
+
+    .data-business-content {
+
+        padding: 20px 18px 22px;
+    }
+
+    .data-business-content h3 {
+
+        font-size: 19px;
+    }
+
+    .data-business-content p {
+
+        font-size: 12.5px;
+    }
+
+    .data-business-emoji {
+
+        width: 37px;
+
+        height: 37px;
+
+        font-size: 18px;
+    }
+
+    .data-business-number {
+
+        width: 39px;
+
+        height: 39px;
+
+        font-size: 15px;
+
+        border-radius: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .data-business-image {
+
+        height: 180px;
+    }
+
+    .data-business-content h3 {
+
+        font-size: 18px;
+    }
+
+    .data-business-tags span {
+
+        font-size: 10px;
+
+        padding: 6px 9px;
+    }
+
+    .data-business-btn {
+
+        padding: 9px 15px;
+
+        font-size: 11px;
+    }
+}
+
+/* =====================================================
+   📱 15. APPLICATION DEVELOPMENT CARD
+   Soft Peach + Mauve Theme
+===================================================== */
+
+.application-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 330px;
+
+    background: linear-gradient(145deg,
+            #fffaf7,
+            #fdf0ea);
+
+    border: 1px solid #e9cfc3;
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 30px rgba(112, 72, 80, 0.10);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+    isolation: isolate;
+}
+
+
+/* =====================================================
+   🌸 DECORATIVE BACKGROUND
+===================================================== */
+
+.application-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -75px;
+    top: -75px;
+
+    border-radius: 50%;
+
+    background: #f3dcd3;
+
+    opacity: 0.75;
+
+    z-index: -1;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.application-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    left: -55px;
+    bottom: -55px;
+
+    border-radius: 50%;
+
+    background: #ead8e1;
+
+    opacity: 0.45;
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   ✨ HOVER CARD
+===================================================== */
+
+.application-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #d9aebd;
+
+    box-shadow:
+        0 22px 45px rgba(112, 72, 80, 0.16);
+}
+
+
+.application-card:hover::before {
+    transform: scale(1.25);
+}
+
+
+/* =====================================================
+   🖼️ IMAGE CONTAINER
+===================================================== */
+
+.application-card .bca-card-icon {
+    position: relative;
+
+    width: 100%;
+    height: 220px;
+
+    padding: 0;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(145deg,
+            #fff8f4,
+            #f8e8e1);
+
+    border-radius:
+        24px 24px 0 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   🖼️ IMAGE
+   FULL IMAGE WILL BE VISIBLE
+===================================================== */
+
+.application-card .bca-card-icon img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    transition:
+        transform 0.55s ease;
+}
+
+
+/* =====================================================
+   🔍 IMAGE HOVER
+===================================================== */
+
+.application-card:hover .bca-card-icon img {
+    transform: scale(1.035);
+}
+
+
+/* =====================================================
+   📦 CONTENT AREA
+===================================================== */
+
+.application-card .bca-card-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        22px 22px 24px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+/* =====================================================
+   🔢 CARD NUMBER
+===================================================== */
+
+.application-card .bca-card-number {
+    display: inline-block;
+
+    padding:
+        5px 11px;
+
+    margin-bottom: 9px;
+
+    border-radius: 20px;
+
+    background:
+        #f4e3e5;
+
+    color:
+        #80505b;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   📱 TITLE
+===================================================== */
+
+.application-card h3 {
+    margin:
+        4px 0 10px;
+
+    color:
+        #593c50;
+
+    font-size:
+        21px;
+
+    line-height:
+        1.25;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -0.3px;
+}
+
+
+/* =====================================================
+   📝 DESCRIPTION
+===================================================== */
+
+.application-card p {
+    margin:
+        0 0 18px;
+
+    color:
+        #77676d;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.7;
+
+    font-weight:
+        500;
+}
+
+
+/* =====================================================
+   🔘 EXPLORE BUTTON
+===================================================== */
+
+.application-card .bca-card-btn {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap: 5px;
+
+    padding:
+        11px 17px;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(135deg,
+            #825064,
+            #9d6575);
+
+    color:
+        #ffffff;
+
+    text-decoration:
+        none;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    box-shadow:
+        0 8px 18px rgba(116, 69, 84, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.application-card .bca-card-btn:hover {
+    transform:
+        translateX(5px);
+
+    background:
+        linear-gradient(135deg,
+            #704357,
+            #8f5869);
+
+    box-shadow:
+        0 12px 25px rgba(116, 69, 84, 0.25);
+}
+
+
+/* =====================================================
+   ✨ SMALL SHINE EFFECT
+===================================================== */
+
+.application-card .bca-card-icon::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 45%;
+    height: 100%;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.45),
+            transparent);
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.7s ease;
+
+    pointer-events: none;
+}
+
+
+.application-card:hover .bca-card-icon::after {
+    left: 130%;
+}
+
+
+/* =====================================================
+   📱 TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .application-card {
+        max-width: 100%;
+    }
+
+    .application-card .bca-card-icon {
+        height: 230px;
+    }
+}
+
+
+/* =====================================================
+   📱 MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .application-card {
+        width: 100%;
+
+        max-width: 100%;
+
+        border-radius: 20px;
+    }
+
+    .application-card .bca-card-icon {
+        height: 210px;
+
+        border-radius:
+            20px 20px 0 0;
+    }
+
+    .application-card .bca-card-content {
+        padding:
+            19px 18px 21px;
+    }
+
+    .application-card h3 {
+        font-size: 20px;
+    }
+
+    .application-card p {
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   📱 SMALL PHONE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .application-card .bca-card-icon {
+        height: 190px;
+    }
+
+    .application-card h3 {
+        font-size: 18px;
+    }
+
+    .application-card p {
+        font-size: 11px;
+    }
+
+    .application-card .bca-card-btn {
+        padding:
+            10px 14px;
+    }
+}
+
+/* =====================================================
+   🧪 16. PRACTICAL / PROJECTS CARD
+   Pink + Lavender Theme
+===================================================== */
+
+.practical-projects-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 330px;
+
+    background: linear-gradient(145deg,
+            #fff8fc,
+            #f7effb);
+
+    border: 1px solid #e7cde0;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 30px rgba(145, 70, 125, 0.10);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+    isolation: isolate;
+}
+
+
+/* =====================================================
+   🌸 DECORATIVE CIRCLES
+===================================================== */
+
+.practical-projects-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -75px;
+    top: -75px;
+
+    border-radius: 50%;
+
+    background: #f4d5e7;
+
+    opacity: 0.65;
+
+    z-index: -1;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.practical-projects-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    left: -55px;
+    bottom: -55px;
+
+    border-radius: 50%;
+
+    background: #dfd1ef;
+
+    opacity: 0.45;
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   ✨ CARD HOVER
+===================================================== */
+
+.practical-projects-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        #d7a9ca;
+
+    box-shadow:
+        0 22px 45px rgba(145, 70, 125, 0.16);
+}
+
+
+.practical-projects-card:hover::before {
+    transform:
+        scale(1.25);
+}
+
+
+/* =====================================================
+   🧪 IMAGE AREA
+===================================================== */
+
+.practical-projects-card .bca-card-icon {
+    position: relative;
+
+    width: 100%;
+    height: 220px;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(145deg,
+            #fff4fa,
+            #f2eaff);
+
+    border-radius:
+        24px 24px 0 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   🖼️ FULL IMAGE
+===================================================== */
+
+.practical-projects-card .bca-card-icon img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    transition:
+        transform 0.55s ease;
+}
+
+
+/* =====================================================
+   🔍 IMAGE HOVER
+===================================================== */
+
+.practical-projects-card:hover .bca-card-icon img {
+
+    transform:
+        scale(1.035);
+}
+
+
+/* =====================================================
+   ✨ IMAGE SHINE
+===================================================== */
+
+.practical-projects-card .bca-card-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 45%;
+    height: 100%;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.45),
+            transparent);
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.7s ease;
+
+    pointer-events: none;
+}
+
+
+.practical-projects-card:hover .bca-card-icon::after {
+
+    left: 130%;
+}
+
+
+/* =====================================================
+   📦 CONTENT
+===================================================== */
+
+.practical-projects-card .bca-card-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        22px 22px 24px;
+
+    background:
+        rgba(255, 255, 255, 0.90);
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+/* =====================================================
+   🔢 CARD NUMBER
+===================================================== */
+
+.practical-projects-card .bca-card-number {
+
+    display: inline-block;
+
+    padding:
+        5px 11px;
+
+    margin-bottom: 9px;
+
+    border-radius: 20px;
+
+    background:
+        #f4e1ef;
+
+    color:
+        #934c7d;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing:
+        0.8px;
+}
+
+
+/* =====================================================
+   🧪 TITLE
+===================================================== */
+
+.practical-projects-card h3 {
+
+    margin:
+        4px 0 10px;
+
+    color:
+        #653d5d;
+
+    font-size:
+        21px;
+
+    line-height:
+        1.25;
+
+    font-weight:
+        900;
+}
+
+
+/* =====================================================
+   📝 DESCRIPTION
+===================================================== */
+
+.practical-projects-card p {
+
+    margin:
+        0 0 18px;
+
+    color:
+        #756774;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.7;
+
+    font-weight:
+        500;
+}
+
+
+/* =====================================================
+   🚀 BUTTON
+===================================================== */
+
+.practical-projects-card .bca-card-btn {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        11px 17px;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(135deg,
+            #b34f86,
+            #9864b9);
+
+    color:
+        #ffffff;
+
+    text-decoration:
+        none;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    box-shadow:
+        0 8px 18px rgba(145, 70, 125, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.practical-projects-card .bca-card-btn:hover {
+
+    transform:
+        translateX(5px);
+
+    background:
+        linear-gradient(135deg,
+            #9f4176,
+            #8353a4);
+
+    box-shadow:
+        0 12px 25px rgba(145, 70, 125, 0.25);
+}
+
+
+/* =====================================================
+   📱 TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .practical-projects-card {
+        max-width: 100%;
+    }
+
+    .practical-projects-card .bca-card-icon {
+        height: 230px;
+    }
+}
+
+
+/* =====================================================
+   📱 MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .practical-projects-card {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        border-radius: 20px;
+    }
+
+    .practical-projects-card .bca-card-icon {
+
+        height: 210px;
+
+        border-radius:
+            20px 20px 0 0;
+    }
+
+    .practical-projects-card .bca-card-content {
+
+        padding:
+            19px 18px 21px;
+    }
+
+    .practical-projects-card h3 {
+        font-size: 20px;
+    }
+
+    .practical-projects-card p {
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   📱 SMALL PHONE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .practical-projects-card .bca-card-icon {
+
+        height: 190px;
+    }
+
+    .practical-projects-card h3 {
+        font-size: 18px;
+    }
+
+    .practical-projects-card p {
+        font-size: 11px;
+    }
+
+    .practical-projects-card .bca-card-btn {
+
+        padding:
+            10px 14px;
+    }
+}
+
+/* =========================================
+   🌱 BCA OPENING ANIMATION
+========================================= */
+
+.bca-opening-animation {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(135deg,
+            #fff8f2,
+            #f1e8ff);
+
+    overflow: hidden;
+}
+
+
+/* Active */
+
+.bca-opening-animation.active {
+    display: flex;
+}
+
+
+/* Scene */
+
+.garden-scene {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================
+   🧑‍💻 PERSON
+========================================= */
+
+.animated-person {
+    position: absolute;
+
+    left: -120px;
+    bottom: 48%;
+
+    font-size: 72px;
+
+    animation:
+        personWalk 1.8s cubic-bezier(.65, 0, .35, 1) forwards;
+
+    z-index: 3;
+}
+
+
+/* Person walks in */
+
+@keyframes personWalk {
+
+    0% {
+        left: -120px;
+        transform:
+            translateY(0) rotate(-3deg);
+    }
+
+    35% {
+        transform:
+            translateY(-8px) rotate(3deg);
+    }
+
+    65% {
+        transform:
+            translateY(0) rotate(-2deg);
+    }
+
+    100% {
+        left: calc(50% - 70px);
+        transform:
+            translateY(0) rotate(0deg);
+    }
+}
+
+
+/* =========================================
+   🪴 POT
+========================================= */
+
+.animated-pot {
+    position: absolute;
+
+    left: calc(50% - 5px);
+    bottom: 34%;
+
+    font-size: 55px;
+
+    opacity: 0;
+
+    transform:
+        translateY(-70px) scale(.8);
+
+    animation:
+        potPlace 1s 1.65s ease-out forwards;
+
+    z-index: 4;
+}
+
+
+/* Pot comes down */
+
+@keyframes potPlace {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(-70px) scale(.8);
+    }
+
+    30% {
+        opacity: 1;
+
+        transform:
+            translateY(-40px) scale(.9);
+    }
+
+    70% {
+        transform:
+            translateY(5px) scale(1.05);
+    }
+
+    85% {
+        transform:
+            translateY(-5px) scale(.98);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   🌿 GROUND
+========================================= */
+
+.animated-ground {
+    position: absolute;
+
+    width: 210px;
+    height: 15px;
+
+    bottom: 31%;
+
+    border-radius: 50%;
+
+    background: #d9c4b7;
+
+    transform: scaleX(0);
+
+    animation:
+        groundAppear .5s 2.45s ease forwards;
+}
+
+
+@keyframes groundAppear {
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/* =========================================
+   ✨ OPENING TEXT
+========================================= */
+
+.opening-text {
+    position: absolute;
+
+    bottom: 22%;
+
+    font-family:
+        Poppins,
+        sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #633f68;
+
+    opacity: 0;
+
+    animation:
+        textAppear .6s 2.3s ease forwards;
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   ✨ LITTLE FLOATING SPARKLES
+========================================= */
+
+.garden-scene::before,
+.garden-scene::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    font-size: 28px;
+
+    color: #9b68c5;
+
+    opacity: 0;
+
+    animation:
+        sparkle 1s 2s ease forwards;
+}
+
+
+.garden-scene::before {
+    top: 35%;
+    left: 42%;
+}
+
+.garden-scene::after {
+    top: 42%;
+    right: 40%;
+
+    animation-delay: 2.2s;
+}
+
+
+@keyframes sparkle {
+
+    0% {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(.8);
+    }
+}
+
+/* =====================================
+   PROGRAMMING NAVIGATION SCROLL
+===================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+#programming {
+    scroll-margin-top: 100px;
+}
+
 /*==========================
         END
 ===========================*/

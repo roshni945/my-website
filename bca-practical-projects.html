@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Practical & Projects | BCA Notes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        /* =========================================
+   🧪 PRACTICAL / PROJECTS
+   PINK + ROSE + LAVENDER
+========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: "Nunito", sans-serif;
+
+            background:
+                linear-gradient(135deg,
+                    #fffafd,
+                    #fff3f8,
+                    #f8f2ff);
+
+            color: #665566;
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+   🌸 BACKGROUND DECORATION
+========================================= */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 330px;
+            height: 330px;
+
+            left: -130px;
+            top: 150px;
+
+            border-radius: 50%;
+
+            background: #f7c4db;
+
+            filter: blur(90px);
+
+            opacity: .30;
+
+            z-index: -1;
+
+            animation:
+                bgMove 8s ease-in-out infinite alternate;
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 300px;
+            height: 300px;
+
+            right: -120px;
+            bottom: 80px;
+
+            border-radius: 50%;
+
+            background: #d8c2ee;
+
+            filter: blur(90px);
+
+            opacity: .25;
+
+            z-index: -1;
+
+            animation:
+                bgMove 9s ease-in-out infinite alternate-reverse;
+        }
+
+
+        @keyframes bgMove {
+
+            from {
+                transform:
+                    translate(0, 0);
+            }
+
+            to {
+                transform:
+                    translate(40px, -30px);
+            }
+        }
+
+
+        /* =========================================
+   🧪 INTRO ANIMATION
+========================================= */
+
+        #projectIntro {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 99999;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(135deg,
+                    #9c4674,
+                    #c75b91,
+                    #b27aca);
+
+            transition:
+                opacity .8s ease,
+                visibility .8s ease;
+        }
+
+
+        #projectIntro.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .project-intro-content {
+
+            text-align: center;
+
+            animation:
+                introPop .9s ease;
+        }
+
+
+        .project-flask {
+
+            width: 115px;
+            height: 115px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: auto;
+
+            border-radius: 35px;
+
+            background:
+                linear-gradient(135deg,
+                    #ffd5e8,
+                    #ead6ff);
+
+            font-size: 54px;
+
+            box-shadow:
+                0 25px 65px rgba(0, 0, 0, .20);
+
+            animation:
+                flaskFloat 2.5s ease-in-out infinite;
+        }
+
+
+        .project-intro-content h1 {
+
+            margin-top: 22px;
+
+            color: white;
+
+            font-size:
+                clamp(28px, 5vw, 48px);
+
+            font-weight: 900;
+        }
+
+
+        .project-intro-content p {
+
+            color: #ffe8f2;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .project-loader {
+
+            width: 180px;
+            height: 5px;
+
+            margin: 20px auto 0;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255, 255, 255, .18);
+        }
+
+
+        .project-loader span {
+
+            display: block;
+
+            width: 50%;
+            height: 100%;
+
+            background: #ffd5e8;
+
+            border-radius: 20px;
+
+            animation:
+                loader 1.2s ease-in-out infinite;
+        }
+
+
+        @keyframes introPop {
+
+            from {
+                opacity: 0;
+                transform:
+                    scale(.65) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    scale(1) translateY(0);
+            }
+        }
+
+
+        @keyframes flaskFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px) rotate(4deg);
+            }
+        }
+
+
+        @keyframes loader {
+
+            from {
+                transform:
+                    translateX(-150%);
+            }
+
+            to {
+                transform:
+                    translateX(350%);
+            }
+        }
+
+
+        /* =========================================
+   🧭 NAVBAR
+========================================= */
+
+        .project-nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                14px 6%;
+
+            background:
+                rgba(255, 255, 255, .92);
+
+            backdrop-filter:
+                blur(14px);
+
+            border-bottom:
+                1px solid #efd9e5;
+        }
+
+
+        .project-brand {
+
+            color: #713d64;
+
+            text-decoration: none;
+
+            font-family: "Pacifico", cursive;
+
+            font-size: 20px;
+        }
+
+
+        .project-home {
+
+            padding:
+                8px 14px;
+
+            border-radius: 12px;
+
+            background: #fff0f7;
+
+            color: #a34d7d;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            transition: .3s;
+        }
+
+
+        .project-home:hover {
+
+            background: #ffe0ee;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================================
+   🧪 HERO
+========================================= */
+
+        .project-hero {
+
+            min-height: 510px;
+
+            padding:
+                70px 7%;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            align-items: center;
+
+            gap: 50px;
+        }
+
+
+        .project-badge {
+
+            display: inline-block;
+
+            padding:
+                7px 14px;
+
+            border-radius: 20px;
+
+            background: #ffe8f2;
+
+            color: #a44d7d;
+
+            font-size: 10px;
+
+            font-weight: 900;
+        }
+
+
+        .project-hero h1 {
+
+            margin-top: 15px;
+
+            color: #683b60;
+
+            font-size:
+                clamp(40px, 5vw, 60px);
+
+            line-height: 1.05;
+
+            font-weight: 900;
+        }
+
+
+        .project-hero h1 span {
+
+            color: #d35d95;
+        }
+
+
+        .project-hero p {
+
+            max-width: 580px;
+
+            margin-top: 18px;
+
+            color: #786978;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+   🧪 PROJECT LAB DIAGRAM
+========================================= */
+
+        .lab-area {
+
+            position: relative;
+
+            height: 390px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .lab-board {
+
+            position: relative;
+
+            width: 310px;
+
+            height: 260px;
+
+            padding: 22px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(145deg,
+                    #fff8fc,
+                    #f6edff);
+
+            border:
+                1px solid #ead6e6;
+
+            box-shadow:
+                0 25px 50px rgba(130, 70, 120, .12);
+
+            animation:
+                boardFloat 4s ease-in-out infinite;
+        }
+
+
+        .lab-top {
+
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+
+        .lab-dot {
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #e87ca9;
+        }
+
+
+        .lab-dot:nth-child(2) {
+            background: #c58adb;
+        }
+
+        .lab-dot:nth-child(3) {
+            background: #efa5bc;
+        }
+
+
+        .code-lines {
+
+            margin-top: 22px;
+
+            display: grid;
+
+            gap: 12px;
+        }
+
+
+        .code-line {
+
+            height: 10px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(90deg,
+                    #e778a7,
+                    #d5b3e8);
+
+            animation:
+                linePulse 2s ease-in-out infinite alternate;
+        }
+
+
+        .code-line:nth-child(2) {
+            width: 75%;
+            animation-delay: .3s;
+        }
+
+
+        .code-line:nth-child(3) {
+            width: 88%;
+            animation-delay: .6s;
+        }
+
+
+        .code-line:nth-child(4) {
+            width: 55%;
+            animation-delay: .9s;
+        }
+
+
+        .code-line:nth-child(5) {
+            width: 72%;
+            animation-delay: 1.2s;
+        }
+
+
+        @keyframes boardFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0) rotate(2deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px) rotate(-2deg);
+            }
+        }
+
+
+        @keyframes linePulse {
+
+            from {
+                opacity: .55;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* Floating lab labels */
+
+        .lab-label {
+
+            position: absolute;
+
+            padding:
+                9px 13px;
+
+            border-radius: 14px;
+
+            background: white;
+
+            border:
+                1px solid #efdce7;
+
+            color: #7c4b70;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 10px 25px rgba(120, 70, 110, .09);
+
+            animation:
+                labelFloat 3s ease-in-out infinite;
+        }
+
+
+        .lab-label.one {
+
+            top: 20px;
+            left: 3%;
+        }
+
+
+        .lab-label.two {
+
+            top: 75px;
+            right: 0;
+
+            animation-delay: .6s;
+        }
+
+
+        .lab-label.three {
+
+            bottom: 55px;
+            left: 0;
+
+            animation-delay: 1s;
+        }
+
+
+        .lab-label.four {
+
+            bottom: 15px;
+            right: 6%;
+
+            animation-delay: 1.5s;
+        }
+
+
+        @keyframes labelFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-8px);
+            }
+        }
+
+
+        /* =========================================
+   📚 CONTENT
+========================================= */
+
+        .project-container {
+
+            width:
+                min(1120px, 92%);
+
+            margin: auto;
+        }
+
+
+        .project-topic-nav {
+
+            display: flex;
+
+            gap: 8px;
+
+            overflow-x: auto;
+
+            padding: 11px;
+
+            margin-bottom: 30px;
+
+            background: white;
+
+            border:
+                1px solid #efdae5;
+
+            border-radius: 17px;
+
+            box-shadow:
+                0 8px 25px rgba(130, 70, 120, .06);
+        }
+
+
+        .project-topic-nav a {
+
+            flex: 0 0 auto;
+
+            padding:
+                8px 13px;
+
+            border-radius: 20px;
+
+            background: #fff0f7;
+
+            color: #80536f;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            transition: .3s;
+        }
+
+
+        .project-topic-nav a:hover {
+
+            background: #ffe0ee;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================================
+   📦 SECTIONS
+========================================= */
+
+        .project-section {
+
+            margin-bottom: 30px;
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(145deg,
+                    #ffffff,
+                    #fff7fb);
+
+            border:
+                1px solid #efdde7;
+
+            box-shadow:
+                0 12px 35px rgba(130, 70, 120, .06);
+
+            scroll-margin-top: 90px;
+
+            transition:
+                transform .3s,
+                box-shadow .3s;
+        }
+
+
+        .project-section:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 20px 45px rgba(130, 70, 120, .10);
+        }
+
+
+        .section-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 16px;
+        }
+
+
+        .section-icon {
+
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(135deg,
+                    #ffe0ed,
+                    #eadbfa);
+
+            font-size: 25px;
+
+            animation:
+                iconBounce 3s ease-in-out infinite;
+        }
+
+
+        @keyframes iconBounce {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-5px) rotate(4deg);
+            }
+        }
+
+
+        .section-title h2 {
+
+            color: #673d5d;
+
+            font-size: 23px;
+        }
+
+
+        .project-section>p {
+
+            color: #776978;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+   🧩 PRACTICAL CARDS
+========================================= */
+
+        .practical-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+
+        .practice-box {
+
+            padding: 20px;
+
+            border-radius: 19px;
+
+            background:
+                linear-gradient(145deg,
+                    #fff8fb,
+                    #f8f0ff);
+
+            border:
+                1px solid #eedee9;
+
+            transition: .3s;
+        }
+
+
+        .practice-box:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color: #e4b7d0;
+
+            box-shadow:
+                0 12px 28px rgba(150, 70, 120, .08);
+        }
+
+
+        .practice-box h3 {
+
+            color: #87486f;
+
+            font-size: 15px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .practice-box p {
+
+            color: #786b78;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+   🪜 PROJECT FLOW
+========================================= */
+
+        .project-flow {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 10px;
+
+            margin-top: 22px;
+        }
+
+
+        .flow-box {
+
+            padding:
+                18px 8px;
+
+            text-align: center;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(145deg,
+                    #fff1f7,
+                    #f5edff);
+
+            border:
+                1px solid #eddde8;
+
+            transition: .3s;
+        }
+
+
+        .flow-box:hover {
+
+            transform:
+                translateY(-8px) rotate(-2deg);
+        }
+
+
+        .flow-box span {
+
+            display: block;
+
+            font-size: 26px;
+        }
+
+
+        .flow-box strong {
+
+            display: block;
+
+            margin-top: 5px;
+
+            color: #734664;
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================
+   🔀 GIT FLOW
+========================================= */
+
+        .git-flow {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 22px;
+        }
+
+
+        .git-box {
+
+            padding:
+                15px 20px;
+
+            border-radius: 16px;
+
+            background: white;
+
+            border:
+                1px solid #ead9e5;
+
+            color: #744765;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 8px 20px rgba(130, 70, 120, .06);
+
+            transition: .3s;
+        }
+
+
+        .git-box:hover {
+
+            transform:
+                translateY(-5px);
+        }
+
+
+        .git-arrow {
+
+            color: #d05b92;
+
+            font-size: 20px;
+
+            font-weight: 900;
+        }
+
+
+        /* =========================================
+   🐞 DEBUGGING BOX
+========================================= */
+
+        .debug-box {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+
+        .debug-item {
+
+            padding: 20px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(145deg,
+                    #fff7fb,
+                    #f7efff);
+
+            border:
+                1px solid #eddfeb;
+
+            transition: .3s;
+        }
+
+
+        .debug-item:hover {
+
+            transform:
+                translateY(-6px);
+        }
+
+
+        .debug-item span {
+
+            display: block;
+
+            font-size: 30px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .debug-item strong {
+
+            color: #754662;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+   📄 DOCUMENTATION
+========================================= */
+
+        .documentation {
+
+            margin-top: 20px;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(135deg,
+                    #fff0f7,
+                    #f4eaff);
+
+            border-left:
+                4px solid #d45d96;
+        }
+
+
+        .documentation strong {
+
+            color: #8d4771;
+
+            font-size: 14px;
+        }
+
+
+        .documentation p {
+
+            margin-top: 5px;
+
+            color: #756775;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+   🌸 FOOTER
+========================================= */
+
+        .project-footer {
+
+            margin-top: 60px;
+
+            padding:
+                40px 20px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(135deg,
+                    #743d62,
+                    #a6537d);
+
+            color: white;
+        }
+
+
+        .project-footer h2 {
+
+            font-size: 21px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .project-footer p {
+
+            color: #f7dce9;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+   📱 RESPONSIVE
+========================================= */
+
+        @media (max-width: 850px) {
+
+            .project-hero {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .project-hero p {
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .project-flow {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .project-hero {
+
+                padding:
+                    50px 5%;
+            }
+
+            .project-hero h1 {
+
+                font-size: 38px;
+            }
+
+            .lab-area {
+
+                transform: scale(.9);
+            }
+
+            .practical-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .project-flow {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .debug-box {
+
+                grid-template-columns: 1fr;
+            }
+
+            .project-section {
+
+                padding:
+                    22px 18px;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .project-hero h1 {
+
+                font-size: 34px;
+            }
+
+            .lab-area {
+
+                transform: scale(.78);
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+     🧪 INTRO
+========================================= -->
+
+    <div id="projectIntro">
+
+        <div class="project-intro-content">
+
+            <div class="project-flask">
+                🧪
+            </div>
+
+            <h1>
+                Practical & Projects
+            </h1>
+
+            <p>
+                Preparing your BCA practical workspace...
+            </p>
+
+            <div class="project-loader">
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+     🧭 NAVBAR
+========================================= -->
+
+    <nav class="project-nav">
+
+        <a href="index.html" class="project-brand">
+            Roshni Code Charm
+        </a>
+
+        <a href="index.html" class="project-home">
+            ← Home
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================
+     🧪 HERO
+========================================= -->
+
+    <header class="project-hero">
+
+        <div>
+
+            <span class="project-badge">
+                🧪 BCA • MODULE 16
+            </span>
+
+            <h1>
+                Practical
+                <span>& Projects</span>
+            </h1>
+
+            <p>
+                Build practical skills through programming labs,
+                SQL practice, web projects, Git & GitHub,
+                debugging and project documentation.
+            </p>
+
+        </div>
+
+
+        <div class="lab-area">
+
+            <div class="lab-label one">
+                💻 Code
+            </div>
+
+            <div class="lab-label two">
+                🗄️ SQL
+            </div>
+
+            <div class="lab-label three">
+                🌐 Web
+            </div>
+
+            <div class="lab-label four">
+                🚀 Git
+            </div>
+
+
+            <div class="lab-board">
+
+                <div class="lab-top">
+
+                    <div class="lab-dot"></div>
+                    <div class="lab-dot"></div>
+                    <div class="lab-dot"></div>
+
+                </div>
+
+
+                <div class="code-lines">
+
+                    <div class="code-line"></div>
+
+                    <div class="code-line"></div>
+
+                    <div class="code-line"></div>
+
+                    <div class="code-line"></div>
+
+                    <div class="code-line"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+     📚 CONTENT
+========================================= -->
+
+    <main class="project-container">
+
+
+        <nav class="project-topic-nav">
+
+            <a href="#programming">
+                💻 Programming
+            </a>
+
+            <a href="#sql">
+                🗄️ SQL
+            </a>
+
+            <a href="#web">
+                🌐 Web
+            </a>
+
+            <a href="#projects">
+                🚀 Projects
+            </a>
+
+            <a href="#git">
+                🔀 Git
+            </a>
+
+            <a href="#debugging">
+                🐞 Debugging
+            </a>
+
+            <a href="#documentation">
+                📄 Docs
+            </a>
+
+        </nav>
+
+
+        <!-- PROGRAMMING LAB -->
+
+        <section class="project-section" id="programming">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    💻
+                </div>
+
+                <h2>
+                    Programming Lab
+                </h2>
+
+            </div>
+
+            <p>
+                A programming lab helps students convert
+                programming concepts into practical programs.
+            </p>
+
+
+            <div class="practical-grid">
+
+                <div class="practice-box">
+
+                    <h3>⌨️ Basic Programs</h3>
+
+                    <p>
+                        Practice variables, operators,
+                        conditions and loops.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>🔁 Functions</h3>
+
+                    <p>
+                        Create reusable blocks of code
+                        using functions.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>📦 Data Structures</h3>
+
+                    <p>
+                        Practice arrays, lists, stacks
+                        and other structures.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>🐞 Error Handling</h3>
+
+                    <p>
+                        Find and fix errors while
+                        running programs.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SQL -->
+
+        <section class="project-section" id="sql">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🗄️
+                </div>
+
+                <h2>
+                    SQL Practice
+                </h2>
+
+            </div>
+
+            <p>
+                SQL practice helps students work with
+                databases and retrieve useful information.
+            </p>
+
+
+            <div class="practical-grid">
+
+                <div class="practice-box">
+
+                    <h3>➕ CREATE</h3>
+
+                    <p>
+                        Create databases and tables.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>✏️ INSERT</h3>
+
+                    <p>
+                        Add records into database tables.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>🔎 SELECT</h3>
+
+                    <p>
+                        Retrieve required data.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>🔄 UPDATE & DELETE</h3>
+
+                    <p>
+                        Modify or remove existing records.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WEB DEVELOPMENT -->
+
+        <section class="project-section" id="web">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🌐
+                </div>
+
+                <h2>
+                    Web Development Projects
+                </h2>
+
+            </div>
+
+            <p>
+                Web development projects combine HTML,
+                CSS and JavaScript to create interactive websites.
+            </p>
+
+
+            <div class="practical-grid">
+
+                <div class="practice-box">
+
+                    <h3>🏗️ HTML</h3>
+
+                    <p>
+                        Build the structure of web pages.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>🎨 CSS</h3>
+
+                    <p>
+                        Design layouts, colors,
+                        typography and responsive pages.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>⚡ JavaScript</h3>
+
+                    <p>
+                        Add interaction and dynamic behaviour.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-box">
+
+                    <h3>📱 Responsive Design</h3>
+
+                    <p>
+                        Make websites work across
+                        different screen sizes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MINI + FINAL PROJECT -->
+
+        <section class="project-section" id="projects">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🚀
+                </div>
+
+                <h2>
+                    Mini Projects & Final Project
+                </h2>
+
+            </div>
+
+            <p>
+                Projects allow students to apply their
+                knowledge to real-world style problems.
+            </p>
+
+
+            <div class="project-flow">
+
+                <div class="flow-box">
+
+                    <span>💡</span>
+
+                    <strong>
+                        Idea
+                    </strong>
+
+                </div>
+
+
+                <div class="flow-box">
+
+                    <span>📝</span>
+
+                    <strong>
+                        Planning
+                    </strong>
+
+                </div>
+
+
+                <div class="flow-box">
+
+                    <span>🎨</span>
+
+                    <strong>
+                        Design
+                    </strong>
+
+                </div>
+
+
+                <div class="flow-box">
+
+                    <span>💻</span>
+
+                    <strong>
+                        Coding
+                    </strong>
+
+                </div>
+
+
+                <div class="flow-box">
+
+                    <span>🧪</span>
+
+                    <strong>
+                        Testing
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GIT -->
+
+        <section class="project-section" id="git">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🔀
+                </div>
+
+                <h2>
+                    Git & GitHub
+                </h2>
+
+            </div>
+
+            <p>
+                Git is a version-control system used to track
+                changes in source code. GitHub provides online
+                repositories for storing and collaborating on code.
+            </p>
+
+
+            <div class="git-flow">
+
+                <div class="git-box">
+                    📁 Create Repository
+                </div>
+
+                <div class="git-arrow">
+                    →
+                </div>
+
+                <div class="git-box">
+                    ➕ Add Files
+                </div>
+
+                <div class="git-arrow">
+                    →
+                </div>
+
+                <div class="git-box">
+                    💾 Commit
+                </div>
+
+                <div class="git-arrow">
+                    →
+                </div>
+
+                <div class="git-box">
+                    ☁️ Push
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEBUGGING -->
+
+        <section class="project-section" id="debugging">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🐞
+                </div>
+
+                <h2>
+                    Debugging
+                </h2>
+
+            </div>
+
+            <p>
+                Debugging is the process of finding and
+                correcting errors in a program.
+            </p>
+
+
+            <div class="debug-box">
+
+                <div class="debug-item">
+
+                    <span>🔍</span>
+
+                    <strong>
+                        Find the Error
+                    </strong>
+
+                </div>
+
+
+                <div class="debug-item">
+
+                    <span>🧠</span>
+
+                    <strong>
+                        Understand the Cause
+                    </strong>
+
+                </div>
+
+
+                <div class="debug-item">
+
+                    <span>🔧</span>
+
+                    <strong>
+                        Fix & Test
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOCUMENTATION -->
+
+        <section class="project-section" id="documentation">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    📄
+                </div>
+
+                <h2>
+                    Documentation
+                </h2>
+
+            </div>
+
+            <p>
+                Project documentation explains the purpose,
+                design, implementation and results of a project.
+            </p>
+
+
+            <div class="documentation">
+
+                <strong>
+                    📚 A basic project report can include:
+                </strong>
+
+                <p>
+                    Introduction • Objectives • Requirements •
+                    Design • Implementation • Testing • Results •
+                    Conclusion • References
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+     🌸 FOOTER
+========================================= -->
+
+    <footer class="project-footer">
+
+        <h2>
+            🧪 Learn • Build • Debug • Create
+        </h2>
+
+        <p>
+            Practical skills turn concepts into real projects.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* =========================================
+           🧪 INTRO
+        ========================================= */
+
+        window.addEventListener("load", function () {
+
+            setTimeout(function () {
+
+                const intro =
+                    document.getElementById("projectIntro");
+
+                if (intro) {
+
+                    intro.classList.add("hide");
+
+                }
+
+            }, 1800);
+
+        });
+
+
+        /* =========================================
+           ✨ SCROLL REVEAL
+        ========================================= */
+
+        const sections =
+            document.querySelectorAll(".project-section");
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.animate(
+                                [
+                                    {
+                                        opacity: 0,
+                                        transform:
+                                            "translateY(25px)"
+                                    },
+                                    {
+                                        opacity: 1,
+                                        transform:
+                                            "translateY(0)"
+                                    }
+                                ],
+                                {
+                                    duration: 650,
+                                    easing:
+                                        "ease-out",
+                                    fill:
+                                        "forwards"
+                                }
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: .12
+                }
+            );
+
+
+        sections.forEach(section => {
+
+            observer.observe(section);
+
+        });
+
+
+        /* =========================================
+           🔗 TOPIC NAVIGATION
+        ========================================= */
+
+        const links =
+            document.querySelectorAll(
+                ".project-topic-nav a"
+            );
+
+
+        links.forEach(link => {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    links.forEach(item => {
+
+                        item.style.background =
+                            "#fff0f7";
+
+                    });
+
+                    this.style.background =
+                        "#ffe0ee";
+
+                }
+            );
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

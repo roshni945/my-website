@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Computer Networks | Roshni Code Charm</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f3fafb;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #123b49, #286b78, #77aeb3);
+
+            animation: introHide .8s ease 3.2s forwards;
+            pointer-events: none;
+        }
+
+        .intro-content {
+            text-align: center;
+            color: white;
+            animation: introZoom 1s ease;
+        }
+
+        .intro-icon {
+            font-size: 75px;
+            display: block;
+            animation: networkPulse 1.5s infinite;
+        }
+
+        .intro-content h1 {
+            font-size: 32px;
+            margin-top: 8px;
+        }
+
+        .intro-content p {
+            color: #dff7f5;
+            font-size: 13px;
+        }
+
+        .intro-emoji {
+            position: absolute;
+            font-size: 32px;
+        }
+
+        .e1 {
+            left: -90px;
+            top: -50px;
+            animation: float1 2.5s infinite;
+        }
+
+        .e2 {
+            right: -90px;
+            top: -45px;
+            animation: float2 3s infinite;
+        }
+
+        .e3 {
+            left: -80px;
+            bottom: -50px;
+            animation: float3 2.8s infinite;
+        }
+
+        .e4 {
+            right: -80px;
+            bottom: -50px;
+            animation: float4 2.4s infinite;
+        }
+
+        @keyframes introZoom {
+            from {
+                opacity: 0;
+                transform: scale(.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes introHide {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes networkPulse {
+            50% {
+                transform: scale(1.18);
+            }
+        }
+
+        @keyframes float1 {
+            50% {
+                transform: translate(-12px, -12px) rotate(-10deg);
+            }
+        }
+
+        @keyframes float2 {
+            50% {
+                transform: translate(12px, -12px) rotate(10deg);
+            }
+        }
+
+        @keyframes float3 {
+            50% {
+                transform: translate(-10px, 12px);
+            }
+        }
+
+        @keyframes float4 {
+            50% {
+                transform: translate(10px, 12px);
+            }
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #d9e8eb;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 14px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #174b5a;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: white;
+            background: #174b5a;
+
+            padding: 8px 18px;
+            border-radius: 25px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: #327987;
+            transform: translateY(-2px);
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container {
+            max-width: 1120px;
+            margin: auto;
+            padding: 35px 20px 70px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            position: relative;
+            min-height: 450px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            padding: 50px;
+
+            border-radius: 32px;
+
+            color: white;
+
+            background:
+                linear-gradient(135deg,
+                    #123b49,
+                    #246b78,
+                    #5b999c);
+
+            box-shadow:
+                0 20px 50px rgba(18, 59, 73, .18);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+
+            max-width: 550px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            background: #d9f4f1;
+            color: #174b5a;
+
+            padding: 7px 14px;
+
+            border-radius: 25px;
+
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            line-height: 1.2;
+
+            margin: 16px 0 12px;
+        }
+
+        .hero p {
+            color: #e3f5f4;
+            font-size: 14px;
+        }
+
+        /* ================= NETWORK DIAGRAM ================= */
+
+        .network-diagram {
+            position: absolute;
+
+            right: 25px;
+            top: 50%;
+
+            width: 380px;
+            height: 380px;
+
+            transform: translateY(-50%);
+        }
+
+        .connection {
+            position: absolute;
+
+            height: 2px;
+
+            background: rgba(220, 247, 245, .7);
+
+            transform-origin: left center;
+        }
+
+        .c1 {
+            width: 150px;
+            left: 190px;
+            top: 190px;
+            transform: rotate(-90deg);
+        }
+
+        .c2 {
+            width: 150px;
+            left: 190px;
+            top: 190px;
+            transform: rotate(-30deg);
+        }
+
+        .c3 {
+            width: 150px;
+            left: 190px;
+            top: 190px;
+            transform: rotate(30deg);
+        }
+
+        .c4 {
+            width: 150px;
+            left: 190px;
+            top: 190px;
+            transform: rotate(90deg);
+        }
+
+        .node {
+            position: absolute;
+
+            width: 78px;
+            height: 78px;
+
+            border-radius: 50%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background: rgba(255, 255, 255, .14);
+
+            border: 1px solid rgba(255, 255, 255, .3);
+
+            backdrop-filter: blur(8px);
+
+            font-size: 28px;
+
+            animation: nodeFloat 2.5s infinite;
+        }
+
+        .node small {
+            font-size: 8px;
+            color: #e4f8f6;
+        }
+
+        .center {
+            left: 151px;
+            top: 151px;
+
+            background: #d9f4f1;
+            color: #174b5a;
+
+            animation: nodePulse 2s infinite;
+        }
+
+        .center small {
+            color: #174b5a;
+        }
+
+        .top {
+            left: 151px;
+            top: 10px;
+        }
+
+        .right {
+            right: 0;
+            top: 151px;
+            animation-delay: .4s;
+        }
+
+        .bottom {
+            left: 151px;
+            bottom: 10px;
+            animation-delay: .8s;
+        }
+
+        .left {
+            left: 0;
+            top: 151px;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes nodeFloat {
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        @keyframes nodePulse {
+            50% {
+                box-shadow: 0 0 0 14px rgba(217, 244, 241, .12);
+            }
+        }
+
+        /* ================= CONTENT ================= */
+
+        .section {
+            background: white;
+
+            margin-top: 25px;
+            padding: 30px;
+
+            border-radius: 23px;
+
+            border: 1px solid #dcebed;
+
+            box-shadow: 0 8px 28px rgba(15, 70, 85, .05);
+
+            opacity: 0;
+            transform: translateY(25px);
+
+            transition: .7s ease;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            color: #174b5a;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .section h3 {
+            color: #286d79;
+            margin-bottom: 6px;
+        }
+
+        .section p {
+            font-size: 14px;
+        }
+
+        /* ================= NETWORK TYPES ================= */
+
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+
+            margin-top: 20px;
+        }
+
+        .network-box {
+            position: relative;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background: linear-gradient(135deg,
+                    #eefaf8,
+                    #e5f1f6);
+
+            border: 1px solid #cce3e6;
+
+            overflow: hidden;
+
+            transition: .35s;
+        }
+
+        .network-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(23, 75, 90, .1);
+        }
+
+        .network-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 80px;
+            height: 80px;
+
+            right: -30px;
+            bottom: -30px;
+
+            border-radius: 50%;
+
+            background: #c9ebe8;
+        }
+
+        /* ================= OSI ================= */
+
+        .osi {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 8px;
+
+            margin-top: 20px;
+        }
+
+        .osi-layer {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 12px 18px;
+
+            border-radius: 12px;
+
+            color: white;
+
+            font-weight: 700;
+
+            opacity: 0;
+
+            transform: translateX(-20px);
+
+            animation: layerIn .6s ease forwards;
+        }
+
+        .osi-layer:nth-child(1) {
+            background: #5a999c;
+            animation-delay: .1s;
+        }
+
+        .osi-layer:nth-child(2) {
+            background: #4c8c91;
+            animation-delay: .2s;
+        }
+
+        .osi-layer:nth-child(3) {
+            background: #40808a;
+            animation-delay: .3s;
+        }
+
+        .osi-layer:nth-child(4) {
+            background: #36747f;
+            animation-delay: .4s;
+        }
+
+        .osi-layer:nth-child(5) {
+            background: #2d6976;
+            animation-delay: .5s;
+        }
+
+        .osi-layer:nth-child(6) {
+            background: #235b69;
+            animation-delay: .6s;
+        }
+
+        .osi-layer:nth-child(7) {
+            background: #174b5a;
+            animation-delay: .7s;
+        }
+
+        @keyframes layerIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ================= TCP/IP ================= */
+
+        .tcp-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .tcp {
+            padding: 20px 10px;
+
+            text-align: center;
+
+            border-radius: 16px;
+
+            background: #eff8f8;
+
+            border: 1px solid #d0e6e7;
+
+            transition: .3s;
+        }
+
+        .tcp:hover {
+            transform: scale(1.05);
+        }
+
+        .tcp-icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* ================= IP ================= */
+
+        .ip-box {
+            margin-top: 20px;
+
+            text-align: center;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background: #f0f8fa;
+        }
+
+        .ip {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-top: 12px;
+        }
+
+        .ip span {
+            background: #174b5a;
+            color: white;
+
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            font-weight: 800;
+
+            animation: ipMove 2s infinite;
+        }
+
+        .ip span:nth-child(2) {
+            animation-delay: .3s;
+        }
+
+        .ip span:nth-child(3) {
+            animation-delay: .6s;
+        }
+
+        .ip span:nth-child(4) {
+            animation-delay: .9s;
+        }
+
+        @keyframes ipMove {
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* ================= DEVICES ================= */
+
+        .device-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 14px;
+
+            margin-top: 20px;
+        }
+
+        .device {
+            padding: 20px 12px;
+
+            text-align: center;
+
+            border-radius: 17px;
+
+            background: #f5fafb;
+
+            border: 1px solid #d7e8eb;
+
+            transition: .3s;
+        }
+
+        .device:hover {
+            transform: translateY(-7px);
+            background: #e7f5f4;
+        }
+
+        .device-icon {
+            font-size: 34px;
+            display: block;
+        }
+
+        /* ================= SECURITY ================= */
+
+        .security-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+        .security-box {
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background: linear-gradient(135deg,
+                    #eff9f7,
+                    #e7f1f6);
+
+            border: 1px solid #d0e5e5;
+
+            transition: .3s;
+        }
+
+        .security-box:hover {
+            transform: translateY(-6px);
+        }
+
+        .security-icon {
+            font-size: 32px;
+        }
+
+        /* ================= LIST ================= */
+
+        .notes {
+            padding-left: 22px;
+            margin-top: 15px;
+        }
+
+        .notes li {
+            margin: 7px 0;
+        }
+
+        /* ================= TABLE ================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px;
+
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #174b5a;
+            color: white;
+
+            padding: 13px;
+
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+
+            border-bottom: 1px solid #dcebed;
+        }
+
+        tr:hover td {
+            background: #f2f9f9;
+        }
+
+        /* ================= QUICK REVISION ================= */
+
+        .revision {
+            background: linear-gradient(135deg,
+                    #eaf8f5,
+                    #e9f3f7);
+
+            border: 2px dashed #8dbcc2;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #123b49;
+
+            color: #cfe9eb;
+        }
+
+        footer strong {
+            color: #dff7f5;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:900px) {
+
+            .network-diagram {
+                opacity: .25;
+                right: -80px;
+            }
+
+            .device-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:650px) {
+
+            .hero {
+                min-height: 500px;
+                padding: 35px 22px;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .network-diagram {
+                width: 300px;
+                height: 300px;
+
+                right: -75px;
+                bottom: -30px;
+                top: auto;
+
+                transform: scale(.8);
+            }
+
+            .network-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tcp-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .device-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:400px) {
+
+            .tcp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= INTRO ================= -->
+
+    <div class="intro">
+
+        <div class="intro-content">
+
+            <span class="intro-emoji e1">🌐</span>
+            <span class="intro-emoji e2">📡</span>
+            <span class="intro-emoji e3">💻</span>
+            <span class="intro-emoji e4">🔐</span>
+
+            <span class="intro-icon">🌐</span>
+
+            <h1>Computer Networks</h1>
+
+            <p>
+                Connect • Communicate • Secure 🔐
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                💻 Roshni Code Charm
+            </a>
+
+            <a href="index.html" class="back-btn">
+                ← Back
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="badge">
+                    🎓 BCA • FULL NOTES
+                </span>
+
+                <h1>
+                    🔐 Computer Networks
+                </h1>
+
+                <p>
+                    Learn how computers and devices communicate,
+                    share information and connect to the Internet.
+                </p>
+
+            </div>
+
+
+            <div class="network-diagram">
+
+                <div class="connection c1"></div>
+                <div class="connection c2"></div>
+                <div class="connection c3"></div>
+                <div class="connection c4"></div>
+
+                <div class="node center">
+                    🌐
+                    <small>Network</small>
+                </div>
+
+                <div class="node top">
+                    💻
+                    <small>Computer</small>
+                </div>
+
+                <div class="node right">
+                    📱
+                    <small>Mobile</small>
+                </div>
+
+                <div class="node bottom">
+                    🖥️
+                    <small>Server</small>
+                </div>
+
+                <div class="node left">
+                    📡
+                    <small>Router</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 1 ================= -->
+
+        <section class="section">
+
+            <h2>🌐 1. Network Basics</h2>
+
+            <p>
+                A computer network is a collection of connected computers
+                and devices that communicate with each other and share
+                resources.
+            </p>
+
+            <ul class="notes">
+
+                <li>💻 Computers can communicate with other devices.</li>
+
+                <li>📁 Files and information can be shared.</li>
+
+                <li>🖨️ Devices such as printers can be shared.</li>
+
+                <li>🌍 Networks make Internet communication possible.</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ================= 2 ================= -->
+
+        <section class="section">
+
+            <h2>🏠 2. LAN / WAN</h2>
+
+            <div class="network-grid">
+
+                <div class="network-box">
+
+                    <h3>🏠 LAN</h3>
+
+                    <p>
+                        LAN stands for Local Area Network.
+                        It connects devices in a small geographical area,
+                        such as a home, school or office.
+                    </p>
+
+                </div>
+
+                <div class="network-box">
+
+                    <h3>🌍 WAN</h3>
+
+                    <p>
+                        WAN stands for Wide Area Network.
+                        It connects networks across large geographical areas,
+                        such as cities or countries.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <tr>
+                        <th>Feature</th>
+                        <th>LAN</th>
+                        <th>WAN</th>
+                    </tr>
+
+                    <tr>
+                        <td>📍 Coverage</td>
+                        <td>Small area</td>
+                        <td>Large area</td>
+                    </tr>
+
+                    <tr>
+                        <td>⚡ Speed</td>
+                        <td>Usually faster</td>
+                        <td>Usually slower than LAN</td>
+                    </tr>
+
+                    <tr>
+                        <td>🏫 Example</td>
+                        <td>School network</td>
+                        <td>Internet</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 3 ================= -->
+
+        <section class="section">
+
+            <h2>🧅 3. OSI Model</h2>
+
+            <p>
+                The OSI model divides network communication into
+                seven layers.
+            </p>
+
+            <div class="osi">
+
+                <div class="osi-layer">
+                    <span>7️⃣ Application</span>
+                    <span>Application Services</span>
+                </div>
+
+                <div class="osi-layer">
+                    <span>6️⃣ Presentation</span>
+                    <span>Data Format</span>
+                </div>
+
+                <div class="osi-layer">
+                    <span>5️⃣ Session</span>
+                    <span>Sessions</span>
+                </div>
+
+                <div class="osi-layer">
+                    <span>4️⃣ Transport</span>
+                    <span>Reliable Delivery</span>
+                </div>
+
+                <div class="osi-layer">
+                    <span>3️⃣ Network</span>
+                    <span>Routing</span>
+                </div>
+
+                <div class="osi-layer">
+                    <span>2️⃣ Data Link</span>
+                    <span>Frames</span>
+                </div>
+
+                <div class="osi-layer">
+                    <span>1️⃣ Physical</span>
+                    <span>Bits</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 4 ================= -->
+
+        <section class="section">
+
+            <h2>🔗 4. TCP/IP</h2>
+
+            <p>
+                TCP/IP is a group of communication protocols used
+                for communication between devices over networks.
+            </p>
+
+            <div class="tcp-grid">
+
+                <div class="tcp">
+                    <span class="tcp-icon">🌐</span>
+                    <strong>Application</strong>
+                </div>
+
+                <div class="tcp">
+                    <span class="tcp-icon">🚚</span>
+                    <strong>Transport</strong>
+                </div>
+
+                <div class="tcp">
+                    <span class="tcp-icon">📍</span>
+                    <strong>Internet</strong>
+                </div>
+
+                <div class="tcp">
+                    <span class="tcp-icon">🔌</span>
+                    <strong>Network Access</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 5 ================= -->
+
+        <section class="section">
+
+            <h2>📍 5. IP Address</h2>
+
+            <p>
+                An IP address is a numerical address used to identify
+                a device on a network.
+            </p>
+
+            <div class="ip-box">
+
+                <strong>Example IPv4 Address</strong>
+
+                <div class="ip">
+
+                    <span>192</span>
+                    <span>168</span>
+                    <span>1</span>
+                    <span>10</span>
+
+                </div>
+
+            </div>
+
+            <ul class="notes">
+
+                <li>🔢 IPv4 uses 32 bits.</li>
+
+                <li>🌐 IPv4 is commonly written in dotted-decimal form.</li>
+
+                <li>📱 Devices use IP addresses for network communication.</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ================= 6 ================= -->
+
+        <section class="section">
+
+            <h2>📡 6. Network Devices</h2>
+
+            <div class="device-grid">
+
+                <div class="device">
+
+                    <span class="device-icon">🔀</span>
+
+                    <strong>Switch</strong>
+
+                    <p>
+                        Connects devices within a network.
+                    </p>
+
+                </div>
+
+                <div class="device">
+
+                    <span class="device-icon">📡</span>
+
+                    <strong>Router</strong>
+
+                    <p>
+                        Connects different networks.
+                    </p>
+
+                </div>
+
+                <div class="device">
+
+                    <span class="device-icon">📶</span>
+
+                    <strong>Modem</strong>
+
+                    <p>
+                        Connects a network to an Internet service.
+                    </p>
+
+                </div>
+
+                <div class="device">
+
+                    <span class="device-icon">📢</span>
+
+                    <strong>Hub</strong>
+
+                    <p>
+                        Broadcasts data to connected devices.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= 7 ================= -->
+
+        <section class="section">
+
+            <h2>🌍 7. Internet</h2>
+
+            <p>
+                The Internet is a global network of interconnected
+                networks that allows computers and devices to communicate
+                and exchange information.
+            </p>
+
+            <ul class="notes">
+
+                <li>🌐 Websites can be accessed through the Internet.</li>
+
+                <li>📧 Email uses Internet communication.</li>
+
+                <li>☁️ Cloud services use Internet connectivity.</li>
+
+                <li>💬 Online communication depends on Internet networks.</li>
+
+                <li>🔎 Search engines help users find information online.</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ================= 8 ================= -->
+
+        <section class="section">
+
+            <h2>🔐 8. Basic Network Security</h2>
+
+            <p>
+                Network security helps protect networks, devices and
+                information from unauthorized access and threats.
+            </p>
+
+            <div class="security-grid">
+
+                <div class="security-box">
+
+                    <span class="security-icon">🔑</span>
+
+                    <h3>Strong Passwords</h3>
+
+                    <p>
+                        Use strong and unique passwords for accounts and devices.
+                    </p>
+
+                </div>
+
+                <div class="security-box">
+
+                    <span class="security-icon">🛡️</span>
+
+                    <h3>Firewall</h3>
+
+                    <p>
+                        A firewall helps control incoming and outgoing network traffic.
+                    </p>
+
+                </div>
+
+                <div class="security-box">
+
+                    <span class="security-icon">🔒</span>
+
+                    <h3>Encryption</h3>
+
+                    <p>
+                        Encryption helps protect information during communication.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REVISION ================= -->
+
+        <section class="section revision">
+
+            <h2>📝 Quick Revision</h2>
+
+            <ul class="notes">
+
+                <li>🌐 Network → Connected devices that communicate and share resources.</li>
+
+                <li>🏠 LAN → Network covering a small area.</li>
+
+                <li>🌍 WAN → Network covering a large area.</li>
+
+                <li>🧅 OSI → Seven-layer networking reference model.</li>
+
+                <li>🔗 TCP/IP → Protocol suite used for network communication.</li>
+
+                <li>📍 IP Address → Identifies a device on a network.</li>
+
+                <li>📡 Router → Connects different networks.</li>
+
+                <li>🔀 Switch → Connects devices within a network.</li>
+
+                <li>🔐 Network Security → Protects networks and data.</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ================= CHECKLIST ================= -->
+
+        <section class="section">
+
+            <h2>🎯 BCA Computer Networks Checklist</h2>
+
+            <div class="network-grid">
+
+                <div class="network-box">🌐 Network Basics</div>
+
+                <div class="network-box">🏠 LAN / WAN</div>
+
+                <div class="network-box">🧅 OSI Model</div>
+
+                <div class="network-box">🔗 TCP/IP</div>
+
+                <div class="network-box">📍 IP Address</div>
+
+                <div class="network-box">📡 Network Devices</div>
+
+                <div class="network-box">🌍 Internet</div>
+
+                <div class="network-box">🔐 Basic Network Security</div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            🌐 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Practice • Grow 🚀
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* ================= SCROLL ANIMATION ================= */
+
+        const sections =
+            document.querySelectorAll(".section");
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+        sections.forEach(section => {
+
+            observer.observe(section);
+
+        });
+
+
+        /* ================= NETWORK NODE ANIMATION ================= */
+
+        const nodes =
+            document.querySelectorAll(".node");
+
+        let currentNode = 0;
+
+        setInterval(() => {
+
+            nodes.forEach(node => {
+
+                node.style.boxShadow = "none";
+
+            });
+
+            if (nodes[currentNode]) {
+
+                nodes[currentNode].style.boxShadow =
+                    "0 0 25px rgba(217,244,241,.85)";
+
+            }
+
+            currentNode++;
+
+            if (currentNode >= nodes.length) {
+
+                currentNode = 0;
+
+            }
+
+        }, 1100);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BCA Cyber Security | Roshni Code Charm</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        /* =========================================
+   RESET
+========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: "Poppins", sans-serif;
+
+            background: #f7f3fa;
+
+            color: #3f3a46;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+   INTRO ANIMATION
+========================================= */
+
+        .intro {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(135deg,
+                    #30213f,
+                    #56376b,
+                    #9272a5);
+
+            animation:
+                introHide .8s ease 3.2s forwards;
+
+            pointer-events: none;
+        }
+
+        .intro-content {
+
+            position: relative;
+
+            text-align: center;
+
+            color: white;
+
+            animation: introZoom 1s ease;
+        }
+
+        .intro-icon {
+
+            display: block;
+
+            font-size: 78px;
+
+            animation: lockPulse 1.5s infinite;
+        }
+
+        .intro-content h1 {
+
+            font-size: 34px;
+
+            margin-top: 8px;
+        }
+
+        .intro-content p {
+
+            color: #eee3f4;
+
+            font-size: 13px;
+        }
+
+        .intro-emoji {
+
+            position: absolute;
+
+            font-size: 32px;
+        }
+
+        .i1 {
+            left: -90px;
+            top: -55px;
+
+            animation: floatA 2.5s infinite;
+        }
+
+        .i2 {
+            right: -90px;
+            top: -45px;
+
+            animation: floatB 2.8s infinite;
+        }
+
+        .i3 {
+            left: -85px;
+            bottom: -55px;
+
+            animation: floatC 2.6s infinite;
+        }
+
+        .i4 {
+            right: -85px;
+            bottom: -50px;
+
+            animation: floatD 3s infinite;
+        }
+
+
+        @keyframes introZoom {
+
+            from {
+                opacity: 0;
+                transform: scale(.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+        @keyframes introHide {
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+        }
+
+        @keyframes lockPulse {
+
+            50% {
+                transform: scale(1.18) rotate(-5deg);
+            }
+
+        }
+
+        @keyframes floatA {
+
+            50% {
+                transform: translate(-12px, -10px) rotate(-10deg);
+            }
+
+        }
+
+        @keyframes floatB {
+
+            50% {
+                transform: translate(12px, -10px) rotate(10deg);
+            }
+
+        }
+
+        @keyframes floatC {
+
+            50% {
+                transform: translate(-10px, 12px);
+            }
+
+        }
+
+        @keyframes floatD {
+
+            50% {
+                transform: translate(10px, 12px);
+            }
+
+        }
+
+
+        /* =========================================
+   HEADER
+========================================= */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, .96);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom:
+                1px solid #e2d9e8;
+        }
+
+        .navbar {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 14px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .logo {
+
+            text-decoration: none;
+
+            color: #4b2860;
+
+            font-size: 18px;
+
+            font-weight: 800;
+        }
+
+        .back-btn {
+
+            text-decoration: none;
+
+            color: white;
+
+            background: #4b2860;
+
+            padding: 8px 18px;
+
+            border-radius: 25px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+
+            background: #704b85;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+   MAIN
+========================================= */
+
+        .container {
+
+            max-width: 1120px;
+
+            margin: auto;
+
+            padding: 35px 20px 70px;
+        }
+
+
+        /* =========================================
+   HERO
+========================================= */
+
+        .hero {
+
+            position: relative;
+
+            min-height: 450px;
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            padding: 50px;
+
+            border-radius: 32px;
+
+            color: white;
+
+            background:
+                linear-gradient(135deg,
+                    #30213f,
+                    #56376b,
+                    #80608f);
+
+            box-shadow:
+                0 20px 50px rgba(48, 33, 63, .18);
+        }
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 5;
+
+            max-width: 560px;
+        }
+
+        .badge {
+
+            display: inline-block;
+
+            background: #eee4f3;
+
+            color: #4b2860;
+
+            padding: 7px 14px;
+
+            border-radius: 25px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .hero h1 {
+
+            font-size: 44px;
+
+            line-height: 1.2;
+
+            margin: 16px 0 12px;
+        }
+
+        .hero p {
+
+            color: #eee3f4;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+   SECURITY DIAGRAM
+========================================= */
+
+        .security-diagram {
+
+            position: absolute;
+
+            right: 30px;
+
+            top: 50%;
+
+            width: 370px;
+
+            height: 370px;
+
+            transform: translateY(-50%);
+        }
+
+        .security-circle {
+
+            position: absolute;
+
+            inset: 45px;
+
+            border:
+
+                2px dashed rgba(255, 255, 255, .35);
+
+            border-radius: 50%;
+
+            animation: rotateCircle 15s linear infinite;
+        }
+
+        .security-center {
+
+            position: absolute;
+
+            left: 137px;
+
+            top: 137px;
+
+            width: 96px;
+
+            height: 96px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            background: #eee4f3;
+
+            color: #4b2860;
+
+            border-radius: 50%;
+
+            font-size: 37px;
+
+            box-shadow:
+                0 0 0 12px rgba(238, 228, 243, .12);
+
+            animation: centerPulse 2s infinite;
+        }
+
+        .security-center small {
+
+            font-size: 9px;
+
+            font-weight: 700;
+        }
+
+        .security-node {
+
+            position: absolute;
+
+            width: 72px;
+
+            height: 72px;
+
+            border-radius: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            background:
+                rgba(255, 255, 255, .13);
+
+            border:
+                1px solid rgba(255, 255, 255, .25);
+
+            backdrop-filter: blur(7px);
+
+            font-size: 27px;
+
+            animation: nodeFloat 2.5s infinite;
+        }
+
+        .security-node small {
+
+            font-size: 8px;
+
+            color: #eee3f4;
+        }
+
+        .s-top {
+
+            left: 149px;
+            top: 0;
+        }
+
+        .s-right {
+
+            right: 0;
+            top: 150px;
+
+            animation-delay: .5s;
+        }
+
+        .s-bottom {
+
+            left: 149px;
+            bottom: 0;
+
+            animation-delay: 1s;
+        }
+
+        .s-left {
+
+            left: 0;
+            top: 150px;
+
+            animation-delay: 1.5s;
+        }
+
+        @keyframes rotateCircle {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        @keyframes centerPulse {
+
+            50% {
+                transform: scale(1.08);
+            }
+
+        }
+
+        @keyframes nodeFloat {
+
+            50% {
+                transform: translateY(-7px);
+            }
+
+        }
+
+
+        /* =========================================
+   SECTIONS
+========================================= */
+
+        .section {
+
+            background: white;
+
+            margin-top: 25px;
+
+            padding: 30px;
+
+            border-radius: 23px;
+
+            border:
+                1px solid #e5ddeb;
+
+            box-shadow:
+                0 8px 28px rgba(63, 40, 75, .05);
+
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition: .7s ease;
+        }
+
+        .section.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .section h2 {
+
+            color: #4b2860;
+
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+        .section h3 {
+
+            color: #68457a;
+
+            margin-bottom: 6px;
+        }
+
+        .section p {
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+   SECURITY CARDS
+========================================= */
+
+        .security-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 17px;
+
+            margin-top: 20px;
+        }
+
+        .security-box {
+
+            padding: 23px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(135deg,
+                    #f5eff8,
+                    #eee6f3);
+
+            border:
+                1px solid #dfd1e6;
+
+            transition: .35s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .security-box:hover {
+
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 12px 28px rgba(75, 40, 96, .12);
+        }
+
+        .security-box::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 85px;
+
+            height: 85px;
+
+            right: -35px;
+
+            bottom: -35px;
+
+            border-radius: 50%;
+
+            background: #dfd0e7;
+        }
+
+        .security-icon {
+
+            font-size: 34px;
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================================
+   THREAT TABLE
+========================================= */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+
+            margin-top: 20px;
+        }
+
+        table {
+
+            width: 100%;
+
+            min-width: 600px;
+
+            border-collapse: collapse;
+        }
+
+        th {
+
+            background: #4b2860;
+
+            color: white;
+
+            padding: 13px;
+
+            text-align: left;
+        }
+
+        td {
+
+            padding: 12px;
+
+            border-bottom:
+                1px solid #e5ddeb;
+        }
+
+        tr:hover td {
+
+            background: #f7f2f9;
+        }
+
+
+        /* =========================================
+   PASSWORD
+========================================= */
+
+        .password-box {
+
+            margin-top: 20px;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background: #f6f1f8;
+
+            text-align: center;
+
+            border: 1px solid #e2d6e7;
+        }
+
+        .password-strength {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            margin-top: 15px;
+        }
+
+        .password-strength span {
+
+            width: 55px;
+
+            height: 9px;
+
+            border-radius: 10px;
+
+            background: #d9c9df;
+
+        }
+
+        .password-strength span:nth-child(1),
+        .password-strength span:nth-child(2),
+        .password-strength span:nth-child(3) {
+
+            background: #80608f;
+        }
+
+
+        /* =========================================
+   ENCRYPTION
+========================================= */
+
+        .encryption-flow {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 20px;
+        }
+
+        .flow-box {
+
+            padding: 17px 20px;
+
+            border-radius: 15px;
+
+            background: #f1eaf5;
+
+            border: 1px solid #ddcfe4;
+
+            font-weight: 700;
+
+            text-align: center;
+        }
+
+        .flow-arrow {
+
+            font-size: 25px;
+
+            color: #68457a;
+
+        }
+
+
+        /* =========================================
+   SAFE INTERNET
+========================================= */
+
+        .safe-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+        .safe-box {
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background: #faf7fb;
+
+            border: 1px solid #e4dce8;
+
+            transition: .3s;
+        }
+
+        .safe-box:hover {
+
+            transform: translateY(-5px);
+
+            background: #f1eaf5;
+        }
+
+        .safe-box span {
+
+            display: block;
+
+            font-size: 30px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================================
+   LIST
+========================================= */
+
+        .notes {
+
+            padding-left: 22px;
+
+            margin-top: 15px;
+        }
+
+        .notes li {
+
+            margin: 7px 0;
+        }
+
+
+        /* =========================================
+   QUICK REVISION
+========================================= */
+
+        .revision {
+
+            background:
+                linear-gradient(135deg,
+                    #f1eaf5,
+                    #eee5f2);
+
+            border:
+                2px dashed #b99bc6;
+        }
+
+
+        /* =========================================
+   FOOTER
+========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #30213f;
+
+            color: #ddcde5;
+        }
+
+        footer strong {
+
+            color: #f0e5f4;
+        }
+
+
+        /* =========================================
+   RESPONSIVE
+========================================= */
+
+        @media(max-width:900px) {
+
+            .security-diagram {
+
+                opacity: .25;
+
+                right: -80px;
+            }
+
+            .safe-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:650px) {
+
+            .hero {
+
+                min-height: 500px;
+
+                padding: 35px 22px;
+
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+
+                font-size: 32px;
+            }
+
+            .security-diagram {
+
+                width: 300px;
+
+                height: 300px;
+
+                right: -75px;
+
+                bottom: -20px;
+
+                top: auto;
+
+                transform: scale(.8);
+            }
+
+            .security-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .safe-grid {
+
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+     INTRO
+========================================= -->
+
+    <div class="intro">
+
+        <div class="intro-content">
+
+            <span class="intro-emoji i1">🔐</span>
+            <span class="intro-emoji i2">🛡️</span>
+            <span class="intro-emoji i3">💻</span>
+            <span class="intro-emoji i4">🔑</span>
+
+            <span class="intro-icon">🔒</span>
+
+            <h1>Cyber Security</h1>
+
+            <p>
+                Protect • Secure • Stay Safe 🛡️
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+     HEADER
+========================================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+
+                💻 Roshni Code Charm
+
+            </a>
+
+
+            <a href="index.html" class="back-btn">
+
+                ← Back
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =========================================
+     HERO
+========================================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="badge">
+                    🎓 BCA • FULL NOTES
+                </span>
+
+                <h1>
+                    🔒 Cyber Security
+                </h1>
+
+                <p>
+                    Learn the basics of protecting computers,
+                    networks, accounts and personal information
+                    from common digital threats.
+                </p>
+
+            </div>
+
+
+            <div class="security-diagram">
+
+                <div class="security-circle"></div>
+
+                <div class="security-center">
+
+                    🔒
+
+                    <small>
+                        Secure
+                    </small>
+
+                </div>
+
+
+                <div class="security-node s-top">
+
+                    🔑
+
+                    <small>
+                        Password
+                    </small>
+
+                </div>
+
+
+                <div class="security-node s-right">
+
+                    🛡️
+
+                    <small>
+                        Protection
+                    </small>
+
+                </div>
+
+
+                <div class="security-node s-bottom">
+
+                    🔐
+
+                    <small>
+                        Encryption
+                    </small>
+
+                </div>
+
+
+                <div class="security-node s-left">
+
+                    💻
+
+                    <small>
+                        Device
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+     1. SECURITY BASICS
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                🛡️ 1. Security Basics
+            </h2>
+
+            <p>
+                Cyber security is the practice of protecting computers,
+                networks, applications and data from unauthorized access,
+                damage and other digital threats.
+            </p>
+
+            <ul class="notes">
+
+                <li>
+                    🔒 Protect personal and organizational information.
+                </li>
+
+                <li>
+                    💻 Keep devices and software updated.
+                </li>
+
+                <li>
+                    🛡️ Use security tools and safe practices.
+                </li>
+
+                <li>
+                    🔑 Protect accounts with strong authentication.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+     2. THREATS
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                ⚠️ 2. Threats & Vulnerabilities
+            </h2>
+
+            <p>
+                A cyber threat is a potential danger to a computer system
+                or network. A vulnerability is a weakness that may be
+                exploited by a threat.
+            </p>
+
+
+            <div class="security-grid">
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        🎣
+                    </span>
+
+                    <h3>
+                        Phishing
+                    </h3>
+
+                    <p>
+                        Fraudulent messages or websites designed to trick users
+                        into revealing information.
+                    </p>
+
+                </div>
+
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        🦠
+                    </span>
+
+                    <h3>
+                        Malware
+                    </h3>
+
+                    <p>
+                        Malicious software designed to harm, disrupt or gain
+                        unauthorized access to systems.
+                    </p>
+
+                </div>
+
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        🔓
+                    </span>
+
+                    <h3>
+                        Weak Security
+                    </h3>
+
+                    <p>
+                        Weak passwords, outdated software or incorrect settings
+                        can create security vulnerabilities.
+                    </p>
+
+                </div>
+
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        👤
+                    </span>
+
+                    <h3>
+                        Unauthorized Access
+                    </h3>
+
+                    <p>
+                        Accessing systems or information without proper permission.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+     3. MALWARE
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                🦠 3. Malware Awareness
+            </h2>
+
+            <p>
+                Malware means malicious software. Different types of
+                malware can affect computers and devices in different ways.
+            </p>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <tr>
+
+                        <th>
+                            Malware
+                        </th>
+
+                        <th>
+                            Basic Meaning
+                        </th>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            🦠 Virus
+                        </td>
+
+                        <td>
+                            Malicious code that can attach to files and spread.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            🐛 Worm
+                        </td>
+
+                        <td>
+                            Malware that can spread across networks automatically.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            🔒 Ransomware
+                        </td>
+
+                        <td>
+                            Malware that can prevent access to data and demand payment.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            👁️ Spyware
+                        </td>
+
+                        <td>
+                            Software designed to secretly collect information.
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+     4. AUTHENTICATION
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                🔑 4. Authentication
+            </h2>
+
+            <p>
+                Authentication is the process of verifying the identity
+                of a user before allowing access to an account or system.
+            </p>
+
+
+            <div class="security-grid">
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        🔑
+                    </span>
+
+                    <h3>
+                        Something You Know
+                    </h3>
+
+                    <p>
+                        Example: Password or PIN.
+                    </p>
+
+                </div>
+
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        📱
+                    </span>
+
+                    <h3>
+                        Something You Have
+                    </h3>
+
+                    <p>
+                        Example: Security key or registered device.
+                    </p>
+
+                </div>
+
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        👆
+                    </span>
+
+                    <h3>
+                        Something You Are
+                    </h3>
+
+                    <p>
+                        Example: Biometric authentication.
+                    </p>
+
+                </div>
+
+
+                <div class="security-box">
+
+                    <span class="security-icon">
+                        🛡️
+                    </span>
+
+                    <h3>
+                        Multi-Factor Authentication
+                    </h3>
+
+                    <p>
+                        Uses more than one authentication factor for additional
+                        account protection.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+     5. PASSWORD SECURITY
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                🔐 5. Password Security
+            </h2>
+
+            <p>
+                Strong password practices help reduce the risk of
+                unauthorized access to accounts.
+            </p>
+
+
+            <div class="password-box">
+
+                <h3>
+                    🔑 Strong Password
+                </h3>
+
+                <p>
+                    Use a long, unique password and avoid easily guessed
+                    personal information.
+                </p>
+
+
+                <div class="password-strength">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+
+            <ul class="notes">
+
+                <li>
+                    🔑 Use unique passwords for important accounts.
+                </li>
+
+                <li>
+                    🚫 Avoid easily guessed information.
+                </li>
+
+                <li>
+                    🔒 Do not share passwords with others.
+                </li>
+
+                <li>
+                    🛡️ Enable multi-factor authentication when available.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+     6. ENCRYPTION
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                🔐 6. Encryption Basics
+            </h2>
+
+            <p>
+                Encryption converts readable information into a protected
+                form so that unauthorized people cannot easily understand it.
+            </p>
+
+
+            <div class="encryption-flow">
+
+                <div class="flow-box">
+
+                    📄 Plaintext
+
+                </div>
+
+                <div class="flow-arrow">
+
+                    →
+
+                </div>
+
+                <div class="flow-box">
+
+                    🔐 Encryption
+
+                </div>
+
+                <div class="flow-arrow">
+
+                    →
+
+                </div>
+
+                <div class="flow-box">
+
+                    🔒 Ciphertext
+
+                </div>
+
+                <div class="flow-arrow">
+
+                    →
+
+                </div>
+
+                <div class="flow-box">
+
+                    🔑 Decryption
+
+                </div>
+
+                <div class="flow-arrow">
+
+                    →
+
+                </div>
+
+                <div class="flow-box">
+
+                    📄 Data
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+     7. SAFE INTERNET
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                🌐 7. Safe Internet Practices
+            </h2>
+
+            <p>
+                Following safe online practices can help protect personal
+                information and accounts.
+            </p>
+
+
+            <div class="safe-grid">
+
+                <div class="safe-box">
+
+                    <span>
+                        🔗
+                    </span>
+
+                    <h3>
+                        Check Links
+                    </h3>
+
+                    <p>
+                        Be careful before opening unknown links or attachments.
+                    </p>
+
+                </div>
+
+
+                <div class="safe-box">
+
+                    <span>
+                        🔒
+                    </span>
+
+                    <h3>
+                        Use Secure Websites
+                    </h3>
+
+                    <p>
+                        Check that websites use HTTPS when entering sensitive
+                        information.
+                    </p>
+
+                </div>
+
+
+                <div class="safe-box">
+
+                    <span>
+                        📱
+                    </span>
+
+                    <h3>
+                        Update Devices
+                    </h3>
+
+                    <p>
+                        Keep operating systems and applications updated.
+                    </p>
+
+                </div>
+
+
+                <div class="safe-box">
+
+                    <span>
+                        🛡️
+                    </span>
+
+                    <h3>
+                        Protect Accounts
+                    </h3>
+
+                    <p>
+                        Use strong passwords and additional authentication.
+                    </p>
+
+                </div>
+
+
+                <div class="safe-box">
+
+                    <span>
+                        🎣
+                    </span>
+
+                    <h3>
+                        Avoid Phishing
+                    </h3>
+
+                    <p>
+                        Be cautious of suspicious emails, messages and websites.
+                    </p>
+
+                </div>
+
+
+                <div class="safe-box">
+
+                    <span>
+                        💾
+                    </span>
+
+                    <h3>
+                        Backup Important Data
+                    </h3>
+
+                    <p>
+                        Keep appropriate backups of important information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+     QUICK REVISION
+========================================= -->
+
+        <section class="section revision">
+
+            <h2>
+                📝 Quick Revision
+            </h2>
+
+            <ul class="notes">
+
+                <li>
+                    🛡️ Cyber Security → Protecting systems, networks and data.
+                </li>
+
+                <li>
+                    ⚠️ Threat → Potential danger to a system.
+                </li>
+
+                <li>
+                    🔓 Vulnerability → Weakness that can create a security risk.
+                </li>
+
+                <li>
+                    🦠 Malware → Malicious software.
+                </li>
+
+                <li>
+                    🔑 Authentication → Verifying a user's identity.
+                </li>
+
+                <li>
+                    🔐 Encryption → Protecting readable information by converting it into ciphertext.
+                </li>
+
+                <li>
+                    🌐 Safe Internet Practices → Behaviours that reduce online security risks.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================================
+     CHECKLIST
+========================================= -->
+
+        <section class="section">
+
+            <h2>
+                🎯 BCA Cyber Security Checklist
+            </h2>
+
+
+            <div class="security-grid">
+
+                <div class="security-box">
+                    🛡️ Security Basics
+                </div>
+
+                <div class="security-box">
+                    ⚠️ Threats & Vulnerabilities
+                </div>
+
+                <div class="security-box">
+                    🦠 Malware Awareness
+                </div>
+
+                <div class="security-box">
+                    🔑 Authentication
+                </div>
+
+                <div class="security-box">
+                    🔐 Password Security
+                </div>
+
+                <div class="security-box">
+                    🔒 Encryption Basics
+                </div>
+
+                <div class="security-box">
+                    🌐 Safe Internet Practices
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+     FOOTER
+========================================= -->
+
+    <footer>
+
+        <p>
+            🔒 <strong>Roshni Code Charm</strong>
+        </p>
+
+        <p>
+            Learn • Code • Practice • Stay Secure 🛡️
+        </p>
+
+        <p>
+            © 2026 Roshni Code Charm
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* =========================================
+           SCROLL REVEAL
+        ========================================= */
+
+        const sections =
+            document.querySelectorAll(".section");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: .12
+                }
+
+            );
+
+
+        sections.forEach(section => {
+
+            observer.observe(section);
+
+        });
+
+
+        /* =========================================
+           SECURITY NODE GLOW
+        ========================================= */
+
+        const nodes =
+            document.querySelectorAll(".security-node");
+
+        let active = 0;
+
+
+        setInterval(() => {
+
+            nodes.forEach(node => {
+
+                node.style.boxShadow =
+                    "none";
+
+            });
+
+
+            if (nodes[active]) {
+
+                nodes[active].style.boxShadow =
+                    "0 0 25px rgba(238,228,243,.8)";
+
+            }
+
+
+            active++;
+
+            if (active >= nodes.length) {
+
+                active = 0;
+
+            }
+
+        }, 1100);
+
+    </script>
+
+
+</body>
+
+</html>
